@@ -26,3 +26,16 @@ Read the cross-check first. Four items are blocking or near-blocking:
 ## Standing disciplines
 
 Content establishes the operator's standard of care. It never confers qualification — the determination belongs to the **controlling entity** (Gate Master Rev 1.3, amendment A2) and is not delegable to a training vendor.
+
+## Vault drop-in
+
+`vault-dropin/` mirrors the Obsidian vault (`OneDrive - MSC Safety Solutions/Documents/Obsidian/My Second Brain/`). Files land in the matching folder:
+
+| File | Destination |
+|---|---|
+| `vault-dropin/Crane Standards & Guides/OHC — 1910.179 Citation Pack (verified).md` | `📚 Resources/Crane Standards & Guides/` |
+| `vault-dropin/Crane Standards & Guides/OHC — Tier 0 Deck Map.md` | `📚 Resources/Crane Standards & Guides/` |
+
+Both carry Obsidian frontmatter and `[[wikilinks]]` matching the existing index convention. After dropping them in, add two lines to `_Crane Standards — Index.md` so they are reachable from the index.
+
+This is the remote-run delivery path described in the vault's own `CLAUDE.md` — the Microsoft 365 connector available to this session has read access to the vault but not `Files.ReadWrite.All`, so it cannot write directly.

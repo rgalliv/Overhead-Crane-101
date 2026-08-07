@@ -6,12 +6,13 @@ CraneQualified — **Overhead Crane Operator Track (OHC)**. Twelve modules, ACS 
 
 | Path | What it is |
 |---|---|
+| `docs/OHC-01-trace-table.md` | Element-to-item trace table for OHC-01 — the pattern the other eleven modules follow. |
 | `docs/OHC-build-format-spec.md` | Build format, packaging and question architecture for the OHC track, derived from the mobile-crane Developer Handoff (structure only). |
 | `docs/second-brain-crosscheck.md` | Cross-check of the OHC build spec against the CraneQualified Second Brain corpus — citation verification, corpus gaps, build-pipeline conflicts, and recommended order of work. |
 
 ## Status
 
-Track status: **all 12 modules not started.** Module codes OHC-01 … OHC-12 remain **provisional** pending Gate Master assignment. No revision change to the CraneQualified Competency and Gate Master is made by anything in this repo.
+Track status: **all 12 modules not started.** Course code **OCO301C**, gate code **OHC-1**, modules **OHC-01 … OHC-12**. Runs **parallel to** the existing six-module overhead course, which continues unchanged. Gate is **100%, server-authoritative**. No revision change to the CraneQualified Competency and Gate Master is made by anything in this repo.
 
 The ACS build specification itself should be committed to `docs/OHC-ACS-build-spec.md` from the authoritative copy — it is deliberately not transcribed here, because element codes and paragraph-letter citations are exactly the content a re-keying would corrupt.
 

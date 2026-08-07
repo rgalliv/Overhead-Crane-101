@@ -48,7 +48,7 @@ This is the pattern module. The other eleven follow this shape.
 | `OHC01-G12` | `OHC.01.B.K3` | Recognise which §1910.179 paragraphs survive on the construction branch | MC | §1926.1438(b)(2)(i) | ✅ |
 | `OHC01-G13` | `OHC.01.B.K3` *(second aspect)* | **ASME B30.2-2005 sections are incorporated by reference**, split on a 19 Sep 2001 manufacture date | MC | §1926.1438(b)(2)(ii) | 🔴 *see below* |
 | `OHC01-G14` | `OHC.01.B.K4` | General-industry facility operation → §1910.179 as the direct spine | TF | §1910.179 | ✅ |
-| `OHC01-G15` | `OHC.01.B.K5` | Federal/USACE work → EM 385-1-1 Ch. 16 supplemental requirements | MC | EM 385 16-2 | 🔴 *unverified* |
+| `OHC01-G15` | `OHC.01.B.K5` | Federal/USACE work → EM 385 Section 16 supplemental requirements, which apply **whether or not the crane is permanently installed** | MC | EM 385 §16 scope | ✅ |
 | `OHC01-G16` | `OHC.01.B.K6` | Indicators of permanent installation — fastened to the building, not readily assembled/disassembled, irremovable part of the property | MC | §1926.1438(a) | ✅ |
 | `OHC01-G17` | `OHC.01.B.R1` | Applying facility rules to a non-permanently-installed construction crane, and thereby missing §1926.1427 | MC | derived | ✅ |
 | `OHC01-G18` | `OHC.01.B.R2` | Assuming Subpart CC applies to a permanently installed crane used for a construction task | TF | §1926.1438(a) | ✅ |
@@ -57,8 +57,12 @@ This is the pattern module. The other eleven follow this shape.
 > [!danger] `OHC01-G13` is blocked on a clean source
 > The archived Subpart CC PDF is a column-interleaved OCR; §1926.1438(b)(2)(ii)'s **structure**, the **2001 date**, and the **fact of B30.2-2005 incorporation** are legible, but the enumerated section list is not reliably readable. **Do not author this item from that scan.** Resolve against a clean copy — B30.2-2005 is now in the vault, so the incorporation can be checked from both ends.
 
-> [!danger] `OHC01-G15` and `OHC01-G26` are blocked on EM 385 verification
-> Chapter 16 body text could not be extracted from either archived EM 385 PDF, and the Source Verification Log still lists EM 385-1-1 as **unverified**. Two further traps: the file named plainly `EM_385-1-1.pdf` is the **30 Nov 2014** edition, whose Chapter 16 uses letter subsections (16.A–16.S) and contains no "16-2" or "16-8.aa" at all. **Verify against the 15 Mar 2024 edition before authoring either item.**
+> [!success] EM 385 verified — 2026-08-07
+> Section 16's overhead-and-gantry requirements were read verbatim from a standalone Section 16 extract and map **1:1, in order**, onto the spec's `16-8.aa(2)–(7)`. See [[OHC — EM 385 Section 16 Overhead and Gantry (verified)]]. `G15` is unblocked.
+>
+> **Still needed:** `G23`, `G26` and `P06` depend on Section 16's **general and qualifications** paragraphs (Competent Person, written designation, Class I/II tiers), which sit earlier in the section and were outside the overhead subsection. One targeted read closes all three.
+>
+> **Standing trap:** the file named plainly `EM_385-1-1.pdf` is the **2014** edition, which numbers Section 16 by letter (`16.M`) and contains no `16-2` or `16-8.aa`. Always confirm the 15 March 2024 edition before quoting a paragraph number.
 
 ---
 
@@ -69,10 +73,10 @@ This is the pattern module. The other eleven follow this shape.
 | `OHC01-G20` | `OHC.01.C.K1` | The **controlling entity** makes the qualification determination; training establishes the operator's standard of care and does not confer qualification | MC | Gate Master Rev 1.3 §11.2, A2 | ✅ |
 | `OHC01-G21` | `OHC.01.C.K2` | Designation Gate on the facility branch — **"only designated personnel shall be permitted to operate"**, and *designated* means selected or assigned by the employer as qualified for specific duties | MC | **§1910.179(b)(8)** + **(a)(35)** | ✅ |
 | `OHC01-G22` | `OHC.01.C.K3` | Certification Gate on the §1926.1438(b) branch — §1926.1427 certified operator | MC | §1926.1427 | ⚠️ *NCCCO premise* |
-| `OHC01-G23` | `OHC.01.C.K4` | Competent Person (Cranes and Rigging) on federal work | MC | EM 385 16-2.i | 🔴 *unverified* |
+| `OHC01-G23` | `OHC.01.C.K4` | Competent Person (Cranes and Rigging) on federal work | MC | EM 385 §16 general | ⚠️ *needs §16 general read* |
 | `OHC01-G24` | `OHC.01.C.K5` | Distinguish operator designation from **appointed person**, inspection personnel, and maintenance qualified persons | MC | §1910.179(b)(8), (l)(3)(i), (m)(1) | ✅ |
 | `OHC01-G25` | `OHC.01.C.R1` | Treating course completion as qualification absent the employer determination | TF | Gate Master §11.2 | ✅ |
-| `OHC01-G26` | `OHC.01.C.R2` | Operating on federal work without the required written designation | MC | EM 385 16-2 | 🔴 *unverified* |
+| `OHC01-G26` | `OHC.01.C.R2` | Operating on federal work without the required written designation | MC | EM 385 §16 general | ⚠️ *needs §16 general read* |
 | `OHC01-G27` | `OHC.01.C.R3` | Blurred accountability when roles are undocumented | MC | derived | ✅ |
 
 > [!note] Numbering
@@ -94,7 +98,7 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment a
 | `OHC01-P03` | `OHC.01.A.S3` | Locate and interpret equipment identification and capacity markings |
 | `OHC01-P04` | `OHC.01.B.S1` | Walk the installation-status decision tree and state the governing regime |
 | `OHC01-P05` | `OHC.01.B.S2` | Identify which certification or designation attaches on each branch |
-| `OHC01-P06` | `OHC.01.B.S3` | Classify a crane as EM 385 Class I or Class II 🔴 *blocked with G15* |
+| `OHC01-P06` | `OHC.01.B.S3` | Classify a crane as EM 385 Class I or Class II ⚠️ *needs §16 general read* |
 | `OHC01-P07` | `OHC.01.C.S1` | State who issued their designation, what equipment and modes it covers, and its limits |
 | `OHC01-P08` | `OHC.01.C.S2` | Produce designation and training records on request |
 | `OHC01-P09` | `OHC.01.C.S3` | Refuse an assignment outside the scope of designation |
@@ -107,13 +111,13 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment a
 
 | | |
 |---|---|
-| Authorable now | **21 of 27** gate items · **8 of 9** performance items |
-| Blocked on EM 385 Ch. 16 verification | G15 · G23 · G26 · P06 |
+| Authorable now | **22 of 27** gate items · **8 of 9** performance items |
+| Needs one targeted read of EM 385 §16 general | G23 · G26 · P06 |
 | Blocked on a clean §1926.1438 source | G13 |
 | Author against the regulation, not a provider | G22 |
 | Edition-dependent | G05 |
 
-**OHC-01 cannot be completed until EM 385 Chapter 16 is verified.** Four items and one performance element depend on it, and it is cited in all twelve modules — so this blocks the track, not just this module. It is the highest-value unblock available.
+**EM 385 Section 16 is verified as of 2026-08-07** and no longer blocks the track. Three items still need a single targeted read of Section 16's general and qualifications paragraphs. The remaining hard blocker is `G13` — a clean §1926.1438 source for the ASME B30.2-2005 incorporation.
 
 ---
 

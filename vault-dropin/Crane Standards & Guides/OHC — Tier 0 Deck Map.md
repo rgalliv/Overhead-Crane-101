@@ -95,10 +95,10 @@ Six overhead-crane-relevant decks are **OLE2 legacy binary PowerPoint** and coul
 | **ASME B30.16** overhead hoists | ✅ closed — `B30.16-2007` |
 | **CMAA 74** | ❌ still missing — only CMAA 70 held |
 | **CMAA Specification No. 61** | ❌ missing, and it is **incorporated by reference into §1910.179(b)(6)(i)** — i.e. law, not just guidance |
-| **NAVFAC P-307** | ❌ still unfetched — flagged 🔒 since 30 July. Best public-domain analogue for the Designation Gate (OHC-12) and facility inspection/certification (OHC-05). Needs a manual browser pull. |
+| **NAVFAC P-307** | ⬇️ **held, but dated** — September 2000 and June 2006 editions are on SharePoint. Not unfetched as the register recorded. Usable for program architecture and record design; the January 2025 edition is still worth acquiring before citing anything edition-sensitive. |
 | **Navy Crane Center — Crane Corner** | ❌ still unfetched — the incident case-study library for **OHC-11**, which has the thinnest Tier 0 coverage of any module. Same manual-pull fix. |
 | **NCCCO overhead crane material** | ❌ none in the corpus. The Certification Gate in `OHC.01.C.K3` / `OHC.12.C.K2` rests on a premise nothing here substantiates. **Resolve before authoring OHC-01 or OHC-12.** |
-| **EM 385 Ch. 16 body** | ⚠️ unverified. `16-2` / `16-8.aa` citations appear in all 12 modules; Chapter 16 text could not be extracted from either archived PDF. The Source Verification Log still lists EM 385 as **unverified**. |
+| **EM 385 Section 16** | ✅ **verified 2026-08-07** — overhead-and-gantry requirements read verbatim and crosswalked 1:1 to the spec's `16-8.aa(2)–(7)`. See [[OHC — EM 385 Section 16 Overhead and Gantry (verified)]]. Section 16's general/qualifications paragraphs still need one targeted read. |
 
 ---
 

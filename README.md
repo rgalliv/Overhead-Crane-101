@@ -35,7 +35,8 @@ Content establishes the operator's standard of care. It never confers qualificat
 |---|---|
 | `vault-dropin/Crane Standards & Guides/OHC — 1910.179 Citation Pack (verified).md` | `📚 Resources/Crane Standards & Guides/` |
 | `vault-dropin/Crane Standards & Guides/OHC — Tier 0 Deck Map.md` | `📚 Resources/Crane Standards & Guides/` |
+| `vault-dropin/Crane Standards & Guides/OHC — Tier 0 Knowledge Harvest.md` | `📚 Resources/Crane Standards & Guides/` |
 
-Both carry Obsidian frontmatter and `[[wikilinks]]` matching the existing index convention. After dropping them in, add two lines to `_Crane Standards — Index.md` so they are reachable from the index.
+Both carry Obsidian frontmatter and `[[wikilinks]]` matching the existing index convention. After dropping them in, add three lines to `_Crane Standards — Index.md` so they are reachable from the index.
 
 This is the remote-run delivery path described in the vault's own `CLAUDE.md` — the Microsoft 365 connector available to this session has read access to the vault but not `Files.ReadWrite.All`, so it cannot write directly.

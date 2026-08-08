@@ -33,7 +33,7 @@
 | `OHC_M06_q22` | `OHC.06.B.K2` | A below-the-hook lifting device must carry: | MC | **ASME B30.20** marking &middot; Hanford inspection tag | &#9989; |
 | `OHC_M06_q23` | `OHC.06.B.K2b` | A 20,000 lb crane is fitted with a 1,500 lb lifting beam and 500 lb of slings. Available payload is: | MC | derived &middot; `OHC.04.A.K5` | &#9989; |
 | `OHC_M06_q24` | `OHC.06.B.K3` | The pre-use check specific to a magnet or vacuum lifter, beyond the structural check, is: | MC | derived &middot; Tier 0 | &#9989; |
-| `OHC_M06_q25` | `OHC.06.B.K4` | A lifting magnet matters to the crane itself because: | MC | **EM 385 &sect;16** / ASME scope for this class | &#9989; |
+| `OHC_M06_q25` | `OHC.06.B.K4` | &sect;1910.179(g)(5)(v) requires that a crane using a lifting magnet have: | MC | **&sect;1910.179(g)(5)(v)** magnet circuit switch | &#9989; |
 | `OHC_M06_q26` | `OHC.06.B.K5` | Full engagement of a below-the-hook device is verified: | MC | **DOE Hanford TR244C** pre-use &middot; derived | &#9989; |
 | `OHC_M06_q27` | `OHC.06.B.R1` | The zone beneath a powered lifting device should be treated as: | MC | derived | &#9989; |
 | `OHC_M06_q28` | `OHC.06.B.R2` | A spreader beam is used for a load configuration different from the one it was designed for, but well below its rated capacity. This is: | MC | **ASME B30.20** design for configuration | &#9989; |

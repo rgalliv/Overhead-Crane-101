@@ -122,13 +122,13 @@ CONTENT = {
          "The verification itself is a hazard. Nobody stands under, reaches into, or steadies "
          "a device that is about to take load. Verify by eye and by position, from clear."),
         ("Where the crane's own provisions come in",
-         "The overhead crane has requirements of its own that bear on these devices &#8212; "
-         "hoist control braking and the provisions for lifting magnets sit within the ASME "
-         "scope that <b>EM 385-1-1 &sect;16</b> references for this equipment class on "
-         "federal work.",
-         "Practically: a magnet changes what the hoist brake has to do, and the crane's "
-         "electrical provisions have to support the device. It is not simply a lump on the "
-         "hook."),
+         "&sect;1910.179(g)(5)(v) is specific: <b>all cranes using a lifting magnet</b> shall "
+         "have a magnet circuit switch of the <b>enclosed type with provision for locking "
+         "in the open position</b>, and <b>means for discharging the inductive load of the "
+         "magnet</b> shall be provided.",
+         "Read that last clause. A magnet is an inductive load, so it does not simply stop "
+         "when switched &#8212; the stored energy has to go somewhere, and the crane must "
+         "provide the path. A magnet is not a lump on the hook; it is a circuit."),
     ],
     "C": [
         ("The hook goes over the centre of gravity",
@@ -300,11 +300,10 @@ GATE = [
       "behaviour on power loss", "Sling angle measurement", "Choker angle verification"],
      1, ""),
     ("OHC.06.B.K4",
-     "A lifting magnet matters to the crane itself because:",
-     ["It changes the crane's rated capacity marking",
-      "Hoist control braking and lifting-magnet provisions are requirements on the crane, "
-      "not just the device", "It requires a longer hook", "It changes the duty class"],
-     1, ""),
+     "&sect;1910.179(g)(5)(v) requires that a crane using a lifting magnet have:",
+     ["A larger hook", "An enclosed lockable magnet circuit switch, and means for "
+      "discharging the inductive load of the magnet", "A second hoist brake",
+      "A higher duty class"], 1, ""),
     ("OHC.06.B.K5",
      "Full engagement of a below-the-hook device is verified:",
      ["During load transfer", "Before load is transferred to the device",
@@ -386,7 +385,7 @@ TRACE_SOURCE = {
     "OHC.06.B.K2": ("**ASME B30.20** marking &middot; Hanford inspection tag", "OK"),
     "OHC.06.B.K2b": ("derived &middot; `OHC.04.A.K5`", "OK"),
     "OHC.06.B.K3": ("derived &middot; Tier 0", "OK"),
-    "OHC.06.B.K4": ("**EM 385 &sect;16** / ASME scope for this class", "OK"),
+    "OHC.06.B.K4": ("**&sect;1910.179(g)(5)(v)** magnet circuit switch", "OK"),
     "OHC.06.B.K5": ("**DOE Hanford TR244C** pre-use &middot; derived", "OK"),
     "OHC.06.B.R1": ("derived", "OK"),
     "OHC.06.B.R2": ("**ASME B30.20** design for configuration", "OK"),

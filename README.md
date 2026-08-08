@@ -6,10 +6,12 @@ CraneQualified — **Overhead Crane Operator Track (OHC)**. Twelve modules, ACS 
 
 | Path | What it is |
 |---|---|
-| `docs/OHC-01-trace-table.md` | Element-to-item trace table for OHC-01 — **generated** by `build/gen_trace_table.py`. |
-| `build/build_OHC_M01.py` · `build/gen_trace_table.py` | Module DOM generator and trace-table generator. One question list feeds both. |
-| `manifests/OHC_M01.json` | Rebuild source of truth — salt, gate set, answer key. |
-| `out/OHC_M01_EquipmentAndJurisdiction.html` | Built module. 61 slides, 26 gate items, 0 gaps, CONFORMANT. |
+| `docs/OHC-01-trace-table.md` · `docs/OHC-02-trace-table.md` | Element-to-item trace tables — **generated** from the same question data that builds each module. |
+| `build/cq_authoring.py` | Shared authoring scaffold — HTML shell and slide renderers for all OCO301C modules. |
+| `build/build_OHC_M0n.py` · `build/gen_trace*.py` | Per-module question data and trace-table generators. |
+| `manifests/OHC_M0n.json` | Rebuild source of truth per module — salt, gate set, answer key. |
+| `out/OHC_M01_EquipmentAndJurisdiction.html` | OHC-01. 61 slides, 26 gate items, 0 gaps, CONFORMANT. |
+| `out/OHC_M02_ComponentsAndSystems.html` | OHC-02. 59 slides, 24 gate items, 0 gaps, CONFORMANT. |
 | `docs/OHC-build-format-spec.md` | Build format, packaging and question architecture for the OHC track, derived from the mobile-crane Developer Handoff (structure only). |
 | `docs/second-brain-crosscheck.md` | Cross-check of the OHC build spec against the CraneQualified Second Brain corpus — citation verification, corpus gaps, build-pipeline conflicts, and recommended order of work. |
 

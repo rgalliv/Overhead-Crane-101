@@ -10,15 +10,16 @@ CraneQualified — **Overhead Crane Operator Track (OHC)**. Twelve modules, ACS 
 | `build/cq_authoring.py` | Shared authoring scaffold — HTML shell and slide renderers for all OCO301C modules. |
 | `build/build_OHC_M0n.py` · `build/gen_trace*.py` | Per-module question data and trace-table generators. |
 | `manifests/OHC_M0n.json` | Rebuild source of truth per module — salt, gate set, answer key. |
-| `out/OHC_M01_EquipmentAndJurisdiction.html` | OHC-01. 61 slides, 26 gate items, 0 gaps, CONFORMANT. |
+| `out/OHC_M01_EquipmentAndJurisdiction.html` | OHC-01. 63 slides, 28 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M02_ComponentsAndSystems.html` | OHC-02. 59 slides, 24 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M03_ControlsAndOperatingModes.html` | OHC-03. 59 slides, 24 gate items, 0 gaps, CONFORMANT. |
+| `out/OHC_M04_RatedLoadAndWeight.html` | OHC-04. 60 slides, 25 gate items, 0 gaps, CONFORMANT. |
 | `docs/OHC-build-format-spec.md` | Build format, packaging and question architecture for the OHC track, derived from the mobile-crane Developer Handoff (structure only). |
 | `docs/second-brain-crosscheck.md` | Cross-check of the OHC build spec against the CraneQualified Second Brain corpus — citation verification, corpus gaps, build-pipeline conflicts, and recommended order of work. |
 
 ## Status
 
-Track status: **OHC-01, OHC-02, OHC-03 built** (0 gaps, gates verified); OHC-04 … OHC-12 not started. Course code **OCO301C**, gate code **OHC-1**, modules **OHC-01 … OHC-12**. Runs **parallel to** the existing six-module overhead course, which continues unchanged. Gate is **100%, server-authoritative**. No revision change to the CraneQualified Competency and Gate Master is made by anything in this repo.
+Track status: **OHC-01 … OHC-04 built** (0 gaps, gates verified); OHC-05 … OHC-12 not started. Course code **OCO301C**, gate code **OHC-1**, modules **OHC-01 … OHC-12**. Runs **parallel to** the existing six-module overhead course, which continues unchanged. Gate is **100%, server-authoritative**. No revision change to the CraneQualified Competency and Gate Master is made by anything in this repo.
 
 The ACS build specification itself should be committed to `docs/OHC-ACS-build-spec.md` from the authoritative copy — it is deliberately not transcribed here, because element codes and paragraph-letter citations are exactly the content a re-keying would corrupt.
 

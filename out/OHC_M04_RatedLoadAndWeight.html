@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OCO301C Module 4 &#8212; Rated Load, Capacity, and Load Weight Determination</title>
+<style>
+:root{--navy:#1B3464;--gold:#C8991A;--ink:#0d1522;--paper:#f5f6f8;--line:#2b4478;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:Calibri,"Segoe UI",system-ui,sans-serif;background:var(--ink);
+     color:var(--paper);overflow:hidden}
+#stage{position:relative;height:100dvh;width:100vw}
+.slide{position:absolute;inset:0;padding:28px 22px 92px;overflow-y:auto;
+       -webkit-overflow-scrolling:touch;opacity:0;pointer-events:none;
+       transition:opacity .28s ease;background:linear-gradient(160deg,#111a2c,#0d1522)}
+.slide.active{opacity:1;pointer-events:auto}
+.slide.section-header,.slide.divider{background:linear-gradient(160deg,var(--navy),#12203c)}
+h1{font-size:1.55rem;line-height:1.25;margin:.2em 0 .5em;color:#fff}
+h2{font-size:1.25rem;margin:.2em 0 .6em;color:var(--gold)}
+p{line-height:1.55;margin:0 0 .9em}
+ul{line-height:1.55;padding-left:1.1em}
+li{margin-bottom:.5em}
+.lede{font-size:1.05rem;color:#cfd6e4}
+.kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+        margin-bottom:.6em;font-weight:700}
+.elem{font-size:.68rem;letter-spacing:.06em;color:#7d8ba6;margin-bottom:.5em;
+      font-family:ui-monospace,Menlo,Consolas,monospace}
+.note{border-left:3px solid var(--gold);padding:.6em .9em;background:#16203a;
+      border-radius:0 6px 6px 0;font-size:.95rem;color:#cfd6e4}
+.stem{font-size:1.05rem;color:#fff}
+.quiz-group{display:flex;flex-direction:column;gap:10px;margin:1em 0}
+.quiz-option{display:block;width:100%;text-align:left;padding:14px 16px;font-size:1rem;
+             font-family:inherit;color:var(--paper);background:#16203a;
+             border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.quiz-option:active{transform:scale(.995)}
+.quiz-option.correct{border-color:#2f9e64;background:#12301f}
+.quiz-option.wrong{border-color:#b4442f;background:#301513}
+.quiz-feedback{display:none;margin-top:.4em;padding:.7em .9em;border-radius:8px;
+               background:#16203a;font-size:.95rem;color:#cfd6e4}
+.quiz-feedback.show{display:block}
+.completion-panel{background:#16203a;border:1px solid var(--line);border-radius:12px;
+                  padding:18px;margin-top:1em}
+.review-item{padding:.5em 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.calc-btn{display:inline-block;width:100%;padding:14px 18px;font-size:1rem;
+          font-family:inherit;font-weight:700;color:#12203c;background:var(--gold);
+          border:0;border-radius:10px;cursor:pointer}
+#chrome{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;
+        padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#0b1220;
+        border-top:1px solid var(--line)}
+#chrome button{padding:10px 16px;font-size:.95rem;font-family:inherit;color:var(--paper);
+               background:#16203a;border:1px solid var(--line);border-radius:8px}
+#counter{font-size:.85rem;color:#7d8ba6;margin-left:auto}
+#score-chip{position:fixed;top:calc(8px + env(safe-area-inset-top));right:12px;
+            padding:6px 12px;font-size:.78rem;font-weight:700;letter-spacing:.05em;
+            color:#12203c;background:var(--gold);border-radius:999px;z-index:20}
+#cq-gatebar{display:none;position:fixed;left:12px;right:12px;
+            bottom:calc(66px + env(safe-area-inset-bottom));padding:12px 14px;
+            background:#16203a;border:1px solid var(--gold);border-radius:10px;
+            font-size:.92rem;color:#fff;z-index:20}
+#cq-gatebtn{display:none;margin-top:10px;padding:10px 16px;font-family:inherit;
+            font-weight:700;color:#12203c;background:var(--gold);border:0;border-radius:8px}
+</style>
+</head>
+<body data-cq-module="OHC_M04" data-cq-total="60" data-cq-gate="OHC-1" data-cq-course="OCO301C">
+
+<div id="score-chip">GATE 0 / 25</div>
+<div id="stage">
+  <section class="slide" id="s1">
+    <div class="kicker">OCO301C &#183; Overhead Crane Operator</div>
+    <h1>Module 4<br>Rated Load, Capacity, and Load Weight Determination</h1>
+    <p class="lede">Confirm every lift is within rated capacity using marked ratings and verified load weights.</p>
+  </section>
+  <section class="slide" id="s2">
+    <div class="kicker">Objectives</div>
+    <h2>What you will be able to do</h2>
+    <ul>
+      <li>Locate every capacity marking on the assigned crane and state the governing rating for a given pick.</li>
+      <li>Establish load weight by documentation, calculation or measurement before hoisting, and document the basis.</li>
+      <li>Recognise the overload mechanisms that do not announce themselves, and stop rather than force a load that will not lift.</li>
+    </ul>
+  </section>
+  <section class="slide" id="s3">
+    <div class="kicker">How this module gates</div>
+    <h2>Practice, then the gate</h2>
+    <p>9 practice questions run alongside the content. They are not scored and they
+    show you the correct answer.</p>
+    <p>The <b>Final Knowledge Check</b> that follows is the gate. It requires
+    <b>100&#37;</b> &#8212; every gated answer must be correct. A missed gate question is
+    not revealed; you review and retest.</p>
+    <div class="note">Your live gate score appears in the chip at the top of the screen
+    once the final check begins.</div>
+  </section>
+  <section class="slide section-header" id="s4">
+    <div class="kicker">Task A</div>
+    <h1>Rated Load Marking and Interpretation</h1>
+    <p class="lede">Locate and interpret capacity markings for the crane and each hoisting unit.</p>
+  </section>
+  <section class="slide" id="s5">
+    <div class="kicker">Task A</div>
+    <h2>Where the rating is written</h2>
+    <p>The rated load of the crane is plainly marked <b>on each side of the crane</b>. Where the crane has more than one hoisting unit, <b>each hoist</b> carries its rated load marked on it or on its load block.</p>
+    <div class="note">Markings on the bridge, trolley and load block must be <b>legible from the ground or floor</b>. If you cannot read it from where you stand, it is not doing its job.</div>
+  </section>
+  <section class="slide" id="s6">
+    <div class="kicker">Task A</div>
+    <h2>Main and auxiliary</h2>
+    <p>A crane with a main and an auxiliary hoist has two ratings, and they are not interchangeable. The governing rating for a pick is the rating of <b>the hoisting unit you are actually using</b> &#8212; never the larger number on the girder.</p>
+    <div class="note">Where multiple hoists exist, the hoist, block or trolley carries a distinguishing mark and the operator's controller carries a corresponding mark, so you can tell which control moves which hoist.</div>
+  </section>
+  <section class="slide" id="s7">
+    <div class="kicker">Task A</div>
+    <h2>Rated load, test load, duty class</h2>
+    <p>Three different numbers describe a crane and only one of them is your working limit. <b>Rated load</b> is what you may lift. <b>Test load</b> is a proof figure &#8212; not more than <b>125&#37;</b> of rated load unless the manufacturer recommends otherwise &#8212; applied by designated personnel, not by operators.</p>
+    <div class="note"><b>Duty class</b> describes service severity, not capacity. A Class F crane is not a stronger crane; it is a crane built to be worked continuously and severely.</div>
+  </section>
+  <section class="slide" id="s8">
+    <div class="kicker">Task A</div>
+    <h2>Capacity does not move</h2>
+    <p>On a mobile crane, capacity falls away as the radius grows, and the operator reads a load chart to find it. <b>An overhead crane has none of that.</b> Its rated capacity is fixed and applies anywhere along the bridge.</p>
+    <div class="note">This is the single most common piece of mobile-crane logic to import by mistake. There is no chart, no radius and no reason to improvise a margin because the trolley is near the end of the girder.</div>
+  </section>
+  <section class="slide" id="s9">
+    <div class="kicker">Task A</div>
+    <h2>The device counts</h2>
+    <p>Below-the-hook lifting devices are lifted load. A spreader beam, C-hook, coil lifter, vacuum lifter or magnet consumes capacity before the load does.</p>
+    <div class="note">Device weight is marked on the device where it exceeds 100 lb, along with rated load and identification. <b>Available payload = rated load &minus; rigging &minus; device.</b></div>
+  </section>
+  <section class="slide" id="s10">
+    <div class="kicker">Task A</div>
+    <h2>When you cannot read it</h2>
+    <p>An illegible or missing capacity marking is not an inconvenience to work around. It means the governing rating cannot be verified, and an unverifiable rating cannot be respected.</p>
+    <div class="note">The correct action is to <b>reject the lift</b> and route the defect for correction. This is the same logic as unmarked rigging: if the rating cannot be established, the item comes out of service.</div>
+  </section>
+  <section class="slide" id="s11">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.04.A.K1</div>
+    <h2>Question 1</h2>
+    <p class="stem">On a crane with two hoisting units, the rated load must be marked:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q01',0,'fb01')">Once, on the bridge girder only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q01',1,'fb01')">On each side of the crane, and on each hoist or its load block</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q01',2,'fb01')">On the pendant only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q01',3,'fb01')">On the runway beam</button>
+    </div>
+    <div class="quiz-feedback" id="fb01"></div>
+  </section>
+  <section class="slide" id="s12">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.04.A.K4</div>
+    <h2>Question 2</h2>
+    <p class="stem">The rated capacity of an overhead crane decreases as the trolley moves toward the end of the bridge.</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q02',0,'fb02')">True</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q02',1,'fb02')">False</button>
+    </div>
+    <div class="quiz-feedback" id="fb02"></div>
+  </section>
+  <section class="slide" id="s13">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.04.A.K5</div>
+    <h2>Question 3</h2>
+    <p class="stem">A 12,000 lb crane is fitted with a 900 lb spreader beam and 300 lb of slings. Available payload is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q03',0,'fb03')">12,000 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q03',1,'fb03')">11,100 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q03',2,'fb03')">10,800 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q03',3,'fb03')">11,700 lb</button>
+    </div>
+    <div class="quiz-feedback" id="fb03"></div>
+  </section>
+  <section class="slide section-header" id="s14">
+    <div class="kicker">Task B</div>
+    <h1>Load Weight Determination</h1>
+    <p class="lede">Establish load weight by documentation, calculation or measurement before hoisting.</p>
+  </section>
+  <section class="slide" id="s15">
+    <div class="kicker">Task B</div>
+    <h2>Where weight comes from</h2>
+    <p>Acceptable sources, roughly in order of reliability: a <b>data plate or stamp on the load itself</b>, engineering drawings, shipping documents, and manufacturer data.</p>
+    <div class="note">The one source that is never acceptable is your eye. Dense and compact loads read light; large hollow loads read heavy. Appearance is not a source.</div>
+  </section>
+  <section class="slide" id="s16">
+    <div class="kicker">Task B</div>
+    <h2>Calculating from geometry</h2>
+    <p>Where documentation is absent, weight is calculated from <b>material and geometry</b> &#8212; volume multiplied by the density of the material.</p>
+    <div class="note">The discipline is to calculate conservatively and then check the answer against something independent. A calculation you cannot sanity-check is an estimate wearing a calculator.</div>
+  </section>
+  <section class="slide" id="s17">
+    <div class="kicker">Task B</div>
+    <h2>Measuring it</h2>
+    <p>Load-indicating devices and dynamometers measure the actual lifted load where they are fitted or available. They convert an argument into a reading.</p>
+    <div class="note">Where a load-indicating device exists, use it &#8212; but read it as <b>confirmation</b> of a weight you already established, not as permission to start lifting something of unknown weight.</div>
+  </section>
+  <section class="slide" id="s18">
+    <div class="kicker">Task B</div>
+    <h2>Total lifted load</h2>
+    <p>The number that matters is not the weight of the load. It is <b>load + rigging + below-the-hook device</b>.</p>
+    <div class="note">Slings, shackles, spreader beams and softeners all hang below the hook and all count. Operators who track only the load routinely run 5&#8211;15&#37; over what they think they are lifting.</div>
+  </section>
+  <section class="slide" id="s19">
+    <div class="kicker">Task B</div>
+    <h2>The lift plan</h2>
+    <p>On federal work <b>all lifts must be planned</b>, and a written Standard Lift Plan is prepared for every lift or series of lifts where duty-cycle or routine lifts are being performed. It is <b>developed, reviewed and accepted by all personnel involved</b>, and maintained on the equipment.</p>
+    <div class="note">At minimum it addresses personnel and roles; area preparation and path of travel; equipment considerations including capacity and configuration; <b>load parameters &#8212; weight, centre of gravity, configuration</b>; rigging including the need for softeners; and environmental considerations.</div>
+  </section>
+  <section class="slide" id="s20">
+    <div class="kicker">Task B</div>
+    <h2>When the margin gets thin</h2>
+    <p>As calculated weight approaches rated capacity, the cost of being wrong rises sharply. Industry practice treats a lift exceeding <b>75&#37; of rated capacity</b> as critical, along with tandem lifts, extended suspension and costly or irreplaceable items.</p>
+    <div class="note">The rule is also written into operation: the operator <b>tests the brakes each time a load approaching the rated load is handled</b>, by raising it a few inches and applying the brakes.</div>
+  </section>
+  <section class="slide" id="s21">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.04.B.K1</div>
+    <h2>Question 4</h2>
+    <p class="stem">The most reliable source for a load's weight is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q04',0,'fb04')">An experienced operator's estimate</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q04',1,'fb04')">A data plate or stamp on the load itself</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q04',2,'fb04')">The size of the load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q04',3,'fb04')">The capacity of the crane</button>
+    </div>
+    <div class="quiz-feedback" id="fb04"></div>
+  </section>
+  <section class="slide" id="s22">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.04.B.K4</div>
+    <h2>Question 5</h2>
+    <p class="stem">Total lifted load means:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q05',0,'fb05')">The weight of the load only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q05',1,'fb05')">The load plus the rigging</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q05',2,'fb05')">The load plus the rigging plus the below-the-hook device</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q05',3,'fb05')">The load plus the weight of the hook block</button>
+    </div>
+    <div class="quiz-feedback" id="fb05"></div>
+  </section>
+  <section class="slide" id="s23">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.04.B.K5</div>
+    <h2>Question 6</h2>
+    <p class="stem">On federal work, a written Standard Lift Plan is required:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q06',0,'fb06')">Only for critical lifts</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q06',1,'fb06')">Only for tandem lifts</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q06',2,'fb06')">For every lift, or series of lifts where duty-cycle or routine lifts are performed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q06',3,'fb06')">Only where the load exceeds 75% of capacity</button>
+    </div>
+    <div class="quiz-feedback" id="fb06"></div>
+  </section>
+  <section class="slide section-header" id="s24">
+    <div class="kicker">Task C</div>
+    <h1>Overload Prevention</h1>
+    <p class="lede">Prevent overload conditions in all operating scenarios.</p>
+  </section>
+  <section class="slide" id="s25">
+    <div class="kicker">Task C</div>
+    <h2>The prohibition</h2>
+    <p>The crane <b>shall not be loaded beyond its rated load</b>, except for test purposes conducted under the testing provisions.</p>
+    <div class="note">That is the whole rule and it has no operational exception. There is no "just this once", no allowance for a short lift, and no margin the operator is entitled to spend.</div>
+  </section>
+  <section class="slide" id="s26">
+    <div class="kicker">Task C</div>
+    <h2>Overloads that hide</h2>
+    <p>The dangerous overloads are the ones that do not look like overloads: a load frozen or adhered to the floor, a load bolted or anchored down, a load snagged on something out of sight, or a load still attached to the structure.</p>
+    <div class="note">In every case the crane is not lifting the load's weight &#8212; it is lifting against an unknown restraint, and the only limit is what the rope or the structure will take before something lets go.</div>
+  </section>
+  <section class="slide" id="s27">
+    <div class="kicker">Task C</div>
+    <h2>Breaking loads free</h2>
+    <p>Using the hoist to break a stuck load free is the classic version of this failure. The load is not weighed, the restraint is not known, and the release is sudden.</p>
+    <div class="note">The correct response to a load that will not lift at expected effort is to <b>stop</b>, set down, and find out why. Never increase effort against an unknown restraint.</div>
+  </section>
+  <section class="slide" id="s28">
+    <div class="kicker">Task C</div>
+    <h2>Shock loading</h2>
+    <p>Slack rope plus sudden application equals shock load. Rapid acceleration while lifting, or rapid stopping while lowering, multiplies the force in the rope well beyond the static weight.</p>
+    <div class="note">Remove slack gradually, apply load progressively, and avoid sudden acceleration or deceleration of a moving load. Dynamic loading is why a crane that lifted a load yesterday can fail on it today.</div>
+  </section>
+  <section class="slide" id="s29">
+    <div class="kicker">Task C</div>
+    <h2>Weight that arrives uninvited</h2>
+    <p>Water, ice, snow and accumulated material are capacity thieves. A load left outdoors overnight can gain enough water or ice to move it from comfortable to over-capacity without anyone touching it.</p>
+    <div class="note">The same applies to contents, attachments and anything added since the weight was established. <b>Re-establish weight when the load has changed</b>, not just when the load is new.</div>
+  </section>
+  <section class="slide" id="s30">
+    <div class="kicker">Task C</div>
+    <h2>Load-limiting devices</h2>
+    <p>Where fitted, load-limiting devices interrupt or prevent hoisting above a set point. They are a backstop against error.</p>
+    <div class="note">They are <b>not a planning margin</b>. Planning to the device rather than to the rating means every lift is planned to fail safely rather than to succeed &#8212; and the device is the only thing between you and an overload.</div>
+  </section>
+  <section class="slide" id="s31">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.04.C.K1</div>
+    <h2>Question 7</h2>
+    <p class="stem">Loading a crane beyond its rated load is permitted:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q07',0,'fb07')">Briefly, if the load is lifted only a few inches</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q07',1,'fb07')">Only for test purposes under the testing provisions</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q07',2,'fb07')">When a supervisor authorises it</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q07',3,'fb07')">When the load-limiting device permits it</button>
+    </div>
+    <div class="quiz-feedback" id="fb07"></div>
+  </section>
+  <section class="slide" id="s32">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.04.C.R1</div>
+    <h2>Question 8</h2>
+    <p class="stem">A load will not lift at the effort you expected. The correct action is to:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q08',0,'fb08')">Increase hoist speed to break it free</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q08',1,'fb08')">Add a second sling and try again</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q08',2,'fb08')">Stop, set down, and determine why</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q08',3,'fb08')">Apply the load-limiting device override</button>
+    </div>
+    <div class="quiz-feedback" id="fb08"></div>
+  </section>
+  <section class="slide" id="s33">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.04.C.K4</div>
+    <h2>Question 9</h2>
+    <p class="stem">A load stored outdoors overnight in freezing rain should be:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q09',0,'fb09')">Lifted using the previously established weight</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q09',1,'fb09')">Re-weighed or recalculated before lifting</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q09',2,'fb09')">Lifted at reduced speed only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q09',3,'fb09')">Lifted only with the auxiliary hoist</button>
+    </div>
+    <div class="quiz-feedback" id="fb09"></div>
+  </section>
+  <section class="slide divider" id="s34">
+    <div class="kicker">Assessment</div>
+    <h1>Final Knowledge Check</h1>
+    <p class="lede">25 questions. This gate requires 100&#37; &#8212; every answer must be
+    correct before the module can be completed.</p>
+    <div class="note">Missed questions are listed for review by number. The correct
+    option is not shown.</div>
+  </section>
+  <section class="slide" id="s35">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.A.K1</div>
+    <h2>Question 10</h2>
+    <p class="stem">Capacity markings on the bridge, trolley and load block must be:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q10',0,'fb10')">Legible from the bridge walkway</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q10',1,'fb10')">Legible from the ground or floor</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q10',2,'fb10')">Legible from the cab only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q10',3,'fb10')">Recorded in the maintenance log only</button>
+    </div>
+    <div class="quiz-feedback" id="fb10"></div>
+  </section>
+  <section class="slide" id="s36">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.A.K2</div>
+    <h2>Question 11</h2>
+    <p class="stem">On a crane with a main and an auxiliary hoist, the governing rating for a pick is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q11',0,'fb11')">Always the main hoist rating</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q11',1,'fb11')">The larger of the two ratings</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q11',2,'fb11')">The rating of the hoisting unit actually being used</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q11',3,'fb11')">The sum of both ratings</button>
+    </div>
+    <div class="quiz-feedback" id="fb11"></div>
+  </section>
+  <section class="slide" id="s37">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.A.K3</div>
+    <h2>Question 12</h2>
+    <p class="stem">Test load applied during a rated load test shall not be more than:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q12',0,'fb12')">100&#37; of rated load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q12',1,'fb12')">110&#37; of rated load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q12',2,'fb12')">125&#37; of rated load unless the manufacturer recommends otherwise</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q12',3,'fb12')">150&#37; of rated load</button>
+    </div>
+    <div class="quiz-feedback" id="fb12"></div>
+  </section>
+  <section class="slide" id="s38">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.A.K3b</div>
+    <h2>Question 13</h2>
+    <p class="stem">CMAA duty class describes:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q13',0,'fb13')">Maximum rated capacity</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q13',1,'fb13')">Service severity, not capacity</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q13',2,'fb13')">The test load percentage</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q13',3,'fb13')">The number of hoisting units</button>
+    </div>
+    <div class="quiz-feedback" id="fb13"></div>
+  </section>
+  <section class="slide" id="s39">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.A.K4</div>
+    <h2>Question 14</h2>
+    <p class="stem">Why does an overhead crane have no load chart of the kind a mobile crane carries?</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q14',0,'fb14')">Because overhead cranes are always smaller</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q14',1,'fb14')">Because rated capacity is fixed and applies anywhere along the bridge</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q14',2,'fb14')">Because the chart is kept in the maintenance office</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q14',3,'fb14')">Because capacity is set by the rigging instead</button>
+    </div>
+    <div class="quiz-feedback" id="fb14"></div>
+  </section>
+  <section class="slide" id="s40">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.A.K5</div>
+    <h2>Question 15</h2>
+    <p class="stem">Below-the-hook lifting devices affect available capacity because they:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q15',0,'fb15')">Reduce the crane's duty class</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q15',1,'fb15')">Are lifted load and consume capacity before the load does</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q15',2,'fb15')">Increase the rated load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q15',3,'fb15')">Change the trolley position</button>
+    </div>
+    <div class="quiz-feedback" id="fb15"></div>
+  </section>
+  <section class="slide" id="s41">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.A.R1</div>
+    <h2>Question 16</h2>
+    <p class="stem">The specific error the distinguishing marks on hoists, blocks and controllers exist to prevent is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q16',0,'fb16')">Operating the wrong crane in the bay</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q16',1,'fb16')">Reading or applying the wrong hoist's rating on a multi-hoist crane</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q16',2,'fb16')">Reversing bridge and trolley motion</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q16',3,'fb16')">Confusing rated load with test load</button>
+    </div>
+    <div class="quiz-feedback" id="fb16"></div>
+  </section>
+  <section class="slide" id="s42">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.A.R2</div>
+    <h2>Question 17</h2>
+    <p class="stem">An operator reduces the load when working near the end of the bridge, reasoning that capacity must be lower there. This is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q17',0,'fb17')">Correct and required</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q17',1,'fb17')">Sound conservative practice</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q17',2,'fb17')">An improvised margin based on mobile-crane logic that does not apply</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q17',3,'fb17')">Required only on single-girder cranes</button>
+    </div>
+    <div class="quiz-feedback" id="fb17"></div>
+  </section>
+  <section class="slide" id="s43">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.A.R3</div>
+    <h2>Question 18</h2>
+    <p class="stem">A crane's capacity marking is corroded and unreadable. The correct action is to:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q18',0,'fb18')">Use the rating from a similar crane in the bay</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q18',1,'fb18')">Estimate from the crane's size</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q18',2,'fb18')">Reject the lift and route the defect for correction</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q18',3,'fb18')">Proceed with loads under half the expected rating</button>
+    </div>
+    <div class="quiz-feedback" id="fb18"></div>
+  </section>
+  <section class="slide" id="s44">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.B.K1</div>
+    <h2>Question 19</h2>
+    <p class="stem">Which is NOT an acceptable source for establishing load weight?</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q19',0,'fb19')">A data plate or stamp on the load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q19',1,'fb19')">Engineering drawings</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q19',2,'fb19')">The operator's visual estimate</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q19',3,'fb19')">Shipping documents</button>
+    </div>
+    <div class="quiz-feedback" id="fb19"></div>
+  </section>
+  <section class="slide" id="s45">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.B.K2</div>
+    <h2>Question 20</h2>
+    <p class="stem">Where no documentation exists, load weight is established by:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q20',0,'fb20')">Lifting slowly and feeling the response</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q20',1,'fb20')">Calculation from material and geometry</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q20',2,'fb20')">Assuming the crane's rated capacity</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q20',3,'fb20')">Asking the rigger's opinion</button>
+    </div>
+    <div class="quiz-feedback" id="fb20"></div>
+  </section>
+  <section class="slide" id="s46">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.B.K3</div>
+    <h2>Question 21</h2>
+    <p class="stem">A load-indicating device or dynamometer is correctly used to:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q21',0,'fb21')">Permit lifting a load of unknown weight</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q21',1,'fb21')">Confirm a weight already established by another means</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q21',2,'fb21')">Replace the need for a lift plan</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q21',3,'fb21')">Set the rated capacity of the crane</button>
+    </div>
+    <div class="quiz-feedback" id="fb21"></div>
+  </section>
+  <section class="slide" id="s47">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.B.K4</div>
+    <h2>Question 22</h2>
+    <p class="stem">A 6,000 lb load is lifted with 400 lb of slings and a 1,200 lb lifting beam. The total lifted load is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q22',0,'fb22')">6,000 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q22',1,'fb22')">6,400 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q22',2,'fb22')">7,200 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q22',3,'fb22')">7,600 lb</button>
+    </div>
+    <div class="quiz-feedback" id="fb22"></div>
+  </section>
+  <section class="slide" id="s48">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.B.K5</div>
+    <h2>Question 23</h2>
+    <p class="stem">The Standard Lift Plan required on federal work must be:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q23',0,'fb23')">Prepared by the operator alone and kept in the office</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q23',1,'fb23')">Developed, reviewed and accepted by all personnel involved in the lift, and maintained on the equipment</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q23',2,'fb23')">Prepared only after the lift for the record</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q23',3,'fb23')">Signed by the manufacturer</button>
+    </div>
+    <div class="quiz-feedback" id="fb23"></div>
+  </section>
+  <section class="slide" id="s49">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.B.R1</div>
+    <h2>Question 24</h2>
+    <p class="stem">Estimating weight by appearance is most dangerous with:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q24',0,'fb24')">Large hollow loads</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q24',1,'fb24')">Dense or asymmetric loads that read lighter than they are</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q24',2,'fb24')">Loads under 500 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q24',3,'fb24')">Loads already rigged</button>
+    </div>
+    <div class="quiz-feedback" id="fb24"></div>
+  </section>
+  <section class="slide" id="s50">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.B.R2</div>
+    <h2>Question 25</h2>
+    <p class="stem">Which is most likely to make an established load weight wrong by the time it is lifted?</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q25',0,'fb25')">A change of operator</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q25',1,'fb25')">Absorbed water, ice, added attachments or contents</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q25',2,'fb25')">A change of shift</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q25',3,'fb25')">Moving the crane along the runway</button>
+    </div>
+    <div class="quiz-feedback" id="fb25"></div>
+  </section>
+  <section class="slide" id="s51">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.B.R3</div>
+    <h2>Question 26</h2>
+    <p class="stem">When a calculated weight approaches rated capacity, the operator must:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q26',0,'fb26')">Proceed carefully at reduced speed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q26',1,'fb26')">Verify the weight independently before proceeding</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q26',2,'fb26')">Use the auxiliary hoist instead</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q26',3,'fb26')">Reduce the number of sling legs</button>
+    </div>
+    <div class="quiz-feedback" id="fb26"></div>
+  </section>
+  <section class="slide" id="s52">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.C.K1</div>
+    <h2>Question 27</h2>
+    <p class="stem">The rule on loading a crane beyond its rated load is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q27',0,'fb27')">Permitted with supervisory approval</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q27',1,'fb27')">Prohibited except for test purposes under the testing provisions</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q27',2,'fb27')">Permitted up to 110&#37; for short duration</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q27',3,'fb27')">Governed by the load-limiting device setting</button>
+    </div>
+    <div class="quiz-feedback" id="fb27"></div>
+  </section>
+  <section class="slide" id="s53">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.C.K2</div>
+    <h2>Question 28</h2>
+    <p class="stem">A load that is bolted down, frozen to the floor or snagged out of sight is dangerous because the crane is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q28',0,'fb28')">Lifting a heavier load than marked</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q28',1,'fb28')">Lifting against an unknown restraint rather than a known weight</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q28',2,'fb28')">Operating outside its duty class</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q28',3,'fb28')">Exceeding its test load</button>
+    </div>
+    <div class="quiz-feedback" id="fb28"></div>
+  </section>
+  <section class="slide" id="s54">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.C.K3</div>
+    <h2>Question 29</h2>
+    <p class="stem">Shock loading is produced principally by:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q29',0,'fb29')">Lifting at low speed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q29',1,'fb29')">Slack rope with sudden application of load, or rapid acceleration and deceleration</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q29',2,'fb29')">Using more parts of line</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q29',3,'fb29')">Operating with the auxiliary hoist</button>
+    </div>
+    <div class="quiz-feedback" id="fb29"></div>
+  </section>
+  <section class="slide" id="s55">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.C.K4</div>
+    <h2>Question 30</h2>
+    <p class="stem">Water, ice and accumulated material are described as capacity thieves because they:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q30',0,'fb30')">Corrode the load block</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q30',1,'fb30')">Add weight after the load weight was established</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q30',2,'fb30')">Reduce the crane's duty class</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q30',3,'fb30')">Interfere with the limit switch</button>
+    </div>
+    <div class="quiz-feedback" id="fb30"></div>
+  </section>
+  <section class="slide" id="s56">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.C.K5</div>
+    <h2>Question 31</h2>
+    <p class="stem">The correct relationship between an operator and a fitted load-limiting device is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q31',0,'fb31')">Plan to the device &#8212; it will stop an overload</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q31',1,'fb31')">Plan to the rated load; the device is a backstop against error, not a planning margin</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q31',2,'fb31')">Disable the device for production lifts</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q31',3,'fb31')">Use the device to determine load weight</button>
+    </div>
+    <div class="quiz-feedback" id="fb31"></div>
+  </section>
+  <section class="slide" id="s57">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.C.R1</div>
+    <h2>Question 32</h2>
+    <p class="stem">Using the hoist to break a stuck load free is unacceptable because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q32',0,'fb32')">It is slow</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q32',1,'fb32')">The load is unweighed, the restraint unknown, and the release sudden</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q32',2,'fb32')">It wears the brake</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q32',3,'fb32')">It requires a second operator</button>
+    </div>
+    <div class="quiz-feedback" id="fb32"></div>
+  </section>
+  <section class="slide" id="s58">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.C.R2</div>
+    <h2>Question 33</h2>
+    <p class="stem">Relying on the overload device as the planning margin means that:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q33',0,'fb33')">Lifts are planned to succeed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q33',1,'fb33')">Every lift is planned to fail safely rather than to succeed, with the device as the only protection</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q33',2,'fb33')">The rated load can be increased</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q33',3,'fb33')">The lift plan is unnecessary</button>
+    </div>
+    <div class="quiz-feedback" id="fb33"></div>
+  </section>
+  <section class="slide" id="s59">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.04.C.R3</div>
+    <h2>Question 34</h2>
+    <p class="stem">Where two or more cranes are used to lift one load, the governing requirement is that:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q34',0,'fb34')">Each operator works independently</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q34',1,'fb34')">One qualified responsible person is in charge, analyses the operation and instructs all personnel involved</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q34',2,'fb34')">The larger crane's operator takes command automatically</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M04_q34',3,'fb34')">The load is split evenly by assumption</button>
+    </div>
+    <div class="quiz-feedback" id="fb34"></div>
+  </section>
+  <section class="slide" id="s60">
+    <h1>Module 4 complete</h1>
+    <div class="completion-panel">
+      <div id="score-summary">Complete the knowledge check to record this module.</div>
+      <div id="review-list"></div>
+    <button class="calc-btn" style="max-width:340px;margin-top:14px" onclick="window.dispatchEvent(new CustomEvent('cq-module-complete',{detail:{next:'OHC_M05'}}))">Next: Stage HC Module 5 &gt;</button></div>
+  </section>
+</div>
+
+<div id="cq-gatebar">
+  <div id="cq-gatemsg"></div>
+  <button id="cq-gatebtn"></button>
+</div>
+
+<div id="chrome">
+  <button onclick="navigate(-1)">Back</button>
+  <button onclick="navigate(1)">Next</button>
+  <span id="counter"></span>
+</div>
+
+<script>
+var TOTAL=60, current=1;
+function render(){
+  var i;
+  for(i=1;i<=TOTAL;i++){
+    var el=document.getElementById('s'+i);
+    if(el) el.classList.toggle('active', i===current);
+  }
+  var c=document.getElementById('counter');
+  if(c) c.textContent=current+' / '+TOTAL;
+  var st=document.getElementById('stage'); if(st) st.scrollTop=0;
+}
+window.jumpTo=function(n){
+  if(n<1||n>TOTAL) return false;
+  current=n; render(); return true;
+};
+window.navigate=function(dir){
+  var t=current+dir;
+  if(t<1||t>TOTAL) return false;
+  current=t; render(); return true;
+};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight') navigate(1);
+  if(e.key==='ArrowLeft') navigate(-1);
+});
+window.cqAnswer=function(){};
+render();
+</script>
+<script src="cq-module-bridge.js"></script>
+<script>
+/* ============================================================
+   CraneQualified KC Gate Engine v1  (Stage OHC / OHC_M04)
+   Server-authoritative; installs a local FNV-1a shim ONLY if the
+   platform has not defined window.CQ. Answers are stored as FNV-1a
+   hashes, never plaintext, and the correct option is never revealed
+   on a gate miss. Gate = the final knowledge-check questions at 100%. Forward navigation
+   to the completion slide is locked until the gate passes.
+   ============================================================ */
+(function(){
+"use strict";
+var SALT="CQ1:OHC_M04_RatedLoadAndWeight";
+var HASHES={"OHC_M04_q01": "e9272118", "OHC_M04_q02": "2f892f6d", "OHC_M04_q03": "1316a73b", "OHC_M04_q04": "aff95fcb", "OHC_M04_q05": "a8d7b34d", "OHC_M04_q06": "c7fc5150", "OHC_M04_q07": "4f89384a", "OHC_M04_q08": "6c6cba5a", "OHC_M04_q09": "c122fc40", "OHC_M04_q10": "1935e39a", "OHC_M04_q11": "11a83320", "OHC_M04_q12": "f283951d", "OHC_M04_q13": "fae2761b", "OHC_M04_q14": "5dc28a9e", "OHC_M04_q15": "7935113d", "OHC_M04_q16": "b41100e8", "OHC_M04_q17": "bf59c322", "OHC_M04_q18": "f031bd2f", "OHC_M04_q19": "08670c28", "OHC_M04_q20": "62936ca1", "OHC_M04_q21": "485e1a82", "OHC_M04_q22": "2acd7ba9", "OHC_M04_q23": "1d6e92cc", "OHC_M04_q24": "a72013a5", "OHC_M04_q25": "8bad8d06", "OHC_M04_q26": "0d822ad7", "OHC_M04_q27": "e1fc0350", "OHC_M04_q28": "6bd49399", "OHC_M04_q29": "70623f5a", "OHC_M04_q30": "73c1989c", "OHC_M04_q31": "ff1fb4d3", "OHC_M04_q32": "1eb056d2", "OHC_M04_q33": "3a22dd71", "OHC_M04_q34": "b84e3fa0"};
+var GATE=["OHC_M04_q10", "OHC_M04_q11", "OHC_M04_q12", "OHC_M04_q13", "OHC_M04_q14", "OHC_M04_q15", "OHC_M04_q16", "OHC_M04_q17", "OHC_M04_q18", "OHC_M04_q19", "OHC_M04_q20", "OHC_M04_q21", "OHC_M04_q22", "OHC_M04_q23", "OHC_M04_q24", "OHC_M04_q25", "OHC_M04_q26", "OHC_M04_q27", "OHC_M04_q28", "OHC_M04_q29", "OHC_M04_q30", "OHC_M04_q31", "OHC_M04_q32", "OHC_M04_q33", "OHC_M04_q34"];
+var GATESET=new Set(GATE);
+var LOCK_AFTER=59;            /* completion slide (60) blocked until gate passes */
+var gatePassed=false, answered={}, gateOK={};
+
+function fnv(s){var h=0x811c9dc5;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0;}return ('0000000'+h.toString(16)).slice(-8);}
+
+/* 1) Local CQ shim (platform can pre-define window.CQ and win) */
+if(!window.CQ){
+  window.CQ={
+    scoreAnswer:function(qid,idx){
+      var correct=fnv(SALT+':'+qid+':'+idx)===HASHES[qid];
+      var isGate=GATESET.has(qid), out={correct:correct};
+      if(!isGate){
+        for(var i=0;i<4;i++){ if(fnv(SALT+':'+qid+':'+i)===HASHES[qid]){out.correctIndex=i;break;} }
+        out.feedbackHtml = correct ? 'Correct.' : 'Not correct \u2014 the correct option is now highlighted. Review the reasoning, then continue.';
+      } else {
+        out.feedbackHtml = correct ? 'Correct.' : 'Not correct. This gate requires 100% \u2014 the correct answer is not shown. Review the module and retest.';
+      }
+      return Promise.resolve(out);
+    },
+    requestComplete:function(){
+      var right=0,i; for(i=0;i<GATE.length;i++){ if(gateOK[GATE[i]]) right++; }
+      var passed=right===GATE.length, score=right+' / '+GATE.length;
+      if(passed){ gatePassed=true; setTimeout(function(){ document.dispatchEvent(new CustomEvent('cq-complete',{detail:{completionId:'local-'+Date.now()}})); },300); }
+      return Promise.resolve({passed:passed,score:score});
+    },
+    ack:function(){}
+  };
+}
+document.addEventListener('cq-complete',function(){ gatePassed=true; });
+
+/* gate-bar + tracking helpers */
+function bar(){return document.getElementById('cq-gatebar');}
+function btn(){return document.getElementById('cq-gatebtn');}
+function msg(t){var m=document.getElementById('cq-gatemsg'); if(m)m.textContent=t; var b=bar(); if(b)b.style.display='block';}
+function gateRight(){var r=0,i;for(i=0;i<GATE.length;i++)if(gateOK[GATE[i]])r++;return r;}
+function chip(){var c=document.getElementById('score-chip'); if(c)c.textContent='GATE '+gateRight()+' / '+GATE.length;}
+function buildReview(passed,score){
+  var sum=document.getElementById('score-summary'), list=document.getElementById('review-list');
+  if(sum) sum.textContent = passed ? ('Knowledge check passed \u2014 '+score+' (100%).') : ('Gate score '+score+'. This gate requires 100%. Review the items below, then retest.');
+  if(list){ list.innerHTML='';
+    if(!passed){ var i; for(i=0;i<GATE.length;i++){ if(GATE[i] in gateOK && !gateOK[GATE[i]]){ var d=document.createElement('div'); d.className='review-item'; d.innerHTML='<b>Final Question '+(Number(GATE[i].match(/(\d+)$/)[1])-9)+'</b> - revisit this topic before retesting.'; list.appendChild(d); } } }
+  }
+}
+
+/* 2) Answer handler (bound to existing cqAnswer(this,qid,idx,fbid) onclicks) */
+window.cqAnswer=async function(b,qid,idx,fbid){
+  if(answered[qid])return; answered[qid]=true;
+  var grp=b.parentElement;
+  grp.querySelectorAll('.quiz-option').forEach(function(o){o.disabled=true;o.style.pointerEvents='none';o.classList.remove('correct','wrong');});
+  var r=await CQ.scoreAnswer(qid,idx);
+  b.classList.add(r.correct?'correct':'wrong');
+  var isGate=GATESET.has(qid), fb=fbid?document.getElementById(fbid):null;
+  if(!isGate){
+    if(!r.correct && typeof r.correctIndex==='number'){ var os=grp.querySelectorAll('.quiz-option'); if(os[r.correctIndex]) os[r.correctIndex].classList.add('correct'); }
+    if(fb){ fb.textContent=r.feedbackHtml; fb.classList.add('show'); }
+  } else {
+    gateOK[qid]=r.correct;
+    if(fb){ fb.textContent=r.feedbackHtml; fb.classList.add('show'); }
+    chip();
+    if(GATE.every(function(q){return q in gateOK;})) checkGate();
+  }
+};
+
+async function checkGate(){
+  msg('Submitting knowledge check...'); var bt=btn(); if(bt)bt.style.display='none';
+  var r=await CQ.requestComplete();
+  buildReview(r.passed,r.score);
+  if(r.passed){ msg('Knowledge check passed ('+r.score+'). You may continue to completion.'); }
+  else{ msg('Not yet - this gate requires 100%. Review the module, then retest.');
+        if(bt){ bt.style.display='inline-block'; bt.textContent='Review and Retest'; bt.onclick=function(){location.reload();}; } }
+}
+
+document.addEventListener('cq-complete',function(){ msg('Module complete - recorded by the platform.'); var bt=btn(); if(bt)bt.style.display='none'; chip(); if(window.CQ&&CQ.ack)CQ.ack(); });
+document.addEventListener('cq-denied',function(){ msg('Completion denied by the platform. Review and retest.'); });
+
+/* 3) Forward navigation lock - completion slide (60) blocked until gate passes */
+function blocked(t){ return !gatePassed && t>LOCK_AFTER; }
+if(typeof window.navigate==='function'){
+  var _nav=window.navigate;
+  window.navigate=function(dir){
+    var tgt=(typeof current!=='undefined'?current:1)+dir;
+    if(blocked(tgt)){ msg('Pass the knowledge check (100%) before completing the module.'); if(typeof window.jumpTo==='function')window.jumpTo(LOCK_AFTER); return; }
+    return _nav(dir);
+  };
+}
+if(typeof window.jumpTo==='function'){
+  var _jmp=window.jumpTo;
+  window.jumpTo=function(n){ if(blocked(n)){ msg('Pass the knowledge check (100%) before completing the module.'); return _jmp(LOCK_AFTER); } return _jmp(n); };
+}
+
+/* platform progress beacon + initial chip */
+window.addEventListener('load',function(){
+  if(window.CQ&&CQ.start){try{CQ.start();}catch(e){}}
+  if(window.CQ&&CQ.slide){ var _n2=window.navigate; window.navigate=function(d){var rr=_n2(d); try{CQ.slide(current,TOTAL);}catch(e){} return rr;}; }
+  chip();
+});
+})();
+</script>
+</body>
+</html>

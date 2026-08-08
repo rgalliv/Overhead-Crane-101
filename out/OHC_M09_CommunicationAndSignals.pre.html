@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OCO301C Module 9 &#8212; Communication and Signals</title>
+<style>
+:root{--navy:#1B3464;--gold:#C8991A;--ink:#0d1522;--paper:#f5f6f8;--line:#2b4478;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:Calibri,"Segoe UI",system-ui,sans-serif;background:var(--ink);
+     color:var(--paper);overflow:hidden}
+#stage{position:relative;height:100dvh;width:100vw}
+.slide{position:absolute;inset:0;padding:28px 22px 92px;overflow-y:auto;
+       -webkit-overflow-scrolling:touch;opacity:0;pointer-events:none;
+       transition:opacity .28s ease;background:linear-gradient(160deg,#111a2c,#0d1522)}
+.slide.active{opacity:1;pointer-events:auto}
+.slide.section-header,.slide.divider{background:linear-gradient(160deg,var(--navy),#12203c)}
+h1{font-size:1.55rem;line-height:1.25;margin:.2em 0 .5em;color:#fff}
+h2{font-size:1.25rem;margin:.2em 0 .6em;color:var(--gold)}
+p{line-height:1.55;margin:0 0 .9em}
+ul{line-height:1.55;padding-left:1.1em}
+li{margin-bottom:.5em}
+.lede{font-size:1.05rem;color:#cfd6e4}
+.kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+        margin-bottom:.6em;font-weight:700}
+.elem{font-size:.68rem;letter-spacing:.06em;color:#7d8ba6;margin-bottom:.5em;
+      font-family:ui-monospace,Menlo,Consolas,monospace}
+.note{border-left:3px solid var(--gold);padding:.6em .9em;background:#16203a;
+      border-radius:0 6px 6px 0;font-size:.95rem;color:#cfd6e4}
+.stem{font-size:1.05rem;color:#fff}
+.quiz-group{display:flex;flex-direction:column;gap:10px;margin:1em 0}
+.quiz-option{display:block;width:100%;text-align:left;padding:14px 16px;font-size:1rem;
+             font-family:inherit;color:var(--paper);background:#16203a;
+             border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.quiz-option:active{transform:scale(.995)}
+.quiz-option.correct{border-color:#2f9e64;background:#12301f}
+.quiz-option.wrong{border-color:#b4442f;background:#301513}
+.quiz-feedback{display:none;margin-top:.4em;padding:.7em .9em;border-radius:8px;
+               background:#16203a;font-size:.95rem;color:#cfd6e4}
+.quiz-feedback.show{display:block}
+.completion-panel{background:#16203a;border:1px solid var(--line);border-radius:12px;
+                  padding:18px;margin-top:1em}
+.review-item{padding:.5em 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.calc-btn{display:inline-block;width:100%;padding:14px 18px;font-size:1rem;
+          font-family:inherit;font-weight:700;color:#12203c;background:var(--gold);
+          border:0;border-radius:10px;cursor:pointer}
+#chrome{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;
+        padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#0b1220;
+        border-top:1px solid var(--line)}
+#chrome button{padding:10px 16px;font-size:.95rem;font-family:inherit;color:var(--paper);
+               background:#16203a;border:1px solid var(--line);border-radius:8px}
+#counter{font-size:.85rem;color:#7d8ba6;margin-left:auto}
+#score-chip{position:fixed;top:calc(8px + env(safe-area-inset-top));right:12px;
+            padding:6px 12px;font-size:.78rem;font-weight:700;letter-spacing:.05em;
+            color:#12203c;background:var(--gold);border-radius:999px;z-index:20}
+#cq-gatebar{display:none;position:fixed;left:12px;right:12px;
+            bottom:calc(66px + env(safe-area-inset-bottom));padding:12px 14px;
+            background:#16203a;border:1px solid var(--gold);border-radius:10px;
+            font-size:.92rem;color:#fff;z-index:20}
+#cq-gatebtn{display:none;margin-top:10px;padding:10px 16px;font-family:inherit;
+            font-weight:700;color:#12203c;background:var(--gold);border:0;border-radius:8px}
+</style>
+</head>
+<body data-cq-module="OHC_M09" data-cq-total="66" data-cq-gate="OHC-1" data-cq-course="OCO301C">
+
+<div id="score-chip">GATE 0 / 28</div>
+<div id="stage">
+  <section class="slide" id="s1">
+    <div class="kicker">OCO301C &#183; Overhead Crane Operator</div>
+    <h1>Module 9<br>Communication and Signals</h1>
+    <p class="lede">Direct and receive lift communication using standard signals and disciplined verbal protocols.</p>
+  </section>
+  <section class="slide" id="s2">
+    <div class="kicker">Objectives</div>
+    <h2>What you will be able to do</h2>
+    <ul>
+      <li>Use and respond to the standard overhead crane hand signal set, and know when a signal person is required and who is permitted to be one.</li>
+      <li>Conduct lifts on closed-loop verbal and radio direction, with motion vocabulary anchored to fixed references and a stop-and-hold convention on communication loss.</li>
+      <li>Integrate spotters, riggers and adjacent trades into the lift communication plan, and honour stop-work authority from anyone.</li>
+    </ul>
+  </section>
+  <section class="slide" id="s3">
+    <div class="kicker">How this module gates</div>
+    <h2>Practice, then the gate</h2>
+    <p>9 practice questions run alongside the content. They are not scored and they
+    show you the correct answer.</p>
+    <p>The <b>Final Knowledge Check</b> that follows is the gate. It requires
+    <b>100&#37;</b> &#8212; every gated answer must be correct. A missed gate question is
+    not revealed; you review and retest.</p>
+    <div class="note">Your live gate score appears in the chip at the top of the screen
+    once the final check begins.</div>
+  </section>
+  <section class="slide section-header" id="s4">
+    <div class="kicker">Task A</div>
+    <h1>Standard Hand Signals</h1>
+    <p class="lede">Use and respond to standard overhead crane hand signals.</p>
+  </section>
+  <section class="slide" id="s5">
+    <div class="kicker">Task A</div>
+    <h2>One standard set, and it is not yours to invent</h2>
+    <p>The overhead crane signal set is small and fixed: <b>hoist</b>, <b>lower</b>, <b>bridge travel</b>, <b>trolley travel</b>, <b>stop</b>, and <b>emergency stop</b>. <b>EM 385-1-1 &sect;16.G.05.a</b> requires a <b>standard signal system</b> on all lifting and hoisting equipment &#8212; by hand, voice, audible or comparable signals.</p>
+    <div class="note">Where hand signals are used, the <b>Standard Method</b> must be used. The DOE Hanford manual states the same rule from the other side: <i>the standard overhead crane and hoist hand signals adopted by ANSI standards are to be used.</i></div>
+  </section>
+  <section class="slide" id="s6">
+    <div class="kicker">Task A</div>
+    <h2>The hundred-foot boundary</h2>
+    <p><b>&sect;16.G.05.a(1)</b>: manual hand signals may be used when the distance between the operator and signal person is <b>not more than 100 ft</b> (30.4 m). Beyond that, hands stop working as a channel.</p>
+    <div class="note"><b>&sect;16.G.05.a(2)</b>: radio, telephone, or a visual and audible electrically-operated system <b>shall</b> be used when the distance is <b>more than 100 ft</b>, <b>or when the operator and signal person cannot see each other</b>. Either trigger, not both.</div>
+  </section>
+  <section class="slide" id="s7">
+    <div class="kicker">Task A</div>
+    <h2>Three situations that require a signal person</h2>
+    <p><b>&sect;16.G.05.b</b> names them and they are not judgement calls. A signal person must be used: when the <b>point of operation, load travel, or the area near or at load placement is not in full view of the operator</b>; when the equipment is <b>traveling and the view in the direction of travel is obstructed</b>.</p>
+    <div class="note">And the third, which is the one that protects everybody: <b>due to site-specific safety concerns, either the operator or the person handling the load determines that it is necessary</b>. Either party can call for a signaler. Neither needs permission.</div>
+  </section>
+  <section class="slide" id="s8">
+    <div class="kicker">Task A</div>
+    <h2>Who is permitted to signal</h2>
+    <p>A signal person is a <b>qualified</b> role, not a volunteer. <b>&sect;16.B.06</b> requires qualification by a third-party Qualified Evaluator or the employer's Qualified Evaluator, with <b>documentation specifying each type of signaling</b> &#8212; hand, radio, and so on &#8212; the person is qualified for.</p>
+    <div class="note">The qualification covers knowing the Standard Method, competence in applying it, and <b>a basic understanding of crane operation and limitations, including the dynamics of swinging and stopping loads</b>, demonstrated by <b>written and practical test</b>. And one clause people miss: an <b>employer's assessment is not portable</b> &#8212; another employer may not rely on it.</div>
+  </section>
+  <section class="slide" id="s9">
+    <div class="kicker">Task A</div>
+    <h2>One signaler at a time</h2>
+    <p><b>&sect;16.G.05.d</b>, first half: <b>only one person gives signals to the operator at a time</b>. Two people signalling is not redundancy; it is two instructions and one crane.</p>
+    <div class="note">The signaler is agreed before the lift and is identifiable &#8212; by position, by vest, by name. If the operator cannot tell who the signaler is, the signaler has not been established.</div>
+  </section>
+  <section class="slide" id="s10">
+    <div class="kicker">Task A</div>
+    <h2>Except the one signal anybody can give</h2>
+    <p><b>&sect;16.G.05.d</b>, second half: the single-signaler rule holds <b>unless an emergency stop signal is given, which may be given by <i>anyone</i> and must be obeyed by the operator</b>.</p>
+    <div class="note">This is the only signal with no authority requirement attached. Anyone who sees something can stop the crane, and the operator's duty is to comply first and ask afterwards. A stop that turns out to be unnecessary costs a minute.</div>
+  </section>
+  <section class="slide" id="s11">
+    <div class="kicker">Task A</div>
+    <h2>Where the signaler stands</h2>
+    <p>Two requirements at once: <b>visible to the operator</b> for the whole signalling period, and <b>clear of the load</b> and its fall zone. Losing either one ends the lift.</p>
+    <div class="note">These conflict on tight placements, and the resolution is never to compromise the second. If the only position with a view is inside the fall zone, the answer is a different channel &#8212; radio, or a second spotter relaying &#8212; not a signaler standing under the load.</div>
+  </section>
+  <section class="slide" id="s12">
+    <div class="kicker">Task A</div>
+    <h2>Charts, and what to do when the standard does not fit</h2>
+    <p>The signal chart is <b>posted</b> where operators and signalers can see it, and the signals to be used are <b>agreed before the lift</b>, not discovered during it.</p>
+    <div class="note">Hanford states the exception precisely: <i>if compliance with these hand signals is impractical for the job being performed, <b>other hand signals shall be agreed on by the operator and signal person</b></i>, and radio may be substituted by the same agreement. Non-standard signals are permitted &#8212; <b>invented</b> ones are not. The difference is the agreement, made in advance.</div>
+  </section>
+  <section class="slide" id="s13">
+    <div class="kicker">Task A</div>
+    <h2>Which rulebook you are actually under</h2>
+    <p>This module has the <b>opposite</b> branch profile to OHC-05. On the <b>facility branch</b> &#8212; permanently installed, &sect;1926.1438(a) &#8212; only &sect;1910.179 applies, and &sect;1910.179 says <b>almost nothing about signals</b>: a warning device at (i), and a warning signal at (n)(3)(xi). No signal chart, no signal person qualification, no voice protocol.</p>
+    <div class="note">On the <b>construction branch</b> &#8212; not permanently installed, &sect;1926.1438(b) &#8212; the enumeration at (b)(2)(i) pulls in <b>&sect;&sect;1926.1417 through 1425</b> and <b>&sect;&sect;1926.1427 through 1434</b>, which is the <b>entire Subpart CC signals regime</b>: 1419 general, 1420 radio and electronic, 1421 voice, 1422 hand signal chart, and <b>1428 signal person qualifications</b>. The detailed rules live on the branch the ACS says least about.</div>
+  </section>
+  <section class="slide" id="s14">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.09.A.K1b</div>
+    <h2>Question 1</h2>
+    <p class="stem">Hand signals may be used when the distance between operator and signal person is not more than:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q01',0,'fb01')">50 ft</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q01',1,'fb01')">75 ft</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q01',2,'fb01')">100 ft</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q01',3,'fb01')">150 ft</button>
+    </div>
+    <div class="quiz-feedback" id="fb01">Correct answer: C. EM 385 &sect;16.G.05.a(1) sets 100 ft (30.4 m). Beyond that, or when they cannot see each other, radio or an electrically-operated system is required.</div>
+  </section>
+  <section class="slide" id="s15">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.09.A.K2</div>
+    <h2>Question 2</h2>
+    <p class="stem">Which of these does NOT by itself require a signal person under EM 385 &sect;16.G.05.b?</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q02',0,'fb02')">Load placement not in full view of the operator</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q02',1,'fb02')">Travel with the view in the direction of travel obstructed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q02',2,'fb02')">The load exceeding 50&#37; of rated capacity</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q02',3,'fb02')">The operator determining it is necessary for site-specific safety concerns</button>
+    </div>
+    <div class="quiz-feedback" id="fb02">Correct answer: C. The three triggers are view of the operation, obstructed travel view, and either party judging it necessary. Load percentage is not one of them.</div>
+  </section>
+  <section class="slide" id="s16">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.09.A.K3</div>
+    <h2>Question 3</h2>
+    <p class="stem">Two crew members are both giving motion signals. This is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q03',0,'fb03')">Acceptable redundancy</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q03',1,'fb03')">A violation of the one-signaler-at-a-time rule</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q03',2,'fb03')">Required for blind lifts</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q03',3,'fb03')">Acceptable if they agree</button>
+    </div>
+    <div class="quiz-feedback" id="fb03">Correct answer: B. &sect;16.G.05.d: only one person gives signals to the operator at a time.</div>
+  </section>
+  <section class="slide section-header" id="s17">
+    <div class="kicker">Task B</div>
+    <h1>Verbal and Radio Protocols</h1>
+    <p class="lede">Conduct lifts on verbal direction with closed-loop communication.</p>
+  </section>
+  <section class="slide" id="s18">
+    <div class="kicker">Task B</div>
+    <h2>Closed loop, four steps</h2>
+    <p>Verbal direction is not a stream of instructions. It is a loop that closes each time: <b>direction</b> given, <b>readback</b> by the receiver, <b>execution</b>, <b>confirmation</b> that it happened.</p>
+    <div class="note">The readback is the step people drop, and it is the step that catches the error. Hearing <i>&#8220;down two feet&#8221;</i> and saying <i>&#8220;down two feet&#8221;</i> costs a second and catches the difference between two feet and two inches.</div>
+  </section>
+  <section class="slide" id="s19">
+    <div class="kicker">Task B</div>
+    <h2>Radio discipline</h2>
+    <p>A radio channel is shared infrastructure. Discipline means an <b>assigned channel</b>, <b>identification</b> on each transmission so everyone knows who is speaking to whom, and for blind work a <b>continuous-communication</b> rule rather than intermittent check-ins.</p>
+    <div class="note"><b>&sect;16.G.05.a(2)</b> is what puts you on radio in the first place: it is required beyond 100 ft, or whenever the operator and signal person cannot see each other. If you are on radio because of the second trigger, the radio is the only channel you have.</div>
+  </section>
+  <section class="slide" id="s20">
+    <div class="kicker">Task B</div>
+    <h2>Anchor directions to the building, not to your body</h2>
+    <p>&#8220;Left&#8221; and &#8220;right&#8221; depend on which way the speaker is facing. Two people facing each other have opposite lefts, and the load moves according to whichever one the operator guessed.</p>
+    <div class="note">Standardised vocabulary ties motion to <b>fixed references</b>: north, the press end, column line 4, toward the roll-up door. The reference is chosen in the pre-lift briefing and it does not move when people turn around.</div>
+  </section>
+  <section class="slide" id="s21">
+    <div class="kicker">Task B</div>
+    <h2>Communication lost means stop</h2>
+    <p><b>&sect;16.G.05.c</b> is the rule and it is unambiguous: during operations requiring signals, the ability to transmit signals <b>shall be maintained</b>. If that ability is <b>interrupted at any time</b>, the operator shall <b>safely stop operations requiring signals until it is re-established and a proper signal is given and understood</b>.</p>
+    <div class="note">Three conditions to resume, not one: re-established, <b>proper signal given</b>, <b>and understood</b>. A radio crackling back to life is not permission to move.</div>
+  </section>
+  <section class="slide" id="s22">
+    <div class="kicker">Task B</div>
+    <h2>Silence is not consent</h2>
+    <p>The dangerous reading of a dropout is that no instruction means keep going. On a blind placement the operator has no other information, and the load continues into a space nobody is watching.</p>
+    <div class="note">This is why the stop convention is agreed <b>before</b> the lift. Mid-motion is not when to negotiate what silence means.</div>
+  </section>
+  <section class="slide" id="s23">
+    <div class="kicker">Task B</div>
+    <h2>Mixed-language crews</h2>
+    <p>Where the crew does not share a first language, the requirement is not goodwill; it is <b>terminology alignment before the lift</b>. Agree the motion words, agree who interprets, and confirm both directions of the loop work.</p>
+    <div class="note">The signal set is an asset here &#8212; hand signals are language-independent, and a crew that agrees on the Standard Method has a channel that does not depend on vocabulary at all.</div>
+  </section>
+  <section class="slide" id="s24">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.09.A.K3b</div>
+    <h2>Question 4</h2>
+    <p class="stem">An emergency stop signal may be given by:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q04',0,'fb04')">The designated signaler only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q04',1,'fb04')">The lift director only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q04',2,'fb04')">Anyone</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q04',3,'fb04')">The operator only</button>
+    </div>
+    <div class="quiz-feedback" id="fb04">Correct answer: C. &sect;16.G.05.d: it may be given by anyone and must be obeyed by the operator.</div>
+  </section>
+  <section class="slide" id="s25">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.09.A.K2b</div>
+    <h2>Question 5</h2>
+    <p class="stem">An employer's Qualified Evaluator assessment of a signal person is portable to other employers.</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q05',0,'fb05')">True</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q05',1,'fb05')">False</button>
+    </div>
+    <div class="quiz-feedback" id="fb05">Correct answer: B. &sect;16.B.06.e: an employer's assessment is not portable. Other employers are not permitted to use it.</div>
+  </section>
+  <section class="slide" id="s26">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.09.B.K1</div>
+    <h2>Question 6</h2>
+    <p class="stem">The step most often dropped from the closed-loop protocol is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q06',0,'fb06')">Direction</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q06',1,'fb06')">Readback</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q06',2,'fb06')">Execution</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q06',3,'fb06')">Confirmation</button>
+    </div>
+    <div class="quiz-feedback" id="fb06">Correct answer: B. Readback is the step that catches the error, and it is the one that gets skipped.</div>
+  </section>
+  <section class="slide section-header" id="s27">
+    <div class="kicker">Task C</div>
+    <h1>Crew Coordination</h1>
+    <p class="lede">Integrate spotters, riggers, and adjacent trades into the lift communication plan.</p>
+  </section>
+  <section class="slide" id="s28">
+    <div class="kicker">Task C</div>
+    <h2>The pre-lift briefing has six headings</h2>
+    <p><b>Load</b> &#8212; what it is and what it weighs. <b>Path</b> &#8212; where it goes and over what. <b>Roles</b> &#8212; who operates, who signals, who spots, who rigs. <b>Signals</b> &#8212; which set, which channel, which fixed references.</p>
+    <div class="note"><b>Exclusion zones</b> &#8212; where nobody stands. And <b>stop-work authority</b> &#8212; stated out loud, so that using it later does not require courage. A briefing that omits the last two has covered the mechanics and skipped the protection.</div>
+  </section>
+  <section class="slide" id="s29">
+    <div class="kicker">Task C</div>
+    <h2>Spotter is not signaler</h2>
+    <p>The <b>signaler</b> directs the crane. The <b>spotter</b> watches something the operator and signaler cannot &#8212; path clearance, an adjacent hazard, a pinch point, traffic. Different job, different attention, and normally a different person.</p>
+    <div class="note">EM 385 does describe a signal person acting as a spotter for a specific watch, so the roles can combine by design. What causes incidents is combining them by accident &#8212; a spotter who starts giving motion signals, or a signaler who looks away to check clearance.</div>
+  </section>
+  <section class="slide" id="s30">
+    <div class="kicker">Task C</div>
+    <h2>Stop-work authority is universal or it is nothing</h2>
+    <p><b>&sect;16.G.05.d</b> already grants it in the narrow case: an emergency stop <b>may be given by anyone and must be obeyed</b>. A functioning site extends that to any hazard, from any person, at any time.</p>
+    <div class="note">The hard part is not the authority; it is the <b>without penalty</b>. Authority that costs the user something is authority nobody uses twice. It has to be honoured visibly &#8212; thank the caller, check the concern, then resume.</div>
+  </section>
+  <section class="slide" id="s31">
+    <div class="kicker">Task C</div>
+    <h2>Production environments have other operators in them</h2>
+    <p>In a live bay the crane shares space with machine operators, line personnel, forklifts and foot traffic, none of whom are part of the lift and most of whom are concentrating on something else.</p>
+    <div class="note">Coordination means telling them before you start, not warning them while you move. A lift path across a production line is a two-supervisor conversation before it is a crane movement.</div>
+  </section>
+  <section class="slide" id="s32">
+    <div class="kicker">Task C</div>
+    <h2>Crane-to-crane contact is an adjacent-crew event</h2>
+    <p><b>EM 385-1-1 16-8.aa(6)</b>: contact with runway stops or other cranes is made with <b>extreme caution</b>, with particular care for persons on or below the crane, and <b>only after making certain that persons on the other cranes are aware</b>.</p>
+    <div class="note">Read that last clause as a communication requirement, because that is what it is. Before contact, the other crane's crew is <b>told and has acknowledged</b>. Not signalled at &#8212; aware. Cross-refs `OHC.08.B.K2`.</div>
+  </section>
+  <section class="slide" id="s33">
+    <div class="kicker">Task C</div>
+    <h2>Trades who arrive without knowing</h2>
+    <p>The most common uninvited hazard is a competent person doing their own job who has no idea a lift is underway. They did not ignore the exclusion zone; they never knew it existed.</p>
+    <div class="note">Which makes the control physical and informational rather than verbal: barriers and signage that work on someone who was never at the briefing, plus a spotter watching the approaches rather than the load.</div>
+  </section>
+  <section class="slide" id="s34">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.09.B.K3</div>
+    <h2>Question 7</h2>
+    <p class="stem">Motion vocabulary should be tied to:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q07',0,'fb07')">The operator's left and right</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q07',1,'fb07')">The signaler's left and right</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q07',2,'fb07')">Fixed references agreed in the pre-lift briefing</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q07',3,'fb07')">Compass bearings only</button>
+    </div>
+    <div class="quiz-feedback" id="fb07">Correct answer: C. Left and right invert depending on which way the speaker faces. Fixed references do not move when people turn around.</div>
+  </section>
+  <section class="slide" id="s35">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.09.B.K4</div>
+    <h2>Question 8</h2>
+    <p class="stem">Radio contact is lost mid-motion. Conditions to resume are:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q08',0,'fb08')">Communication re-established</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q08',1,'fb08')">Communication re-established and a proper signal given</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q08',2,'fb08')">Communication re-established, a proper signal given, and understood</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q08',3,'fb08')">Any of the above, at the operator's discretion</button>
+    </div>
+    <div class="quiz-feedback" id="fb08">Correct answer: C. &sect;16.G.05.c requires all three. A radio coming back to life is not permission to move.</div>
+  </section>
+  <section class="slide" id="s36">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.09.C.K3</div>
+    <h2>Question 9</h2>
+    <p class="stem">Stop-work authority fails in practice most often because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q09',0,'fb09')">It is not written down</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q09',1,'fb09')">Using it carries a cost to the person who uses it</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q09',2,'fb09')">Operators cannot hear it</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q09',3,'fb09')">It is limited to supervisors</button>
+    </div>
+    <div class="quiz-feedback" id="fb09">Correct answer: B. Authority that costs the user something is authority nobody uses twice. It must be honoured without penalty.</div>
+  </section>
+  <section class="slide divider" id="s37">
+    <div class="kicker">Assessment</div>
+    <h1>Final Knowledge Check</h1>
+    <p class="lede">28 questions. This gate requires 100&#37; &#8212; every answer must be
+    correct before the module can be completed.</p>
+    <div class="note">Missed questions are listed for review by number. The correct
+    option is not shown.</div>
+  </section>
+  <section class="slide" id="s38">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.A.K1</div>
+    <h2>Question 10</h2>
+    <p class="stem">The standard overhead crane signal set covers:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q10',0,'fb10')">Hoist and lower only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q10',1,'fb10')">Hoist, lower, bridge travel, trolley travel, stop, and emergency stop</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q10',2,'fb10')">Boom up, boom down, swing, and travel</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q10',3,'fb10')">Whatever the crew agrees on the day</button>
+    </div>
+    <div class="quiz-feedback" id="fb10">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s39">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.A.K1b</div>
+    <h2>Question 11</h2>
+    <p class="stem">EM 385 &sect;16.G.05 requires radio, telephone, or a visual and audible electrically-operated system when:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q11',0,'fb11')">The load exceeds 10 tons</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q11',1,'fb11')">The distance exceeds 100 ft, or the operator and signal person cannot see each other</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q11',2,'fb11')">Only when the distance exceeds 100 ft</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q11',3,'fb11')">The lift is designated critical</button>
+    </div>
+    <div class="quiz-feedback" id="fb11">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s40">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.A.K2</div>
+    <h2>Question 12</h2>
+    <p class="stem">Under EM 385 &sect;16.G.05.b, a signal person is required when:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q12',0,'fb12')">The load exceeds half of rated capacity</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q12',1,'fb12')">The point of operation, load travel, or placement area is not in full view of the operator</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q12',2,'fb12')">Two or more riggers are present</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q12',3,'fb12')">The lift is outdoors</button>
+    </div>
+    <div class="quiz-feedback" id="fb12">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s41">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.A.K2b</div>
+    <h2>Question 13</h2>
+    <p class="stem">Signal person qualification under EM 385 &sect;16.B.06 requires documentation that:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q13',0,'fb13')">Names the crane the person was assessed on</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q13',1,'fb13')">Specifies each type of signaling the person is qualified for</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q13',2,'fb13')">Is valid for five years</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q13',3,'fb13')">Is issued by the crane manufacturer</button>
+    </div>
+    <div class="quiz-feedback" id="fb13">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s42">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.A.K3</div>
+    <h2>Question 14</h2>
+    <p class="stem">The single-signaler rule states that:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q14',0,'fb14')">Only a supervisor may signal</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q14',1,'fb14')">Only one person gives signals to the operator at a time</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q14',2,'fb14')">Signals must be given by two people for verification</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q14',3,'fb14')">The rigger always signals</button>
+    </div>
+    <div class="quiz-feedback" id="fb14">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s43">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.A.K3b</div>
+    <h2>Question 15</h2>
+    <p class="stem">The exception to the single-signaler rule is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q15',0,'fb15')">A supervisor may override the signaler</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q15',1,'fb15')">An emergency stop signal, which may be given by anyone and must be obeyed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q15',2,'fb15')">The rigger may signal during rigging</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q15',3,'fb15')">There is no exception</button>
+    </div>
+    <div class="quiz-feedback" id="fb15">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s44">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.A.K4</div>
+    <h2>Question 16</h2>
+    <p class="stem">Signaler positioning requires that the signaler be:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q16',0,'fb16')">Visible to the operator</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q16',1,'fb16')">Clear of the load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q16',2,'fb16')">Both visible to the operator and clear of the load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q16',3,'fb16')">Within 20 ft of the load</button>
+    </div>
+    <div class="quiz-feedback" id="fb16">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s45">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.A.K5</div>
+    <h2>Question 17</h2>
+    <p class="stem">Where the standard hand signals are impractical for the job, the correct course is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q17',0,'fb17')">The operator improvises signals as needed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q17',1,'fb17')">Other signals are agreed between the operator and signal person in advance</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q17',2,'fb17')">The lift is prohibited</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q17',3,'fb17')">The signaler chooses new signals during the lift</button>
+    </div>
+    <div class="quiz-feedback" id="fb17">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s46">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.A.K5b</div>
+    <h2>Question 18</h2>
+    <p class="stem">On the construction branch, &sect;1926.1438(b)(2)(i) brings in the Subpart CC signals sections, including:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q18',0,'fb18')">Nothing on signals -- &sect;1910.179 governs alone</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q18',1,'fb18')">&sect;&sect;1926.1419 through 1422 and &sect;1926.1428 signal person qualifications</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q18',2,'fb18')">&sect;1926.1412 only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q18',3,'fb18')">ASME B30.9 only</button>
+    </div>
+    <div class="quiz-feedback" id="fb18">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s47">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.A.R1</div>
+    <h2>Question 19</h2>
+    <p class="stem">Conflicting signals from multiple crew members should be met with:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q19',0,'fb19')">Following the most senior person</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q19',1,'fb19')">Stopping and re-establishing a single signaler</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q19',2,'fb19')">Following the first signal received</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q19',3,'fb19')">Averaging the instructions</button>
+    </div>
+    <div class="quiz-feedback" id="fb19">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s48">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.A.R2</div>
+    <h2>Question 20</h2>
+    <p class="stem">The only position with a clear view of a tight placement is inside the fall zone. The correct resolution is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q20',0,'fb20')">Signal from that position briefly</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q20',1,'fb20')">Signal from there wearing full PPE</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q20',2,'fb20')">Use a different channel -- radio, or a spotter relaying from a safe position</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q20',3,'fb20')">Have the operator proceed without signals</button>
+    </div>
+    <div class="quiz-feedback" id="fb20">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s49">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.A.R3</div>
+    <h2>Question 21</h2>
+    <p class="stem">An operator receives a signal that is unclear. The required action is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q21',0,'fb21')">Execute the most likely interpretation slowly</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q21',1,'fb21')">Do not move -- stop and re-establish communication</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q21',2,'fb21')">Ask the rigger to interpret</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q21',3,'fb21')">Proceed and watch for a stop signal</button>
+    </div>
+    <div class="quiz-feedback" id="fb21">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s50">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.B.K1</div>
+    <h2>Question 22</h2>
+    <p class="stem">The closed-loop verbal protocol is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q22',0,'fb22')">Direction and execution</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q22',1,'fb22')">Direction, execution, confirmation</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q22',2,'fb22')">Direction, readback, execution, confirmation</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q22',3,'fb22')">Readback and confirmation</button>
+    </div>
+    <div class="quiz-feedback" id="fb22">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s51">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.B.K2</div>
+    <h2>Question 23</h2>
+    <p class="stem">Radio discipline for blind work requires:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q23',0,'fb23')">Periodic check-ins at agreed intervals</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q23',1,'fb23')">An assigned channel, identification on transmissions, and continuous communication</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q23',2,'fb23')">A single transmission before each motion</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q23',3,'fb23')">Two radios per person</button>
+    </div>
+    <div class="quiz-feedback" id="fb23">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s52">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.B.K3</div>
+    <h2>Question 24</h2>
+    <p class="stem">Anchoring motion vocabulary to fixed references rather than left and right prevents:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q24',0,'fb24')">Radio cross-talk</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q24',1,'fb24')">Direction reversing depending on which way the speaker faces</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q24',2,'fb24')">Signal person fatigue</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q24',3,'fb24')">Channel congestion</button>
+    </div>
+    <div class="quiz-feedback" id="fb24">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s53">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.B.K4</div>
+    <h2>Question 25</h2>
+    <p class="stem">EM 385 &sect;16.G.05.c requires that when the ability to transmit signals is interrupted, the operator:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q25',0,'fb25')">Continues at reduced speed until contact returns</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q25',1,'fb25')">Safely stops operations requiring signals until communication is re-established and a proper signal is given and understood</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q25',2,'fb25')">Completes the current motion, then stops</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q25',3,'fb25')">Switches to hand signals</button>
+    </div>
+    <div class="quiz-feedback" id="fb25">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s54">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.B.K5</div>
+    <h2>Question 26</h2>
+    <p class="stem">For a crew without a shared first language, the required provision is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q26',0,'fb26')">Hand signals only, in all cases</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q26',1,'fb26')">Terminology alignment and interpretation arranged before the lift</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q26',2,'fb26')">A supervisor translating during the lift</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q26',3,'fb26')">Written instructions only</button>
+    </div>
+    <div class="quiz-feedback" id="fb26">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s55">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.B.R1</div>
+    <h2>Question 27</h2>
+    <p class="stem">Unanchored left/right language is hazardous because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q27',0,'fb27')">It is slower to say</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q27',1,'fb27')">Two people facing each other have opposite lefts, so the load moves the wrong way</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q27',2,'fb27')">It cannot be transmitted by radio</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q27',3,'fb27')">It is not in the Standard Method</button>
+    </div>
+    <div class="quiz-feedback" id="fb27">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s56">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.B.R2</div>
+    <h2>Question 28</h2>
+    <p class="stem">The dangerous interpretation of a radio dropout mid-motion is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q28',0,'fb28')">That the lift is complete</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q28',1,'fb28')">That silence means continue</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q28',2,'fb28')">That the signaler has moved</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q28',3,'fb28')">That the channel is congested</button>
+    </div>
+    <div class="quiz-feedback" id="fb28">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s57">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.B.R3</div>
+    <h2>Question 29</h2>
+    <p class="stem">Cross-talk from adjacent operations on a shared channel is controlled by:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q29',0,'fb29')">Speaking louder</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q29',1,'fb29')">Channel assignment and identification on each transmission</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q29',2,'fb29')">Using hand signals instead at any distance</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q29',3,'fb29')">Reducing transmission power</button>
+    </div>
+    <div class="quiz-feedback" id="fb29">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s58">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.C.K1</div>
+    <h2>Question 30</h2>
+    <p class="stem">A complete pre-lift briefing covers load, path, roles, signals, and:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q30',0,'fb30')">The crane's inspection date</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q30',1,'fb30')">Exclusion zones and stop-work authority</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q30',2,'fb30')">The rigging manufacturer</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q30',3,'fb30')">The production schedule</button>
+    </div>
+    <div class="quiz-feedback" id="fb30">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s59">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.C.K2</div>
+    <h2>Question 31</h2>
+    <p class="stem">The spotter's role is distinct from the signaler's in that the spotter:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q31',0,'fb31')">Gives motion signals when the signaler is busy</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q31',1,'fb31')">Watches path clearance and adjacent hazards the operator and signaler cannot see</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q31',2,'fb31')">Supervises the rigging</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q31',3,'fb31')">Operates the pendant</button>
+    </div>
+    <div class="quiz-feedback" id="fb31">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s60">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.C.K3</div>
+    <h2>Question 32</h2>
+    <p class="stem">Stop-work authority must be:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q32',0,'fb32')">Limited to the signaler and lift director</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q32',1,'fb32')">Universal, and honoured without penalty</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q32',2,'fb32')">Exercised only through a supervisor</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q32',3,'fb32')">Documented before it may be used</button>
+    </div>
+    <div class="quiz-feedback" id="fb32">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s61">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.C.K4</div>
+    <h2>Question 33</h2>
+    <p class="stem">In a live production bay, coordination with machine operators and line personnel should happen:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q33',0,'fb33')">While the load is travelling, using the warning device</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q33',1,'fb33')">Before the lift starts</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q33',2,'fb33')">Only if the path crosses their station</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q33',3,'fb33')">At the end of the shift</button>
+    </div>
+    <div class="quiz-feedback" id="fb33">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s62">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.C.K5</div>
+    <h2>Question 34</h2>
+    <p class="stem">EM 385-1-1 16-8.aa(6) requires that before contact with another crane, persons on that crane are:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q34',0,'fb34')">Signalled at</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q34',1,'fb34')">Aware -- told and acknowledged</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q34',2,'fb34')">Off the crane</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q34',3,'fb34')">Notified afterwards</button>
+    </div>
+    <div class="quiz-feedback" id="fb34">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s63">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.C.R1</div>
+    <h2>Question 35</h2>
+    <p class="stem">Role confusion between signaler and spotter typically shows up as:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q35',0,'fb35')">Two people using the same radio channel</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q35',1,'fb35')">A spotter beginning to give motion signals, or a signaler looking away to check clearance</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q35',2,'fb35')">The rigger signalling</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q35',3,'fb35')">The operator signalling to himself</button>
+    </div>
+    <div class="quiz-feedback" id="fb35">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s64">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.C.R2</div>
+    <h2>Question 36</h2>
+    <p class="stem">Stop-work hesitancy under production pressure is best countered by:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q36',0,'fb36')">A written policy alone</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q36',1,'fb36')">Stating the authority in the briefing and honouring its use visibly</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q36',2,'fb36')">Assigning it only to supervisors</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q36',3,'fb36')">Financial incentives</button>
+    </div>
+    <div class="quiz-feedback" id="fb36">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s65">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.09.C.R3</div>
+    <h2>Question 37</h2>
+    <p class="stem">Uninformed adjacent trades entering the operation are best controlled by:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q37',0,'fb37')">Sounding the warning device more often</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q37',1,'fb37')">Physical barriers and signage plus a spotter watching the approaches</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q37',2,'fb37')">A note in the pre-lift briefing</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M09_q37',3,'fb37')">Radio announcements on the shared channel</button>
+    </div>
+    <div class="quiz-feedback" id="fb37">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s66">
+    <h1>Module 9 complete</h1>
+    <div class="completion-panel">
+      <div id="score-summary">Complete the knowledge check to record this module.</div>
+      <div id="review-list"></div>
+    </div>
+  </section>
+</div>
+
+<div id="cq-gatebar">
+  <div id="cq-gatemsg"></div>
+  <button id="cq-gatebtn"></button>
+</div>
+
+<div id="chrome">
+  <button onclick="navigate(-1)">Back</button>
+  <button onclick="navigate(1)">Next</button>
+  <span id="counter"></span>
+</div>
+
+<script>
+var TOTAL=66, current=1;
+function render(){
+  var i;
+  for(i=1;i<=TOTAL;i++){
+    var el=document.getElementById('s'+i);
+    if(el) el.classList.toggle('active', i===current);
+  }
+  var c=document.getElementById('counter');
+  if(c) c.textContent=current+' / '+TOTAL;
+  var st=document.getElementById('stage'); if(st) st.scrollTop=0;
+}
+window.jumpTo=function(n){
+  if(n<1||n>TOTAL) return false;
+  current=n; render(); return true;
+};
+window.navigate=function(dir){
+  var t=current+dir;
+  if(t<1||t>TOTAL) return false;
+  current=t; render(); return true;
+};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight') navigate(1);
+  if(e.key==='ArrowLeft') navigate(-1);
+});
+window.cqAnswer=function(){};
+render();
+</script>
+<script src="cq-module-bridge.js"></script>
+</body>
+</html>

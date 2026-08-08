@@ -19,13 +19,14 @@ CraneQualified — **Overhead Crane Operator Track (OHC)**. Twelve modules, ACS 
 | `out/OHC_M06_RiggingInterface.html` | OHC-06. 65 slides, 29 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M07_LoadHandling.html` | OHC-07. 69 slides, 31 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M08_OperationalRules.html` | OHC-08. 66 slides, 28 gate items, 0 gaps, CONFORMANT. |
+| `out/OHC_M09_CommunicationAndSignals.html` | OHC-09. 66 slides, 28 gate items, 0 gaps, CONFORMANT. |
 | `docs/OHC-ACS-build-spec.md` | **The ACS itself** — all twelve modules, 396 elements, committed verbatim from the authoritative HTML breakdown. Source of truth for every build. |
 | `docs/OHC-build-format-spec.md` | Build format, packaging and question architecture for the OHC track, derived from the mobile-crane Developer Handoff (structure only). |
 | `docs/second-brain-crosscheck.md` | Cross-check of the OHC build spec against the CraneQualified Second Brain corpus — citation verification, corpus gaps, build-pipeline conflicts, and recommended order of work. |
 
 ## Status
 
-Track status: **OHC-01 … OHC-08 built** (0 gaps, gates verified); OHC-09 … OHC-12 not started. Course code **OCO301C**, gate code **OHC-1**, modules **OHC-01 … OHC-12**. Runs **parallel to** the existing six-module overhead course, which continues unchanged. Gate is **100%, server-authoritative**. No revision change to the CraneQualified Competency and Gate Master is made by anything in this repo.
+Track status: **OHC-01 … OHC-09 built** (0 gaps, gates verified); OHC-10 … OHC-12 not started. Course code **OCO301C**, gate code **OHC-1**, modules **OHC-01 … OHC-12**. Runs **parallel to** the existing six-module overhead course, which continues unchanged. Gate is **100%, server-authoritative**. No revision change to the CraneQualified Competency and Gate Master is made by anything in this repo.
 
 The ACS is committed at `docs/OHC-ACS-build-spec.md`, flattened from the authoritative HTML breakdown rather than re-keyed — element codes and paragraph-letter citations are exactly the content a re-keying would corrupt.
 
@@ -37,7 +38,8 @@ Read the cross-check first. Four items are blocking or near-blocking:
 2. ~~EM 385-1-1 Chapter 16 citations are unverified~~ — **resolved 2026-08-07.** Section 16 verified, 1:1 crosswalk to `16-8.aa(2)–(7)`. A 2014-edition decoy file still shares the obvious filename with the cited 2024 edition; rename it.
 3. **NAVFAC P-307 is held** (2000 and 2006 editions, SharePoint) — dated, not missing. **Crane Corner** is still unfetched. Also found: Navy Crane Center *Category 3 (Non-Cab) Crane Safety* student guide, 163 pages, directly on-topic.
 4. **The NCCCO overhead crane certification premise** underpinning the Certification Gate needs confirming before OHC-01 or OHC-12 is authored.
-5. **Part 1910 beyond .179 is uncited and unheld.** §1910.184 (slings) and §1910.147 (energy control) govern the facility branch and the corpus has no primary text for either — only decks and client policies. §1910.179 also routes to Subpart D and Subpart S by name. Cheap to close; Part 1910 is public domain.
+5. **Subpart CC signals paragraph text is unheld — largest remaining sourcing hole.** §§1926.1419–1422 and §1926.1428 **apply** to overhead cranes on the construction branch (verified from the §1926.1438(b)(2)(i) enumeration), but the corpus copy is a degraded OCR scan and osha.gov / ecfr.gov are blocked by this environment's egress policy. Section-level only is gated in OHC-09. Same cause and fix as §1926.1412/1413 in OHC-05.
+6. **Part 1910 beyond .179 is uncited and unheld.** §1910.184 (slings) and §1910.147 (energy control) govern the facility branch and the corpus has no primary text for either — only decks and client policies. §1910.179 also routes to Subpart D and Subpart S by name. Cheap to close; Part 1910 is public domain.
 
 ## Standing disciplines
 
@@ -56,7 +58,8 @@ Content establishes the operator's standard of care. It never confers qualificat
 | `vault-dropin/Crane Standards & Guides/OHC — OSHA Part 1910 Map.md` | `📚 Resources/Crane Standards & Guides/` |
 | `vault-dropin/Crane Standards & Guides/OHC — Rigging Knowledge Harvest (verified).md` | `📚 Resources/Crane Standards & Guides/` |
 | `vault-dropin/Crane Standards & Guides/OHC — Load Handling Source Pack (verified).md` | `📚 Resources/Crane Standards & Guides/` |
+| `vault-dropin/Crane Standards & Guides/OHC — Signals and Communication Source Pack (verified).md` | `📚 Resources/Crane Standards & Guides/` |
 
-Both carry Obsidian frontmatter and `[[wikilinks]]` matching the existing index convention. After dropping them in, add seven lines to `_Crane Standards — Index.md` so they are reachable from the index.
+Both carry Obsidian frontmatter and `[[wikilinks]]` matching the existing index convention. After dropping them in, add eight lines to `_Crane Standards — Index.md` so they are reachable from the index.
 
 This is the remote-run delivery path described in the vault's own `CLAUDE.md` — the Microsoft 365 connector available to this session has read access to the vault but not `Files.ReadWrite.All`, so it cannot write directly.

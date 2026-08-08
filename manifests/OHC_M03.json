@@ -4,7 +4,7 @@
   "gate_code": "OHC-1",
   "version": "2026.08",
   "salt": "CQ1:OHC_M03_ControlsAndOperatingModes",
-  "total": 59,
+  "total": 62,
   "next": "OHC_M04",
   "gate": [
     "OHC_M03_q10",
@@ -30,7 +30,10 @@
     "OHC_M03_q30",
     "OHC_M03_q31",
     "OHC_M03_q32",
-    "OHC_M03_q33"
+    "OHC_M03_q33",
+    "OHC_M03_q34",
+    "OHC_M03_q35",
+    "OHC_M03_q36"
   ],
   "review_offset": 9,
   "answer_key": {
@@ -60,13 +63,16 @@
     "OHC_M03_q24": 1,
     "OHC_M03_q25": 1,
     "OHC_M03_q26": 1,
-    "OHC_M03_q27": 2,
+    "OHC_M03_q27": 1,
     "OHC_M03_q28": 1,
     "OHC_M03_q29": 2,
     "OHC_M03_q30": 1,
-    "OHC_M03_q31": 1,
+    "OHC_M03_q31": 2,
     "OHC_M03_q32": 1,
-    "OHC_M03_q33": 1
+    "OHC_M03_q33": 1,
+    "OHC_M03_q34": 1,
+    "OHC_M03_q35": 1,
+    "OHC_M03_q36": 1
   },
   "course": "OCO301C"
 }

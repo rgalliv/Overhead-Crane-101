@@ -1,10 +1,10 @@
 # OHC-03 &mdash; Element-to-Item Trace Table
 
-> **Generated file.** Emitted by `build/gen_trace_M03.py` from the same question data that builds the module. Do not hand-edit &mdash; regenerate.
+> **Generated file.** Emitted by `build/gen_trace.py 03` from the same question data that builds the module. Do not hand-edit &mdash; regenerate.
 
 **Module:** OHC-03 Controls and Operating Modes  
 **Course:** OCO301C &middot; **Gate:** OHC-1 &middot; **File:** `OHC_M03_ControlsAndOperatingModes.html`  
-**Slides:** 59 &middot; **Gate items:** 24 &middot; **Practice:** 9 &middot; **Performance:** 9 &middot; **Pass:** 100%, server-authoritative  
+**Slides:** 62 &middot; **Gate items:** 27 &middot; **Practice:** 9 &middot; **Performance:** 9 &middot; **Pass:** 100%, server-authoritative  
 **Salt:** `CQ1:OHC_M03_ControlsAndOperatingModes` &middot; **Next:** `OHC_M04` &middot; **review_offset:** 9
 
 ---
@@ -17,7 +17,7 @@
 | `OHC_M03_q11` | `OHC.03.A.K2` | Class II initial training on federal work requires a minimum of: | MC | **EM 385 &sect;16.C.05.a, &sect;16.C.07** (2024: 16-2.h) | &#9989; *2014 text* |
 | `OHC_M03_q12` | `OHC.03.A.K3` | Before first motion, a pendant operator must survey: | MC | Tier 0 worksite hazard list | &#9989; |
 | `OHC_M03_q13` | `OHC.03.A.K4` | The crushing hazard to a pendant operator is created principally by: | MC | &sect;1910.179(n)(3)(vi) &middot; derived | &#9989; |
-| `OHC_M03_q14` | `OHC.03.A.K5` | Which statement about plugging is correct? | MC | Tier 0 slide 93 &middot; &sect;1910.179(n)(3)(iii)(a) | &#9888;&#65039; *reconciled* |
+| `OHC_M03_q14` | `OHC.03.A.K5` | Which statement about plugging is correct? | MC | Tier 0 slide 93 &middot; &sect;1910.179(n)(3)(iii)(a) | &#9888;&#65039; *conflict resolved* |
 | `OHC_M03_q15` | `OHC.03.A.R1` | Walking backward while tracking a load is hazardous chiefly because: | MC | Tier 0 slide 88 | &#9989; |
 | `OHC_M03_q16` | `OHC.03.A.R2` | Pendant whip and entanglement with the load or rigging is best prevented by: | MC | derived | &#9989; |
 | `OHC_M03_q17` | `OHC.03.A.R3` | When the job demands more attention than the operator can divide across load, path and personnel, the correct action is to: | MC | Tier 0 complacency note | &#9989; |
@@ -30,23 +30,26 @@
 | `OHC_M03_q19` | `OHC.03.B.K2` | For wireless overhead, bridge, gantry, underhung and monorail cranes, the Class I / Class II split is set by: | MC | **EM 385 &sect;16.C.02.e / &sect;16.C.05.b** (2024: 16-2.g/h) | &#9989; *2014 text* |
 | `OHC_M03_q20` | `OHC.03.B.K2b` | An operator runs a 40-ton wireless crane handling loads that are continually guided and never leave their slot. That operator is treated as: | MC | **EM 385 &sect;16.C.02.e** continually-guided exemption | &#9989; *2014 text* |
 | `OHC_M03_q21` | `OHC.03.B.K3` | When selecting an operating position for a wireless lift, the governing requirement is: | MC | derived | &#9989; |
-| `OHC_M03_q22` | `OHC.03.B.K5` | Expected crane behaviour on loss of radio signal is that: | MC | derived | &#9989; |
-| `OHC_M03_q23` | `OHC.03.B.R1` | Operating from a position with obstructed line of sight is unacceptable because: | MC | derived | &#9989; |
-| `OHC_M03_q24` | `OHC.03.B.R2` | The characteristic wireless incident on a multi-crane system is: | MC | derived | &#9989; |
-| `OHC_M03_q25` | `OHC.03.B.R3` | Carrying an active transmitter into an unrelated task is equivalent to: | MC | derived | &#9989; |
+| `OHC_M03_q22` | `OHC.03.B.K4` | A wireless operator hands over mid-shift. The transfer protocol requires that: | MC | derived &middot; **&sect;1910.179(b)(8)** &middot; `OHC.08.C.K3` | &#9989; |
+| `OHC_M03_q23` | `OHC.03.B.K4b` | An unattended active transmitter defeats which requirement directly? | MC | **&sect;1910.179(b)(8)** | &#9989; |
+| `OHC_M03_q24` | `OHC.03.B.K5` | Expected crane behaviour on loss of radio signal is that: | MC | derived | &#9989; |
+| `OHC_M03_q25` | `OHC.03.B.R1` | Operating from a position with obstructed line of sight is unacceptable because: | MC | derived | &#9989; |
+| `OHC_M03_q26` | `OHC.03.B.R2` | The characteristic wireless incident on a multi-crane system is: | MC | derived | &#9989; |
+| `OHC_M03_q27` | `OHC.03.B.R3` | Carrying an active transmitter into an unrelated task is equivalent to: | MC | derived | &#9989; |
 
 ## Task C &mdash; Cab Operation
 
 | Item | Element | Stem | Form | Source | Status |
 |---|---|---|---|---|---|
-| `OHC_M03_q26` | `OHC.03.C.K1` | Which is required of crane cab access? | MC | **&sect;1910.179(c)(2)** &middot; Subpart D | &#9989; |
-| `OHC_M03_q27` | `OHC.03.C.K2` | Class I initial training on federal work requires a minimum of: | MC | **EM 385 &sect;16.C.02.d, &sect;16.C.04** (2024: 16-2.g) | &#9989; *2014 text* |
-| `OHC_M03_q28` | `OHC.03.C.K3` | The cab must be arranged so that the operator has: | MC | **&sect;1910.179(c)(1)(i)** | &#9989; |
-| `OHC_M03_q29` | `OHC.03.C.K3b` | The cab must be located to afford a minimum clearance from all fixed structures within its area of possible movement of: | MC | **&sect;1910.179(c)(1)(ii)** | &#9989; |
-| `OHC_M03_q30` | `OHC.03.C.K5` | Cab housekeeping requires that tools, oil cans, waste and spare fuses be: | MC | &sect;1910.179(c)(3),(4) &middot; **(o)(2)** &middot; Tier 0 10 BC | &#9989; |
-| `OHC_M03_q31` | `OHC.03.C.R1` | Before moving a cab-operated crane where personnel may be on access ways or adjacent cranes, the operator must: | MC | **EM 385 &sect;16.M.06** (16-8.aa(6)) | &#9989; |
-| `OHC_M03_q32` | `OHC.03.C.R2` | A placement is obscured from the cab. The correct action is to: | MC | derived &middot; &sect;1910.179(n)(3)(ii)(c) | &#9989; |
-| `OHC_M03_q33` | `OHC.03.C.R3` | Emergency egress from the cab should be: | MC | &sect;1910.179(c)(2) &middot; derived | &#9989; |
+| `OHC_M03_q28` | `OHC.03.C.K1` | Which is required of crane cab access? | MC | **&sect;1910.179(c)(2)** &middot; Subpart D | &#9989; |
+| `OHC_M03_q29` | `OHC.03.C.K2` | Class I initial training on federal work requires a minimum of: | MC | **EM 385 &sect;16.C.02.d, &sect;16.C.04** (2024: 16-2.g) | &#9989; *2014 text* |
+| `OHC_M03_q30` | `OHC.03.C.K3` | The cab must be arranged so that the operator has: | MC | **&sect;1910.179(c)(1)(i)** | &#9989; |
+| `OHC_M03_q31` | `OHC.03.C.K3b` | The cab must be located to afford a minimum clearance from all fixed structures within its area of possible movement of: | MC | **&sect;1910.179(c)(1)(ii)** | &#9989; |
+| `OHC_M03_q32` | `OHC.03.C.K4` | A cab operator cannot see the landing area for a placement. EM 385 &sect;16.G.05.b requires that: | MC | **EM 385 &sect;16.G.05.b(1)** &middot; `OHC.09.A.K2` | &#9989; *2014 text* |
+| `OHC_M03_q33` | `OHC.03.C.K5` | Cab housekeeping requires that tools, oil cans, waste and spare fuses be: | MC | &sect;1910.179(c)(3),(4) &middot; **(o)(2)** &middot; Tier 0 10 BC | &#9989; |
+| `OHC_M03_q34` | `OHC.03.C.R1` | Before moving a cab-operated crane where personnel may be on access ways or adjacent cranes, the operator must: | MC | **EM 385 &sect;16.M.06** (16-8.aa(6)) | &#9989; |
+| `OHC_M03_q35` | `OHC.03.C.R2` | A placement is obscured from the cab. The correct action is to: | MC | derived &middot; &sect;1910.179(n)(3)(ii)(c) | &#9989; |
+| `OHC_M03_q36` | `OHC.03.C.R3` | Emergency egress from the cab should be: | MC | &sect;1910.179(c)(2) &middot; derived | &#9989; |
 
 ---
 
@@ -68,7 +71,7 @@
 
 ## Performance items &mdash; `OHC_M03_PES.docx`
 
-Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment and control modes.
+Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment.
 
 | Item | Element | Demonstration |
 |---|---|---|
@@ -98,5 +101,5 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment a
 
 ## Coverage
 
-All **15 K** and **9 R** elements are gated &mdash; 24 gate items, no held-back items. Two elements carry a second item each because they contain two independently testable facts. The **9 S** elements sit on the Performance Evaluation Sheet. OHC-03 carries 33 elements, unchanged from the published ACS.
+All **15 K** and **9 R** elements are gated &mdash; 27 gate items. 3 element(s) carry a second item; see the source notes. The **9 S** elements sit on the Performance Evaluation Sheet. OHC-03 carries 33 elements, unchanged from the published ACS.
 

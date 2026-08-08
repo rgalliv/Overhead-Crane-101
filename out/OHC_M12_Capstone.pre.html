@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OCO301C Module 12 &#8212; Capstone: Qualification Readiness and Documentation</title>
+<style>
+:root{--navy:#1B3464;--gold:#C8991A;--ink:#0d1522;--paper:#f5f6f8;--line:#2b4478;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:Calibri,"Segoe UI",system-ui,sans-serif;background:var(--ink);
+     color:var(--paper);overflow:hidden}
+#stage{position:relative;height:100dvh;width:100vw}
+.slide{position:absolute;inset:0;padding:28px 22px 92px;overflow-y:auto;
+       -webkit-overflow-scrolling:touch;opacity:0;pointer-events:none;
+       transition:opacity .28s ease;background:linear-gradient(160deg,#111a2c,#0d1522)}
+.slide.active{opacity:1;pointer-events:auto}
+.slide.section-header,.slide.divider{background:linear-gradient(160deg,var(--navy),#12203c)}
+h1{font-size:1.55rem;line-height:1.25;margin:.2em 0 .5em;color:#fff}
+h2{font-size:1.25rem;margin:.2em 0 .6em;color:var(--gold)}
+p{line-height:1.55;margin:0 0 .9em}
+ul{line-height:1.55;padding-left:1.1em}
+li{margin-bottom:.5em}
+.lede{font-size:1.05rem;color:#cfd6e4}
+.kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+        margin-bottom:.6em;font-weight:700}
+.elem{font-size:.68rem;letter-spacing:.06em;color:#7d8ba6;margin-bottom:.5em;
+      font-family:ui-monospace,Menlo,Consolas,monospace}
+.note{border-left:3px solid var(--gold);padding:.6em .9em;background:#16203a;
+      border-radius:0 6px 6px 0;font-size:.95rem;color:#cfd6e4}
+.stem{font-size:1.05rem;color:#fff}
+.quiz-group{display:flex;flex-direction:column;gap:10px;margin:1em 0}
+.quiz-option{display:block;width:100%;text-align:left;padding:14px 16px;font-size:1rem;
+             font-family:inherit;color:var(--paper);background:#16203a;
+             border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.quiz-option:active{transform:scale(.995)}
+.quiz-option.correct{border-color:#2f9e64;background:#12301f}
+.quiz-option.wrong{border-color:#b4442f;background:#301513}
+.quiz-feedback{display:none;margin-top:.4em;padding:.7em .9em;border-radius:8px;
+               background:#16203a;font-size:.95rem;color:#cfd6e4}
+.quiz-feedback.show{display:block}
+.completion-panel{background:#16203a;border:1px solid var(--line);border-radius:12px;
+                  padding:18px;margin-top:1em}
+.review-item{padding:.5em 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.calc-btn{display:inline-block;width:100%;padding:14px 18px;font-size:1rem;
+          font-family:inherit;font-weight:700;color:#12203c;background:var(--gold);
+          border:0;border-radius:10px;cursor:pointer}
+#chrome{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;
+        padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#0b1220;
+        border-top:1px solid var(--line)}
+#chrome button{padding:10px 16px;font-size:.95rem;font-family:inherit;color:var(--paper);
+               background:#16203a;border:1px solid var(--line);border-radius:8px}
+#counter{font-size:.85rem;color:#7d8ba6;margin-left:auto}
+#score-chip{position:fixed;top:calc(8px + env(safe-area-inset-top));right:12px;
+            padding:6px 12px;font-size:.78rem;font-weight:700;letter-spacing:.05em;
+            color:#12203c;background:var(--gold);border-radius:999px;z-index:20}
+#cq-gatebar{display:none;position:fixed;left:12px;right:12px;
+            bottom:calc(66px + env(safe-area-inset-bottom));padding:12px 14px;
+            background:#16203a;border:1px solid var(--gold);border-radius:10px;
+            font-size:.92rem;color:#fff;z-index:20}
+#cq-gatebtn{display:none;margin-top:10px;padding:10px 16px;font-family:inherit;
+            font-weight:700;color:#12203c;background:var(--gold);border:0;border-radius:8px}
+</style>
+</head>
+<body data-cq-module="OHC_M12" data-cq-total="65" data-cq-gate="OHC-1" data-cq-course="OCO301C">
+
+<div id="score-chip">GATE 0 / 28</div>
+<div id="stage">
+  <section class="slide" id="s1">
+    <div class="kicker">OCO301C &#183; Overhead Crane Operator</div>
+    <h1>Module 12<br>Capstone: Qualification Readiness and Documentation</h1>
+    <p class="lede">Demonstrate integrated performance and complete the documentation architecture for the Designation Gate.</p>
+  </section>
+  <section class="slide" id="s2">
+    <div class="kicker">Objectives</div>
+    <h2>What you will be able to do</h2>
+    <ul>
+      <li>Execute complete lift assignments that integrate every prior competency, and detect injected faults without being prompted.</li>
+      <li>Produce and maintain the records that evidence competency and equipment status, in the form the standard actually specifies.</li>
+      <li>State which gate applies to your work, what your designation covers, and what programme completion does and does not give you.</li>
+    </ul>
+  </section>
+  <section class="slide" id="s3">
+    <div class="kicker">How this module gates</div>
+    <h2>Practice, then the gate</h2>
+    <p>9 practice questions run alongside the content. They are not scored and they
+    show you the correct answer.</p>
+    <p>The <b>Final Knowledge Check</b> that follows is the gate. It requires
+    <b>100&#37;</b> &#8212; every gated answer must be correct. A missed gate question is
+    not revealed; you review and retest.</p>
+    <div class="note">Your live gate score appears in the chip at the top of the screen
+    once the final check begins.</div>
+  </section>
+  <section class="slide section-header" id="s4">
+    <div class="kicker">Task A</div>
+    <h1>Integrated Scenario Performance</h1>
+    <p class="lede">Execute complete lift assignments integrating all prior competencies.</p>
+  </section>
+  <section class="slide" id="s5">
+    <div class="kicker">Task A</div>
+    <h2>The full cycle, in order, every time</h2>
+    <p>Six phases, and none of them is optional: <b>jurisdiction confirmation</b> (which branch, which rulebook), <b>inspection</b>, <b>planning</b>, <b>communication</b>, <b>execution</b>, <b>securing</b>. OHC-01 through OHC-08 each taught one piece; the capstone is the first time you run all six as one thing.</p>
+    <div class="note">The order matters because each phase produces something the next one needs. Jurisdiction tells you which inspection regime applies. Inspection tells you whether there is a crane to plan with. Planning tells the crew what to communicate about.</div>
+  </section>
+  <section class="slide" id="s6">
+    <div class="kicker">Task A</div>
+    <h2>Jurisdiction first, because it changes the rules</h2>
+    <p>The single most common structural error in crane training is teaching one rulebook. The same overhead crane, doing the same lift, is governed differently depending on whether it is <b>permanently installed</b> (&sect;1926.1438(a) &#8212; all of &sect;1910.179) or <b>not</b> (&sect;1926.1438(b) &#8212; an enumerated subset plus Subpart CC).</p>
+    <div class="note">You have now met both faces of this. Inspection intervals and maintenance rules are <b>facility branch</b> (OHC-05). The signals regime is <b>construction branch</b> (OHC-09). Load handling binds on <b>both</b> (OHC-07). Confirming the branch is the first phase because it silently selects everything after it.</div>
+  </section>
+  <section class="slide" id="s7">
+    <div class="kicker">Task A</div>
+    <h2>Scenario variation is the point, not the padding</h2>
+    <p>Assessment runs across the <b>control modes and load types on your assigned equipment</b> &#8212; pendant, cab, radio; compact and awkward loads; open floor and congested placement. A single scenario tests one habit. Variation tests <b>competence</b>.</p>
+    <div class="note">This is also how mode-specific habit transfer gets caught, which is the failure OHC-03 warned about: the cab operator's spatial reference, applied from the floor, puts the load the wrong way.</div>
+  </section>
+  <section class="slide" id="s8">
+    <div class="kicker">Task A</div>
+    <h2>Faults are injected, and nobody will point at them</h2>
+    <p>Scenarios carry embedded faults and hazards, and <b>detection is expected without prompting</b>. An evaluator who has to ask <i>&#8220;did you notice anything about the hook?&#8221;</i> has already recorded the answer.</p>
+    <div class="note">This is deliberately harder than a checklist, because the real failure mode is an operator who completes every checklist item and walks past the defect between them.</div>
+  </section>
+  <section class="slide" id="s9">
+    <div class="kicker">Task A</div>
+    <h2>What a critical error is</h2>
+    <p>Performance is graded on <b>tolerances</b>, <b>sequence discipline</b>, and a <b>zero critical-error requirement</b>. Tolerances and sequence can carry minor deductions. A critical error cannot.</p>
+    <div class="note">A critical error is one that would have injured somebody or wrecked equipment if the scenario had been real &#8212; a load over a person, a defect operated through, a brake left unproven, a placement into live equipment. There is no partial credit on those, and that is the same standard the 100&#37; knowledge gate applies.</div>
+  </section>
+  <section class="slide" id="s10">
+    <div class="kicker">Task A</div>
+    <h2>Consistency is the actual assessment</h2>
+    <p>`A.K5` is the element that makes this a standard of care rather than an exam: the standard is demonstrated as <b>consistent behaviour, not test-day behaviour</b>. Performance is sustained <b>across consecutive scenarios</b>, which is how the difference shows up.</p>
+    <div class="note">Anybody can run one clean lift while being watched. The question the capstone asks is what you do on the fourth one, when the evaluator has stopped writing and the shortcut is available.</div>
+  </section>
+  <section class="slide" id="s11">
+    <div class="kicker">Task A</div>
+    <h2>Time pressure is the test condition, not an excuse</h2>
+    <p>Sequence shortcuts under pressure are the most common capstone failure, and the reason is that pressure is <b>always</b> present in real work. A sequence that only survives an unhurried shift is not a sequence you have.</p>
+    <div class="note">The counter is that the sequence is short and fixed. Slack, load, prove the brake. Confirm balance. Sound the warning. There is no version of a working day that does not have room for it.</div>
+  </section>
+  <section class="slide" id="s12">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.12.A.K1</div>
+    <h2>Question 1</h2>
+    <p class="stem">The full task cycle begins with:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q01',0,'fb01')">Pre-operational inspection</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q01',1,'fb01')">Jurisdiction confirmation</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q01',2,'fb01')">Load weight determination</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q01',3,'fb01')">The pre-lift briefing</button>
+    </div>
+    <div class="quiz-feedback" id="fb01">Correct answer: B. Jurisdiction selects which inspection regime and which rulebook apply, so it comes first.</div>
+  </section>
+  <section class="slide" id="s13">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.12.A.K3</div>
+    <h2>Question 2</h2>
+    <p class="stem">An evaluator has to prompt you before you notice a planted defect. This is recorded as:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q02',0,'fb02')">A pass, since you found it</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q02',1,'fb02')">A minor deduction</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q02',2,'fb02')">A detection failure -- detection is expected without prompting</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q02',3,'fb02')">Not assessed</button>
+    </div>
+    <div class="quiz-feedback" id="fb02">Correct answer: C. The element specifies detection without prompting. The prompt is itself the result.</div>
+  </section>
+  <section class="slide" id="s14">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.12.A.K4</div>
+    <h2>Question 3</h2>
+    <p class="stem">The critical-error requirement in the capstone is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q03',0,'fb03')">No more than one</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q03',1,'fb03')">No more than two on non-safety items</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q03',2,'fb03')">Zero</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q03',3,'fb03')">Scaled to scenario difficulty</button>
+    </div>
+    <div class="quiz-feedback" id="fb03">Correct answer: C. Zero critical errors. A critical error is one that would have injured somebody or wrecked equipment had the scenario been real.</div>
+  </section>
+  <section class="slide section-header" id="s15">
+    <div class="kicker">Task B</div>
+    <h1>Documentation and Records</h1>
+    <p class="lede">Produce and maintain the records that evidence competency and equipment status.</p>
+  </section>
+  <section class="slide" id="s16">
+    <div class="kicker">Task B</div>
+    <h2>Records are the evidentiary layer</h2>
+    <p>`B.K4` is the framing element and it is worth stating plainly: the standard of care is a <b>behaviour</b>, but in any audit, investigation or dispute it is only visible through <b>records</b>. An inspection that happened and was not recorded is, evidentially, an inspection that did not happen.</p>
+    <div class="note">That is not a reason to write fiction. It is a reason to record what you actually did, at the time you did it.</div>
+  </section>
+  <section class="slide" id="s17">
+    <div class="kicker">Task B</div>
+    <h2>The record the standard actually specifies</h2>
+    <p>For hooks (j)(2)(iii), chains (j)(2)(iv) and ropes (m)(1), the certification record is not free-form. It carries three named fields: <b>the date of the inspection</b>, <b>the signature of the person who performed it</b>, and <b>the serial number or other identifier of the item inspected</b>.</p>
+    <div class="note">That third field is the one facility logs most often omit, and it is the one that makes the record mean anything later. A dated tick with no item identifier proves somebody looked at something.</div>
+  </section>
+  <section class="slide" id="s18">
+    <div class="kicker">Task B</div>
+    <h2>Where the records live</h2>
+    <p>&sect;1910.179(m)(1) requires the rope certification record be <b>kept on file where readily available to appointed personnel</b>. &sect;1910.179(k)(2) requires rated load test reports to be <b>on file where readily available to appointed personnel</b>.</p>
+    <div class="note">&#8220;Readily available&#8221; is a real requirement, not a formality. A record in a system nobody can reach on the day of an incident is not on file in any useful sense. Knowing <b>where</b> is part of the competency.</div>
+  </section>
+  <section class="slide" id="s19">
+    <div class="kicker">Task B</div>
+    <h2>Equipment status records</h2>
+    <p>Three documents move a crane through a defect: the <b>deficiency report</b> that raises it, the <b>removal-from-service tag</b> that controls the equipment, and the <b>return-to-service verification</b> that releases it.</p>
+    <div class="note">The standard specifies the middle one in detail &#8212; &sect;1910.179(l)(2)(i) puts signs on the crane <b>and</b> on the floor beneath or on the hook where visible from the floor. And it specifies the third: <b>(l)(2)(ii)</b>, guards reinstalled, safety devices reactivated, maintenance equipment removed; <b>(l)(3)(i)</b>, unsafe conditions corrected before operation resumes.</div>
+  </section>
+  <section class="slide" id="s20">
+    <div class="kicker">Task B</div>
+    <h2>Training and evaluation records</h2>
+    <p>Your personal record package supports somebody else's decision: the <b>employer's</b> qualification determination. It needs to show what you were trained on, what you were evaluated on, by whom, when, and on what equipment.</p>
+    <div class="note">Scope is the part people under-record. <i>&#8220;Overhead crane training&#8221;</i> is not a scope. <i>&#8220;Pendant and radio, 5-ton and 10-ton single-girder, Bay 3 and Bay 4&#8221;</i> is.</div>
+  </section>
+  <section class="slide" id="s21">
+    <div class="kicker">Task B</div>
+    <h2>Retention and audit readiness</h2>
+    <p>Retention periods come from the facility programme and, for some records, from the regulation's own filing requirements. Audit readiness is simpler than it sounds: could you produce the last twelve months of your own records today, without help?</p>
+    <div class="note">If the answer is no, the records exist but the evidentiary layer does not.</div>
+  </section>
+  <section class="slide" id="s22">
+    <div class="kicker">Task B</div>
+    <h2>Records written afterwards</h2>
+    <p>A record completed at the end of the week for four earlier shifts is a reconstruction, and reconstructions are systematically wrong in a specific direction &#8212; they record what should have happened.</p>
+    <div class="note">This is also the failure mode that produces the worst outcome in an investigation, because a record that is provably retrospective damages the credibility of every other record beside it.</div>
+  </section>
+  <section class="slide" id="s23">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.12.B.K2</div>
+    <h2>Question 4</h2>
+    <p class="stem">The certification record for a hook inspection must include:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q04',0,'fb04')">Date only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q04',1,'fb04')">Date and signature</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q04',2,'fb04')">Date, signature, and the item's serial number or other identifier</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q04',3,'fb04')">Date and a photograph</button>
+    </div>
+    <div class="quiz-feedback" id="fb04">Correct answer: C. Three named fields. The item identifier is the one most often omitted and the one that makes the record mean anything later.</div>
+  </section>
+  <section class="slide" id="s24">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.12.B.K5</div>
+    <h2>Question 5</h2>
+    <p class="stem">&sect;1910.179(m)(1) requires the rope certification record to be:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q05',0,'fb05')">Retained for three years</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q05',1,'fb05')">Kept on file where readily available to appointed personnel</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q05',2,'fb05')">Submitted to OSHA</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q05',3,'fb05')">Posted on the crane</button>
+    </div>
+    <div class="quiz-feedback" id="fb05">Correct answer: B. Readily available to appointed personnel. A record nobody can reach on the day of an incident is not usefully on file.</div>
+  </section>
+  <section class="slide" id="s25">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.12.B.R2</div>
+    <h2>Question 6</h2>
+    <p class="stem">An inspection log filled in on Friday for Monday through Thursday is unreliable because a reconstruction records:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q06',0,'fb06')">Too little detail</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q06',1,'fb06')">What should have happened rather than what did</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q06',2,'fb06')">Only the defects found</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q06',3,'fb06')">The wrong inspector</button>
+    </div>
+    <div class="quiz-feedback" id="fb06">Correct answer: B. Reconstructions err in a consistent direction, and a provably retrospective record damages the credibility of every record beside it.</div>
+  </section>
+  <section class="slide section-header" id="s26">
+    <div class="kicker">Task C</div>
+    <h1>Designation Gate and Certification Routing</h1>
+    <p class="lede">Complete the gate architecture appropriate to the operating branch.</p>
+  </section>
+  <section class="slide" id="s27">
+    <div class="kicker">Task C</div>
+    <h2>The Designation Gate, and its citation</h2>
+    <p>&sect;1910.179(b)(8): <i><b>&#8220;Only designated personnel shall be permitted to operate a crane covered by this section.&#8221;</b></i> That single sentence is the Designation Gate.</p>
+    <div class="note">Note what it does <b>not</b> say. It does not require a certificate, a card, or a third party. It requires that the <b>employer designate</b> &#8212; and the employer therefore remains <b>the qualified person</b> making that determination. The same term scopes a second role at <b>(l)(3)(i)</b>: adjustments and repairs only by designated personnel.</div>
+  </section>
+  <section class="slide" id="s28">
+    <div class="kicker">Task C</div>
+    <h2>Why there has to be a second gate</h2>
+    <p>&sect;1910.179(b)(8) is <b>not</b> in the &sect;1926.1438(b)(2) enumeration. On the construction branch it simply does not apply &#8212; so &#8220;designated by the employer&#8221; has no legal force there.</p>
+    <div class="note">That absence is the whole reason the architecture has two gates rather than one. It is not a programme preference; it is what the incorporation list does and does not carry.</div>
+  </section>
+  <section class="slide" id="s29">
+    <div class="kicker">Task C</div>
+    <h2>The Certification Gate, and what is verified about it</h2>
+    <p>On the &sect;1926.1438(b) construction branch, operator qualification comes from <b>&sect;1926.1427</b>. That section <b>does</b> apply: the enumeration at &sect;1926.1438(b)(2)(i) brings in <b>&sect;&sect;1926.1427 through 1434</b>.</p>
+    <div class="note">So the routing is legally sound: facility branch &#8594; designation under &sect;1910.179(b)(8); construction branch &#8594; certification under &sect;1926.1427. <b>Which</b> testing organisation and <b>which</b> administrative route is a programme matter, not a regulatory one &#8212; see the source note.</div>
+  </section>
+  <section class="slide" id="s30">
+    <div class="kicker">Task C</div>
+    <h2>Your designation has edges</h2>
+    <p>A designation is not a licence to operate cranes. It covers named <b>equipment</b>, named <b>control modes</b>, and named <b>environments</b>. Everything outside those names is uncovered, and operating there is outside your designation even though it is the same building and the same skill.</p>
+    <div class="note">Scope drift is quiet: a second crane arrives, a radio unit replaces a pendant, a bay is added. Nobody revokes anything &#8212; the work simply moves past the paper.</div>
+  </section>
+  <section class="slide" id="s31">
+    <div class="kicker">Task C</div>
+    <h2>What brings you back for re-evaluation</h2>
+    <p>Four triggers, and only one is a calendar: <b>new equipment</b> or a new control mode, an <b>incident</b>, an <b>observed deficiency</b>, and <b>lapsed activity</b> &#8212; a long enough gap that currency is in question.</p>
+    <div class="note">The one most often ignored is the incident trigger, because re-evaluation after an event reads as blame. It is not. An incident is evidence that the operating picture changed, and re-evaluation is how the picture gets re-established.</div>
+  </section>
+  <section class="slide" id="s32">
+    <div class="kicker">Task C</div>
+    <h2>What this programme gives you, and what it does not</h2>
+    <p>`C.K5` is the most important element in the track. Completing this programme establishes <b>structured preparation</b> and evidences your <b>standard of care</b>. It does <b>not</b> confer qualification.</p>
+    <div class="note">Qualification is a determination, and it belongs to the <b>controlling entity</b> &#8212; the employer &#8212; who knows the equipment, the site and the work. It is <b>not delegable to a training vendor</b>, including this one. Anybody who tells you a course made you qualified has misdescribed both the course and the law.</div>
+  </section>
+  <section class="slide" id="s33">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.12.C.K1</div>
+    <h2>Question 7</h2>
+    <p class="stem">The Designation Gate rests on:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q07',0,'fb07')">&sect;1926.1427</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q07',1,'fb07')">&sect;1910.179(b)(8) -- only designated personnel shall be permitted to operate</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q07',2,'fb07')">EM 385 16-8.aa(2)</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q07',3,'fb07')">ASME B30.2 by name</button>
+    </div>
+    <div class="quiz-feedback" id="fb07">Correct answer: B. &sect;1910.179(b)(8). It requires employer designation -- not a certificate, and not a third party.</div>
+  </section>
+  <section class="slide" id="s34">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.12.C.K2</div>
+    <h2>Question 8</h2>
+    <p class="stem">On the &sect;1926.1438(b) construction branch, operator qualification comes from:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q08',0,'fb08')">&sect;1910.179(b)(8)</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q08',1,'fb08')">&sect;1926.1427</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q08',2,'fb08')">&sect;1926.1412</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q08',3,'fb08')">EM 385 &sect;16.B.06</button>
+    </div>
+    <div class="quiz-feedback" id="fb08">Correct answer: B. &sect;1926.1427, which applies via the &sect;1926.1438(b)(2)(i) enumeration of &sect;&sect;1926.1427 through 1434.</div>
+  </section>
+  <section class="slide" id="s35">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.12.C.K5</div>
+    <h2>Question 9</h2>
+    <p class="stem">Completing this programme confers qualification.</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q09',0,'fb09')">True</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q09',1,'fb09')">False</button>
+    </div>
+    <div class="quiz-feedback" id="fb09">Correct answer: B. It establishes structured preparation and evidences the standard of care. Qualification is the controlling entity's determination and is not delegable to a training vendor.</div>
+  </section>
+  <section class="slide divider" id="s36">
+    <div class="kicker">Assessment</div>
+    <h1>Final Knowledge Check</h1>
+    <p class="lede">28 questions. This gate requires 100&#37; &#8212; every answer must be
+    correct before the module can be completed.</p>
+    <div class="note">Missed questions are listed for review by number. The correct
+    option is not shown.</div>
+  </section>
+  <section class="slide" id="s37">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.A.K1</div>
+    <h2>Question 10</h2>
+    <p class="stem">The six phases of the full task cycle are jurisdiction confirmation, inspection, planning, communication, execution and:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q10',0,'fb10')">Documentation</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q10',1,'fb10')">Securing</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q10',2,'fb10')">Debriefing</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q10',3,'fb10')">Handover</button>
+    </div>
+    <div class="quiz-feedback" id="fb10">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s38">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.A.K1b</div>
+    <h2>Question 11</h2>
+    <p class="stem">Jurisdiction confirmation comes first in the cycle because it:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q11',0,'fb11')">Is the quickest step</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q11',1,'fb11')">Silently selects which rulebook and which inspection regime apply to everything after it</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q11',2,'fb11')">Is required by the lift plan template</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q11',3,'fb11')">Determines the load weight</button>
+    </div>
+    <div class="quiz-feedback" id="fb11">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s39">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.A.K2</div>
+    <h2>Question 12</h2>
+    <p class="stem">Scenario variation across control modes exists in order to:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q12',0,'fb12')">Extend the assessment time</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q12',1,'fb12')">Test competence rather than a single habit, and expose mode-specific habit transfer</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q12',2,'fb12')">Satisfy the record requirement</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q12',3,'fb12')">Cover every crane in the facility</button>
+    </div>
+    <div class="quiz-feedback" id="fb12">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s40">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.A.K3</div>
+    <h2>Question 13</h2>
+    <p class="stem">Embedded faults in capstone scenarios are:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q13',0,'fb13')">Pointed out by the evaluator before the run</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q13',1,'fb13')">Expected to be detected without prompting</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q13',2,'fb13')">Disclosed in the briefing</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q13',3,'fb13')">Assessed only on the final scenario</button>
+    </div>
+    <div class="quiz-feedback" id="fb13">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s41">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.A.K4</div>
+    <h2>Question 14</h2>
+    <p class="stem">Which of these is a critical error rather than a tolerance deduction?</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q14',0,'fb14')">Placing a load 3 inches outside the marked target</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q14',1,'fb14')">Operating a crane through a known defect</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q14',2,'fb14')">Taking longer than the target time</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q14',3,'fb14')">Sounding the warning twice</button>
+    </div>
+    <div class="quiz-feedback" id="fb14">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s42">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.A.K5</div>
+    <h2>Question 15</h2>
+    <p class="stem">The standard of care is demonstrated as:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q15',0,'fb15')">Test-day performance to a checklist</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q15',1,'fb15')">Consistent behaviour sustained across consecutive scenarios</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q15',2,'fb15')">A single flawless scenario</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q15',3,'fb15')">Completion of all knowledge gates</button>
+    </div>
+    <div class="quiz-feedback" id="fb15">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s43">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.A.R1</div>
+    <h2>Question 16</h2>
+    <p class="stem">An operator completes every checklist item and walks past a defect between them. This is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q16',0,'fb16')">An acceptable pass</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q16',1,'fb16')">Checklist performance without hazard recognition</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q16',2,'fb16')">A documentation failure</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q16',3,'fb16')">A sequence error</button>
+    </div>
+    <div class="quiz-feedback" id="fb16">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s44">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.A.R2</div>
+    <h2>Question 17</h2>
+    <p class="stem">Sequence shortcuts under time pressure are treated seriously because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q17',0,'fb17')">They save little time</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q17',1,'fb17')">Pressure is always present in real work, so a sequence that only survives an unhurried shift is not a sequence you have</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q17',2,'fb17')">They are hard to observe</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q17',3,'fb17')">They affect tolerances</button>
+    </div>
+    <div class="quiz-feedback" id="fb17">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s45">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.A.R3</div>
+    <h2>Question 18</h2>
+    <p class="stem">A cab operator's spatial reference applied while operating from the floor produces:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q18',0,'fb18')">Slower travel</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q18',1,'fb18')">Motion in the wrong direction</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q18',2,'fb18')">Excessive brake wear</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q18',3,'fb18')">A documentation error</button>
+    </div>
+    <div class="quiz-feedback" id="fb18">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s46">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.B.K1</div>
+    <h2>Question 19</h2>
+    <p class="stem">The personal training and evaluation record package exists to support:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q19',0,'fb19')">The training vendor's certificate</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q19',1,'fb19')">The employer's qualification determination</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q19',2,'fb19')">The OSHA inspection file</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q19',3,'fb19')">The crane's inspection history</button>
+    </div>
+    <div class="quiz-feedback" id="fb19">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s47">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.B.K2</div>
+    <h2>Question 20</h2>
+    <p class="stem">The three fields a certification record must carry are:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q20',0,'fb20')">Date, location, load weight</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q20',1,'fb20')">Date, signature of the person who performed the inspection, and the serial number or other identifier of the item</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q20',2,'fb20')">Date, signature, and the next due date</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q20',3,'fb20')">Inspector name, crane number, and shift</button>
+    </div>
+    <div class="quiz-feedback" id="fb20">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s48">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.B.K2b</div>
+    <h2>Question 21</h2>
+    <p class="stem">Which field is most often omitted from facility inspection logs, and most needed later?</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q21',0,'fb21')">The date</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q21',1,'fb21')">The signature</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q21',2,'fb21')">The item's serial number or other identifier</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q21',3,'fb21')">The weather conditions</button>
+    </div>
+    <div class="quiz-feedback" id="fb21">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s49">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.B.K3</div>
+    <h2>Question 22</h2>
+    <p class="stem">The three documents that move a crane through a defect are the deficiency report, the removal-from-service tag, and:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q22',0,'fb22')">The periodic inspection record</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q22',1,'fb22')">The return-to-service verification</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q22',2,'fb22')">The load test report</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q22',3,'fb22')">The operator's designation</button>
+    </div>
+    <div class="quiz-feedback" id="fb22">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s50">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.B.K4</div>
+    <h2>Question 23</h2>
+    <p class="stem">Records are described as the evidentiary layer of the standard of care because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q23',0,'fb23')">Records are the standard of care</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q23',1,'fb23')">The standard is a behaviour, but in audit or investigation it is only visible through records</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q23',2,'fb23')">Records replace performance evaluation</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q23',3,'fb23')">Records are required by the vendor</button>
+    </div>
+    <div class="quiz-feedback" id="fb23">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s51">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.B.K5</div>
+    <h2>Question 24</h2>
+    <p class="stem">&sect;1910.179(k)(2) requires rated load test reports to be:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q24',0,'fb24')">Submitted to the certifying body</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q24',1,'fb24')">On file where readily available to appointed personnel</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q24',2,'fb24')">Posted in the cab</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q24',3,'fb24')">Retained for five years</button>
+    </div>
+    <div class="quiz-feedback" id="fb24">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s52">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.B.R1</div>
+    <h2>Question 25</h2>
+    <p class="stem">An inspection that was performed thoroughly but never recorded is, evidentially:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q25',0,'fb25')">Adequate, since it happened</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q25',1,'fb25')">An inspection that did not happen</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q25',2,'fb25')">A minor documentation gap</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q25',3,'fb25')">Covered by the operator's statement</button>
+    </div>
+    <div class="quiz-feedback" id="fb25">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s53">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.B.R2</div>
+    <h2>Question 26</h2>
+    <p class="stem">Records reconstructed at the end of the week are systematically wrong because they record:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q26',0,'fb26')">Too much detail</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q26',1,'fb26')">What should have happened rather than what did</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q26',2,'fb26')">Only the failures</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q26',3,'fb26')">The wrong dates only</button>
+    </div>
+    <div class="quiz-feedback" id="fb26">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s54">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.B.R3</div>
+    <h2>Question 27</h2>
+    <p class="stem">A status record that does not travel across shifts results in:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q27',0,'fb27')">A retention failure</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q27',1,'fb27')">The next operator discovering the defect with a load on the hook</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q27',2,'fb27')">An audit finding only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q27',3,'fb27')">A scope drift</button>
+    </div>
+    <div class="quiz-feedback" id="fb27">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s55">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.C.K1</div>
+    <h2>Question 28</h2>
+    <p class="stem">&sect;1910.179(b)(8) states that only which personnel shall be permitted to operate a crane covered by the section?</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q28',0,'fb28')">Certified personnel</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q28',1,'fb28')">Designated personnel</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q28',2,'fb28')">Appointed personnel</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q28',3,'fb28')">Qualified personnel</button>
+    </div>
+    <div class="quiz-feedback" id="fb28">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s56">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.C.K1b</div>
+    <h2>Question 29</h2>
+    <p class="stem">The Designation Gate does not reach the construction branch because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q29',0,'fb29')">Employers there cannot designate</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q29',1,'fb29')">&sect;1910.179(b)(8) is not in the &sect;1926.1438(b)(2) enumeration</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q29',2,'fb29')">&sect;1926.1438 prohibits designation</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q29',3,'fb29')">It applies only to cab-operated cranes</button>
+    </div>
+    <div class="quiz-feedback" id="fb29">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s57">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.C.K2</div>
+    <h2>Question 30</h2>
+    <p class="stem">&sect;1926.1427 applies to overhead cranes on the construction branch because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q30',0,'fb30')">It applies to all cranes without exception</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q30',1,'fb30')">&sect;1926.1438(b)(2)(i) brings in &sect;&sect;1926.1427 through 1434</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q30',2,'fb30')">&sect;1910.179 incorporates it</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q30',3,'fb30')">EM 385 requires it</button>
+    </div>
+    <div class="quiz-feedback" id="fb30">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s58">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.C.K3</div>
+    <h2>Question 31</h2>
+    <p class="stem">A designation scope is stated in terms of:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q31',0,'fb31')">Years of experience</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q31',1,'fb31')">Equipment, control modes, and environments</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q31',2,'fb31')">Crane capacity only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q31',3,'fb31')">Facility name only</button>
+    </div>
+    <div class="quiz-feedback" id="fb31">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s59">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.C.K4</div>
+    <h2>Question 32</h2>
+    <p class="stem">Which of these is NOT one of the four re-evaluation triggers?</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q32',0,'fb32')">New equipment or a new control mode</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q32',1,'fb32')">An incident</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q32',2,'fb32')">An observed deficiency</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q32',3,'fb32')">A change of supervisor</button>
+    </div>
+    <div class="quiz-feedback" id="fb32">Correct answer: D.</div>
+  </section>
+  <section class="slide" id="s60">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.C.K5</div>
+    <h2>Question 33</h2>
+    <p class="stem">Programme completion establishes:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q33',0,'fb33')">Qualification to operate</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q33',1,'fb33')">Structured preparation and evidence of the standard of care</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q33',2,'fb33')">A certification recognised by OSHA</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q33',3,'fb33')">An employer designation</button>
+    </div>
+    <div class="quiz-feedback" id="fb33">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s61">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.C.K5b</div>
+    <h2>Question 34</h2>
+    <p class="stem">The qualification determination belongs to:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q34',0,'fb34')">The training vendor</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q34',1,'fb34')">The controlling entity -- the employer</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q34',2,'fb34')">The certifying body</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q34',3,'fb34')">The operator</button>
+    </div>
+    <div class="quiz-feedback" id="fb34">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s62">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.C.R1</div>
+    <h2>Question 35</h2>
+    <p class="stem">A radio unit replaces the pendant on your assigned crane. Your designation:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q35',0,'fb35')">Covers it, since it is the same crane</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q35',1,'fb35')">May not cover the new control mode -- scope must be checked and extended</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q35',2,'fb35')">Automatically extends</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q35',3,'fb35')">Is unaffected because capacity is unchanged</button>
+    </div>
+    <div class="quiz-feedback" id="fb35">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s63">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.C.R2</div>
+    <h2>Question 36</h2>
+    <p class="stem">An operator designated under &sect;1910.179(b)(8) is assigned to a non-permanently-installed crane in construction work. The problem is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q36',0,'fb36')">Nothing -- designation is universal</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q36',1,'fb36')">The construction branch requires certification under &sect;1926.1427; designation has no force there</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q36',2,'fb36')">The crane needs re-rating</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q36',3,'fb36')">A second designation is needed from the same employer</button>
+    </div>
+    <div class="quiz-feedback" id="fb36">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s64">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.12.C.R3</div>
+    <h2>Question 37</h2>
+    <p class="stem">Re-evaluation after an incident is most often skipped because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q37',0,'fb37')">It is not required</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q37',1,'fb37')">It reads as blame rather than as re-establishing the operating picture</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q37',2,'fb37')">Records are unavailable</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M12_q37',3,'fb37')">The operator is unavailable</button>
+    </div>
+    <div class="quiz-feedback" id="fb37">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s65">
+    <h1>Module 12 complete</h1>
+    <div class="completion-panel">
+      <div id="score-summary">Complete the knowledge check to record this module.</div>
+      <div id="review-list"></div>
+    </div>
+  </section>
+</div>
+
+<div id="cq-gatebar">
+  <div id="cq-gatemsg"></div>
+  <button id="cq-gatebtn"></button>
+</div>
+
+<div id="chrome">
+  <button onclick="navigate(-1)">Back</button>
+  <button onclick="navigate(1)">Next</button>
+  <span id="counter"></span>
+</div>
+
+<script>
+var TOTAL=65, current=1;
+function render(){
+  var i;
+  for(i=1;i<=TOTAL;i++){
+    var el=document.getElementById('s'+i);
+    if(el) el.classList.toggle('active', i===current);
+  }
+  var c=document.getElementById('counter');
+  if(c) c.textContent=current+' / '+TOTAL;
+  var st=document.getElementById('stage'); if(st) st.scrollTop=0;
+}
+window.jumpTo=function(n){
+  if(n<1||n>TOTAL) return false;
+  current=n; render(); return true;
+};
+window.navigate=function(dir){
+  var t=current+dir;
+  if(t<1||t>TOTAL) return false;
+  current=t; render(); return true;
+};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight') navigate(1);
+  if(e.key==='ArrowLeft') navigate(-1);
+});
+window.cqAnswer=function(){};
+render();
+</script>
+<script src="cq-module-bridge.js"></script>
+</body>
+</html>

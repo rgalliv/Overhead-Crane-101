@@ -13,7 +13,7 @@ CraneQualified — **Overhead Crane Operator Track (OHC)**. Twelve modules, ACS 
 | `manifests/OHC_M0n.json` | Rebuild source of truth per module — salt, gate set, answer key. |
 | `out/OHC_M01_EquipmentAndJurisdiction.html` | OHC-01. 63 slides, 28 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M02_ComponentsAndSystems.html` | OHC-02. 59 slides, 24 gate items, 0 gaps, CONFORMANT. |
-| `out/OHC_M03_ControlsAndOperatingModes.html` | OHC-03. 59 slides, 24 gate items, 0 gaps, CONFORMANT. |
+| `out/OHC_M03_ControlsAndOperatingModes.html` | OHC-03. 62 slides, 27 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M04_RatedLoadAndWeight.html` | OHC-04. 60 slides, 25 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M05_InspectionRegime.html` | OHC-05. 63 slides, 28 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M06_RiggingInterface.html` | OHC-06. 65 slides, 29 gate items, 0 gaps, CONFORMANT. |
@@ -22,13 +22,22 @@ CraneQualified — **Overhead Crane Operator Track (OHC)**. Twelve modules, ACS 
 | `out/OHC_M09_CommunicationAndSignals.html` | OHC-09. 66 slides, 28 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M10_EnvironmentalHazards.html` | OHC-10. 67 slides, 29 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M11_MalfunctionsAndEmergencies.html` | OHC-11. 66 slides, 28 gate items, 0 gaps, CONFORMANT. |
-| `docs/OHC-ACS-build-spec.md` | **The ACS itself** — all twelve modules, 396 elements, committed verbatim from the authoritative HTML breakdown. Source of truth for every build. |
+| `out/OHC_M12_Capstone.html` | OHC-12. 65 slides, 28 gate items, 0 gaps, CONFORMANT. |
+| `docs/OHC-ACS-build-spec.md` | **The ACS itself** — all twelve modules, 398 elements, committed verbatim from the authoritative HTML breakdown. Source of truth for every build. |
 | `docs/OHC-build-format-spec.md` | Build format, packaging and question architecture for the OHC track, derived from the mobile-crane Developer Handoff (structure only). |
 | `docs/second-brain-crosscheck.md` | Cross-check of the OHC build spec against the CraneQualified Second Brain corpus — citation verification, corpus gaps, build-pipeline conflicts, and recommended order of work. |
 
 ## Status
 
-Track status: **OHC-01 … OHC-11 built** (0 gaps, gates verified); OHC-12 (capstone) not started. Course code **OCO301C**, gate code **OHC-1**, modules **OHC-01 … OHC-12**. Runs **parallel to** the existing six-module overhead course, which continues unchanged. Gate is **100%, server-authoritative**. No revision change to the CraneQualified Competency and Gate Master is made by anything in this repo.
+Track status: **all twelve modules built.** Every module audits at **0 gaps, CONFORMANT**, and every gate is behaviourally verified at 100% with the completion handshake chaining `OHC_M01 → … → OHC_M12 → (end)`.
+
+**Track totals:** 771 slides · **333 gate items** · 292 gated K+R elements · 108 S elements on Performance Evaluation Sheets.
+
+**Element coverage is complete and verified.** A census cross-check against `docs/OHC-ACS-build-spec.md` confirms **every ACS Knowledge and Risk Management element in all twelve modules carries at least one gate item** — 290 ACS elements plus the 2 net-new in OHC-01 = 292, with 41 elements carrying a second item where they hold two independently testable facts. Re-run the check any time with the script in the commit for `Build OHC-12`.
+
+**Census amendment.** The ACS census table totals **398** elements. OHC-01 carries two net-new elements from the Part 1910 map (`A.K7` incorporation by reference, `B.K7` the two-edition split), moving OHC-01 from 17 K to 19 K and the **track total to 400**. The ACS census table needs the same amendment.
+
+Course code **OCO301C**, gate code **OHC-1**, modules **OHC-01 … OHC-12**. Runs **parallel to** the existing six-module overhead course, which continues unchanged. Gate is **100%, server-authoritative**. No revision change to the CraneQualified Competency and Gate Master is made by anything in this repo.
 
 The ACS is committed at `docs/OHC-ACS-build-spec.md`, flattened from the authoritative HTML breakdown rather than re-keyed — element codes and paragraph-letter citations are exactly the content a re-keying would corrupt.
 

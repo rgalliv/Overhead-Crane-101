@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OCO301C Module 5 &#8212; Inspection Regime</title>
+<style>
+:root{--navy:#1B3464;--gold:#C8991A;--ink:#0d1522;--paper:#f5f6f8;--line:#2b4478;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:Calibri,"Segoe UI",system-ui,sans-serif;background:var(--ink);
+     color:var(--paper);overflow:hidden}
+#stage{position:relative;height:100dvh;width:100vw}
+.slide{position:absolute;inset:0;padding:28px 22px 92px;overflow-y:auto;
+       -webkit-overflow-scrolling:touch;opacity:0;pointer-events:none;
+       transition:opacity .28s ease;background:linear-gradient(160deg,#111a2c,#0d1522)}
+.slide.active{opacity:1;pointer-events:auto}
+.slide.section-header,.slide.divider{background:linear-gradient(160deg,var(--navy),#12203c)}
+h1{font-size:1.55rem;line-height:1.25;margin:.2em 0 .5em;color:#fff}
+h2{font-size:1.25rem;margin:.2em 0 .6em;color:var(--gold)}
+p{line-height:1.55;margin:0 0 .9em}
+ul{line-height:1.55;padding-left:1.1em}
+li{margin-bottom:.5em}
+.lede{font-size:1.05rem;color:#cfd6e4}
+.kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+        margin-bottom:.6em;font-weight:700}
+.elem{font-size:.68rem;letter-spacing:.06em;color:#7d8ba6;margin-bottom:.5em;
+      font-family:ui-monospace,Menlo,Consolas,monospace}
+.note{border-left:3px solid var(--gold);padding:.6em .9em;background:#16203a;
+      border-radius:0 6px 6px 0;font-size:.95rem;color:#cfd6e4}
+.stem{font-size:1.05rem;color:#fff}
+.quiz-group{display:flex;flex-direction:column;gap:10px;margin:1em 0}
+.quiz-option{display:block;width:100%;text-align:left;padding:14px 16px;font-size:1rem;
+             font-family:inherit;color:var(--paper);background:#16203a;
+             border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.quiz-option:active{transform:scale(.995)}
+.quiz-option.correct{border-color:#2f9e64;background:#12301f}
+.quiz-option.wrong{border-color:#b4442f;background:#301513}
+.quiz-feedback{display:none;margin-top:.4em;padding:.7em .9em;border-radius:8px;
+               background:#16203a;font-size:.95rem;color:#cfd6e4}
+.quiz-feedback.show{display:block}
+.completion-panel{background:#16203a;border:1px solid var(--line);border-radius:12px;
+                  padding:18px;margin-top:1em}
+.review-item{padding:.5em 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.calc-btn{display:inline-block;width:100%;padding:14px 18px;font-size:1rem;
+          font-family:inherit;font-weight:700;color:#12203c;background:var(--gold);
+          border:0;border-radius:10px;cursor:pointer}
+#chrome{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;
+        padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#0b1220;
+        border-top:1px solid var(--line)}
+#chrome button{padding:10px 16px;font-size:.95rem;font-family:inherit;color:var(--paper);
+               background:#16203a;border:1px solid var(--line);border-radius:8px}
+#counter{font-size:.85rem;color:#7d8ba6;margin-left:auto}
+#score-chip{position:fixed;top:calc(8px + env(safe-area-inset-top));right:12px;
+            padding:6px 12px;font-size:.78rem;font-weight:700;letter-spacing:.05em;
+            color:#12203c;background:var(--gold);border-radius:999px;z-index:20}
+#cq-gatebar{display:none;position:fixed;left:12px;right:12px;
+            bottom:calc(66px + env(safe-area-inset-bottom));padding:12px 14px;
+            background:#16203a;border:1px solid var(--gold);border-radius:10px;
+            font-size:.92rem;color:#fff;z-index:20}
+#cq-gatebtn{display:none;margin-top:10px;padding:10px 16px;font-family:inherit;
+            font-weight:700;color:#12203c;background:var(--gold);border:0;border-radius:8px}
+</style>
+</head>
+<body data-cq-module="OHC_M05" data-cq-total="63" data-cq-gate="OHC-1" data-cq-course="OCO301C">
+
+<div id="score-chip">GATE 0 / 28</div>
+<div id="stage">
+  <section class="slide" id="s1">
+    <div class="kicker">OCO301C &#183; Overhead Crane Operator</div>
+    <h1>Module 5<br>Inspection Regime</h1>
+    <p class="lede">Execute the operator-level inspection, recognise removal-from-service conditions, and feed the periodic programme.</p>
+  </section>
+  <section class="slide" id="s2">
+    <div class="kicker">Objectives</div>
+    <h2>What you will be able to do</h2>
+    <ul>
+      <li>Perform and document the daily and frequent inspection scope for the assigned crane, including the correct limit-switch verification technique.</li>
+      <li>State what the periodic inspection covers, who performs it, and what the operator owes it -- including idle, standby and post-repair return to service.</li>
+      <li>Remove a defective crane from service, control it against use, and hand its status across a shift without information loss.</li>
+    </ul>
+  </section>
+  <section class="slide" id="s3">
+    <div class="kicker">How this module gates</div>
+    <h2>Practice, then the gate</h2>
+    <p>9 practice questions run alongside the content. They are not scored and they
+    show you the correct answer.</p>
+    <p>The <b>Final Knowledge Check</b> that follows is the gate. It requires
+    <b>100&#37;</b> &#8212; every gated answer must be correct. A missed gate question is
+    not revealed; you review and retest.</p>
+    <div class="note">Your live gate score appears in the chip at the top of the screen
+    once the final check begins.</div>
+  </section>
+  <section class="slide section-header" id="s4">
+    <div class="kicker">Task A</div>
+    <h1>Pre-Operational and Frequent Inspection</h1>
+    <p class="lede">Perform the daily and frequent inspection scope for the assigned crane.</p>
+  </section>
+  <section class="slide" id="s5">
+    <div class="kicker">Task A</div>
+    <h2>Two regimes, two clocks</h2>
+    <p>&sect;1910.179(j)(1)(ii) splits inspection into two intervals and names them. <b>Frequent</b> is daily to monthly. <b>Periodic</b> is one to twelve months. Everything in this module sits in one of those two boxes.</p>
+    <div class="note">The operator owns the frequent end. The periodic end belongs to a designated person &#8212; but it runs on what the operator reports.</div>
+  </section>
+  <section class="slide" id="s6">
+    <div class="kicker">Task A</div>
+    <h2>The daily scope</h2>
+    <p>Four things are inspected <b>daily</b> under (j)(2): all functional operating mechanisms for maladjustment interfering with proper operation; deterioration or leakage in air or hydraulic systems; <b>hooks</b> for deformation or cracks; and <b>hoist chains</b> for wear, twisted links, distorted links and stretch.</p>
+    <div class="note">Hooks and chains carry a second obligation: a <b>monthly inspection with a certification record</b>. Daily is visual. Monthly is documented.</div>
+  </section>
+  <section class="slide" id="s7">
+    <div class="kicker">Task A</div>
+    <h2>The certification record has three fields</h2>
+    <p>For hooks (j)(2)(iii), chains (j)(2)(iv) and ropes (m)(1), the record is not free-form. It must carry <b>the date of the inspection, the signature of the person who performed it, and the serial number or other identifier of the item inspected</b>.</p>
+    <div class="note">An inspection log with a date and a tick, and no identifier for the hook, does not satisfy the standard. The item has to be identifiable later.</div>
+  </section>
+  <section class="slide" id="s8">
+    <div class="kicker">Task A</div>
+    <h2>Function checks: every motion, every brake</h2>
+    <p>Run each motion &#8212; hoist, trolley, bridge &#8212; in both directions. Prove each brake holds. Prove the warning device sounds. Prove the emergency stop stops. A crane that moves is not a crane that has been checked.</p>
+    <div class="note">&sect;1910.179(n)(3)(vii) requires the brakes to be tested by lifting the load a few inches and applying the brakes whenever the load approaches rated capacity.</div>
+  </section>
+  <section class="slide" id="s9">
+    <div class="kicker">Task A</div>
+    <h2>The limit switch is a test device, not a control</h2>
+    <p>&sect;1910.179(n)(4)(i) requires the upper limit switch of each hoist to be tried out <b>at the beginning of each shift, under no load</b>. Take it up slowly, or inch it at slow speed into the limit.</p>
+    <div class="note">(n)(4)(ii) then says it plainly: the limit switch <b>shall not be used as an operating control</b>. Something that stops the hoist every shift by design is a device that is wearing out on purpose.</div>
+  </section>
+  <section class="slide" id="s10">
+    <div class="kicker">Task A</div>
+    <h2>Hooks: two figures, one rule for choosing</h2>
+    <p>OSHA (j)(2)(iii) removes a hook at <b>more than 15&#37; in excess of normal throat opening</b>, more than <b>10&#176; twist</b> from the plane of the unbent hook, or any crack. <b>ASME B30.10 is stricter</b> &#8212; 5&#37;, not to exceed &#188; in, plus any visible bend or twist.</p>
+    <div class="note">The rule for choosing, from the DOE Hanford manual's <i>Inconsistent Standards</i> discussion: <b>follow ASME on the criteria, follow OSHA on the records.</b> ASME sets the tighter number; OSHA is what requires the monthly documented inspection.</div>
+  </section>
+  <section class="slide" id="s11">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.05.A.K1</div>
+    <h2>Question 1</h2>
+    <p class="stem">Under &sect;1910.179(j)(1)(ii), the frequent inspection interval is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q01',0,'fb01')">Daily to monthly</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q01',1,'fb01')">Weekly to quarterly</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q01',2,'fb01')">Monthly to annually</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q01',3,'fb01')">Whatever the facility programme sets</button>
+    </div>
+    <div class="quiz-feedback" id="fb01"></div>
+  </section>
+  <section class="slide" id="s12">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.05.A.K3</div>
+    <h2>Question 2</h2>
+    <p class="stem">The upper limit switch is tried out at the start of each shift under no load.</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q02',0,'fb02')">True</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q02',1,'fb02')">False</button>
+    </div>
+    <div class="quiz-feedback" id="fb02"></div>
+  </section>
+  <section class="slide" id="s13">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.05.A.K4</div>
+    <h2>Question 3</h2>
+    <p class="stem">OSHA and ASME give different hook throat-opening limits. The rule for choosing is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q03',0,'fb03')">Always use the OSHA figure because it is regulation</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q03',1,'fb03')">Follow ASME on the criteria and OSHA on the records</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q03',2,'fb03')">Use whichever the employer prefers</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q03',3,'fb03')">Average the two figures</button>
+    </div>
+    <div class="quiz-feedback" id="fb03"></div>
+  </section>
+  <section class="slide section-header" id="s14">
+    <div class="kicker">Task B</div>
+    <h1>Periodic Inspection Interface</h1>
+    <p class="lede">Describe the periodic inspection programme and the operator's interface with it.</p>
+  </section>
+  <section class="slide" id="s15">
+    <div class="kicker">Task B</div>
+    <h2>Whose inspection it is</h2>
+    <p>The periodic inspection is a <b>designated person</b> function. It is not something an operator performs, signs, or substitutes for. What the operator owes it is observations &#8212; the things noticed at the frequent interval that a quarterly walk-down would never see.</p>
+    <div class="note">&sect;1910.179 also uses a second term the ACS does not: <b>appointed person</b>, at (j)(4), (k)(2), (m)(1), (m)(2) and (n)(4)(i). Designated operates. Appointed approves and receives records.</div>
+  </section>
+  <section class="slide" id="s16">
+    <div class="kicker">Task B</div>
+    <h2>What periodic actually covers</h2>
+    <p>(j)(3) names the scope: deformed, cracked or corroded members; loose bolts or rivets; cracked or worn sheaves and drums; worn, cracked or distorted pins, bearings, shafts, gears, rollers, locking and clamping devices; excessive wear on brake parts, linings, pawls and ratchets.</p>
+    <div class="note">It also covers load, wind and other indicators <b>over their full range</b>, powerplants, chain drive sprockets and chain stretch, and <b>electrical apparatus for pitting or deterioration of controller contactors, limit switches and pushbutton stations</b>.</div>
+  </section>
+  <section class="slide" id="s17">
+    <div class="kicker">Task B</div>
+    <h2>Idle and standby cranes</h2>
+    <p>(j)(4) sets three cases. A crane <b>idle one to six months</b> gets the frequent (j)(2) inspection plus the (m)(2) rope inspection before return to service. A crane <b>idle over six months</b> gets a complete (j)(2) <i>and</i> (j)(3) inspection, plus (m)(2).</p>
+    <div class="note"><b>Standby</b> cranes &#8212; not idle, just not in regular use &#8212; get (j)(2) and (m)(2) <b>at least semi-annually</b>.</div>
+  </section>
+  <section class="slide" id="s18">
+    <div class="kicker">Task B</div>
+    <h2>Rope has its own clock</h2>
+    <p>(m)(1) requires <b>a thorough inspection of all running ropes at least once a month</b>, with a certification record kept on file where readily available to appointed personnel.</p>
+    <div class="note">(m)(2): a rope that has been idle a month or more gets a thorough inspection <b>before use, by an appointed person whose approval is required</b>.</div>
+  </section>
+  <section class="slide" id="s19">
+    <div class="kicker">Task B</div>
+    <h2>After a repair, before use</h2>
+    <p>(l)(2)(ii) is the return-to-service rule and it is three conditions, all of them: the crane is not operated until <b>all guards are reinstalled</b>, <b>safety devices are reactivated</b>, and <b>maintenance equipment is removed</b>.</p>
+    <div class="note">A reactivated crane with a bypassed limit switch and a jumper still fitted is the classic post-maintenance incident. Two of the three conditions were met.</div>
+  </section>
+  <section class="slide" id="s20">
+    <div class="kicker">Task B</div>
+    <h2>The construction branch is a different authority</h2>
+    <p>&sect;1910.179(j), (l) and (m) are <b>not</b> in the &sect;1926.1438(b)(2) list. On a crane that is not permanently installed and is used in construction, the inspection duty comes from <b>&sect;1926.1412</b> and wire rope from <b>&sect;1926.1413</b>.</p>
+    <div class="note">Everything else in this module is the facility branch. Know which branch you are on before you quote an interval &#8212; OHC-01 Task B is how you decide.</div>
+  </section>
+  <section class="slide" id="s21">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.05.B.K1</div>
+    <h2>Question 4</h2>
+    <p class="stem">The periodic inspection is performed by the operator at the start of each shift.</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q04',0,'fb04')">True</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q04',1,'fb04')">False</button>
+    </div>
+    <div class="quiz-feedback" id="fb04"></div>
+  </section>
+  <section class="slide" id="s22">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.05.B.K4</div>
+    <h2>Question 5</h2>
+    <p class="stem">A crane idle for eight months requires, before return to service:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q05',0,'fb05')">The frequent inspection only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q05',1,'fb05')">A complete frequent AND periodic inspection, plus the idle-rope inspection</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q05',2,'fb05')">Nothing, if it was serviceable when parked</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q05',3,'fb05')">A rated load test</button>
+    </div>
+    <div class="quiz-feedback" id="fb05"></div>
+  </section>
+  <section class="slide" id="s23">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.05.C.K1</div>
+    <h2>Question 6</h2>
+    <p class="stem">An unsafe condition disclosed by inspection must be corrected before operation resumes.</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q06',0,'fb06')">True</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q06',1,'fb06')">False</button>
+    </div>
+    <div class="quiz-feedback" id="fb06"></div>
+  </section>
+  <section class="slide section-header" id="s24">
+    <div class="kicker">Task C</div>
+    <h1>Deficiency Response and Removal from Service</h1>
+    <p class="lede">Remove defective equipment from service and control it against use.</p>
+  </section>
+  <section class="slide" id="s25">
+    <div class="kicker">Task C</div>
+    <h2>Stop-work is not a request</h2>
+    <p>(l)(3)(i) is the operator's authority in one line: unsafe conditions disclosed by the (j) inspection <b>shall be corrected before operation is resumed</b>. Not logged for later, not worked around, not deferred to the next shift.</p>
+    <div class="note">The same paragraph closes the other half: <b>adjustments and repairs shall be done only by designated personnel</b>. The operator stops the crane. The operator does not fix the crane.</div>
+  </section>
+  <section class="slide" id="s26">
+    <div class="kicker">Task C</div>
+    <h2>Six ways a rope loses strength</h2>
+    <p>(m) names the conditions: reduction of rope diameter below nominal, from loss of core support, internal or external corrosion, or wear of outside wires; the number of broken outside wires <b>and the degree of distribution or concentration</b> of them; worn outside wires.</p>
+    <div class="note">And three more that get forgotten: corroded or broken wires <b>at end connections</b>; corroded, cracked, bent, worn or <b>improperly applied end connections</b>; severe kinking, crushing, cutting or unstranding.</div>
+  </section>
+  <section class="slide" id="s27">
+    <div class="kicker">Task C</div>
+    <h2>Distribution, not just a count</h2>
+    <p>Six broken wires spread over a long length of rope and six broken wires in one strand in one lay are not the same finding. The standard asks for the number <b>and</b> the degree of distribution or concentration.</p>
+    <div class="note">This is what separates reading a rope from counting one. Concentration is the signal &#8212; it says the damage has a cause and a location.</div>
+  </section>
+  <section class="slide" id="s28">
+    <div class="kicker">Task C</div>
+    <h2>Locking the crane out is five steps</h2>
+    <p>(l)(2)(i), in order: run the crane to a location causing <b>least interference</b> with other cranes and operations; put all controllers in the <b>off</b> position; open <b>and lock open</b> the main or emergency switch; hang warning or <b>out-of-order signs</b> on the crane <i>and</i> on the floor beneath or on the hook where visible from the floor.</p>
+    <div class="note">Step five is the one that gets a mechanic hit: where other cranes share the runway, <b>rail stops or other suitable means</b> shall be provided to prevent interference with the idle crane.</div>
+  </section>
+  <section class="slide" id="s29">
+    <div class="kicker">Task C</div>
+    <h2>Hooks are discarded, not repaired</h2>
+    <p>(l)(3)(iii)(a): hooks with the (j)(2)(iii) defects <b>shall be discarded</b>. The standard's own words on the alternative &#8212; <i>&#8220;repairs by welding or reshaping are not generally recommended.&#8221;</i></p>
+    <div class="note">If a repair is attempted at all, it is only under competent supervision, and the hook must be <b>load tested per (k)(2)</b> before it goes back into service.</div>
+  </section>
+  <section class="slide" id="s30">
+    <div class="kicker">Task C</div>
+    <h2>Handing over a defect</h2>
+    <p>A defect that lives only in the finder's head is a defect the next shift will discover with a load on the hook. The tag on the crane, the entry in the log and the spoken handover are three channels and all three are cheap.</p>
+    <div class="note">Where the crane has been taken out of service, the incoming operator needs to know <b>what is wrong, who was told, and what has to happen before it runs again</b>.</div>
+  </section>
+  <section class="slide" id="s31">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.05.C.K2</div>
+    <h2>Question 7</h2>
+    <p class="stem">When assessing broken wires in a rope, the standard asks for:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q07',0,'fb07')">The total count only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q07',1,'fb07')">The count and the degree of distribution or concentration</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q07',2,'fb07')">The rope diameter only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q07',3,'fb07')">The date of last lubrication</button>
+    </div>
+    <div class="quiz-feedback" id="fb07"></div>
+  </section>
+  <section class="slide" id="s32">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.05.C.K3</div>
+    <h2>Question 8</h2>
+    <p class="stem">Out-of-order signs go on the crane and:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q08',0,'fb08')">Nowhere else</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q08',1,'fb08')">On the floor beneath, or on the hook where visible from the floor</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q08',2,'fb08')">In the maintenance office only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q08',3,'fb08')">On the runway rail</button>
+    </div>
+    <div class="quiz-feedback" id="fb08"></div>
+  </section>
+  <section class="slide" id="s33">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.05.C.K4</div>
+    <h2>Question 9</h2>
+    <p class="stem">A hook found with a crack should be:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q09',0,'fb09')">Welded and returned to service</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q09',1,'fb09')">Reshaped by the operator</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q09',2,'fb09')">Discarded</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q09',3,'fb09')">Derated by 50&#37; and monitored</button>
+    </div>
+    <div class="quiz-feedback" id="fb09"></div>
+  </section>
+  <section class="slide divider" id="s34">
+    <div class="kicker">Assessment</div>
+    <h1>Final Knowledge Check</h1>
+    <p class="lede">28 questions. This gate requires 100&#37; &#8212; every answer must be
+    correct before the module can be completed.</p>
+    <div class="note">Missed questions are listed for review by number. The correct
+    option is not shown.</div>
+  </section>
+  <section class="slide" id="s35">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.A.K1</div>
+    <h2>Question 10</h2>
+    <p class="stem">Which of these is inspected <b>daily</b> under &sect;1910.179(j)(2)?</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q10',0,'fb10')">Chain drive sprockets</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q10',1,'fb10')">Deterioration or leakage in air or hydraulic systems</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q10',2,'fb10')">Controller contactors for pitting</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q10',3,'fb10')">Brake linings for excessive wear</button>
+    </div>
+    <div class="quiz-feedback" id="fb10"></div>
+  </section>
+  <section class="slide" id="s36">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.A.K1b</div>
+    <h2>Question 11</h2>
+    <p class="stem">Hooks and hoist chains carry an obligation beyond the daily visual check:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q11',0,'fb11')">An annual load test</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q11',1,'fb11')">A monthly inspection with a certification record</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q11',2,'fb11')">A weekly dye-penetrant test</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q11',3,'fb11')">No further obligation</button>
+    </div>
+    <div class="quiz-feedback" id="fb11"></div>
+  </section>
+  <section class="slide" id="s37">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.A.K2</div>
+    <h2>Question 12</h2>
+    <p class="stem">A complete functional check before operation proves:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q12',0,'fb12')">That the crane moves in at least one direction</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q12',1,'fb12')">Each motion, each brake, the warning device and the emergency stop</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q12',2,'fb12')">Only the hoist, since it carries the load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q12',3,'fb12')">Only the motions used on that shift</button>
+    </div>
+    <div class="quiz-feedback" id="fb12"></div>
+  </section>
+  <section class="slide" id="s38">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.A.K3</div>
+    <h2>Question 13</h2>
+    <p class="stem">The upper limit switch is verified at the beginning of each shift:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q13',0,'fb13')">Under no load, taking it up slowly or inching at slow speed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q13',1,'fb13')">With a test load at full speed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q13',2,'fb13')">Under rated load at slow speed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q13',3,'fb13')">Only after maintenance work</button>
+    </div>
+    <div class="quiz-feedback" id="fb13"></div>
+  </section>
+  <section class="slide" id="s39">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.A.K3b</div>
+    <h2>Question 14</h2>
+    <p class="stem">&sect;1910.179(n)(4)(ii) states that the limit switch:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q14',0,'fb14')">May be used to stop the hoist at the top of routine travel</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q14',1,'fb14')">Shall not be used as an operating control</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q14',2,'fb14')">Should be bypassed once verified</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q14',3,'fb14')">Is optional on cab-operated cranes</button>
+    </div>
+    <div class="quiz-feedback" id="fb14"></div>
+  </section>
+  <section class="slide" id="s40">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.A.K4</div>
+    <h2>Question 15</h2>
+    <p class="stem">The OSHA hook removal criteria at (j)(2)(iii) are cracks, throat opening more than:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q15',0,'fb15')">5&#37; in excess of normal, and 5&#176; twist</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q15',1,'fb15')">10&#37; in excess of normal, and 15&#176; twist</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q15',2,'fb15')">15&#37; in excess of normal, and 10&#176; twist</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q15',3,'fb15')">25&#37; in excess of normal, and any twist</button>
+    </div>
+    <div class="quiz-feedback" id="fb15"></div>
+  </section>
+  <section class="slide" id="s41">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.A.K4b</div>
+    <h2>Question 16</h2>
+    <p class="stem">ASME B30.10 sets a throat-opening limit of 5&#37;, not to exceed &#188; in. Where the two documents differ, the working rule is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q16',0,'fb16')">Follow ASME on the criteria and OSHA on the records</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q16',1,'fb16')">Follow OSHA on everything, as the regulation</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q16',2,'fb16')">Follow whichever is more convenient for the shift</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q16',3,'fb16')">Neither applies unless the manufacturer agrees</button>
+    </div>
+    <div class="quiz-feedback" id="fb16"></div>
+  </section>
+  <section class="slide" id="s42">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.A.K5</div>
+    <h2>Question 17</h2>
+    <p class="stem">A certification record for a monthly hook inspection must carry:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q17',0,'fb17')">The date only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q17',1,'fb17')">The date and the inspector's signature</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q17',2,'fb17')">The date, the inspector's signature, and the serial number or other identifier of the item</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q17',3,'fb17')">A photograph of the hook</button>
+    </div>
+    <div class="quiz-feedback" id="fb17"></div>
+  </section>
+  <section class="slide" id="s43">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.A.R1</div>
+    <h2>Question 18</h2>
+    <p class="stem">Function checks are most often skipped:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q18',0,'fb18')">On the first pick of a new crane</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q18',1,'fb18')">After maintenance work and at shift change</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q18',2,'fb18')">During periodic inspection</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q18',3,'fb18')">When the crane is under load</button>
+    </div>
+    <div class="quiz-feedback" id="fb18"></div>
+  </section>
+  <section class="slide" id="s44">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.A.R2</div>
+    <h2>Question 19</h2>
+    <p class="stem">Testing the upper limit switch under load, or at speed, is hazardous because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q19',0,'fb19')">It wastes shift time</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q19',1,'fb19')">The stopping distance and the momentum of the load can carry the block into the trolley before the switch can act</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q19',2,'fb19')">It voids the manufacturer's warranty</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q19',3,'fb19')">It requires two operators</button>
+    </div>
+    <div class="quiz-feedback" id="fb19"></div>
+  </section>
+  <section class="slide" id="s45">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.A.R3</div>
+    <h2>Question 20</h2>
+    <p class="stem">A defect that has been present and reported for several shifts, with the crane still running, is best described as:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q20',0,'fb20')">Acceptable, since it has been reported</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q20',1,'fb20')">A normalised deviation -- the reporting has replaced the correction</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q20',2,'fb20')">A periodic inspection item</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q20',3,'fb20')">The next shift's problem</button>
+    </div>
+    <div class="quiz-feedback" id="fb20"></div>
+  </section>
+  <section class="slide" id="s46">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.B.K1</div>
+    <h2>Question 21</h2>
+    <p class="stem">The periodic inspection is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q21',0,'fb21')">An operator function at shift start</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q21',1,'fb21')">A designated-person function at one-to-twelve-month intervals</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q21',2,'fb21')">An annual manufacturer visit</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q21',3,'fb21')">A records audit only</button>
+    </div>
+    <div class="quiz-feedback" id="fb21"></div>
+  </section>
+  <section class="slide" id="s47">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.B.K2</div>
+    <h2>Question 22</h2>
+    <p class="stem">The operator's primary contribution to the periodic programme is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q22',0,'fb22')">Performing the periodic inspection when the designated person is unavailable</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q22',1,'fb22')">Reporting observations that trigger inspection escalation</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q22',2,'fb22')">Signing the periodic inspection record</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q22',3,'fb22')">Setting the inspection interval</button>
+    </div>
+    <div class="quiz-feedback" id="fb22"></div>
+  </section>
+  <section class="slide" id="s48">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.B.K3</div>
+    <h2>Question 23</h2>
+    <p class="stem">Before first use of an unfamiliar crane, the operator should establish:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q23',0,'fb23')">Only that the crane runs</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q23',1,'fb23')">Where inspection status is documented and whether it is current</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q23',2,'fb23')">The name of the manufacturer</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q23',3,'fb23')">The date of installation</button>
+    </div>
+    <div class="quiz-feedback" id="fb23"></div>
+  </section>
+  <section class="slide" id="s49">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.B.K4</div>
+    <h2>Question 24</h2>
+    <p class="stem">A crane idle for three months requires, before return to service:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q24',0,'fb24')">Nothing further</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q24',1,'fb24')">The frequent (j)(2) inspection plus the (m)(2) rope inspection</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q24',2,'fb24')">A complete periodic inspection</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q24',3,'fb24')">A rated load test at 125&#37;</button>
+    </div>
+    <div class="quiz-feedback" id="fb24"></div>
+  </section>
+  <section class="slide" id="s50">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.B.K4b</div>
+    <h2>Question 25</h2>
+    <p class="stem">A <b>standby</b> crane is inspected to the frequent and rope scope:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q25',0,'fb25')">Monthly</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q25',1,'fb25')">At least semi-annually</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q25',2,'fb25')">Annually</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q25',3,'fb25')">Only before use</button>
+    </div>
+    <div class="quiz-feedback" id="fb25"></div>
+  </section>
+  <section class="slide" id="s51">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.B.K5</div>
+    <h2>Question 26</h2>
+    <p class="stem">After repairs, &sect;1910.179(l)(2)(ii) requires that the crane not be operated until:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q26',0,'fb26')">The work order is closed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q26',1,'fb26')">All guards are reinstalled, safety devices reactivated, and maintenance equipment removed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q26',2,'fb26')">The next shift begins</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q26',3,'fb26')">A load test is performed</button>
+    </div>
+    <div class="quiz-feedback" id="fb26"></div>
+  </section>
+  <section class="slide" id="s52">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.B.R1</div>
+    <h2>Question 27</h2>
+    <p class="stem">Operating a crane whose periodic inspection has lapsed is a problem because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q27',0,'fb27')">It is an administrative oversight only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q27',1,'fb27')">The deep structural, mechanical and electrical scope that only periodic covers has gone unexamined for an unknown period</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q27',2,'fb27')">The warranty lapses</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q27',3,'fb27')">The crane will not start</button>
+    </div>
+    <div class="quiz-feedback" id="fb27"></div>
+  </section>
+  <section class="slide" id="s53">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.B.R2</div>
+    <h2>Question 28</h2>
+    <p class="stem">An operator notices a new noise in the bridge drive and assumes maintenance already knows. The failure mode is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q28',0,'fb28')">Acceptable if the noise is minor</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q28',1,'fb28')">The observation never enters the programme, so nothing escalates</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q28',2,'fb28')">A periodic inspection defect</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q28',3,'fb28')">A documentation error only</button>
+    </div>
+    <div class="quiz-feedback" id="fb28"></div>
+  </section>
+  <section class="slide" id="s54">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.B.R3</div>
+    <h2>Question 29</h2>
+    <p class="stem">The construction-branch inspection authority for a crane not permanently installed is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q29',0,'fb29')">&sect;1910.179(j)</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q29',1,'fb29')">&sect;1926.1412, with wire rope under &sect;1926.1413</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q29',2,'fb29')">&sect;1926.1438(a)</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q29',3,'fb29')">ASME B30.2 only</button>
+    </div>
+    <div class="quiz-feedback" id="fb29"></div>
+  </section>
+  <section class="slide" id="s55">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.C.K1</div>
+    <h2>Question 30</h2>
+    <p class="stem">&sect;1910.179(l)(3)(i) requires that unsafe conditions disclosed by inspection be:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q30',0,'fb30')">Logged for the next periodic inspection</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q30',1,'fb30')">Corrected before operation is resumed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q30',2,'fb30')">Reported to the manufacturer</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q30',3,'fb30')">Monitored over the following week</button>
+    </div>
+    <div class="quiz-feedback" id="fb30"></div>
+  </section>
+  <section class="slide" id="s56">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.C.K2</div>
+    <h2>Question 31</h2>
+    <p class="stem">Which pair of rope conditions is most often missed by an operator who is only counting broken wires?</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q31',0,'fb31')">Kinking and crushing</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q31',1,'fb31')">Corroded or broken wires at end connections, and improperly applied end connections</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q31',2,'fb31')">Diameter reduction and corrosion</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q31',3,'fb31')">Worn outside wires and unstranding</button>
+    </div>
+    <div class="quiz-feedback" id="fb31"></div>
+  </section>
+  <section class="slide" id="s57">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.C.K3</div>
+    <h2>Question 32</h2>
+    <p class="stem">In the &sect;1910.179(l)(2)(i) lockout sequence, the step most often omitted is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q32',0,'fb32')">Placing controllers in the off position</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q32',1,'fb32')">Locking the main switch open</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q32',2,'fb32')">Providing rail stops or other means to prevent an adjacent crane interfering with the idle crane</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q32',3,'fb32')">Hanging a warning sign</button>
+    </div>
+    <div class="quiz-feedback" id="fb32"></div>
+  </section>
+  <section class="slide" id="s58">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.C.K4</div>
+    <h2>Question 33</h2>
+    <p class="stem">An operator finds a controller that sticks between points. The correct action is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q33',0,'fb33')">Adjust the controller and continue</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q33',1,'fb33')">Remove the crane from service and refer it to designated personnel</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q33',2,'fb33')">Operate using the other motions only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q33',3,'fb33')">Report it at the end of the shift</button>
+    </div>
+    <div class="quiz-feedback" id="fb33"></div>
+  </section>
+  <section class="slide" id="s59">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.C.K5</div>
+    <h2>Question 34</h2>
+    <p class="stem">The disposition of a reported deficiency must record:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q34',0,'fb34')">That it was reported</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q34',1,'fb34')">What was wrong, who was notified, and what must happen before the crane runs again</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q34',2,'fb34')">The operator's name only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q34',3,'fb34')">The date only</button>
+    </div>
+    <div class="quiz-feedback" id="fb34"></div>
+  </section>
+  <section class="slide" id="s60">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.C.R1</div>
+    <h2>Question 35</h2>
+    <p class="stem">A crane with a brake that holds but drifts slightly is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q35',0,'fb35')">Serviceable, because it holds</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q35',1,'fb35')">A degraded condition that must be corrected before operation resumes</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q35',2,'fb35')">An item for the next periodic inspection</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q35',3,'fb35')">Acceptable below 50&#37; of rated load</button>
+    </div>
+    <div class="quiz-feedback" id="fb35"></div>
+  </section>
+  <section class="slide" id="s61">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.C.R2</div>
+    <h2>Question 36</h2>
+    <p class="stem">The most reliable defect handover uses:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q36',0,'fb36')">A verbal mention</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q36',1,'fb36')">The tag on the crane, the entry in the log, and the spoken handover together</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q36',2,'fb36')">The maintenance work order alone</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q36',3,'fb36')">An email to the supervisor</button>
+    </div>
+    <div class="quiz-feedback" id="fb36"></div>
+  </section>
+  <section class="slide" id="s62">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.05.C.R3</div>
+    <h2>Question 37</h2>
+    <p class="stem">An operator who corrects a maintenance-level defect personally has:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q37',0,'fb37')">Saved downtime appropriately</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q37',1,'fb37')">Acted outside &sect;1910.179(l)(3)(i), which reserves adjustments and repairs to designated personnel</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q37',2,'fb37')">Performed a frequent inspection</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M05_q37',3,'fb37')">Satisfied the return-to-service requirement</button>
+    </div>
+    <div class="quiz-feedback" id="fb37"></div>
+  </section>
+  <section class="slide" id="s63">
+    <h1>Module 5 complete</h1>
+    <div class="completion-panel">
+      <div id="score-summary">Complete the knowledge check to record this module.</div>
+      <div id="review-list"></div>
+    <button class="calc-btn" style="max-width:340px;margin-top:14px" onclick="window.dispatchEvent(new CustomEvent('cq-module-complete',{detail:{next:'OHC_M06'}}))">Next: Stage HC Module 6 &gt;</button></div>
+  </section>
+</div>
+
+<div id="cq-gatebar">
+  <div id="cq-gatemsg"></div>
+  <button id="cq-gatebtn"></button>
+</div>
+
+<div id="chrome">
+  <button onclick="navigate(-1)">Back</button>
+  <button onclick="navigate(1)">Next</button>
+  <span id="counter"></span>
+</div>
+
+<script>
+var TOTAL=63, current=1;
+function render(){
+  var i;
+  for(i=1;i<=TOTAL;i++){
+    var el=document.getElementById('s'+i);
+    if(el) el.classList.toggle('active', i===current);
+  }
+  var c=document.getElementById('counter');
+  if(c) c.textContent=current+' / '+TOTAL;
+  var st=document.getElementById('stage'); if(st) st.scrollTop=0;
+}
+window.jumpTo=function(n){
+  if(n<1||n>TOTAL) return false;
+  current=n; render(); return true;
+};
+window.navigate=function(dir){
+  var t=current+dir;
+  if(t<1||t>TOTAL) return false;
+  current=t; render(); return true;
+};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight') navigate(1);
+  if(e.key==='ArrowLeft') navigate(-1);
+});
+window.cqAnswer=function(){};
+render();
+</script>
+<script src="cq-module-bridge.js"></script>
+<script>
+/* ============================================================
+   CraneQualified KC Gate Engine v1  (Stage OHC / OHC_M05)
+   Server-authoritative; installs a local FNV-1a shim ONLY if the
+   platform has not defined window.CQ. Answers are stored as FNV-1a
+   hashes, never plaintext, and the correct option is never revealed
+   on a gate miss. Gate = the final knowledge-check questions at 100%. Forward navigation
+   to the completion slide is locked until the gate passes.
+   ============================================================ */
+(function(){
+"use strict";
+var SALT="CQ1:OHC_M05_InspectionRegime";
+var HASHES={"OHC_M05_q01": "c030812f", "OHC_M05_q02": "8491c2de", "OHC_M05_q03": "6a1f3dd2", "OHC_M05_q04": "2f434e27", "OHC_M05_q05": "03bd26a0", "OHC_M05_q06": "c7e13562", "OHC_M05_q07": "aeabe4d6", "OHC_M05_q08": "73cff52b", "OHC_M05_q09": "eb71ddad", "OHC_M05_q10": "5f858fce", "OHC_M05_q11": "7af8166d", "OHC_M05_q12": "34960818", "OHC_M05_q13": "bf1cc52c", "OHC_M05_q14": "9af81f4a", "OHC_M05_q15": "136b3850", "OHC_M05_q16": "f2469727", "OHC_M05_q17": "fc68485e", "OHC_M05_q18": "36443676", "OHC_M05_q19": "51b6bd15", "OHC_M05_q20": "a8e318d5", "OHC_M05_q21": "8d709236", "OHC_M05_q22": "0e07fb87", "OHC_M05_q23": "63be3f00", "OHC_M05_q24": "e455a851", "OHC_M05_q25": "c8e321b2", "OHC_M05_q26": "2a907db3", "OHC_M05_q27": "1f3197fc", "OHC_M05_q28": "d224722d", "OHC_M05_q29": "b6b1eb8e", "OHC_M05_q30": "2d6aea50", "OHC_M05_q31": "58f111d7", "OHC_M05_q32": "d61c7273", "OHC_M05_q33": "f28efaa5", "OHC_M05_q34": "68dd79cc", "OHC_M05_q35": "743c5f83", "OHC_M05_q36": "93cd0182", "OHC_M05_q37": "ae0253a1"};
+var GATE=["OHC_M05_q10", "OHC_M05_q11", "OHC_M05_q12", "OHC_M05_q13", "OHC_M05_q14", "OHC_M05_q15", "OHC_M05_q16", "OHC_M05_q17", "OHC_M05_q18", "OHC_M05_q19", "OHC_M05_q20", "OHC_M05_q21", "OHC_M05_q22", "OHC_M05_q23", "OHC_M05_q24", "OHC_M05_q25", "OHC_M05_q26", "OHC_M05_q27", "OHC_M05_q28", "OHC_M05_q29", "OHC_M05_q30", "OHC_M05_q31", "OHC_M05_q32", "OHC_M05_q33", "OHC_M05_q34", "OHC_M05_q35", "OHC_M05_q36", "OHC_M05_q37"];
+var GATESET=new Set(GATE);
+var LOCK_AFTER=62;            /* completion slide (63) blocked until gate passes */
+var gatePassed=false, answered={}, gateOK={};
+
+function fnv(s){var h=0x811c9dc5;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0;}return ('0000000'+h.toString(16)).slice(-8);}
+
+/* 1) Local CQ shim (platform can pre-define window.CQ and win) */
+if(!window.CQ){
+  window.CQ={
+    scoreAnswer:function(qid,idx){
+      var correct=fnv(SALT+':'+qid+':'+idx)===HASHES[qid];
+      var isGate=GATESET.has(qid), out={correct:correct};
+      if(!isGate){
+        for(var i=0;i<4;i++){ if(fnv(SALT+':'+qid+':'+i)===HASHES[qid]){out.correctIndex=i;break;} }
+        out.feedbackHtml = correct ? 'Correct.' : 'Not correct \u2014 the correct option is now highlighted. Review the reasoning, then continue.';
+      } else {
+        out.feedbackHtml = correct ? 'Correct.' : 'Not correct. This gate requires 100% \u2014 the correct answer is not shown. Review the module and retest.';
+      }
+      return Promise.resolve(out);
+    },
+    requestComplete:function(){
+      var right=0,i; for(i=0;i<GATE.length;i++){ if(gateOK[GATE[i]]) right++; }
+      var passed=right===GATE.length, score=right+' / '+GATE.length;
+      if(passed){ gatePassed=true; setTimeout(function(){ document.dispatchEvent(new CustomEvent('cq-complete',{detail:{completionId:'local-'+Date.now()}})); },300); }
+      return Promise.resolve({passed:passed,score:score});
+    },
+    ack:function(){}
+  };
+}
+document.addEventListener('cq-complete',function(){ gatePassed=true; });
+
+/* gate-bar + tracking helpers */
+function bar(){return document.getElementById('cq-gatebar');}
+function btn(){return document.getElementById('cq-gatebtn');}
+function msg(t){var m=document.getElementById('cq-gatemsg'); if(m)m.textContent=t; var b=bar(); if(b)b.style.display='block';}
+function gateRight(){var r=0,i;for(i=0;i<GATE.length;i++)if(gateOK[GATE[i]])r++;return r;}
+function chip(){var c=document.getElementById('score-chip'); if(c)c.textContent='GATE '+gateRight()+' / '+GATE.length;}
+function buildReview(passed,score){
+  var sum=document.getElementById('score-summary'), list=document.getElementById('review-list');
+  if(sum) sum.textContent = passed ? ('Knowledge check passed \u2014 '+score+' (100%).') : ('Gate score '+score+'. This gate requires 100%. Review the items below, then retest.');
+  if(list){ list.innerHTML='';
+    if(!passed){ var i; for(i=0;i<GATE.length;i++){ if(GATE[i] in gateOK && !gateOK[GATE[i]]){ var d=document.createElement('div'); d.className='review-item'; d.innerHTML='<b>Final Question '+(Number(GATE[i].match(/(\d+)$/)[1])-9)+'</b> - revisit this topic before retesting.'; list.appendChild(d); } } }
+  }
+}
+
+/* 2) Answer handler (bound to existing cqAnswer(this,qid,idx,fbid) onclicks) */
+window.cqAnswer=async function(b,qid,idx,fbid){
+  if(answered[qid])return; answered[qid]=true;
+  var grp=b.parentElement;
+  grp.querySelectorAll('.quiz-option').forEach(function(o){o.disabled=true;o.style.pointerEvents='none';o.classList.remove('correct','wrong');});
+  var r=await CQ.scoreAnswer(qid,idx);
+  b.classList.add(r.correct?'correct':'wrong');
+  var isGate=GATESET.has(qid), fb=fbid?document.getElementById(fbid):null;
+  if(!isGate){
+    if(!r.correct && typeof r.correctIndex==='number'){ var os=grp.querySelectorAll('.quiz-option'); if(os[r.correctIndex]) os[r.correctIndex].classList.add('correct'); }
+    if(fb){ fb.textContent=r.feedbackHtml; fb.classList.add('show'); }
+  } else {
+    gateOK[qid]=r.correct;
+    if(fb){ fb.textContent=r.feedbackHtml; fb.classList.add('show'); }
+    chip();
+    if(GATE.every(function(q){return q in gateOK;})) checkGate();
+  }
+};
+
+async function checkGate(){
+  msg('Submitting knowledge check...'); var bt=btn(); if(bt)bt.style.display='none';
+  var r=await CQ.requestComplete();
+  buildReview(r.passed,r.score);
+  if(r.passed){ msg('Knowledge check passed ('+r.score+'). You may continue to completion.'); }
+  else{ msg('Not yet - this gate requires 100%. Review the module, then retest.');
+        if(bt){ bt.style.display='inline-block'; bt.textContent='Review and Retest'; bt.onclick=function(){location.reload();}; } }
+}
+
+document.addEventListener('cq-complete',function(){ msg('Module complete - recorded by the platform.'); var bt=btn(); if(bt)bt.style.display='none'; chip(); if(window.CQ&&CQ.ack)CQ.ack(); });
+document.addEventListener('cq-denied',function(){ msg('Completion denied by the platform. Review and retest.'); });
+
+/* 3) Forward navigation lock - completion slide (63) blocked until gate passes */
+function blocked(t){ return !gatePassed && t>LOCK_AFTER; }
+if(typeof window.navigate==='function'){
+  var _nav=window.navigate;
+  window.navigate=function(dir){
+    var tgt=(typeof current!=='undefined'?current:1)+dir;
+    if(blocked(tgt)){ msg('Pass the knowledge check (100%) before completing the module.'); if(typeof window.jumpTo==='function')window.jumpTo(LOCK_AFTER); return; }
+    return _nav(dir);
+  };
+}
+if(typeof window.jumpTo==='function'){
+  var _jmp=window.jumpTo;
+  window.jumpTo=function(n){ if(blocked(n)){ msg('Pass the knowledge check (100%) before completing the module.'); return _jmp(LOCK_AFTER); } return _jmp(n); };
+}
+
+/* platform progress beacon + initial chip */
+window.addEventListener('load',function(){
+  if(window.CQ&&CQ.start){try{CQ.start();}catch(e){}}
+  if(window.CQ&&CQ.slide){ var _n2=window.navigate; window.navigate=function(d){var rr=_n2(d); try{CQ.slide(current,TOTAL);}catch(e){} return rr;}; }
+  chip();
+});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OCO301C Module 6 &#8212; Rigging Interface and Below-the-Hook Devices</title>
+<style>
+:root{--navy:#1B3464;--gold:#C8991A;--ink:#0d1522;--paper:#f5f6f8;--line:#2b4478;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:Calibri,"Segoe UI",system-ui,sans-serif;background:var(--ink);
+     color:var(--paper);overflow:hidden}
+#stage{position:relative;height:100dvh;width:100vw}
+.slide{position:absolute;inset:0;padding:28px 22px 92px;overflow-y:auto;
+       -webkit-overflow-scrolling:touch;opacity:0;pointer-events:none;
+       transition:opacity .28s ease;background:linear-gradient(160deg,#111a2c,#0d1522)}
+.slide.active{opacity:1;pointer-events:auto}
+.slide.section-header,.slide.divider{background:linear-gradient(160deg,var(--navy),#12203c)}
+h1{font-size:1.55rem;line-height:1.25;margin:.2em 0 .5em;color:#fff}
+h2{font-size:1.25rem;margin:.2em 0 .6em;color:var(--gold)}
+p{line-height:1.55;margin:0 0 .9em}
+ul{line-height:1.55;padding-left:1.1em}
+li{margin-bottom:.5em}
+.lede{font-size:1.05rem;color:#cfd6e4}
+.kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+        margin-bottom:.6em;font-weight:700}
+.elem{font-size:.68rem;letter-spacing:.06em;color:#7d8ba6;margin-bottom:.5em;
+      font-family:ui-monospace,Menlo,Consolas,monospace}
+.note{border-left:3px solid var(--gold);padding:.6em .9em;background:#16203a;
+      border-radius:0 6px 6px 0;font-size:.95rem;color:#cfd6e4}
+.stem{font-size:1.05rem;color:#fff}
+.quiz-group{display:flex;flex-direction:column;gap:10px;margin:1em 0}
+.quiz-option{display:block;width:100%;text-align:left;padding:14px 16px;font-size:1rem;
+             font-family:inherit;color:var(--paper);background:#16203a;
+             border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.quiz-option:active{transform:scale(.995)}
+.quiz-option.correct{border-color:#2f9e64;background:#12301f}
+.quiz-option.wrong{border-color:#b4442f;background:#301513}
+.quiz-feedback{display:none;margin-top:.4em;padding:.7em .9em;border-radius:8px;
+               background:#16203a;font-size:.95rem;color:#cfd6e4}
+.quiz-feedback.show{display:block}
+.completion-panel{background:#16203a;border:1px solid var(--line);border-radius:12px;
+                  padding:18px;margin-top:1em}
+.review-item{padding:.5em 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.calc-btn{display:inline-block;width:100%;padding:14px 18px;font-size:1rem;
+          font-family:inherit;font-weight:700;color:#12203c;background:var(--gold);
+          border:0;border-radius:10px;cursor:pointer}
+#chrome{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;
+        padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#0b1220;
+        border-top:1px solid var(--line)}
+#chrome button{padding:10px 16px;font-size:.95rem;font-family:inherit;color:var(--paper);
+               background:#16203a;border:1px solid var(--line);border-radius:8px}
+#counter{font-size:.85rem;color:#7d8ba6;margin-left:auto}
+#score-chip{position:fixed;top:calc(8px + env(safe-area-inset-top));right:12px;
+            padding:6px 12px;font-size:.78rem;font-weight:700;letter-spacing:.05em;
+            color:#12203c;background:var(--gold);border-radius:999px;z-index:20}
+#cq-gatebar{display:none;position:fixed;left:12px;right:12px;
+            bottom:calc(66px + env(safe-area-inset-bottom));padding:12px 14px;
+            background:#16203a;border:1px solid var(--gold);border-radius:10px;
+            font-size:.92rem;color:#fff;z-index:20}
+#cq-gatebtn{display:none;margin-top:10px;padding:10px 16px;font-family:inherit;
+            font-weight:700;color:#12203c;background:var(--gold);border:0;border-radius:8px}
+</style>
+</head>
+<body data-cq-module="OHC_M06" data-cq-total="65" data-cq-gate="OHC-1" data-cq-course="OCO301C">
+
+<div id="score-chip">GATE 0 / 29</div>
+<div id="stage">
+  <section class="slide" id="s1">
+    <div class="kicker">OCO301C &#183; Overhead Crane Operator</div>
+    <h1>Module 6<br>Rigging Interface and Below-the-Hook Devices</h1>
+    <p class="lede">Attach loads correctly at the hook, work within device markings, and prove balance before the load leaves the ground.</p>
+  </section>
+  <section class="slide" id="s2">
+    <div class="kicker">Objectives</div>
+    <h2>What you will be able to do</h2>
+    <ul>
+      <li>Verify sling tag, condition and hitch at the hook, and reject deficient rigging with a stated reason.</li>
+      <li>Operate with engineered below-the-hook devices inside their markings, accounting for device weight and power dependency.</li>
+      <li>Prove the hook is over the centre of gravity with a test lift before committing to the hoist, and control the load in travel.</li>
+    </ul>
+  </section>
+  <section class="slide" id="s3">
+    <div class="kicker">How this module gates</div>
+    <h2>Practice, then the gate</h2>
+    <p>9 practice questions run alongside the content. They are not scored and they
+    show you the correct answer.</p>
+    <p>The <b>Final Knowledge Check</b> that follows is the gate. It requires
+    <b>100&#37;</b> &#8212; every gated answer must be correct. A missed gate question is
+    not revealed; you review and retest.</p>
+    <div class="note">Your live gate score appears in the chip at the top of the screen
+    once the final check begins.</div>
+  </section>
+  <section class="slide section-header" id="s4">
+    <div class="kicker">Task A</div>
+    <h1>Sling Interface</h1>
+    <p class="lede">Verify sling selection, condition and hitch configuration at the hook.</p>
+  </section>
+  <section class="slide" id="s5">
+    <div class="kicker">Task A</div>
+    <h2>Where the operator's role starts and stops</h2>
+    <p>Rigging is a discipline of its own and it does not change because the hook above it belongs to an overhead crane rather than a mobile one. The governing documents are the same: <b>ASME B30.9</b> for slings, <b>B30.10</b> for hooks, <b>B30.26</b> for rigging hardware and <b>B30.20</b> for below-the-hook devices.</p>
+    <div class="note">This module is the <b>interface</b>, not the rigging course. The operator's duty is to verify what arrives at the hook and to refuse what is not right &#8212; not to design the lift. Rigger qualification is a separate track.</div>
+  </section>
+  <section class="slide" id="s6">
+    <div class="kicker">Task A</div>
+    <h2>The tag is the capacity</h2>
+    <p>Every sling carries a tag, and the tag &#8212; not the diameter, not the look of it &#8212; is the capacity. It states type, size, and <b>different rated loads for vertical, choker and basket</b> hitches.</p>
+    <div class="note">A worn-off rating cannot be estimated from the sling's dimension. Capacity depends on type, construction and grade. Two slings of the same diameter can have very different ratings. <b>No legible tag, no lift.</b></div>
+  </section>
+  <section class="slide" id="s7">
+    <div class="kicker">Task A</div>
+    <h2>Four hitches, three capacities</h2>
+    <p><b>Vertical</b> is the rated capacity, and it needs an engineered lift point. <b>Choker</b> derates &#8212; and derates further if drawn tight: when the angle of choke falls below <b>120&#176;</b>, the choker rating in the table must be reduced again.</p>
+    <div class="note">In controlled destructive tests below 120&#176;, the sling body <b>always failed at the point of choke</b>. <b>Basket</b> can double the capacity, but only at a steep angle &#8212; and <b>bridle</b> is where most of the arithmetic errors live.</div>
+  </section>
+  <section class="slide" id="s8">
+    <div class="kicker">Task A</div>
+    <h2>Why a shallow angle multiplies the load</h2>
+    <p>Leg tension is the load divided by the number of legs times the sine of the sling angle. At <b>60&#176;</b> a leg carries about 87&#37; of what it would at vertical. At <b>45&#176;</b>, 71&#37;. At <b>30&#176;</b>, 50&#37;.</p>
+    <div class="note">The 30&#176; case is the one worth memorising: <b>at a 30&#176; sling angle, each leg of a two-leg bridle carries the entire load weight.</b> Two legs have bought nothing. A basket hitch at 30&#176; is exactly a vertical hitch.</div>
+  </section>
+  <section class="slide" id="s9">
+    <div class="kicker">Task A</div>
+    <h2>Three and four legs are not three and four times</h2>
+    <p>Unless the load is perfectly rigid and the legs are exactly equal, load does not share evenly. The DOE Hanford manual puts it bluntly: <i>&#8220;unless the load is flexible, it is wrong to assume that a 3- or 4-leg hitch will safely&#8221;</i> carry proportionally more.</p>
+    <div class="note">The working assumption is that <b>two legs carry the load while the others balance it</b>. The master link is the other trap &#8212; it carries the <b>sum</b> of all leg loads, not one leg's share.</div>
+  </section>
+  <section class="slide" id="s10">
+    <div class="kicker">Task A</div>
+    <h2>At the hook: saddle, latch, no tip</h2>
+    <p>The rated load of a hook <b>applies only when the load is applied in the saddle</b> &#8212; the bowl. Move the load off centre and capacity falls: roughly 86&#37;, 80&#37;, then 70&#37; as it walks outward, and about <b>40&#37;</b> as a point load at the tip.</p>
+    <div class="note">Hooks are provided with a latch to bridge the throat and prevent the load line escaping. Hook tips should <b>point out and away from the load</b>, so that as slack comes up the hook does not tip-load itself.</div>
+  </section>
+  <section class="slide" id="s11">
+    <div class="kicker">Task A</div>
+    <h2>Softeners are not optional dressing</h2>
+    <p>A sling bent over a sharp corner is a sling being cut. Wire rope is protected with <b>softeners or blocking</b> at corners and sharp bends; synthetics need it more, not less.</p>
+    <div class="note">There is a second reason beyond cutting. The <b>D/d ratio</b> &#8212; the diameter of the bend against the diameter of the rope &#8212; costs about <b>50&#37; efficiency</b> when it falls to 1:1. A tight bend derates the sling even if it never cuts it.</div>
+  </section>
+  <section class="slide" id="s12">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.06.A.K1</div>
+    <h2>Question 1</h2>
+    <p class="stem">A sling with an illegible rated-load tag may be used if its diameter matches a known sling.</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q01',0,'fb01')">True</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q01',1,'fb01')">False</button>
+    </div>
+    <div class="quiz-feedback" id="fb01">Correct answer: B. Capacity depends on type, construction and grade, not dimension. No legible tag, no lift.</div>
+  </section>
+  <section class="slide" id="s13">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.06.A.K3</div>
+    <h2>Question 2</h2>
+    <p class="stem">A two-leg bridle lifts a 24,000 lb load at a 45&#176; sling angle. Tension in each leg is about:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q02',0,'fb02')">12,000 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q02',1,'fb02')">16,970 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q02',2,'fb02')">24,000 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q02',3,'fb02')">8,500 lb</button>
+    </div>
+    <div class="quiz-feedback" id="fb02">Correct answer: B. Leg tension = 24,000 / (2 x sin 45&#176;) = 24,000 / 1.414 = 16,970 lb per leg.</div>
+  </section>
+  <section class="slide" id="s14">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.06.A.K3b</div>
+    <h2>Question 3</h2>
+    <p class="stem">At a 30&#176; sling angle, each leg of a two-leg bridle carries:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q03',0,'fb03')">Half the load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q03',1,'fb03')">The full load weight</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q03',2,'fb03')">A quarter of the load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q03',3,'fb03')">70&#37; of the load</button>
+    </div>
+    <div class="quiz-feedback" id="fb03">Correct answer: B. 24,000 / (2 x 0.500) = 24,000 lb per leg. Two legs have bought nothing at 30&#176;.</div>
+  </section>
+  <section class="slide section-header" id="s15">
+    <div class="kicker">Task B</div>
+    <h1>Below-the-Hook Lifting Devices</h1>
+    <p class="lede">Operate with engineered lifting devices within their markings and instructions.</p>
+  </section>
+  <section class="slide" id="s16">
+    <div class="kicker">Task B</div>
+    <h2>What a below-the-hook device is</h2>
+    <p><b>ASME B30.20</b> covers the engineered hardware that hangs below the hook and takes the load: spreader and lifting beams, C-hooks, coil and sheet lifters, vacuum lifters and lifting magnets.</p>
+    <div class="note">It is engineered equipment, not rigging hardware. It has a design basis, a rated load, and instructions &#8212; and the instructions are part of the equipment.</div>
+  </section>
+  <section class="slide" id="s17">
+    <div class="kicker">Task B</div>
+    <h2>Three markings, all required</h2>
+    <p>A below-the-hook device must carry its <b>rated capacity</b>, its <b>manufacturer or fabricator identification</b>, and be <b>designed for the load configuration</b> it is being used in. All three, not any one of them.</p>
+    <div class="note">The inspection tag is a permanent tag on slings, hooks and below-the-hook devices carrying the safe working load, the inspection date and the serial number. Check it before use, not after.</div>
+  </section>
+  <section class="slide" id="s18">
+    <div class="kicker">Task B</div>
+    <h2>The device weighs something</h2>
+    <p>A spreader beam is not free. Its weight is part of the load on the hook, and it comes out of the crane's rated capacity before the payload does.</p>
+    <div class="note">A 12,000 lb crane with a 900 lb beam and 300 lb of slings has <b>10,800 lb</b> of payload available. This is the same arithmetic as OHC-04 and it is the one people skip when the beam is already hanging there from the last job.</div>
+  </section>
+  <section class="slide" id="s19">
+    <div class="kicker">Task B</div>
+    <h2>Power-dependent devices fail open</h2>
+    <p>A lifting magnet or a vacuum lifter holds the load because energy is being supplied to it. Remove the energy and the holding force goes away &#8212; which is a different failure mode from every other piece of rigging on site.</p>
+    <div class="note">Check the battery state and the alarm function as part of the pre-use check. Know what the device does on power loss and whether it has backup provision. Then treat the zone under it as if the load will drop, because that is the failure mode.</div>
+  </section>
+  <section class="slide" id="s20">
+    <div class="kicker">Task B</div>
+    <h2>Engagement before transfer</h2>
+    <p>Full engagement is verified <b>before</b> load is transferred to the device, not during. On a C-hook or a coil lifter that means seated and captured; on a magnet or vacuum lifter it means contact area clean, full and confirmed.</p>
+    <div class="note">The verification itself is a hazard. Nobody stands under, reaches into, or steadies a device that is about to take load. Verify by eye and by position, from clear.</div>
+  </section>
+  <section class="slide" id="s21">
+    <div class="kicker">Task B</div>
+    <h2>Where the crane's own provisions come in</h2>
+    <p>The overhead crane has requirements of its own that bear on these devices &#8212; hoist control braking and the provisions for lifting magnets sit within the ASME scope that <b>EM 385-1-1 &sect;16</b> references for this equipment class on federal work.</p>
+    <div class="note">Practically: a magnet changes what the hoist brake has to do, and the crane's electrical provisions have to support the device. It is not simply a lump on the hook.</div>
+  </section>
+  <section class="slide" id="s22">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.06.A.K4</div>
+    <h2>Question 4</h2>
+    <p class="stem">A hook's rated load applies when the load is applied:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q04',0,'fb04')">Anywhere on the hook</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q04',1,'fb04')">In the saddle of the hook</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q04',2,'fb04')">At the tip</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q04',3,'fb04')">Against the latch</button>
+    </div>
+    <div class="quiz-feedback" id="fb04">Correct answer: B. The designed safe working load applies only in the saddle. Tip loading falls to roughly 40&#37;.</div>
+  </section>
+  <section class="slide" id="s23">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.06.B.K2</div>
+    <h2>Question 5</h2>
+    <p class="stem">A 15,000 lb crane uses a 1,200 lb spreader beam and 400 lb of slings. Available payload is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q05',0,'fb05')">15,000 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q05',1,'fb05')">13,800 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q05',2,'fb05')">13,400 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q05',3,'fb05')">14,600 lb</button>
+    </div>
+    <div class="quiz-feedback" id="fb05">Correct answer: C. 15,000 - 1,200 - 400 = 13,400 lb. Device and rigging weight come off first.</div>
+  </section>
+  <section class="slide" id="s24">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.06.B.K3</div>
+    <h2>Question 6</h2>
+    <p class="stem">A lifting magnet that loses power will hold the load until it is set down.</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q06',0,'fb06')">True</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q06',1,'fb06')">False</button>
+    </div>
+    <div class="quiz-feedback" id="fb06">Correct answer: B. Holding force comes from supplied energy. Power loss releases the load unless a backup provision exists.</div>
+  </section>
+  <section class="slide section-header" id="s25">
+    <div class="kicker">Task C</div>
+    <h1>Load Balance and Centre of Gravity</h1>
+    <p class="lede">Achieve balanced, controlled loads before movement.</p>
+  </section>
+  <section class="slide" id="s26">
+    <div class="kicker">Task C</div>
+    <h2>The hook goes over the centre of gravity</h2>
+    <p>A load hangs level when the hook is directly above its centre of gravity. Not above the geometric centre &#8212; above the <b>CG</b>. A skid with a motor on one end has a CG toward the motor, and symmetric lift points will tilt it.</p>
+    <div class="note">Bridle slings give excellent stability when load is distributed equally among the legs, the hook is directly over the CG, and the load is raised level. Where legs must differ, they are adjusted with turnbuckles or lever hoists &#8212; not by knotting or twisting.</div>
+  </section>
+  <section class="slide" id="s27">
+    <div class="kicker">Task C</div>
+    <h2>The rule is in the regulation</h2>
+    <p>&sect;1910.179(n)(3)(ii) is short and it is the whole of the test lift: <i>the load shall be <b>well secured and properly balanced in the sling or lifting device before it is lifted more than a few inches</b></i>.</p>
+    <div class="note">This paragraph is in the &sect;1926.1438(b) list, so it applies on <b>both</b> branches. It is one of the few load-handling rules that does.</div>
+  </section>
+  <section class="slide" id="s28">
+    <div class="kicker">Task C</div>
+    <h2>What the few inches are for</h2>
+    <p>Lift a few inches and stop. In that pause you check three things: the brake holds with <b>no downward drift</b>; the load hangs level; and the rigging and hardware are taking load the way you expected.</p>
+    <div class="note">A load that tilts at six inches will tilt at sixty feet. The tilt does not self-correct as the load rises &#8212; it persists, and the steep leg carries more than its share for the whole lift.</div>
+  </section>
+  <section class="slide" id="s29">
+    <div class="kicker">Task C</div>
+    <h2>Correcting an off-CG condition</h2>
+    <p>Set it back down. Move the rigging points toward the heavy side. Test lift again and confirm level before proceeding. That is the entire procedure and there is no shortcut inside it.</p>
+    <div class="note">Tag lines do not substitute for correct rigging. A tilted load held straight by people on ropes is still a tilted load with an overloaded leg.</div>
+  </section>
+  <section class="slide" id="s30">
+    <div class="kicker">Task C</div>
+    <h2>Tag lines, and the way they injure people</h2>
+    <p>A tag line controls orientation from outside the load's footprint. It is never <b>wrapped around a hand, wrist or body</b> &#8212; a sudden swing puts the load's full momentum into the line, and a wrapped line cannot be released.</p>
+    <div class="note">Loose grip only, always. Near energised lines, fibre rope is non-conductive only while clean and dry; contaminated or wet rope conducts, and a rated non-conductive tag line is required.</div>
+  </section>
+  <section class="slide" id="s31">
+    <div class="kicker">Task C</div>
+    <h2>A suspended load is a pendulum</h2>
+    <p>The load hangs from a point and behaves like one. Acceleration starts a swing; deceleration at the far end doubles it. The swing does not stop when the trolley stops &#8212; it is at its worst then.</p>
+    <div class="note">&sect;1910.179(n)(3)(vi) is the reason it matters: <b>the operator shall not carry loads over people</b>. A swinging load's footprint is far larger than the load. All personnel, the rigger included, stay clear.</div>
+  </section>
+  <section class="slide" id="s32">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.06.C.K1</div>
+    <h2>Question 7</h2>
+    <p class="stem">A load hangs level when the hook is directly above:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q07',0,'fb07')">The geometric centre of the load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q07',1,'fb07')">The centre of gravity of the load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q07',2,'fb07')">The heaviest lift point</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q07',3,'fb07')">The longest sling leg</button>
+    </div>
+    <div class="quiz-feedback" id="fb07">Correct answer: B. Level hang means hook over CG. On an asymmetric load the CG is not the geometric centre.</div>
+  </section>
+  <section class="slide" id="s33">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.06.C.K2</div>
+    <h2>Question 8</h2>
+    <p class="stem">A load that tilts at a six-inch test lift will straighten as it rises.</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q08',0,'fb08')">True</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q08',1,'fb08')">False</button>
+    </div>
+    <div class="quiz-feedback" id="fb08">Correct answer: B. The tilt persists. Set down, move the rigging points toward the heavy side, and re-test.</div>
+  </section>
+  <section class="slide" id="s34">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.06.C.K4</div>
+    <h2>Question 9</h2>
+    <p class="stem">Wrapping a tag line around the hand for grip is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q09',0,'fb09')">Good practice on heavy loads</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q09',1,'fb09')">Acceptable with gloves</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q09',2,'fb09')">Prohibited -- a swing cannot be released from a wrapped line</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q09',3,'fb09')">Required near power lines</button>
+    </div>
+    <div class="quiz-feedback" id="fb09">Correct answer: C. A sudden swing transfers the load's full momentum into the line. Loose grip only.</div>
+  </section>
+  <section class="slide divider" id="s35">
+    <div class="kicker">Assessment</div>
+    <h1>Final Knowledge Check</h1>
+    <p class="lede">29 questions. This gate requires 100&#37; &#8212; every answer must be
+    correct before the module can be completed.</p>
+    <div class="note">Missed questions are listed for review by number. The correct
+    option is not shown.</div>
+  </section>
+  <section class="slide" id="s36">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.A.K1</div>
+    <h2>Question 10</h2>
+    <p class="stem">The rated capacity of a sling is established by:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q10',0,'fb10')">Its diameter</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q10',1,'fb10')">Its identification tag, which states different ratings for vertical, choker and basket</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q10',2,'fb10')">The crane's capacity</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q10',3,'fb10')">The rigger's judgement</button>
+    </div>
+    <div class="quiz-feedback" id="fb10">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s37">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.A.K2</div>
+    <h2>Question 11</h2>
+    <p class="stem">A choker hitch drawn tight so the angle of choke falls below 120&#176; must be:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q11',0,'fb11')">Used at the table choker rating</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q11',1,'fb11')">Derated further below the table choker rating</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q11',2,'fb11')">Used at the vertical rating</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q11',3,'fb11')">Used at the basket rating</button>
+    </div>
+    <div class="quiz-feedback" id="fb11">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s38">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.A.K2b</div>
+    <h2>Question 12</h2>
+    <p class="stem">Under the working assumption used for multi-leg bridles, a four-leg bridle should be rated on the basis that:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q12',0,'fb12')">All four legs share equally</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q12',1,'fb12')">Three legs share the load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q12',2,'fb12')">Two legs carry the load while the others balance it</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q12',3,'fb12')">The longest leg governs</button>
+    </div>
+    <div class="quiz-feedback" id="fb12">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s39">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.A.K3</div>
+    <h2>Question 13</h2>
+    <p class="stem">A two-leg bridle lifts a 30,000 lb load at a 45&#176; sling angle. Tension per leg is about:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q13',0,'fb13')">10,600 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q13',1,'fb13')">15,000 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q13',2,'fb13')">21,200 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q13',3,'fb13')">30,000 lb</button>
+    </div>
+    <div class="quiz-feedback" id="fb13">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s40">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.A.K3b</div>
+    <h2>Question 14</h2>
+    <p class="stem">A basket hitch at a 30&#176; sling angle, compared with a vertical hitch using the same sling, gives:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q14',0,'fb14')">Double the capacity</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q14',1,'fb14')">50&#37; more capacity</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q14',2,'fb14')">The same effective capacity</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q14',3,'fb14')">Less than a vertical hitch</button>
+    </div>
+    <div class="quiz-feedback" id="fb14">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s41">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.A.K4</div>
+    <h2>Question 15</h2>
+    <p class="stem">The rated load of a hook applies only when the load is applied in the saddle. A point load at the tip reduces capacity to roughly:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q15',0,'fb15')">86&#37;</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q15',1,'fb15')">70&#37;</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q15',2,'fb15')">40&#37;</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q15',3,'fb15')">100&#37; -- the hook is rated for any position</button>
+    </div>
+    <div class="quiz-feedback" id="fb15">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s42">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.A.K4b</div>
+    <h2>Question 16</h2>
+    <p class="stem">Hook tips should point out and away from the load because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q16',0,'fb16')">It looks tidier</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q16',1,'fb16')">As slack comes up the hook will not tip-load itself</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q16',2,'fb16')">It makes the latch easier to close</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q16',3,'fb16')">It reduces sling wear</button>
+    </div>
+    <div class="quiz-feedback" id="fb16">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s43">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.A.K5</div>
+    <h2>Question 17</h2>
+    <p class="stem">Beyond preventing cuts, softeners and blocking at a sharp bend also address:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q17',0,'fb17')">Corrosion</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q17',1,'fb17')">The D/d ratio, which costs about 50&#37; efficiency at 1:1</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q17',2,'fb17')">Temperature rating</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q17',3,'fb17')">Tag legibility</button>
+    </div>
+    <div class="quiz-feedback" id="fb17">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s44">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.A.R1</div>
+    <h2>Question 18</h2>
+    <p class="stem">A sling arrives at the hook with no legible tag. The operator should:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q18',0,'fb18')">Estimate capacity from its diameter</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q18',1,'fb18')">Use it below 50&#37; of an assumed rating</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q18',2,'fb18')">Refuse the lift and state the reason</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q18',3,'fb18')">Accept it if the rigger vouches for it</button>
+    </div>
+    <div class="quiz-feedback" id="fb18">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s45">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.A.R2</div>
+    <h2>Question 19</h2>
+    <p class="stem">Hoisting with the load off-centre of the hook is hazardous because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q19',0,'fb19')">It looks unprofessional</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q19',1,'fb19')">It side-loads the hook outside its rated condition and can deform or open it</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q19',2,'fb19')">It wears the sling tag</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q19',3,'fb19')">It slows the lift</button>
+    </div>
+    <div class="quiz-feedback" id="fb19">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s46">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.A.R3</div>
+    <h2>Question 20</h2>
+    <p class="stem">A crew improvises a shallower sling angle to clear an obstruction. The consequence is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q20',0,'fb20')">No change -- the load weight is unchanged</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q20',1,'fb20')">Leg tension rises sharply, and may exceed the rated capacity of the legs</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q20',2,'fb20')">The load becomes more stable</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q20',3,'fb20')">The choker rating applies instead</button>
+    </div>
+    <div class="quiz-feedback" id="fb20">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s47">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.B.K1</div>
+    <h2>Question 21</h2>
+    <p class="stem">Which of these is a below-the-hook lifting device under ASME B30.20?</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q21',0,'fb21')">A wire rope sling</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q21',1,'fb21')">A shackle</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q21',2,'fb21')">A vacuum lifter</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q21',3,'fb21')">A master link</button>
+    </div>
+    <div class="quiz-feedback" id="fb21">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s48">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.B.K2</div>
+    <h2>Question 22</h2>
+    <p class="stem">A below-the-hook lifting device must carry:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q22',0,'fb22')">A rated capacity label only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q22',1,'fb22')">Rated capacity, manufacturer or fabricator identification, and design for the load configuration in use</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q22',2,'fb22')">A proof-load certificate only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q22',3,'fb22')">Any marking at the manufacturer's discretion</button>
+    </div>
+    <div class="quiz-feedback" id="fb22">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s49">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.B.K2b</div>
+    <h2>Question 23</h2>
+    <p class="stem">A 20,000 lb crane is fitted with a 1,500 lb lifting beam and 500 lb of slings. Available payload is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q23',0,'fb23')">20,000 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q23',1,'fb23')">18,500 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q23',2,'fb23')">18,000 lb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q23',3,'fb23')">19,500 lb</button>
+    </div>
+    <div class="quiz-feedback" id="fb23">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s50">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.B.K3</div>
+    <h2>Question 24</h2>
+    <p class="stem">The pre-use check specific to a magnet or vacuum lifter, beyond the structural check, is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q24',0,'fb24')">Throat opening measurement</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q24',1,'fb24')">Battery state, alarm function, and the device's behaviour on power loss</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q24',2,'fb24')">Sling angle measurement</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q24',3,'fb24')">Choker angle verification</button>
+    </div>
+    <div class="quiz-feedback" id="fb24">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s51">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.B.K4</div>
+    <h2>Question 25</h2>
+    <p class="stem">A lifting magnet matters to the crane itself because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q25',0,'fb25')">It changes the crane's rated capacity marking</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q25',1,'fb25')">Hoist control braking and lifting-magnet provisions are requirements on the crane, not just the device</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q25',2,'fb25')">It requires a longer hook</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q25',3,'fb25')">It changes the duty class</button>
+    </div>
+    <div class="quiz-feedback" id="fb25">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s52">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.B.K5</div>
+    <h2>Question 26</h2>
+    <p class="stem">Full engagement of a below-the-hook device is verified:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q26',0,'fb26')">During load transfer</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q26',1,'fb26')">Before load is transferred to the device</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q26',2,'fb26')">Once the load is clear of the ground</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q26',3,'fb26')">At the destination</button>
+    </div>
+    <div class="quiz-feedback" id="fb26">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s53">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.B.R1</div>
+    <h2>Question 27</h2>
+    <p class="stem">The zone beneath a powered lifting device should be treated as:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q27',0,'fb27')">Normal working area once the load is engaged</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q27',1,'fb27')">A drop zone, because power loss releases the load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q27',2,'fb27')">Safe while the alarm is silent</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q27',3,'fb27')">Restricted only during engagement</button>
+    </div>
+    <div class="quiz-feedback" id="fb27">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s54">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.B.R2</div>
+    <h2>Question 28</h2>
+    <p class="stem">A spreader beam is used for a load configuration different from the one it was designed for, but well below its rated capacity. This is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q28',0,'fb28')">Acceptable, since the load is within capacity</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q28',1,'fb28')">Not acceptable -- the device must be designed for the configuration in use</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q28',2,'fb28')">Acceptable if a rigger approves</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q28',3,'fb28')">Acceptable below 50&#37; of rating</button>
+    </div>
+    <div class="quiz-feedback" id="fb28">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s55">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.B.R3</div>
+    <h2>Question 29</h2>
+    <p class="stem">The correct way to verify engagement on a coil lifter is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q29',0,'fb29')">By hand, steadying the device as it takes load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q29',1,'fb29')">By eye, from a clear position outside the load's footprint</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q29',2,'fb29')">By listening for the seating sound while under the load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q29',3,'fb29')">By lifting to head height and looking up</button>
+    </div>
+    <div class="quiz-feedback" id="fb29">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s56">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.C.K1</div>
+    <h2>Question 30</h2>
+    <p class="stem">&sect;1910.179(n)(3)(ii) requires that the load be well secured and properly balanced in the sling or lifting device:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q30',0,'fb30')">Before it is lifted more than a few inches</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q30',1,'fb30')">Before it reaches travel height</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q30',2,'fb30')">Before the trolley is moved</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q30',3,'fb30')">Before the load is landed</button>
+    </div>
+    <div class="quiz-feedback" id="fb30">Correct answer: A.</div>
+  </section>
+  <section class="slide" id="s57">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.C.K2</div>
+    <h2>Question 31</h2>
+    <p class="stem">During the pause at the test lift, the operator confirms the brake holds with:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q31',0,'fb31')">A slight, even downward drift</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q31',1,'fb31')">No downward drift</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q31',2,'fb31')">Drift only under rated load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q31',3,'fb31')">Drift within one inch per minute</button>
+    </div>
+    <div class="quiz-feedback" id="fb31">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s58">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.C.K3</div>
+    <h2>Question 32</h2>
+    <p class="stem">The correct response to a load that hangs tilted at the test lift is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q32',0,'fb32')">Continue -- it will straighten with height</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q32',1,'fb32')">Hoist faster to reduce tilt time</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q32',2,'fb32')">Set down, move the rigging points toward the heavy side, and test lift again</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q32',3,'fb32')">Hold it level with tag lines during travel</button>
+    </div>
+    <div class="quiz-feedback" id="fb32">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s59">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.C.K3b</div>
+    <h2>Question 33</h2>
+    <p class="stem">Where bridle legs must differ in length to level a load, they are adjusted with:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q33',0,'fb33')">Knots in the shorter leg</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q33',1,'fb33')">Twisting the leg to shorten it</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q33',2,'fb33')">Turnbuckles or lever hoists</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q33',3,'fb33')">Wire rope clips</button>
+    </div>
+    <div class="quiz-feedback" id="fb33">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s60">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.C.K4</div>
+    <h2>Question 34</h2>
+    <p class="stem">A tag line is held:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q34',0,'fb34')">Wrapped once around the hand for grip</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q34',1,'fb34')">Wrapped around the wrist</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q34',2,'fb34')">With a loose grip that allows instant release</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q34',3,'fb34')">Tied to a fixed point</button>
+    </div>
+    <div class="quiz-feedback" id="fb34">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s61">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.C.K5</div>
+    <h2>Question 35</h2>
+    <p class="stem">A suspended load's swing is generally worst:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q35',0,'fb35')">While accelerating</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q35',1,'fb35')">At constant travel speed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q35',2,'fb35')">As the trolley or bridge decelerates and stops</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q35',3,'fb35')">While hoisting</button>
+    </div>
+    <div class="quiz-feedback" id="fb35">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s62">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.C.R1</div>
+    <h2>Question 36</h2>
+    <p class="stem">Hoisting an unbalanced load to full height is hazardous chiefly because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q36',0,'fb36')">The load looks untidy</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q36',1,'fb36')">The steep leg is overloaded for the whole lift and the load may shift</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q36',2,'fb36')">The crane draws more current</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q36',3,'fb36')">The tag line will be too short</button>
+    </div>
+    <div class="quiz-feedback" id="fb36">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s63">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.C.R2</div>
+    <h2>Question 37</h2>
+    <p class="stem">Correcting a load's balance by hand while it hangs is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q37',0,'fb37')">Acceptable at low height</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q37',1,'fb37')">Acceptable with gloves</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q37',2,'fb37')">Prohibited -- all personnel including the rigger stay clear of the load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q37',3,'fb37')">Acceptable if the load is under 2,000 lb</button>
+    </div>
+    <div class="quiz-feedback" id="fb37">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s64">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.06.C.R3</div>
+    <h2>Question 38</h2>
+    <p class="stem">Standard fibre tag lines near energised lines are inadequate because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q38',0,'fb38')">They stretch too much</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q38',1,'fb38')">Fibre rope conducts when wet or contaminated, so a rated non-conductive line is required</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q38',2,'fb38')">They are too short</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M06_q38',3,'fb38')">They cannot be gripped loosely</button>
+    </div>
+    <div class="quiz-feedback" id="fb38">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s65">
+    <h1>Module 6 complete</h1>
+    <div class="completion-panel">
+      <div id="score-summary">Complete the knowledge check to record this module.</div>
+      <div id="review-list"></div>
+    </div>
+  </section>
+</div>
+
+<div id="cq-gatebar">
+  <div id="cq-gatemsg"></div>
+  <button id="cq-gatebtn"></button>
+</div>
+
+<div id="chrome">
+  <button onclick="navigate(-1)">Back</button>
+  <button onclick="navigate(1)">Next</button>
+  <span id="counter"></span>
+</div>
+
+<script>
+var TOTAL=65, current=1;
+function render(){
+  var i;
+  for(i=1;i<=TOTAL;i++){
+    var el=document.getElementById('s'+i);
+    if(el) el.classList.toggle('active', i===current);
+  }
+  var c=document.getElementById('counter');
+  if(c) c.textContent=current+' / '+TOTAL;
+  var st=document.getElementById('stage'); if(st) st.scrollTop=0;
+}
+window.jumpTo=function(n){
+  if(n<1||n>TOTAL) return false;
+  current=n; render(); return true;
+};
+window.navigate=function(dir){
+  var t=current+dir;
+  if(t<1||t>TOTAL) return false;
+  current=t; render(); return true;
+};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight') navigate(1);
+  if(e.key==='ArrowLeft') navigate(-1);
+});
+window.cqAnswer=function(){};
+render();
+</script>
+<script src="cq-module-bridge.js"></script>
+</body>
+</html>

@@ -213,6 +213,12 @@ GATE = [
       "operator certification section",
       "No requirement", "A state-issued licence only"], 1,
      ""),
+    (0, "OHC.01.C.K4",
+     "On federal work, the Certificate of Compliance submitted for each piece of load "
+     "handling equipment brought on site must be signed by:",
+     ["The crane operator", "A Competent Person for Crane and Rigging",
+      "The equipment supplier", "Any site supervisor"], 1,
+     ""),
     (31, "OHC.01.C.K5",
      "Which pairing is correct?",
      ["Designated personnel operate; an appointed person carries defined inspection and "
@@ -225,6 +231,11 @@ GATE = [
      "A completion certificate from a training programme is sufficient evidence that an "
      "operator is qualified.",
      ["True", "False"], 1,
+     ""),
+    (0, "OHC.01.C.R2",
+     "On federal work, load handling equipment shall be operated only by personnel who are:",
+     ["Available and willing", "Trained, qualified and designated",
+      "Employed by the prime contractor", "Over 21 years of age"], 1,
      ""),
     (33, "OHC.01.C.R3",
      "When operator, inspector and maintenance roles are not documented, the primary "

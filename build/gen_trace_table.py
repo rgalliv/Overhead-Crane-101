@@ -43,8 +43,10 @@ META = {
     "OHC.01.C.K1": ("The **controlling entity** determines qualification", "Gate Master Rev 1.3 &sect;11.2, A2", "OK"),
     "OHC.01.C.K2": ("Designation Gate &mdash; only designated personnel may operate", "**&sect;1910.179(b)(8)** + **(a)(35)**", "OK"),
     "OHC.01.C.K3": ("Certification Gate on the construction branch", "&sect;1926.1427", "NCCCO"),
+    "OHC.01.C.K4": ("Competent Person for Crane and Rigging signs the **Certificate of Compliance** for each piece of LHE brought on site", "**EM 385 &sect;16.A.02**", "NEW"),
     "OHC.01.C.K5": ("Designation vs **appointed person** vs maintenance qualified person", "&sect;1910.179(b)(8), (l)(3)(i), (m)(1)", "OK"),
     "OHC.01.C.R1": ("Course completion is not qualification", "Gate Master &sect;11.2", "OK"),
+    "OHC.01.C.R2": ("LHE operated **only by trained, qualified and designated personnel**", "**EM 385 &sect;16.B.01**", "NEW"),
     "OHC.01.C.R3": ("Blurred accountability when roles are undocumented", "derived", "OK"),
 }
 
@@ -58,10 +60,6 @@ STATUS = {
 HELD = [
     ("`OHC.01.B.K3` *(2nd aspect)*", "The enumerated ASME B30.2-2005 section list at &sect;1926.1438(b)(2)(ii)",
      "Archived Subpart CC scan is column-interleaved OCR and unreadable at that passage. B30.2-2005 is now in the vault, so it can be checked from both ends."),
-    ("`OHC.01.C.K4`", "Competent Person (Cranes and Rigging) on federal work",
-     "Sits in EM 385 Section 16's general and qualifications paragraphs, outside the overhead subsection already read."),
-    ("`OHC.01.C.R2`", "Written designation on federal work",
-     "Same source as above."),
 ]
 
 PERF = [
@@ -70,7 +68,7 @@ PERF = [
     ("OHC.01.A.S3", "Locate and interpret equipment identification and capacity markings"),
     ("OHC.01.B.S1", "Walk the installation-status decision tree and state the governing regime"),
     ("OHC.01.B.S2", "Identify which certification or designation attaches on each branch"),
-    ("OHC.01.B.S3", "Classify a crane as EM 385 Class I or Class II &mdash; *pending &sect;16 general read*"),
+    ("OHC.01.B.S3", "Classify a crane as EM 385 Class I or Class II &mdash; &sect;16.C.02 / &sect;16.C.05"),
     ("OHC.01.C.S1", "State who issued their designation, what it covers, and its limits"),
     ("OHC.01.C.S2", "Produce designation and training records on request"),
     ("OHC.01.C.S3", "Refuse an assignment outside the scope of designation"),
@@ -165,9 +163,11 @@ def main():
     L.append("")
     L.append("## Held back &mdash; not authored")
     L.append("")
-    L.append("Three K/R elements have no gate item because their source cannot yet be read. "
-             "They are absent rather than invented. Adding them is a manifest edit plus a "
-             "pipeline re-run, not a rebuild.")
+    L.append("%s below %s no gate item because the source cannot yet be read. Absent "
+             "rather than invented \u2014 adding it is a manifest edit plus a pipeline "
+             "re-run, not a rebuild."
+             % ("One element" if len(HELD) == 1 else "%d elements" % len(HELD),
+                "has" if len(HELD) == 1 else "have"))
     L.append("")
     L.append("| Element | Claim | Blocked on |")
     L.append("|---|---|---|")

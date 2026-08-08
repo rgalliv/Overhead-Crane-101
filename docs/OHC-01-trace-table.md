@@ -4,7 +4,7 @@
 
 **Module:** OHC-01 Equipment Types, Configurations, and Jurisdictional Framework  
 **Course:** OCO301C &middot; **Gate:** OHC-1 &middot; **File:** `OHC_M01_EquipmentAndJurisdiction.html`  
-**Slides:** 61 &middot; **Gate items:** 26 &middot; **Practice:** 9 &middot; **Performance:** 9 &middot; **Pass:** 100%, server-authoritative  
+**Slides:** 63 &middot; **Gate items:** 28 &middot; **Practice:** 9 &middot; **Performance:** 9 &middot; **Pass:** 100%, server-authoritative  
 **Salt:** `CQ1:OHC_M01_EquipmentAndJurisdiction` &middot; **Next:** `OHC_M02` &middot; **review_offset:** 9
 
 ---
@@ -56,9 +56,11 @@
 | `OHC_M01_q30` | `OHC.01.C.K1` | The **controlling entity** determines qualification | MC | Gate Master Rev 1.3 &sect;11.2, A2 | &#9989; |
 | `OHC_M01_q31` | `OHC.01.C.K2` | Designation Gate &mdash; only designated personnel may operate | MC | **&sect;1910.179(b)(8)** + **(a)(35)** | &#9989; |
 | `OHC_M01_q32` | `OHC.01.C.K3` | Certification Gate on the construction branch | MC | &sect;1926.1427 | &#9888;&#65039; *cite the reg* |
-| `OHC_M01_q33` | `OHC.01.C.K5` | Designation vs **appointed person** vs maintenance qualified person | MC | &sect;1910.179(b)(8), (l)(3)(i), (m)(1) | &#9989; |
-| `OHC_M01_q34` | `OHC.01.C.R1` | Course completion is not qualification | TF | Gate Master &sect;11.2 | &#9989; |
-| `OHC_M01_q35` | `OHC.01.C.R3` | Blurred accountability when roles are undocumented | MC | derived | &#9989; |
+| `OHC_M01_q33` | `OHC.01.C.K4` | Competent Person for Crane and Rigging signs the **Certificate of Compliance** for each piece of LHE brought on site | MC | **EM 385 &sect;16.A.02** | &#9989; **new** |
+| `OHC_M01_q34` | `OHC.01.C.K5` | Designation vs **appointed person** vs maintenance qualified person | MC | &sect;1910.179(b)(8), (l)(3)(i), (m)(1) | &#9989; |
+| `OHC_M01_q35` | `OHC.01.C.R1` | Course completion is not qualification | TF | Gate Master &sect;11.2 | &#9989; |
+| `OHC_M01_q36` | `OHC.01.C.R2` | LHE operated **only by trained, qualified and designated personnel** | MC | **EM 385 &sect;16.B.01** | &#9989; **new** |
+| `OHC_M01_q37` | `OHC.01.C.R3` | Blurred accountability when roles are undocumented | MC | derived | &#9989; |
 
 ---
 
@@ -89,7 +91,7 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment a
 | `OHC01-P03` | `OHC.01.A.S3` | Locate and interpret equipment identification and capacity markings |
 | `OHC01-P04` | `OHC.01.B.S1` | Walk the installation-status decision tree and state the governing regime |
 | `OHC01-P05` | `OHC.01.B.S2` | Identify which certification or designation attaches on each branch |
-| `OHC01-P06` | `OHC.01.B.S3` | Classify a crane as EM 385 Class I or Class II &mdash; *pending &sect;16 general read* |
+| `OHC01-P06` | `OHC.01.B.S3` | Classify a crane as EM 385 Class I or Class II &mdash; &sect;16.C.02 / &sect;16.C.05 |
 | `OHC01-P07` | `OHC.01.C.S1` | State who issued their designation, what it covers, and its limits |
 | `OHC01-P08` | `OHC.01.C.S2` | Produce designation and training records on request |
 | `OHC01-P09` | `OHC.01.C.S3` | Refuse an assignment outside the scope of designation |
@@ -98,13 +100,11 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment a
 
 ## Held back &mdash; not authored
 
-Three K/R elements have no gate item because their source cannot yet be read. They are absent rather than invented. Adding them is a manifest edit plus a pipeline re-run, not a rebuild.
+One element below has no gate item because the source cannot yet be read. Absent rather than invented — adding it is a manifest edit plus a pipeline re-run, not a rebuild.
 
 | Element | Claim | Blocked on |
 |---|---|---|
 | `OHC.01.B.K3` *(2nd aspect)* | The enumerated ASME B30.2-2005 section list at &sect;1926.1438(b)(2)(ii) | Archived Subpart CC scan is column-interleaved OCR and unreadable at that passage. B30.2-2005 is now in the vault, so it can be checked from both ends. |
-| `OHC.01.C.K4` | Competent Person (Cranes and Rigging) on federal work | Sits in EM 385 Section 16's general and qualifications paragraphs, outside the overhead subsection already read. |
-| `OHC.01.C.R2` | Written designation on federal work | Same source as above. |
 
 ---
 

@@ -21,7 +21,9 @@ ST = {
     "OK": "&#9989;",
     "ED2014": "&#9989; *2014 text*",
     "CONFLICT": "&#9888;&#65039; *conflict resolved*",
-    "GAP": "&#9888;&#65039; *primary text open*",
+    "GAP": "&#9888;&#65039; *ACS gap filled*",
+    "ACSFIX": "&#9888;&#65039; *ACS corrected*",
+    "OPEN": "&#9888;&#65039; *primary text open*",
 }
 
 

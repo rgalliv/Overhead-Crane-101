@@ -386,7 +386,7 @@ TRACE_SOURCE = {
     "OHC.05.B.K5": ("**&sect;1910.179(l)(2)(ii)**", "OK"),
     "OHC.05.B.R1": ("derived", "OK"),
     "OHC.05.B.R2": ("derived", "OK"),
-    "OHC.05.B.R3": ("**&sect;1926.1412 &middot; &sect;1926.1413**", "GAP"),
+    "OHC.05.B.R3": ("**&sect;1926.1412 &middot; &sect;1926.1413**", "OPEN"),
     "OHC.05.C.K1": ("**&sect;1910.179(l)(3)(i)**", "OK"),
     "OHC.05.C.K2": ("**&sect;1910.179(m)** six conditions", "OK"),
     "OHC.05.C.K3": ("**&sect;1910.179(l)(2)(i)** step 5", "OK"),

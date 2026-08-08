@@ -17,14 +17,16 @@ CraneQualified — **Overhead Crane Operator Track (OHC)**. Twelve modules, ACS 
 | `out/OHC_M04_RatedLoadAndWeight.html` | OHC-04. 60 slides, 25 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M05_InspectionRegime.html` | OHC-05. 63 slides, 28 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M06_RiggingInterface.html` | OHC-06. 65 slides, 29 gate items, 0 gaps, CONFORMANT. |
+| `out/OHC_M07_LoadHandling.html` | OHC-07. 69 slides, 31 gate items, 0 gaps, CONFORMANT. |
+| `docs/OHC-ACS-build-spec.md` | **The ACS itself** — all twelve modules, 396 elements, committed verbatim from the authoritative HTML breakdown. Source of truth for every build. |
 | `docs/OHC-build-format-spec.md` | Build format, packaging and question architecture for the OHC track, derived from the mobile-crane Developer Handoff (structure only). |
 | `docs/second-brain-crosscheck.md` | Cross-check of the OHC build spec against the CraneQualified Second Brain corpus — citation verification, corpus gaps, build-pipeline conflicts, and recommended order of work. |
 
 ## Status
 
-Track status: **OHC-01 … OHC-06 built** (0 gaps, gates verified); **OHC-07 sourced but not built** — blocked on the ACS section, see `vault-dropin/.../OHC — Load Handling Source Pack (verified).md`; OHC-08 … OHC-12 not started. Course code **OCO301C**, gate code **OHC-1**, modules **OHC-01 … OHC-12**. Runs **parallel to** the existing six-module overhead course, which continues unchanged. Gate is **100%, server-authoritative**. No revision change to the CraneQualified Competency and Gate Master is made by anything in this repo.
+Track status: **OHC-01 … OHC-07 built** (0 gaps, gates verified); OHC-08 … OHC-12 not started. Course code **OCO301C**, gate code **OHC-1**, modules **OHC-01 … OHC-12**. Runs **parallel to** the existing six-module overhead course, which continues unchanged. Gate is **100%, server-authoritative**. No revision change to the CraneQualified Competency and Gate Master is made by anything in this repo.
 
-The ACS build specification itself should be committed to `docs/OHC-ACS-build-spec.md` from the authoritative copy — it is deliberately not transcribed here, because element codes and paragraph-letter citations are exactly the content a re-keying would corrupt.
+The ACS is committed at `docs/OHC-ACS-build-spec.md`, flattened from the authoritative HTML breakdown rather than re-keyed — element codes and paragraph-letter citations are exactly the content a re-keying would corrupt.
 
 ## Before building
 

@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OCO301C Module 7 &#8212; Load Handling and Movement Control</title>
+<style>
+:root{--navy:#1B3464;--gold:#C8991A;--ink:#0d1522;--paper:#f5f6f8;--line:#2b4478;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:Calibri,"Segoe UI",system-ui,sans-serif;background:var(--ink);
+     color:var(--paper);overflow:hidden}
+#stage{position:relative;height:100dvh;width:100vw}
+.slide{position:absolute;inset:0;padding:28px 22px 92px;overflow-y:auto;
+       -webkit-overflow-scrolling:touch;opacity:0;pointer-events:none;
+       transition:opacity .28s ease;background:linear-gradient(160deg,#111a2c,#0d1522)}
+.slide.active{opacity:1;pointer-events:auto}
+.slide.section-header,.slide.divider{background:linear-gradient(160deg,var(--navy),#12203c)}
+h1{font-size:1.55rem;line-height:1.25;margin:.2em 0 .5em;color:#fff}
+h2{font-size:1.25rem;margin:.2em 0 .6em;color:var(--gold)}
+p{line-height:1.55;margin:0 0 .9em}
+ul{line-height:1.55;padding-left:1.1em}
+li{margin-bottom:.5em}
+.lede{font-size:1.05rem;color:#cfd6e4}
+.kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+        margin-bottom:.6em;font-weight:700}
+.elem{font-size:.68rem;letter-spacing:.06em;color:#7d8ba6;margin-bottom:.5em;
+      font-family:ui-monospace,Menlo,Consolas,monospace}
+.note{border-left:3px solid var(--gold);padding:.6em .9em;background:#16203a;
+      border-radius:0 6px 6px 0;font-size:.95rem;color:#cfd6e4}
+.stem{font-size:1.05rem;color:#fff}
+.quiz-group{display:flex;flex-direction:column;gap:10px;margin:1em 0}
+.quiz-option{display:block;width:100%;text-align:left;padding:14px 16px;font-size:1rem;
+             font-family:inherit;color:var(--paper);background:#16203a;
+             border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.quiz-option:active{transform:scale(.995)}
+.quiz-option.correct{border-color:#2f9e64;background:#12301f}
+.quiz-option.wrong{border-color:#b4442f;background:#301513}
+.quiz-feedback{display:none;margin-top:.4em;padding:.7em .9em;border-radius:8px;
+               background:#16203a;font-size:.95rem;color:#cfd6e4}
+.quiz-feedback.show{display:block}
+.completion-panel{background:#16203a;border:1px solid var(--line);border-radius:12px;
+                  padding:18px;margin-top:1em}
+.review-item{padding:.5em 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.calc-btn{display:inline-block;width:100%;padding:14px 18px;font-size:1rem;
+          font-family:inherit;font-weight:700;color:#12203c;background:var(--gold);
+          border:0;border-radius:10px;cursor:pointer}
+#chrome{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;
+        padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#0b1220;
+        border-top:1px solid var(--line)}
+#chrome button{padding:10px 16px;font-size:.95rem;font-family:inherit;color:var(--paper);
+               background:#16203a;border:1px solid var(--line);border-radius:8px}
+#counter{font-size:.85rem;color:#7d8ba6;margin-left:auto}
+#score-chip{position:fixed;top:calc(8px + env(safe-area-inset-top));right:12px;
+            padding:6px 12px;font-size:.78rem;font-weight:700;letter-spacing:.05em;
+            color:#12203c;background:var(--gold);border-radius:999px;z-index:20}
+#cq-gatebar{display:none;position:fixed;left:12px;right:12px;
+            bottom:calc(66px + env(safe-area-inset-bottom));padding:12px 14px;
+            background:#16203a;border:1px solid var(--gold);border-radius:10px;
+            font-size:.92rem;color:#fff;z-index:20}
+#cq-gatebtn{display:none;margin-top:10px;padding:10px 16px;font-family:inherit;
+            font-weight:700;color:#12203c;background:var(--gold);border:0;border-radius:8px}
+</style>
+</head>
+<body data-cq-module="OHC_M07" data-cq-total="69" data-cq-gate="OHC-1" data-cq-course="OCO301C">
+
+<div id="score-chip">GATE 0 / 31</div>
+<div id="stage">
+  <section class="slide" id="s1">
+    <div class="kicker">OCO301C &#183; Overhead Crane Operator</div>
+    <h1>Module 7<br>Load Handling and Movement Control</h1>
+    <p class="lede">Hoist, travel and place loads with the smoothness and path discipline that fixed-path equipment demands.</p>
+  </section>
+  <section class="slide" id="s2">
+    <div class="kicker">Objectives</div>
+    <h2>What you will be able to do</h2>
+    <ul>
+      <li>Execute vertical load handling from slack rope to suspended load, centred over the load, with the brake proved at low height.</li>
+      <li>Control bridge and trolley travel, arrest load swing by following it, and hold clearance from structures, parallel cranes and cranes at other elevations.</li>
+      <li>Place loads within tolerance without contact or shock, and verify load transfer before any rigging is slacked.</li>
+    </ul>
+  </section>
+  <section class="slide" id="s3">
+    <div class="kicker">How this module gates</div>
+    <h2>Practice, then the gate</h2>
+    <p>9 practice questions run alongside the content. They are not scored and they
+    show you the correct answer.</p>
+    <p>The <b>Final Knowledge Check</b> that follows is the gate. It requires
+    <b>100&#37;</b> &#8212; every gated answer must be correct. A missed gate question is
+    not revealed; you review and retest.</p>
+    <div class="note">Your live gate score appears in the chip at the top of the screen
+    once the final check begins.</div>
+  </section>
+  <section class="slide section-header" id="s4">
+    <div class="kicker">Task A</div>
+    <h1>Hoisting Fundamentals</h1>
+    <p class="lede">Execute vertical load handling correctly from slack rope to suspended load.</p>
+  </section>
+  <section class="slide" id="s5">
+    <div class="kicker">Task A</div>
+    <h2>Plumb before power</h2>
+    <p>The hook goes over the load before the load comes off the ground. &sect;1910.179(n)(3)(ii)(c) puts it as a pre-hoist condition: the hook shall be brought over the load <b>in such a manner as to prevent swinging</b>.</p>
+    <div class="note">A load lifted from off-plumb does not stay where it was. It swings to plumb the instant it breaks free, and it arrives at the plumb point with speed. The further off you started, the harder it arrives.</div>
+  </section>
+  <section class="slide" id="s6">
+    <div class="kicker">Task A</div>
+    <h2>Slack, then load, then prove the brake</h2>
+    <p>Take the slack out slowly. Apply load gradually. Then stop a few inches up and <b>prove the brake before you commit</b>. &sect;1910.179(n)(3)(vii): the operator shall test the brakes <b>each time a load approaching the rated load is handled</b>, by raising the load a few inches and applying the brakes.</p>
+    <div class="note">There shall be <b>no downward drift</b> during that stop. This is the same pause that OHC-06 uses to check balance &#8212; one stop, three questions: does it hold, does it hang level, is the rigging taking load as expected.</div>
+  </section>
+  <section class="slide" id="s7">
+    <div class="kicker">Task A</div>
+    <h2>Side pulls: not banned, but gated</h2>
+    <p>&sect;1910.179(n)(3)(iv) does <b>not</b> flatly prohibit side pulls. It permits them <i>&#8220;except when specifically authorized by a <b>responsible person</b> who has determined that the <b>stability of the crane is not thereby endangered</b> and that <b>various parts of the crane will not be overstressed</b>.&#8221;</i></p>
+    <div class="note">Two determinations, one named role, before the pick. What is prohibited is the <b>unauthorised</b> side pull &#8212; which is every side pull an operator decides on alone, at the controls, because the load is nearly under the hook.</div>
+  </section>
+  <section class="slide" id="s8">
+    <div class="kicker">Task A</div>
+    <h2>What a side pull actually damages</h2>
+    <p>The rope leaves the sheave groove and can jump the sheave entirely, cutting itself on the flange. Drum spooling goes irregular, so the next layer beds badly. The trolley takes side thrust its wheels and rails were never designed for.</p>
+    <div class="note">And the bridge girder takes a <b>lateral load</b> it was not designed for &#8212; an overhead crane is engineered for vertical load and horizontal travel, not for dragging. This is why the damage shows up in the runway, the trolley and the reeving, not in the hook.</div>
+  </section>
+  <section class="slide" id="s9">
+    <div class="kicker">Task A</div>
+    <h2>Only as high as the job needs</h2>
+    <p>Travel height is a hazard setting, not a convenience. The rule is the <b>minimum practical height</b> that clears the path &#8212; the DOE Hanford manual states it as <i>&#8220;never raise the load higher than necessary.&#8221;</i></p>
+    <div class="note">Height buys nothing and costs everything: a longer pendulum, a wider swing footprint, more energy in a drop, and a longer time to react. &sect;1910.179(n)(3)(vi) then adds the hard one &#8212; the employer shall require that the operator <b>avoid carrying loads over people</b>.</div>
+  </section>
+  <section class="slide" id="s10">
+    <div class="kicker">Task A</div>
+    <h2>Two-blocking, and why the limit switch is not the answer</h2>
+    <p><b>Two-blocking</b> is contact between the load block and the upper block, trolley or drum. Keep hoisting into it and something parts &#8212; usually the rope, with the load underneath.</p>
+    <div class="note">The upper limit switch exists to catch it. But &sect;1910.179(n)(4)(ii) says the switch <b>shall never be used as an operating control</b>, and (k)(1)(ii) explains why: its trip point is set by <b>test, with an empty hook</b>. It was never calibrated for a loaded block at speed. Prevention is yours: know your headroom, watch the block, slow the approach.</div>
+  </section>
+  <section class="slide" id="s11">
+    <div class="kicker">Task A</div>
+    <h2>The other end of the drum</h2>
+    <p>The upper limit gets all the attention. The lower one is a number and it is absolute: &sect;1910.179(n)(3)(viii) &#8212; the load shall <b>not be lowered below the point where less than two full wraps of rope remain on the hoisting drum</b>.</p>
+    <div class="note">Those two wraps are what holds the rope's dead-end anchorage from taking the whole load. Deep pits, low floors and below-grade placements are where operators run out of drum, and a lower limit switch is not always fitted to stop them.</div>
+  </section>
+  <section class="slide" id="s12">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.07.A.K1</div>
+    <h2>Question 1</h2>
+    <p class="stem">Bringing the hook plumb over the load before hoisting is required because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q01',0,'fb01')">It looks more professional</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q01',1,'fb01')">A load lifted off-plumb swings to plumb the instant it breaks free</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q01',2,'fb01')">It reduces motor current</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q01',3,'fb01')">It is only needed for heavy loads</button>
+    </div>
+    <div class="quiz-feedback" id="fb01"></div>
+  </section>
+  <section class="slide" id="s13">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.07.A.K3</div>
+    <h2>Question 2</h2>
+    <p class="stem">Side pulls with an overhead crane are:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q02',0,'fb02')">Always prohibited</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q02',1,'fb02')">Permitted only when specifically authorised by a responsible person who has made two determinations</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q02',2,'fb02')">Permitted at the operator's discretion below 50&#37; of rated load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q02',3,'fb02')">Permitted with a spotter</button>
+    </div>
+    <div class="quiz-feedback" id="fb02"></div>
+  </section>
+  <section class="slide" id="s14">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.07.A.K5</div>
+    <h2>Question 3</h2>
+    <p class="stem">The upper limit switch is adequate protection against two-blocking during a high placement.</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q03',0,'fb03')">True</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q03',1,'fb03')">False</button>
+    </div>
+    <div class="quiz-feedback" id="fb03"></div>
+  </section>
+  <section class="slide section-header" id="s15">
+    <div class="kicker">Task B</div>
+    <h1>Travel and Drift Control</h1>
+    <p class="lede">Control bridge and trolley travel and arrest load swing.</p>
+  </section>
+  <section class="slide" id="s16">
+    <div class="kicker">Task B</div>
+    <h2>Two axes make one path</h2>
+    <p>Bridge and trolley are independent motions at right angles. Run them one at a time and the load walks an L. Run them <b>together</b> and the resultant is a diagonal &#8212; which is usually the shorter, smoother path and the one with fewer start-stop swing events.</p>
+    <div class="note">Diagonal travel is a skill, not a shortcut. The two motions have different speeds and different inertias, so holding a straight resultant means modulating both, not pinning both buttons and hoping.</div>
+  </section>
+  <section class="slide" id="s17">
+    <div class="kicker">Task B</div>
+    <h2>Every swing has a cause and you supplied it</h2>
+    <p>A suspended load only swings if something accelerated it. The three causes: <b>acceleration</b> at the start, <b>deceleration</b> at the stop, and <b>plugging</b> &#8212; reversing the direction control while still moving, to brake.</p>
+    <div class="note">&sect;1910.179(n)(3)(iii)(a) is the rule underneath all three: during hoisting, care shall be taken that there is <b>no sudden acceleration or deceleration</b> of the moving load. Plugging is the most violent of the three and the most avoidable.</div>
+  </section>
+  <section class="slide" id="s18">
+    <div class="kicker">Task B</div>
+    <h2>Arrest the swing by following it</h2>
+    <p>You cannot stop a pendulum by holding the pivot still. You stop it by <b>moving the pivot under the load</b> &#8212; drive the trolley or bridge in the direction the load is swinging, then ease off as the load comes back to plumb beneath the hook.</p>
+    <div class="note">Fighting the swing feeds it. Following it kills it in one or two cycles. The technique is the same at every scale; only the timing changes with rope length.</div>
+  </section>
+  <section class="slide" id="s19">
+    <div class="kicker">Task B</div>
+    <h2>Inching and float</h2>
+    <p><b>Inching</b> is momentary control taps &#8212; short pulses that move the crane a fraction and let it settle, used for the last few inches of approach. On a variable-frequency drive it is the lowest speed step; on a two-speed contactor crane it is discipline with the first notch.</p>
+    <div class="note"><b>Float</b> is holding the load just clear of the surface while alignment is confirmed. Both trade speed for control, and both are the difference between placing a load and landing one.</div>
+  </section>
+  <section class="slide" id="s20">
+    <div class="kicker">Task B</div>
+    <h2>Clearance is a duty, continuously</h2>
+    <p><b>EM 385-1-1 16-8.aa(5)</b> is the operating rule: clearance shall be maintained between the crane and <b>any structure or object</b>, <b>any parallel running cranes</b>, and <b>cranes operating at different elevations</b>.</p>
+    <div class="note">All three, all the time. The one operators lose is the third &#8212; a crane on a different runway at a different height is outside the normal scan and is the one that surprises people.</div>
+  </section>
+  <section class="slide" id="s21">
+    <div class="kicker">Task B</div>
+    <h2>The 3 and 2 are design numbers, not your margin</h2>
+    <p>&sect;1910.179(b)(6)(i) sets a <b>minimum 3 in overhead and 2 in lateral</b> clearance, in conformity with <b>CMAA Specification No. 61</b>, incorporated by reference through &sect;1910.6. (b)(7) adds clearance between parallel cranes.</p>
+    <div class="note">Read what that is: it is the clearance the <b>installed crane structure</b> has from the building. It is not an operating tolerance for a swinging load, and quoting it as one is a category error. Your working clearance is set by the load, the swing and the path &#8212; and it is a great deal more than two inches.</div>
+  </section>
+  <section class="slide" id="s22">
+    <div class="kicker">Task B</div>
+    <h2>Approaching stops and other cranes</h2>
+    <p><b>EM 385-1-1 16-8.aa(6)</b>: contacts with <b>runway stops or other cranes</b> shall be made with <b>extreme caution</b>, with particular care for persons on or below the crane, and <b>only after making certain that persons on the other cranes are aware</b>.</p>
+    <div class="note">Note what it does not say. It does not prohibit contact &#8212; bumping a stop is a normal end-of-runway event. It requires that it be deliberate, slow, and known about by everyone it could affect.</div>
+  </section>
+  <section class="slide" id="s23">
+    <div class="kicker">Task B</div>
+    <h2>Sound the warning</h2>
+    <p>&sect;1910.179(n)(3)(xi) names two triggers: <b>when starting the bridge</b>, and <b>when the load or hook approaches near or over personnel</b>. The warning signal shall be sounded.</p>
+    <div class="note">It is a habit that decays fastest in familiar bays, where the operator knows who is where &#8212; which is precisely where the person who moved is not accounted for.</div>
+  </section>
+  <section class="slide" id="s24">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.07.B.K2</div>
+    <h2>Question 4</h2>
+    <p class="stem">Reversing the direction control to brake a moving crane is called:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q04',0,'fb04')">Inching</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q04',1,'fb04')">Floating</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q04',2,'fb04')">Plugging</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q04',3,'fb04')">Following</button>
+    </div>
+    <div class="quiz-feedback" id="fb04"></div>
+  </section>
+  <section class="slide" id="s25">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.07.B.K2b</div>
+    <h2>Question 5</h2>
+    <p class="stem">A load is swinging. The correct correction is to:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q05',0,'fb05')">Hold the bridge and trolley still until it settles</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q05',1,'fb05')">Drive in the direction of the swing, then ease off as the load comes plumb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q05',2,'fb05')">Drive against the swing to oppose it</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q05',3,'fb05')">Lower the load quickly to shorten the rope</button>
+    </div>
+    <div class="quiz-feedback" id="fb05"></div>
+  </section>
+  <section class="slide" id="s26">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.07.B.K4</div>
+    <h2>Question 6</h2>
+    <p class="stem">The 3 in overhead and 2 in lateral figures in &sect;1910.179(b)(6)(i) are:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q06',0,'fb06')">The operating clearance an operator must keep around a load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q06',1,'fb06')">Design clearances for the installed crane structure from the building</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q06',2,'fb06')">The maximum permitted clearance</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q06',3,'fb06')">Applicable only to gantry cranes</button>
+    </div>
+    <div class="quiz-feedback" id="fb06"></div>
+  </section>
+  <section class="slide section-header" id="s27">
+    <div class="kicker">Task C</div>
+    <h1>Precision Placement</h1>
+    <p class="lede">Place loads at target within tolerance without contact or shock.</p>
+  </section>
+  <section class="slide" id="s28">
+    <div class="kicker">Task C</div>
+    <h2>Take the axes off one at a time</h2>
+    <p>A precision placement is not one manoeuvre, it is a controlled reduction. Bring the load close on all axes, then <b>settle one axis at a time</b> &#8212; stop the bridge, let it settle, correct the trolley, let it settle, then lower.</p>
+    <div class="note">Compounding motions on final approach is how a placement becomes a collision. Every motion you still have running is a variable you are managing while the load is inches from something hard.</div>
+  </section>
+  <section class="slide" id="s29">
+    <div class="kicker">Task C</div>
+    <h2>Set-down is a transfer, not a drop</h2>
+    <p>Lower until the <b>load takes its own weight</b> and the rope begins to slack. Stop there. That is the transfer point, and it is where you confirm the load is seated, stable and bearing where it is meant to bear.</p>
+    <div class="note">Watch the rope, not the load. Rope going slack unevenly means the load is seating on one corner &#8212; it will tip or slide when you continue. Take it back up and reset.</div>
+  </section>
+  <section class="slide" id="s30">
+    <div class="kicker">Task C</div>
+    <h2>Fixtures, machines and racks</h2>
+    <p>Placing into something is harder than placing onto something. Fixtures and racks add close-tolerance contact hazards on three or four sides at once, and the load blocks the operator's view of exactly the surfaces that matter.</p>
+    <div class="note">Machines add a second problem: the thing you are placing into may be capable of moving, powered, or holding stored energy. Placement into a machine is an energy control question before it is a crane question.</div>
+  </section>
+  <section class="slide" id="s31">
+    <div class="kicker">Task C</div>
+    <h2>Blind placements belong to the signaler</h2>
+    <p>When the operator cannot see the landing point, the placement is executed on signals. The operator's judgement does not fill the gap &#8212; it substitutes a guess for information.</p>
+    <div class="note">The discipline that makes it safe: one signaler, agreed before the lift, continuously visible. <b>Signal lost, motion stops.</b> Signalling is developed in OHC-09; here the point is narrower &#8212; a blind placement without a signaler is not a placement, it is a hope.</div>
+  </section>
+  <section class="slide" id="s32">
+    <div class="kicker">Task C</div>
+    <h2>Verify transfer before slacking anything</h2>
+    <p>The load is fully transferred when it is <b>stable, supported and bearing as intended</b>. Until all three are confirmed, the rigging stays under tension and the crane stays engaged.</p>
+    <div class="note">&sect;1910.179(n)(3)(x): the operator <b>does not leave the position at the controls while the load is suspended</b>. A load resting but not yet verified is still the crane's load.</div>
+  </section>
+  <section class="slide" id="s33">
+    <div class="kicker">Task C</div>
+    <h2>The moment that crushes people</h2>
+    <p>Set-down is where hands go in. The load is low, it looks placed, the job is nearly done, and someone reaches to guide a corner or free a sling. The load is still moving, still capable of shifting, and it weighs what it always weighed.</p>
+    <div class="note">&sect;1910.179(n)(3)(v) covers the extreme case: while any employee is <b>on the load or hook</b>, there shall be <b>no hoisting, lowering, or traveling</b>. The working rule is broader &#8212; hands stay out until the load is verified down.</div>
+  </section>
+  <section class="slide" id="s34">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.07.C.K2</div>
+    <h2>Question 7</h2>
+    <p class="stem">During set-down, the rope begins to slack unevenly. This means:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q07',0,'fb07')">The load is fully seated</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q07',1,'fb07')">The load is seating on one corner and may tip or slide</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q07',2,'fb07')">The brake is failing</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q07',3,'fb07')">The hoist is overloaded</button>
+    </div>
+    <div class="quiz-feedback" id="fb07"></div>
+  </section>
+  <section class="slide" id="s35">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.07.C.K5</div>
+    <h2>Question 8</h2>
+    <p class="stem">Rigging may be slacked once the load is resting on the surface.</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q08',0,'fb08')">True</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q08',1,'fb08')">False</button>
+    </div>
+    <div class="quiz-feedback" id="fb08"></div>
+  </section>
+  <section class="slide" id="s36">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.07.C.R1</div>
+    <h2>Question 9</h2>
+    <p class="stem">The highest-exposure moment for crushing injury in a placement is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q09',0,'fb09')">During the initial hoist</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q09',1,'fb09')">During travel at height</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q09',2,'fb09')">At set-down</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q09',3,'fb09')">During the pre-lift inspection</button>
+    </div>
+    <div class="quiz-feedback" id="fb09"></div>
+  </section>
+  <section class="slide divider" id="s37">
+    <div class="kicker">Assessment</div>
+    <h1>Final Knowledge Check</h1>
+    <p class="lede">31 questions. This gate requires 100&#37; &#8212; every answer must be
+    correct before the module can be completed.</p>
+    <div class="note">Missed questions are listed for review by number. The correct
+    option is not shown.</div>
+  </section>
+  <section class="slide" id="s38">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.A.K1</div>
+    <h2>Question 10</h2>
+    <p class="stem">Before hoisting, the hook must be brought over the load in a manner that:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q10',0,'fb10')">Minimises rope wear</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q10',1,'fb10')">Prevents swinging</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q10',2,'fb10')">Speeds up the pick</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q10',3,'fb10')">Keeps the load block visible</button>
+    </div>
+    <div class="quiz-feedback" id="fb10"></div>
+  </section>
+  <section class="slide" id="s39">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.A.K2</div>
+    <h2>Question 11</h2>
+    <p class="stem">&sect;1910.179(n)(3)(vii) requires the operator to test the brakes:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q11',0,'fb11')">Once per shift</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q11',1,'fb11')">Each time a load approaching the rated load is handled, by raising it a few inches and applying the brakes</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q11',2,'fb11')">Only after maintenance</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q11',3,'fb11')">Only on the main hoist</button>
+    </div>
+    <div class="quiz-feedback" id="fb11"></div>
+  </section>
+  <section class="slide" id="s40">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.A.K3</div>
+    <h2>Question 12</h2>
+    <p class="stem">Under &sect;1910.179(n)(3)(iv), a side pull is permitted when:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q12',0,'fb12')">The operator judges the load light enough</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q12',1,'fb12')">A responsible person has specifically authorised it, having determined that crane stability is not endangered and that parts will not be overstressed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q12',2,'fb12')">Never, under any circumstances</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q12',3,'fb12')">A signaler is present</button>
+    </div>
+    <div class="quiz-feedback" id="fb12"></div>
+  </section>
+  <section class="slide" id="s41">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.A.K3b</div>
+    <h2>Question 13</h2>
+    <p class="stem">The damage caused by side pulling shows up chiefly in the:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q13',0,'fb13')">Hook and latch</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q13',1,'fb13')">Runway, trolley and reeving</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q13',2,'fb13')">Pendant and controls</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q13',3,'fb13')">Load block casting</button>
+    </div>
+    <div class="quiz-feedback" id="fb13"></div>
+  </section>
+  <section class="slide" id="s42">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.A.K4</div>
+    <h2>Question 14</h2>
+    <p class="stem">The correct travel height for a load is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q14',0,'fb14')">As high as the crane will lift, for maximum clearance</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q14',1,'fb14')">The minimum practical height that clears the path</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q14',2,'fb14')">Half the available hook height</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q14',3,'fb14')">Whatever the signaler prefers</button>
+    </div>
+    <div class="quiz-feedback" id="fb14"></div>
+  </section>
+  <section class="slide" id="s43">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.A.K4b</div>
+    <h2>Question 15</h2>
+    <p class="stem">&sect;1910.179(n)(3)(vi) requires the employer to ensure the operator:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q15',0,'fb15')">Sounds the warning at every start</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q15',1,'fb15')">Avoids carrying loads over people</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q15',2,'fb15')">Keeps the load below 10 ft</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q15',3,'fb15')">Uses two tag lines</button>
+    </div>
+    <div class="quiz-feedback" id="fb15"></div>
+  </section>
+  <section class="slide" id="s44">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.A.K5</div>
+    <h2>Question 16</h2>
+    <p class="stem">Two-blocking is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q16',0,'fb16')">Lifting two loads at once</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q16',1,'fb16')">Contact between the load block and the upper block, trolley or drum</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q16',2,'fb16')">Using two hoists on one load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q16',3,'fb16')">Blocking the runway with two cranes</button>
+    </div>
+    <div class="quiz-feedback" id="fb16"></div>
+  </section>
+  <section class="slide" id="s45">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.A.K5b</div>
+    <h2>Question 17</h2>
+    <p class="stem">&sect;1910.179(n)(3)(viii) sets a lower-travel limit: the load shall not be lowered below the point where less than:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q17',0,'fb17')">One full wrap of rope remains on the drum</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q17',1,'fb17')">Two full wraps of rope remain on the drum</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q17',2,'fb17')">Three full wraps of rope remain on the drum</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q17',3,'fb17')">The drum is half empty</button>
+    </div>
+    <div class="quiz-feedback" id="fb17"></div>
+  </section>
+  <section class="slide" id="s46">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.A.R1</div>
+    <h2>Question 18</h2>
+    <p class="stem">A side pull disguised as a convenience move is dangerous chiefly because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q18',0,'fb18')">It is slower than repositioning</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q18',1,'fb18')">It bypasses the responsible-person determination that the crane will not be overstressed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q18',2,'fb18')">It wears the hoist motor</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q18',3,'fb18')">It requires a second operator</button>
+    </div>
+    <div class="quiz-feedback" id="fb18"></div>
+  </section>
+  <section class="slide" id="s47">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.A.R2</div>
+    <h2>Question 19</h2>
+    <p class="stem">A load must cross an occupied work area. The correct action is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q19',0,'fb19')">Travel faster to reduce exposure time</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q19',1,'fb19')">Raise the load higher and proceed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q19',2,'fb19')">Clear the area or reroute the path</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q19',3,'fb19')">Sound the warning and proceed</button>
+    </div>
+    <div class="quiz-feedback" id="fb19"></div>
+  </section>
+  <section class="slide" id="s48">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.A.R3</div>
+    <h2>Question 20</h2>
+    <p class="stem">Riding the upper limit switch to gain height on a placement is hazardous because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q20',0,'fb20')">It wastes time</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q20',1,'fb20')">The switch's trip point was set by test with an empty hook and is not a control</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q20',2,'fb20')">It drains the battery</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q20',3,'fb20')">It voids the inspection record</button>
+    </div>
+    <div class="quiz-feedback" id="fb20"></div>
+  </section>
+  <section class="slide" id="s49">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.B.K1</div>
+    <h2>Question 21</h2>
+    <p class="stem">A diagonal load path is best achieved by:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q21',0,'fb21')">Running the bridge, then the trolley</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q21',1,'fb21')">Running the trolley, then the bridge</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q21',2,'fb21')">Running bridge and trolley simultaneously and modulating both</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q21',3,'fb21')">Swinging the load into position</button>
+    </div>
+    <div class="quiz-feedback" id="fb21"></div>
+  </section>
+  <section class="slide" id="s50">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.B.K2</div>
+    <h2>Question 22</h2>
+    <p class="stem">The three operator-supplied causes of load swing are:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q22',0,'fb22')">Wind, vibration and rope stretch</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q22',1,'fb22')">Acceleration, deceleration and plugging</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q22',2,'fb22')">Overload, side pull and two-blocking</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q22',3,'fb22')">Inching, floating and following</button>
+    </div>
+    <div class="quiz-feedback" id="fb22"></div>
+  </section>
+  <section class="slide" id="s51">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.B.K2b</div>
+    <h2>Question 23</h2>
+    <p class="stem">Drift arrest by follow technique means:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q23',0,'fb23')">Holding all motion still until the swing decays</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q23',1,'fb23')">Moving the bridge or trolley in the direction of the swing, then easing off as the load comes plumb</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q23',2,'fb23')">Driving against the swing to oppose it</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q23',3,'fb23')">Plugging the motion to absorb the energy</button>
+    </div>
+    <div class="quiz-feedback" id="fb23"></div>
+  </section>
+  <section class="slide" id="s52">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.B.K3</div>
+    <h2>Question 24</h2>
+    <p class="stem">Inching is used to:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q24',0,'fb24')">Travel long distances efficiently</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q24',1,'fb24')">Move a fraction at a time on final approach and let the load settle</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q24',2,'fb24')">Test the brakes</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q24',3,'fb24')">Arrest a swing</button>
+    </div>
+    <div class="quiz-feedback" id="fb24"></div>
+  </section>
+  <section class="slide" id="s53">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.B.K4</div>
+    <h2>Question 25</h2>
+    <p class="stem">EM 385-1-1 16-8.aa(5) requires clearance to be maintained from:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q25',0,'fb25')">Structures only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q25',1,'fb25')">Structures and parallel running cranes only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q25',2,'fb25')">Structures or objects, parallel running cranes, and cranes operating at different elevations</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q25',3,'fb25')">Other cranes only when they are loaded</button>
+    </div>
+    <div class="quiz-feedback" id="fb25"></div>
+  </section>
+  <section class="slide" id="s54">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.B.K4b</div>
+    <h2>Question 26</h2>
+    <p class="stem">The 3 in overhead / 2 in lateral clearance of &sect;1910.179(b)(6)(i), per CMAA Specification No. 61, is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q26',0,'fb26')">The operating clearance to keep around a travelling load</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q26',1,'fb26')">A design clearance for the installed crane structure</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q26',2,'fb26')">The tolerance for precision placement</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q26',3,'fb26')">A rigging clearance</button>
+    </div>
+    <div class="quiz-feedback" id="fb26"></div>
+  </section>
+  <section class="slide" id="s55">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.B.K5</div>
+    <h2>Question 27</h2>
+    <p class="stem">EM 385-1-1 16-8.aa(6) requires that contacts with runway stops or other cranes be made:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q27',0,'fb27')">Never -- contact is prohibited</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q27',1,'fb27')">With extreme caution, with care for persons on or below, and only after making certain persons on the other cranes are aware</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q27',2,'fb27')">At full speed to ensure positive seating</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q27',3,'fb27')">Only by a designated person</button>
+    </div>
+    <div class="quiz-feedback" id="fb27"></div>
+  </section>
+  <section class="slide" id="s56">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.B.K5b</div>
+    <h2>Question 28</h2>
+    <p class="stem">&sect;1910.179(n)(3)(xi) requires the warning signal to be sounded:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q28',0,'fb28')">Only at the start of the shift</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q28',1,'fb28')">When starting the bridge, and when the load or hook approaches near or over personnel</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q28',2,'fb28')">Only when the load is over rated capacity</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q28',3,'fb28')">Continuously during travel</button>
+    </div>
+    <div class="quiz-feedback" id="fb28"></div>
+  </section>
+  <section class="slide" id="s57">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.B.R1</div>
+    <h2>Question 29</h2>
+    <p class="stem">An uncontrolled swing is more dangerous than its load weight suggests because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q29',0,'fb29')">It increases motor current</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q29',1,'fb29')">The load's footprint becomes far larger than the load, reaching into areas judged clear</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q29',2,'fb29')">It shortens rope life</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q29',3,'fb29')">It triggers the limit switch</button>
+    </div>
+    <div class="quiz-feedback" id="fb29"></div>
+  </section>
+  <section class="slide" id="s58">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.B.R2</div>
+    <h2>Question 30</h2>
+    <p class="stem">Two cranes share a runway and both operators are working independently. The missing control is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q30',0,'fb30')">A second signaler</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q30',1,'fb30')">Communication, and for a shared lift one qualified responsible person in charge</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q30',2,'fb30')">Higher travel speed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q30',3,'fb30')">A written lift plan for each crane</button>
+    </div>
+    <div class="quiz-feedback" id="fb30"></div>
+  </section>
+  <section class="slide" id="s59">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.B.R3</div>
+    <h2>Question 31</h2>
+    <p class="stem">Travelling with attention on the destination rather than the path leads to:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q31',0,'fb31')">Slower cycle times</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q31',1,'fb31')">Contact with obstructions and personnel that were in the path but outside the operator's focus</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q31',2,'fb31')">Excessive brake wear</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q31',3,'fb31')">Limit switch nuisance trips</button>
+    </div>
+    <div class="quiz-feedback" id="fb31"></div>
+  </section>
+  <section class="slide" id="s60">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.C.K1</div>
+    <h2>Question 32</h2>
+    <p class="stem">Final approach to a placement is best executed by:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q32',0,'fb32')">Running all motions together until the load arrives</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q32',1,'fb32')">Settling one axis at a time, letting the load settle between corrections</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q32',2,'fb32')">Lowering first, then positioning</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q32',3,'fb32')">Swinging the load onto target</button>
+    </div>
+    <div class="quiz-feedback" id="fb32"></div>
+  </section>
+  <section class="slide" id="s61">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.C.K2</div>
+    <h2>Question 33</h2>
+    <p class="stem">The set-down transfer point is reached when:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q33',0,'fb33')">The load touches the surface</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q33',1,'fb33')">The load takes its own weight and the rope begins to slack</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q33',2,'fb33')">The rigging goes fully slack</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q33',3,'fb33')">The hoist brake sets</button>
+    </div>
+    <div class="quiz-feedback" id="fb33"></div>
+  </section>
+  <section class="slide" id="s62">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.C.K3</div>
+    <h2>Question 34</h2>
+    <p class="stem">Placement into a powered machine raises a hazard beyond contact damage:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q34',0,'fb34')">Increased load weight</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q34',1,'fb34')">Stored or hazardous energy in the receiving equipment</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q34',2,'fb34')">Reduced hook clearance</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q34',3,'fb34')">Longer rope length</button>
+    </div>
+    <div class="quiz-feedback" id="fb34"></div>
+  </section>
+  <section class="slide" id="s63">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.C.K4</div>
+    <h2>Question 35</h2>
+    <p class="stem">On a blind placement, if the signaler is lost from view the operator shall:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q35',0,'fb35')">Continue at reduced speed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q35',1,'fb35')">Complete the placement using judgement</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q35',2,'fb35')">Stop all motion</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q35',3,'fb35')">Sound the warning and continue</button>
+    </div>
+    <div class="quiz-feedback" id="fb35"></div>
+  </section>
+  <section class="slide" id="s64">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.C.K5</div>
+    <h2>Question 36</h2>
+    <p class="stem">Load transfer is verified when the load is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q36',0,'fb36')">Touching the surface</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q36',1,'fb36')">Stable, supported, and bearing as intended</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q36',2,'fb36')">Below the hook</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q36',3,'fb36')">Released by the rigger</button>
+    </div>
+    <div class="quiz-feedback" id="fb36"></div>
+  </section>
+  <section class="slide" id="s65">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.C.K5b</div>
+    <h2>Question 37</h2>
+    <p class="stem">&sect;1910.179(n)(3)(x) requires that the operator:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q37',0,'fb37')">Sound the warning before lowering</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q37',1,'fb37')">Not leave the position at the controls while the load is suspended</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q37',2,'fb37')">Log every placement</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q37',3,'fb37')">Remain in the cab for the whole shift</button>
+    </div>
+    <div class="quiz-feedback" id="fb37"></div>
+  </section>
+  <section class="slide" id="s66">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.C.R1</div>
+    <h2>Question 38</h2>
+    <p class="stem">Hands and body parts are most exposed to crushing:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q38',0,'fb38')">During the pre-lift inspection</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q38',1,'fb38')">At set-down, while the load is low and still capable of shifting</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q38',2,'fb38')">During travel at height</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q38',3,'fb38')">While rigging the load</button>
+    </div>
+    <div class="quiz-feedback" id="fb38"></div>
+  </section>
+  <section class="slide" id="s67">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.C.R2</div>
+    <h2>Question 39</h2>
+    <p class="stem">Slacking the rigging before the load is verified stable risks:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q39',0,'fb39')">Rope damage only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q39',1,'fb39')">The load tipping or sliding with no crane restraint left</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q39',2,'fb39')">A limit switch trip</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q39',3,'fb39')">Brake overheating</button>
+    </div>
+    <div class="quiz-feedback" id="fb39"></div>
+  </section>
+  <section class="slide" id="s68">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.07.C.R3</div>
+    <h2>Question 40</h2>
+    <p class="stem">Contact damage during placement is best prevented by:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q40',0,'fb40')">Faster approach to reduce exposure</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q40',1,'fb40')">Axis-by-axis motion reduction and float before committing to the set-down</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q40',2,'fb40')">Raising the load higher before descending</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M07_q40',3,'fb40')">Using a second hoist</button>
+    </div>
+    <div class="quiz-feedback" id="fb40"></div>
+  </section>
+  <section class="slide" id="s69">
+    <h1>Module 7 complete</h1>
+    <div class="completion-panel">
+      <div id="score-summary">Complete the knowledge check to record this module.</div>
+      <div id="review-list"></div>
+    <button class="calc-btn" style="max-width:340px;margin-top:14px" onclick="window.dispatchEvent(new CustomEvent('cq-module-complete',{detail:{next:'OHC_M08'}}))">Next: Stage HC Module 8 &gt;</button></div>
+  </section>
+</div>
+
+<div id="cq-gatebar">
+  <div id="cq-gatemsg"></div>
+  <button id="cq-gatebtn"></button>
+</div>
+
+<div id="chrome">
+  <button onclick="navigate(-1)">Back</button>
+  <button onclick="navigate(1)">Next</button>
+  <span id="counter"></span>
+</div>
+
+<script>
+var TOTAL=69, current=1;
+function render(){
+  var i;
+  for(i=1;i<=TOTAL;i++){
+    var el=document.getElementById('s'+i);
+    if(el) el.classList.toggle('active', i===current);
+  }
+  var c=document.getElementById('counter');
+  if(c) c.textContent=current+' / '+TOTAL;
+  var st=document.getElementById('stage'); if(st) st.scrollTop=0;
+}
+window.jumpTo=function(n){
+  if(n<1||n>TOTAL) return false;
+  current=n; render(); return true;
+};
+window.navigate=function(dir){
+  var t=current+dir;
+  if(t<1||t>TOTAL) return false;
+  current=t; render(); return true;
+};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight') navigate(1);
+  if(e.key==='ArrowLeft') navigate(-1);
+});
+window.cqAnswer=function(){};
+render();
+</script>
+<script src="cq-module-bridge.js"></script>
+<script>
+/* ============================================================
+   CraneQualified KC Gate Engine v1  (Stage OHC / OHC_M07)
+   Server-authoritative; installs a local FNV-1a shim ONLY if the
+   platform has not defined window.CQ. Answers are stored as FNV-1a
+   hashes, never plaintext, and the correct option is never revealed
+   on a gate miss. Gate = the final knowledge-check questions at 100%. Forward navigation
+   to the completion slide is locked until the gate passes.
+   ============================================================ */
+(function(){
+"use strict";
+var SALT="CQ1:OHC_M07_LoadHandling";
+var HASHES={"OHC_M07_q01": "6c5039a0", "OHC_M07_q02": "317449f5", "OHC_M07_q03": "173ef7d6", "OHC_M07_q04": "b421b066", "OHC_M07_q05": "27c3929c", "OHC_M07_q06": "ee24d771", "OHC_M07_q07": "d2b250d2", "OHC_M07_q08": "a117881f", "OHC_M07_q09": "989197b1", "OHC_M07_q10": "a9048d22", "OHC_M07_q11": "c47713c1", "OHC_M07_q12": "ff53036c", "OHC_M07_q13": "0974b4a3", "OHC_M07_q14": "ed913426", "OHC_M07_q15": "0903bac5", "OHC_M07_q16": "43dfaa70", "OHC_M07_q17": "6e289d77", "OHC_M07_q18": "d245e67a", "OHC_M07_q19": "c97b0180", "OHC_M07_q20": "d62aabc9", "OHC_M07_q21": "59b78c77", "OHC_M07_q22": "bb27b58b", "OHC_M07_q23": "b1060454", "OHC_M07_q24": "3ab7852d", "OHC_M07_q25": "1e44fcfb", "OHC_M07_q26": "7fdc357f", "OHC_M07_q27": "f45576d8", "OHC_M07_q28": "4ce8bb51", "OHC_M07_q29": "317634b2", "OHC_M07_q30": "fab1e624", "OHC_M07_q31": "0610cbdb", "OHC_M07_q32": "2464395a", "OHC_M07_q33": "1fd68d99", "OHC_M07_q34": "bf3f56a8", "OHC_M07_q35": "ca8818e2", "OHC_M07_q36": "68f0e05e", "OHC_M07_q37": "846366fd", "OHC_M07_q38": "d1708ccc", "OHC_M07_q39": "dccf7283", "OHC_M07_q40": "33fbce43"};
+var GATE=["OHC_M07_q10", "OHC_M07_q11", "OHC_M07_q12", "OHC_M07_q13", "OHC_M07_q14", "OHC_M07_q15", "OHC_M07_q16", "OHC_M07_q17", "OHC_M07_q18", "OHC_M07_q19", "OHC_M07_q20", "OHC_M07_q21", "OHC_M07_q22", "OHC_M07_q23", "OHC_M07_q24", "OHC_M07_q25", "OHC_M07_q26", "OHC_M07_q27", "OHC_M07_q28", "OHC_M07_q29", "OHC_M07_q30", "OHC_M07_q31", "OHC_M07_q32", "OHC_M07_q33", "OHC_M07_q34", "OHC_M07_q35", "OHC_M07_q36", "OHC_M07_q37", "OHC_M07_q38", "OHC_M07_q39", "OHC_M07_q40"];
+var GATESET=new Set(GATE);
+var LOCK_AFTER=68;            /* completion slide (69) blocked until gate passes */
+var gatePassed=false, answered={}, gateOK={};
+
+function fnv(s){var h=0x811c9dc5;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0;}return ('0000000'+h.toString(16)).slice(-8);}
+
+/* 1) Local CQ shim (platform can pre-define window.CQ and win) */
+if(!window.CQ){
+  window.CQ={
+    scoreAnswer:function(qid,idx){
+      var correct=fnv(SALT+':'+qid+':'+idx)===HASHES[qid];
+      var isGate=GATESET.has(qid), out={correct:correct};
+      if(!isGate){
+        for(var i=0;i<4;i++){ if(fnv(SALT+':'+qid+':'+i)===HASHES[qid]){out.correctIndex=i;break;} }
+        out.feedbackHtml = correct ? 'Correct.' : 'Not correct \u2014 the correct option is now highlighted. Review the reasoning, then continue.';
+      } else {
+        out.feedbackHtml = correct ? 'Correct.' : 'Not correct. This gate requires 100% \u2014 the correct answer is not shown. Review the module and retest.';
+      }
+      return Promise.resolve(out);
+    },
+    requestComplete:function(){
+      var right=0,i; for(i=0;i<GATE.length;i++){ if(gateOK[GATE[i]]) right++; }
+      var passed=right===GATE.length, score=right+' / '+GATE.length;
+      if(passed){ gatePassed=true; setTimeout(function(){ document.dispatchEvent(new CustomEvent('cq-complete',{detail:{completionId:'local-'+Date.now()}})); },300); }
+      return Promise.resolve({passed:passed,score:score});
+    },
+    ack:function(){}
+  };
+}
+document.addEventListener('cq-complete',function(){ gatePassed=true; });
+
+/* gate-bar + tracking helpers */
+function bar(){return document.getElementById('cq-gatebar');}
+function btn(){return document.getElementById('cq-gatebtn');}
+function msg(t){var m=document.getElementById('cq-gatemsg'); if(m)m.textContent=t; var b=bar(); if(b)b.style.display='block';}
+function gateRight(){var r=0,i;for(i=0;i<GATE.length;i++)if(gateOK[GATE[i]])r++;return r;}
+function chip(){var c=document.getElementById('score-chip'); if(c)c.textContent='GATE '+gateRight()+' / '+GATE.length;}
+function buildReview(passed,score){
+  var sum=document.getElementById('score-summary'), list=document.getElementById('review-list');
+  if(sum) sum.textContent = passed ? ('Knowledge check passed \u2014 '+score+' (100%).') : ('Gate score '+score+'. This gate requires 100%. Review the items below, then retest.');
+  if(list){ list.innerHTML='';
+    if(!passed){ var i; for(i=0;i<GATE.length;i++){ if(GATE[i] in gateOK && !gateOK[GATE[i]]){ var d=document.createElement('div'); d.className='review-item'; d.innerHTML='<b>Final Question '+(Number(GATE[i].match(/(\d+)$/)[1])-9)+'</b> - revisit this topic before retesting.'; list.appendChild(d); } } }
+  }
+}
+
+/* 2) Answer handler (bound to existing cqAnswer(this,qid,idx,fbid) onclicks) */
+window.cqAnswer=async function(b,qid,idx,fbid){
+  if(answered[qid])return; answered[qid]=true;
+  var grp=b.parentElement;
+  grp.querySelectorAll('.quiz-option').forEach(function(o){o.disabled=true;o.style.pointerEvents='none';o.classList.remove('correct','wrong');});
+  var r=await CQ.scoreAnswer(qid,idx);
+  b.classList.add(r.correct?'correct':'wrong');
+  var isGate=GATESET.has(qid), fb=fbid?document.getElementById(fbid):null;
+  if(!isGate){
+    if(!r.correct && typeof r.correctIndex==='number'){ var os=grp.querySelectorAll('.quiz-option'); if(os[r.correctIndex]) os[r.correctIndex].classList.add('correct'); }
+    if(fb){ fb.textContent=r.feedbackHtml; fb.classList.add('show'); }
+  } else {
+    gateOK[qid]=r.correct;
+    if(fb){ fb.textContent=r.feedbackHtml; fb.classList.add('show'); }
+    chip();
+    if(GATE.every(function(q){return q in gateOK;})) checkGate();
+  }
+};
+
+async function checkGate(){
+  msg('Submitting knowledge check...'); var bt=btn(); if(bt)bt.style.display='none';
+  var r=await CQ.requestComplete();
+  buildReview(r.passed,r.score);
+  if(r.passed){ msg('Knowledge check passed ('+r.score+'). You may continue to completion.'); }
+  else{ msg('Not yet - this gate requires 100%. Review the module, then retest.');
+        if(bt){ bt.style.display='inline-block'; bt.textContent='Review and Retest'; bt.onclick=function(){location.reload();}; } }
+}
+
+document.addEventListener('cq-complete',function(){ msg('Module complete - recorded by the platform.'); var bt=btn(); if(bt)bt.style.display='none'; chip(); if(window.CQ&&CQ.ack)CQ.ack(); });
+document.addEventListener('cq-denied',function(){ msg('Completion denied by the platform. Review and retest.'); });
+
+/* 3) Forward navigation lock - completion slide (69) blocked until gate passes */
+function blocked(t){ return !gatePassed && t>LOCK_AFTER; }
+if(typeof window.navigate==='function'){
+  var _nav=window.navigate;
+  window.navigate=function(dir){
+    var tgt=(typeof current!=='undefined'?current:1)+dir;
+    if(blocked(tgt)){ msg('Pass the knowledge check (100%) before completing the module.'); if(typeof window.jumpTo==='function')window.jumpTo(LOCK_AFTER); return; }
+    return _nav(dir);
+  };
+}
+if(typeof window.jumpTo==='function'){
+  var _jmp=window.jumpTo;
+  window.jumpTo=function(n){ if(blocked(n)){ msg('Pass the knowledge check (100%) before completing the module.'); return _jmp(LOCK_AFTER); } return _jmp(n); };
+}
+
+/* platform progress beacon + initial chip */
+window.addEventListener('load',function(){
+  if(window.CQ&&CQ.start){try{CQ.start();}catch(e){}}
+  if(window.CQ&&CQ.slide){ var _n2=window.navigate; window.navigate=function(d){var rr=_n2(d); try{CQ.slide(current,TOTAL);}catch(e){} return rr;}; }
+  chip();
+});
+})();
+</script>
+</body>
+</html>

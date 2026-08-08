@@ -114,10 +114,10 @@ and [[IPT Section 11 — Overhead Cranes]].
 
 ---
 
-## 5. ⛔ Blocked on
+## 5. ✅ Was blocked on the ACS
 
-The **OHC-07 section of the ACS**. Eight of roughly thirty-three elements are recoverable
-from the notes above; the rest — Task titles, `A.K1`, `A.K4`, `B.K3`, `B.K5`, all of Task C,
-and most Risk Management and Skills elements — are not held in this repo and **must not be
-reconstructed by inference**. Element codes drive the trace table and the gate mapping; a
-plausible guess produces a module that claims ACS conformance it does not have.
+**Closed 2026-08-08.** The ACS was supplied and is committed at `docs/OHC-ACS-build-spec.md`. OHC-07 is built.
+
+
+
+

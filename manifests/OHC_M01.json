@@ -4,7 +4,7 @@
   "gate_code": "OHC-1",
   "version": "2026.08",
   "salt": "CQ1:OHC_M01_EquipmentAndJurisdiction",
-  "total": 57,
+  "total": 61,
   "next": "OHC_M02",
   "gate": [
     "OHC_M01_q10",
@@ -30,7 +30,9 @@
     "OHC_M01_q30",
     "OHC_M01_q31",
     "OHC_M01_q32",
-    "OHC_M01_q33"
+    "OHC_M01_q33",
+    "OHC_M01_q34",
+    "OHC_M01_q35"
   ],
   "review_offset": 9,
   "answer_key": {
@@ -54,19 +56,21 @@
     "OHC_M01_q18": 0,
     "OHC_M01_q19": 1,
     "OHC_M01_q20": 1,
-    "OHC_M01_q21": 2,
-    "OHC_M01_q22": 0,
-    "OHC_M01_q23": 2,
+    "OHC_M01_q21": 1,
+    "OHC_M01_q22": 2,
+    "OHC_M01_q23": 0,
     "OHC_M01_q24": 2,
-    "OHC_M01_q25": 1,
+    "OHC_M01_q25": 2,
     "OHC_M01_q26": 1,
     "OHC_M01_q27": 1,
     "OHC_M01_q28": 1,
     "OHC_M01_q29": 1,
     "OHC_M01_q30": 1,
-    "OHC_M01_q31": 0,
+    "OHC_M01_q31": 1,
     "OHC_M01_q32": 1,
-    "OHC_M01_q33": 1
+    "OHC_M01_q33": 0,
+    "OHC_M01_q34": 1,
+    "OHC_M01_q35": 1
   },
   "course": "OCO301C"
 }

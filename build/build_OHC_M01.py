@@ -125,8 +125,14 @@ GATE = [
      "your designated class.",
      ["True", "False"], 0,
      ""),
+    (0, "OHC.01.A.K7",
+     "A consensus standard that has been incorporated by reference into an OSHA "
+     "regulation is:",
+     ["Advisory guidance only", "Enforceable as regulation for the sections named",
+      "Superseded by the regulation", "Applicable only to new equipment"], 1,
+     ""),
     # ---- Task B
-    (19, "OHC.01.B.K1",
+    (0, "OHC.01.B.K1",
      "A permanently installed overhead crane in a facility is used for a construction task. "
      "Which applies?",
      ["Subpart CC applies in full", "29 CFR 1910.179 applies, except (b)(1)",
@@ -181,8 +187,17 @@ GATE = [
       "Re-evaluate the governing regime, because installation status has changed",
       "Stop using the crane permanently", "Apply whichever regime is less restrictive"], 1,
      ""),
+    (0, "OHC.01.B.K7",
+     "The overhead crane design standard is incorporated by reference on both branches. "
+     "Which statement is correct?",
+     ["The same edition is incorporated on both branches",
+      "The facility and construction branches incorporate different editions, each with "
+      "its own equipment cut-off date",
+      "Only the construction branch incorporates any edition",
+      "Incorporation by reference applies only to cranes built before 1971"], 1,
+     ""),
     # ---- Task C
-    (28, "OHC.01.C.K1",
+    (0, "OHC.01.C.K1",
      "Training content such as this module establishes:",
      ["The operator's qualification", "The operator's standard of care",
       "The employer's insurance rating", "The crane's rated capacity"], 1,
@@ -249,6 +264,13 @@ CONTENT = {
          "specific requirements.",
          "Knowing that a machine is <i>related but not the same</i> is what stops an "
          "operator applying a bridge-crane rule to a monorail."),
+        ("When a standard becomes law",
+         "A consensus standard cited <i>by name</i> is guidance. A consensus standard "
+         "<b>incorporated by reference</b> into a regulation is <b>law</b> &#8212; the named "
+         "sections are enforceable exactly as the regulation is.",
+         "29 CFR 1910.6 and 1926.6 are the mechanisms that do this. Two examples sit "
+         "inside the overhead crane rules themselves: the design specification at "
+         "1910.179(b)(2), and the clearance specification at 1910.179(b)(6)(i)."),
         ("Which volume governs",
          "Configuration determines the governing consensus volume. Top running bridge and "
          "trolley equipment, underhung trolley or bridge equipment, monorails and hoists "
@@ -284,6 +306,15 @@ CONTENT = {
          "Note carefully: these supplemental requirements apply <b>whether or not the "
          "crane is permanently installed</b>. This is a layer across both branches, not a "
          "third branch."),
+        ("One standard, two editions",
+         "Both branches incorporate the overhead crane design standard &#8212; but "
+         "<b>not the same edition</b>. The facility branch adopts the 1967 ANSI edition "
+         "for cranes installed on or after 31 August 1971. The construction branch "
+         "adopts named sections of the 2005 ASME edition for equipment manufactured on "
+         "or after 19 September 2001.",
+         "Learn <i>&quot;B30.2 is the overhead crane standard&quot;</i> and stop there, and you "
+         "will cite the wrong edition on one branch or the other. The edition follows "
+         "the branch, and the cut-off date follows the equipment."),
         ("Recognising permanent installation",
          "The indicators are physical: fastened to the building structure, not readily "
          "assembled or disassembled, and an irremovable part of the property.",
@@ -432,7 +463,7 @@ def build():
             q = PRACTICE[pi]
             pi += 1
             sid += 1
-            S.append(question_slide(sid, q[0], q[1], q[2], q[3], q[4], q[5], False))
+            S.append(question_slide(sid, pi, q[1], q[2], q[3], q[4], q[5], False))
 
     sid += 1
     S.append("""  <section class="slide divider" id="s%d">
@@ -444,9 +475,9 @@ def build():
     option is not shown.</div>
   </section>""" % sid)
 
-    for q in GATE:
+    for gi, q in enumerate(GATE):
         sid += 1
-        S.append(question_slide(sid, q[0], q[1], q[2], q[3], q[4], q[5], True))
+        S.append(question_slide(sid, len(PRACTICE) + 1 + gi, q[1], q[2], q[3], q[4], q[5], True))
 
     sid += 1
     S.append("""  <section class="slide" id="s%d">

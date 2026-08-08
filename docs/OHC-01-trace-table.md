@@ -1,93 +1,84 @@
-# OHC-01 — Element-to-Item Trace Table
+# OHC-01 &mdash; Element-to-Item Trace Table
 
-**Module:** OHC-01 Equipment Types, Configurations, and Jurisdictional Framework
-**Course:** OCO301C · **Gate:** OHC-1 · **File:** `OHC_M01_EquipmentAndJurisdiction.html`
-**Gate items:** 26 · **Performance items:** 9 · **Pass:** 100%, server-authoritative
+> **Generated file.** Emitted by `build/gen_trace_table.py` from the same question data that builds the module. Do not hand-edit &mdash; regenerate.
 
-This is the pattern module. The other eleven follow this shape.
+**Module:** OHC-01 Equipment Types, Configurations, and Jurisdictional Framework  
+**Course:** OCO301C &middot; **Gate:** OHC-1 &middot; **File:** `OHC_M01_EquipmentAndJurisdiction.html`  
+**Slides:** 61 &middot; **Gate items:** 26 &middot; **Practice:** 9 &middot; **Performance:** 9 &middot; **Pass:** 100%, server-authoritative  
+**Salt:** `CQ1:OHC_M01_EquipmentAndJurisdiction` &middot; **Next:** `OHC_M02` &middot; **review_offset:** 9
 
 ---
 
 ## Standing rules
 
 - **One element, one gate item.** An item testing two elements cannot be traced, and an untraceable item cannot be defended.
-- **All 26 K and R elements are gated.** The ACS states every element is a gateable claim; none are taught-but-untested.
-- **Practice items sit on top, not inside.** Practice previews the gate, is unscored, and reveals nothing. It does not reduce gate coverage.
-- **The correct option is never revealed on a miss.** Wrong retries, correct locks.
-- **S elements never appear here.** They live on the Performance Evaluation Sheet (`OHC_M01_PES.docx`) and are signed by an evaluator, not scored by the bridge.
-
-**Source status column:** ✅ verified against archived source · ⚠️ source held but claim unverified · 🔴 blocked, do not author until resolved.
+- **Every K and R element is gated.** The ACS states every element is a gateable claim; none are taught-but-untested.
+- **Practice sits on top, not inside.** Practice previews the gate, is unscored, and reveals the answer. It does not reduce gate coverage.
+- **The correct option is never revealed on a gate miss.** Wrong retries, correct locks.
+- **S elements never appear here.** They live on `OHC_M01_PES.docx` and are signed by an evaluator, not scored by the bridge.
 
 ---
 
-## Task A — Equipment Identification and Classification
+## Task A &mdash; Equipment Identification and Classification
 
 | Item | Element | Assessment focus | Form | Source | Status |
 |---|---|---|---|---|---|
-| `OHC01-G01` | `OHC.01.A.K1` | Which equipment falls inside the overhead/gantry family — including that it applies **irrespective of travel means** | MC | §1926.1438(b)(1) | ✅ |
-| `OHC01-G02` | `OHC.01.A.K2` | Distinguish top-running from underhung bridge and trolley configuration | MC | ASME B30.2 / B30.17 (by name) | ✅ |
-| `OHC01-G03` | `OHC.01.A.K3` | Single- vs double-girder: capacity and service implications, incl. that **longer span permits lower capacity** for a given girder design | MC | CMAA 70 (by name) | ✅ |
-| `OHC01-G04` | `OHC.01.A.K4` | Monorail, underhung and wall/jib systems as related but distinct classes | MC | ASME B30.11 (by name) | ✅ |
-| `OHC01-G05` | `OHC.01.A.K5` | Match configuration to governing volume — top-running → B30.2, underhung trolley or bridge → B30.17 | MC | B30.2 / B30.17 | ⚠️ *edition note below* |
-| `OHC01-G06` | `OHC.01.A.K6` | The hoist as a distinct component class with its own standard | TF | ASME B30.16 (by name) | ✅ |
-| `OHC01-G07` | `OHC.01.A.R1` | Consequence of misclassification — the wrong inspection, marking and operating rule set attaches | MC | derived | ✅ |
-| `OHC01-G08` | `OHC.01.A.R2` | Mobile-crane logic does **not** transfer: no radius-based load chart, no outrigger set, capacity does not vary with trolley position | MC | §1910.179(b)(5) | ✅ |
-| `OHC01-G09` | `OHC.01.A.R3` | Operating an unfamiliar configuration without familiarization — locate the emergency power panel, verify control functions and safety devices, run motions before loading | TF | Tier 0 (owned) | ✅ |
+| `OHC_M01_q10` | `OHC.01.A.K1` | Equipment family, including that it applies **irrespective of travel means** | MC | &sect;1926.1438(b)(1) | &#9989; |
+| `OHC_M01_q11` | `OHC.01.A.K2` | Top-running vs underhung bridge and trolley configuration | MC | ASME B30.2 / B30.17 | &#9989; |
+| `OHC_M01_q12` | `OHC.01.A.K3` | Single- vs double-girder; **longer span permits lower capacity** | MC | CMAA 70 | &#9989; |
+| `OHC_M01_q13` | `OHC.01.A.K4` | Monorail, underhung and wall/jib as related but distinct classes | MC | ASME B30.11 | &#9989; |
+| `OHC_M01_q14` | `OHC.01.A.K5` | Match configuration to governing volume | MC | B30.2 / B30.17 | &#9888;&#65039; *edition* |
+| `OHC_M01_q15` | `OHC.01.A.K6` | Hoist as a distinct component class | TF | ASME B30.16 | &#9989; |
+| `OHC_M01_q16` | `OHC.01.A.R1` | Misclassification attaches the wrong inspection, marking and operating rule set | MC | derived | &#9989; |
+| `OHC_M01_q17` | `OHC.01.A.R2` | Mobile-crane logic does not transfer | MC | &sect;1910.179(b)(5) | &#9989; |
+| `OHC_M01_q18` | `OHC.01.A.R3` | Unfamiliar configuration without familiarization | TF | Tier 0 (owned) | &#9989; |
+| `OHC_M01_q19` | `OHC.01.A.K7` | **Incorporation by reference** &mdash; a standard named is guidance; a standard incorporated is regulation | MC | &sect;1910.6 &middot; &sect;1910.179(b)(2),(b)(6)(i) | &#9989; **new** |
 
-> [!warning] `OHC01-G05` — edition dependency
-> The corpus holds **B30.17-2015**, titled *Top Running Bridge, Single Girder, Underhung Hoist*, and **B30.11-1998** *Monorails and Underhung Cranes* as a separate volume. B30.11 was folded into B30.17 only at the **2020** edition. Author this item against the editions actually held, or acquire B30.17-2020+. Do not write "B30.17 covers monorails" while holding a 2015 copy.
-
----
-
-## Task B — Jurisdictional Determination
+## Task B &mdash; Jurisdictional Determination
 
 | Item | Element | Assessment focus | Form | Source | Status |
 |---|---|---|---|---|---|
-| `OHC01-G10` | `OHC.01.B.K1` | Permanently installed, used in construction → §1910.179 applies **except (b)(1)**; Subpart CC does not | MC | §1926.1438(a) | ✅ |
-| `OHC01-G11` | `OHC.01.B.K2` | Not permanently installed, used in construction → designated Subpart CC sections **including §1926.1427**, plus specified §1910.179 paragraphs | MC | §1926.1438(b) | ✅ |
-| `OHC01-G12` | `OHC.01.B.K3` | Recognise which §1910.179 paragraphs survive on the construction branch | MC | §1926.1438(b)(2)(i) | ✅ |
-| `OHC01-G13` | `OHC.01.B.K3` *(second aspect)* | **ASME B30.2-2005 sections are incorporated by reference**, split on a 19 Sep 2001 manufacture date | MC | §1926.1438(b)(2)(ii) | 🔴 *see below* |
-| `OHC01-G14` | `OHC.01.B.K4` | General-industry facility operation → §1910.179 as the direct spine | TF | §1910.179 | ✅ |
-| `OHC01-G15` | `OHC.01.B.K5` | Federal/USACE work → EM 385 Section 16 supplemental requirements, which apply **whether or not the crane is permanently installed** | MC | EM 385 §16 scope | ✅ |
-| `OHC01-G16` | `OHC.01.B.K6` | Indicators of permanent installation — fastened to the building, not readily assembled/disassembled, irremovable part of the property | MC | §1926.1438(a) | ✅ |
-| `OHC01-G17` | `OHC.01.B.R1` | Applying facility rules to a non-permanently-installed construction crane, and thereby missing §1926.1427 | MC | derived | ✅ |
-| `OHC01-G18` | `OHC.01.B.R2` | Assuming Subpart CC applies to a permanently installed crane used for a construction task | TF | §1926.1438(a) | ✅ |
-| `OHC01-G19` | `OHC.01.B.R3` | Failing to re-evaluate jurisdiction when the crane or work context changes | MC | derived | ✅ |
+| `OHC_M01_q20` | `OHC.01.B.K1` | Permanently installed in construction &rarr; &sect;1910.179 except (b)(1) | MC | &sect;1926.1438(a) | &#9989; |
+| `OHC_M01_q21` | `OHC.01.B.K2` | Not permanently installed &rarr; designated Subpart CC incl. &sect;1926.1427 | MC | &sect;1926.1438(b) | &#9989; |
+| `OHC_M01_q22` | `OHC.01.B.K3` | Which &sect;1910.179 paragraphs survive on the construction branch | MC | &sect;1926.1438(b)(2)(i) | &#9989; |
+| `OHC_M01_q23` | `OHC.01.B.K4` | General-industry facility &rarr; &sect;1910.179 direct | TF | &sect;1910.179 | &#9989; |
+| `OHC_M01_q24` | `OHC.01.B.K5` | Federal/USACE &mdash; applies whether or not permanently installed | MC | EM 385 &sect;16 scope | &#9989; |
+| `OHC_M01_q25` | `OHC.01.B.K6` | Indicators of permanent installation | MC | &sect;1926.1438(a) | &#9989; |
+| `OHC_M01_q26` | `OHC.01.B.R1` | Facility rules on a construction-branch crane &rarr; misses &sect;1926.1427 | MC | derived | &#9989; |
+| `OHC_M01_q27` | `OHC.01.B.R2` | Assuming Subpart CC applies to a permanently installed crane | TF | &sect;1926.1438(a) | &#9989; |
+| `OHC_M01_q28` | `OHC.01.B.R3` | Failing to re-evaluate when crane or context changes | MC | derived | &#9989; |
+| `OHC_M01_q29` | `OHC.01.B.K7` | **Two editions** &mdash; ANSI B30.2.0-1967 (facility, installed on/after 31 Aug 1971) vs ASME B30.2-2005 sections (construction, manufactured on/after 19 Sep 2001) | MC | &sect;1910.179(b)(2) &middot; &sect;1926.1438(b)(2)(ii) | &#9989; **new** |
 
-> [!danger] `OHC01-G13` is blocked on a clean source
-> The archived Subpart CC PDF is a column-interleaved OCR; §1926.1438(b)(2)(ii)'s **structure**, the **2001 date**, and the **fact of B30.2-2005 incorporation** are legible, but the enumerated section list is not reliably readable. **Do not author this item from that scan.** Resolve against a clean copy — B30.2-2005 is now in the vault, so the incorporation can be checked from both ends.
-
-> [!success] EM 385 verified — 2026-08-07
-> Section 16's overhead-and-gantry requirements were read verbatim from a standalone Section 16 extract and map **1:1, in order**, onto the spec's `16-8.aa(2)–(7)`. See [[OHC — EM 385 Section 16 Overhead and Gantry (verified)]]. `G15` is unblocked.
->
-> **Still needed:** `G23`, `G26` and `P06` depend on Section 16's **general and qualifications** paragraphs (Competent Person, written designation, Class I/II tiers), which sit earlier in the section and were outside the overhead subsection. One targeted read closes all three.
->
-> **Standing trap:** the file named plainly `EM_385-1-1.pdf` is the **2014** edition, which numbers Section 16 by letter (`16.M`) and contains no `16-2` or `16-8.aa`. Always confirm the 15 March 2024 edition before quoting a paragraph number.
-
----
-
-## Task C — Roles, Qualification Architecture, and Standard of Care
+## Task C &mdash; Roles, Qualification Architecture, and Standard of Care
 
 | Item | Element | Assessment focus | Form | Source | Status |
 |---|---|---|---|---|---|
-| `OHC01-G20` | `OHC.01.C.K1` | The **controlling entity** makes the qualification determination; training establishes the operator's standard of care and does not confer qualification | MC | Gate Master Rev 1.3 §11.2, A2 | ✅ |
-| `OHC01-G21` | `OHC.01.C.K2` | Designation Gate on the facility branch — **"only designated personnel shall be permitted to operate"**, and *designated* means selected or assigned by the employer as qualified for specific duties | MC | **§1910.179(b)(8)** + **(a)(35)** | ✅ |
-| `OHC01-G22` | `OHC.01.C.K3` | Certification Gate on the §1926.1438(b) branch — §1926.1427 certified operator | MC | §1926.1427 | ⚠️ *NCCCO premise* |
-| `OHC01-G23` | `OHC.01.C.K4` | Competent Person (Cranes and Rigging) on federal work | MC | EM 385 §16 general | ⚠️ *needs §16 general read* |
-| `OHC01-G24` | `OHC.01.C.K5` | Distinguish operator designation from **appointed person**, inspection personnel, and maintenance qualified persons | MC | §1910.179(b)(8), (l)(3)(i), (m)(1) | ✅ |
-| `OHC01-G25` | `OHC.01.C.R1` | Treating course completion as qualification absent the employer determination | TF | Gate Master §11.2 | ✅ |
-| `OHC01-G26` | `OHC.01.C.R2` | Operating on federal work without the required written designation | MC | EM 385 §16 general | ⚠️ *needs §16 general read* |
-| `OHC01-G27` | `OHC.01.C.R3` | Blurred accountability when roles are undocumented | MC | derived | ✅ |
-
-> [!note] Numbering
-> G01–G27 with **G13 counted as a second aspect of `OHC.01.B.K3`** gives **26 distinct elements across 27 item slots**. If G13 is dropped rather than resolved, the module returns to 26 items and `OHC.01.B.K3` is tested by G12 alone — but the ASME incorporation then goes untaught, which is a real loss on the construction branch. **Recommendation: resolve the source and keep G13.**
-
-> [!warning] `OHC01-G22` — the NCCCO premise
-> `OHC.01.C.K3` asserts certification *"administered via NCCCO."* Nothing in the corpus substantiates an NCCCO overhead crane operator offering — the NCCCO material held is Signal Person, mobile test questions and the A/D candidate handbook. Author the item against **§1926.1427** (the regulation), not against a named provider, until the provider question is resolved. This is also the safer construction under the standing discipline: *cite the regulation, not NCCCO.*
+| `OHC_M01_q30` | `OHC.01.C.K1` | The **controlling entity** determines qualification | MC | Gate Master Rev 1.3 &sect;11.2, A2 | &#9989; |
+| `OHC_M01_q31` | `OHC.01.C.K2` | Designation Gate &mdash; only designated personnel may operate | MC | **&sect;1910.179(b)(8)** + **(a)(35)** | &#9989; |
+| `OHC_M01_q32` | `OHC.01.C.K3` | Certification Gate on the construction branch | MC | &sect;1926.1427 | &#9888;&#65039; *cite the reg* |
+| `OHC_M01_q33` | `OHC.01.C.K5` | Designation vs **appointed person** vs maintenance qualified person | MC | &sect;1910.179(b)(8), (l)(3)(i), (m)(1) | &#9989; |
+| `OHC_M01_q34` | `OHC.01.C.R1` | Course completion is not qualification | TF | Gate Master &sect;11.2 | &#9989; |
+| `OHC_M01_q35` | `OHC.01.C.R3` | Blurred accountability when roles are undocumented | MC | derived | &#9989; |
 
 ---
 
-## Performance items — `OHC_M01_PES.docx`
+## Practice items (unscored)
+
+| Item | Element previewed | Stem |
+|---|---|---|
+| `OHC_M01_q01` | `OHC.01.A.K1` | Which of these is NOT part of the overhead and gantry crane family? |
+| `OHC_M01_q02` | `OHC.01.A.K2` | On a top-running bridge crane, the bridge end trucks ride: |
+| `OHC_M01_q03` | `OHC.01.A.K6` | The hoist is treated as its own component class with its own consensus standard, separate from the crane it is mounted on. |
+| `OHC_M01_q04` | `OHC.01.B.K6` | A crane bolted to the building structure that cannot be readily assembled or disassembled is best described as: |
+| `OHC_M01_q05` | `OHC.01.B.K1` | For a permanently installed overhead crane used in construction, the governing OSHA requirements are: |
+| `OHC_M01_q06` | `OHC.01.B.R3` | Once a crane's governing regime has been determined, it never needs re-checking for the life of the equipment. |
+| `OHC_M01_q07` | `OHC.01.C.R1` | Completing this course makes you a qualified overhead crane operator. |
+| `OHC_M01_q08` | `OHC.01.C.K1` | The determination that an operator is qualified belongs to: |
+| `OHC_M01_q09` | `OHC.01.C.S3` | An operator asked to run a crane type outside the scope of their designation should: |
+
+---
+
+## Performance items &mdash; `OHC_M01_PES.docx`
 
 Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment and control modes.
 
@@ -98,34 +89,31 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment a
 | `OHC01-P03` | `OHC.01.A.S3` | Locate and interpret equipment identification and capacity markings |
 | `OHC01-P04` | `OHC.01.B.S1` | Walk the installation-status decision tree and state the governing regime |
 | `OHC01-P05` | `OHC.01.B.S2` | Identify which certification or designation attaches on each branch |
-| `OHC01-P06` | `OHC.01.B.S3` | Classify a crane as EM 385 Class I or Class II ⚠️ *needs §16 general read* |
-| `OHC01-P07` | `OHC.01.C.S1` | State who issued their designation, what equipment and modes it covers, and its limits |
+| `OHC01-P06` | `OHC.01.B.S3` | Classify a crane as EM 385 Class I or Class II &mdash; *pending &sect;16 general read* |
+| `OHC01-P07` | `OHC.01.C.S1` | State who issued their designation, what it covers, and its limits |
 | `OHC01-P08` | `OHC.01.C.S2` | Produce designation and training records on request |
 | `OHC01-P09` | `OHC.01.C.S3` | Refuse an assignment outside the scope of designation |
 
-`P07`–`P09` are the Designation Gate rehearsed. They are also the evidence layer OHC-12 Task B assembles.
+---
+
+## Held back &mdash; not authored
+
+Three K/R elements have no gate item because their source cannot yet be read. They are absent rather than invented. Adding them is a manifest edit plus a pipeline re-run, not a rebuild.
+
+| Element | Claim | Blocked on |
+|---|---|---|
+| `OHC.01.B.K3` *(2nd aspect)* | The enumerated ASME B30.2-2005 section list at &sect;1926.1438(b)(2)(ii) | Archived Subpart CC scan is column-interleaved OCR and unreadable at that passage. B30.2-2005 is now in the vault, so it can be checked from both ends. |
+| `OHC.01.C.K4` | Competent Person (Cranes and Rigging) on federal work | Sits in EM 385 Section 16's general and qualifications paragraphs, outside the overhead subsection already read. |
+| `OHC.01.C.R2` | Written designation on federal work | Same source as above. |
 
 ---
 
-## Build state
+## ACS amendment recorded here
 
-| | |
-|---|---|
-| Authorable now | **22 of 27** gate items · **8 of 9** performance items |
-| Needs one targeted read of EM 385 §16 general | G23 · G26 · P06 |
-| Blocked on a clean §1926.1438 source | G13 |
-| Author against the regulation, not a provider | G22 |
-| Edition-dependent | G05 |
+Two elements are **net-new** and are not in the published ACS. They came out of the Part 1910 map and both are verified against &sect;1910.179's own text:
 
-**EM 385 Section 16 is verified as of 2026-08-07** and no longer blocks the track. Three items still need a single targeted read of Section 16's general and qualifications paragraphs. The remaining hard blocker is `G13` — a clean §1926.1438 source for the ASME B30.2-2005 incorporation.
+- **`OHC.01.A.K7`** &mdash; incorporation by reference. A consensus standard cited by name is guidance; one incorporated under &sect;1910.6 or &sect;1926.6 is regulation for the sections named.
+- **`OHC.01.B.K7`** &mdash; the two-edition split. ANSI B30.2.0-1967 on the facility branch for cranes installed on or after 31 Aug 1971; ASME B30.2-2005 sections on the construction branch for equipment manufactured on or after 19 Sep 2001.
 
----
+**Census effect.** OHC-01 moves from 17 K to 19 K, so the module carries 19 K + 9 R + 9 S = 37 elements and the track total moves 398 &rarr; 400. The ACS census table in &sect;7 needs the same amendment.
 
-## Parallel-track rules
-
-The existing six-module overhead course **continues to run unchanged**. This track is additive.
-
-1. **Separate registry, separate gate.** `cq_keys_OHC.json` under gate `OHC-1`. No shared IDs with the existing course.
-2. **Re-author, don't lift.** The existing 50-item exam is Tier 0 and reusable in principle, but the two instruments must not become near-duplicates at different pass marks. Use it as a **coverage reference** — what is already assessed, and how the house phrases things — and write new items to the element trace.
-3. **Two pass marks now coexist.** The existing course passes at 80%; OCO301C passes at 100%. That is a deliberate product difference, not a defect — but it must be stated plainly in both course descriptions, or it will read as an error.
-4. **The existing course's two known defects stay its own.** Its Q2 rationale cites §1926.550 rather than §1926.1438, and its Q5 teaches NAVFAC P-307 from a document the register records as never opened. Neither is inherited here. Both still warrant a separate fix on that course.

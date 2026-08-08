@@ -24,6 +24,7 @@ Read the cross-check first. Four items are blocking or near-blocking:
 2. ~~EM 385-1-1 Chapter 16 citations are unverified~~ — **resolved 2026-08-07.** Section 16 verified, 1:1 crosswalk to `16-8.aa(2)–(7)`. A 2014-edition decoy file still shares the obvious filename with the cited 2024 edition; rename it.
 3. **NAVFAC P-307 is held** (2000 and 2006 editions, SharePoint) — dated, not missing. **Crane Corner** is still unfetched. Also found: Navy Crane Center *Category 3 (Non-Cab) Crane Safety* student guide, 163 pages, directly on-topic.
 4. **The NCCCO overhead crane certification premise** underpinning the Certification Gate needs confirming before OHC-01 or OHC-12 is authored.
+5. **Part 1910 beyond .179 is uncited and unheld.** §1910.184 (slings) and §1910.147 (energy control) govern the facility branch and the corpus has no primary text for either — only decks and client policies. §1910.179 also routes to Subpart D and Subpart S by name. Cheap to close; Part 1910 is public domain.
 
 ## Standing disciplines
 
@@ -39,7 +40,8 @@ Content establishes the operator's standard of care. It never confers qualificat
 | `vault-dropin/Crane Standards & Guides/OHC — Tier 0 Deck Map.md` | `📚 Resources/Crane Standards & Guides/` |
 | `vault-dropin/Crane Standards & Guides/OHC — Tier 0 Knowledge Harvest.md` | `📚 Resources/Crane Standards & Guides/` |
 | `vault-dropin/Crane Standards & Guides/OHC — EM 385 Section 16 Overhead and Gantry (verified).md` | `📚 Resources/Crane Standards & Guides/` |
+| `vault-dropin/Crane Standards & Guides/OHC — OSHA Part 1910 Map.md` | `📚 Resources/Crane Standards & Guides/` |
 
-Both carry Obsidian frontmatter and `[[wikilinks]]` matching the existing index convention. After dropping them in, add four lines to `_Crane Standards — Index.md` so they are reachable from the index.
+Both carry Obsidian frontmatter and `[[wikilinks]]` matching the existing index convention. After dropping them in, add five lines to `_Crane Standards — Index.md` so they are reachable from the index.
 
 This is the remote-run delivery path described in the vault's own `CLAUDE.md` — the Microsoft 365 connector available to this session has read access to the vault but not `Files.ReadWrite.All`, so it cannot write directly.

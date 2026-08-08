@@ -22,7 +22,7 @@ CraneQualified — **Overhead Crane Operator Track (OHC)**. Twelve modules, ACS 
 
 ## Status
 
-Track status: **OHC-01 … OHC-06 built** (0 gaps, gates verified); OHC-07 … OHC-12 not started. Course code **OCO301C**, gate code **OHC-1**, modules **OHC-01 … OHC-12**. Runs **parallel to** the existing six-module overhead course, which continues unchanged. Gate is **100%, server-authoritative**. No revision change to the CraneQualified Competency and Gate Master is made by anything in this repo.
+Track status: **OHC-01 … OHC-06 built** (0 gaps, gates verified); **OHC-07 sourced but not built** — blocked on the ACS section, see `vault-dropin/.../OHC — Load Handling Source Pack (verified).md`; OHC-08 … OHC-12 not started. Course code **OCO301C**, gate code **OHC-1**, modules **OHC-01 … OHC-12**. Runs **parallel to** the existing six-module overhead course, which continues unchanged. Gate is **100%, server-authoritative**. No revision change to the CraneQualified Competency and Gate Master is made by anything in this repo.
 
 The ACS build specification itself should be committed to `docs/OHC-ACS-build-spec.md` from the authoritative copy — it is deliberately not transcribed here, because element codes and paragraph-letter citations are exactly the content a re-keying would corrupt.
 
@@ -52,7 +52,8 @@ Content establishes the operator's standard of care. It never confers qualificat
 | `vault-dropin/Crane Standards & Guides/OHC — EM 385 Section 16 Overhead and Gantry (verified).md` | `📚 Resources/Crane Standards & Guides/` |
 | `vault-dropin/Crane Standards & Guides/OHC — OSHA Part 1910 Map.md` | `📚 Resources/Crane Standards & Guides/` |
 | `vault-dropin/Crane Standards & Guides/OHC — Rigging Knowledge Harvest (verified).md` | `📚 Resources/Crane Standards & Guides/` |
+| `vault-dropin/Crane Standards & Guides/OHC — Load Handling Source Pack (verified).md` | `📚 Resources/Crane Standards & Guides/` |
 
-Both carry Obsidian frontmatter and `[[wikilinks]]` matching the existing index convention. After dropping them in, add six lines to `_Crane Standards — Index.md` so they are reachable from the index.
+Both carry Obsidian frontmatter and `[[wikilinks]]` matching the existing index convention. After dropping them in, add seven lines to `_Crane Standards — Index.md` so they are reachable from the index.
 
 This is the remote-run delivery path described in the vault's own `CLAUDE.md` — the Microsoft 365 connector available to this session has read access to the vault but not `Files.ReadWrite.All`, so it cannot write directly.

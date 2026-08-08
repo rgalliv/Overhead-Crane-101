@@ -84,7 +84,7 @@ Sourced to Hanford TR244C unless marked otherwise.
 - Spreader beams get a **frequent (pre-use) inspection at the beginning of each shift**: structural deformation, cracks, excessive wear, loose or missing fasteners. Recommended for loads over 12 ft.
 
 **Load control**
-- **§1910.179(n)(3)(ii)** — *the load shall be well secured and properly balanced in the sling or lifting device before it is lifted more than a few inches.* Paragraph (n) **is** in the §1926.1438(b)(2) list, so this binds on **both branches**.
+- **§1910.179(n)(3)(i)** — *the load shall be well secured and properly balanced in the sling or lifting device before it is lifted more than a few inches.* Paragraph (n) **is** in the §1926.1438(b)(2) list, so this binds on **both branches**.
 - At the pause: **no downward drift** of the load. Shock loading *"can very easily cause the load to double the load tension on the crane, hoist, and rigging equipment."*
 - *"Do not carry loads over people. All personnel including the rigger shall stay clear of the load. Use a tag line to help control the load. Never raise the load higher than necessary."*
 - Outdoor equipment: wind speeds **over 25 mph** should be evaluated by a qualified person.

@@ -43,7 +43,7 @@
 
 | Item | Element | Stem | Form | Source | Status |
 |---|---|---|---|---|---|
-| `OHC_M06_q30` | `OHC.06.C.K1` | &sect;1910.179(n)(3)(ii) requires that the load be well secured and properly balanced in the sling or lifting device: | MC | **&sect;1910.179(n)(3)(ii)** &#8212; both branches | &#9989; |
+| `OHC_M06_q30` | `OHC.06.C.K1` | &sect;1910.179(n)(3)(i) requires that the load be well secured and properly balanced in the sling or lifting device: | MC | **&sect;1910.179(n)(3)(i)** &#8212; both branches | &#9989; |
 | `OHC_M06_q31` | `OHC.06.C.K2` | During the pause at the test lift, the operator confirms the brake holds with: | MC | **DOE Hanford TR244C** no downward drift | &#9989; |
 | `OHC_M06_q32` | `OHC.06.C.K3` | The correct response to a load that hangs tilted at the test lift is: | MC | Tier 0 WD-SCN-002 &middot; derived | &#9989; |
 | `OHC_M06_q33` | `OHC.06.C.K3b` | Where bridle legs must differ in length to level a load, they are adjusted with: | MC | **DOE Hanford TR244C** turnbuckles / lever hoists | &#9989; |
@@ -97,7 +97,7 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment.
 
 **&#9888;&#65039; A live arithmetic defect in a shipped Tier 0 guide** &mdash; `WD-SCN-002`'s leg-tension answer key is **wrong by a factor of two in two places** &#8212; KC Q5 keys 10,606 lb where the formula gives 21,213 lb, and FKC Q2 keys 14,142 lb where it gives 28,284 lb. Both key entries contain an unresolved *&#8220;Wait &#8212;&#8221;* editorial note left in the shipped text. The worked example on Slide 15 and the debrief questions are correct, so it is the keys that are wrong, not the method. `A.K3` here is keyed to the **correct** value (21,200 lb). **This needs fixing in the source guide.**
 
-**&#9989; The test lift is regulation, on both branches** &mdash; `C.K1` and `C.K2` rest on **&sect;1910.179(n)(3)(ii)** &#8212; *the load shall be well secured and properly balanced in the sling or lifting device before it is lifted more than a few inches*. Paragraph **(n)** is in the &sect;1926.1438(b)(2) list, so this is one of the few load-handling rules that binds on **both** the facility and the construction branch.
+**&#9989; The test lift is regulation, on both branches** &mdash; `C.K1` and `C.K2` rest on **&sect;1910.179(n)(3)(i)** &#8212; *the load shall be well secured and properly balanced in the sling or lifting device before it is lifted more than a few inches*. Paragraph **(n)** is in the &sect;1926.1438(b)(2) list, so this is one of the few load-handling rules that binds on **both** the facility and the construction branch.
 
 **&#9989; Hook point-loading given a number** &mdash; The ACS states `A.K4` as *no point loading or tip loading* without a magnitude. The Hanford manual carries the derate table &#8212; **100&#37; / 86&#37; / 80&#37; / 70&#37;** as the load walks off the saddle, and about **40&#37;** as a point load at the tip &#8212; alongside the rule that *the designed SWL applies only when the load is applied in the saddle of the hook*.
 

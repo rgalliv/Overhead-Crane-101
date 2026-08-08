@@ -140,7 +140,7 @@ CONTENT = {
          "must differ, they are adjusted with turnbuckles or lever hoists &#8212; not by "
          "knotting or twisting."),
         ("The rule is in the regulation",
-         "&sect;1910.179(n)(3)(ii) is short and it is the whole of the test lift: <i>the load "
+         "&sect;1910.179(n)(3)(i) is short and it is the whole of the test lift: <i>the load "
          "shall be <b>well secured and properly balanced in the sling or lifting device "
          "before it is lifted more than a few inches</b></i>.",
          "This paragraph is in the &sect;1926.1438(b) list, so it applies on <b>both</b> "
@@ -328,7 +328,7 @@ GATE = [
       "By lifting to head height and looking up"], 1, ""),
     # ---- Task C
     ("OHC.06.C.K1",
-     "&sect;1910.179(n)(3)(ii) requires that the load be well secured and properly balanced "
+     "&sect;1910.179(n)(3)(i) requires that the load be well secured and properly balanced "
      "in the sling or lifting device:",
      ["Before it is lifted more than a few inches", "Before it reaches travel height",
       "Before the trolley is moved", "Before the load is landed"], 0, ""),
@@ -391,7 +391,7 @@ TRACE_SOURCE = {
     "OHC.06.B.R1": ("derived", "OK"),
     "OHC.06.B.R2": ("**ASME B30.20** design for configuration", "OK"),
     "OHC.06.B.R3": ("**DOE Hanford TR244C** stay clear", "OK"),
-    "OHC.06.C.K1": ("**&sect;1910.179(n)(3)(ii)** &#8212; both branches", "OK"),
+    "OHC.06.C.K1": ("**&sect;1910.179(n)(3)(i)** &#8212; both branches", "OK"),
     "OHC.06.C.K2": ("**DOE Hanford TR244C** no downward drift", "OK"),
     "OHC.06.C.K3": ("Tier 0 WD-SCN-002 &middot; derived", "OK"),
     "OHC.06.C.K3b": ("**DOE Hanford TR244C** turnbuckles / lever hoists", "OK"),
@@ -439,7 +439,7 @@ TRACE_NOTES = [
      "wrong, not the method. `A.K3` here is keyed to the **correct** value (21,200 lb). "
      "**This needs fixing in the source guide.**"),
     ("&#9989; The test lift is regulation, on both branches",
-     "`C.K1` and `C.K2` rest on **&sect;1910.179(n)(3)(ii)** &#8212; *the load shall be well "
+     "`C.K1` and `C.K2` rest on **&sect;1910.179(n)(3)(i)** &#8212; *the load shall be well "
      "secured and properly balanced in the sling or lifting device before it is lifted more "
      "than a few inches*. Paragraph **(n)** is in the &sect;1926.1438(b)(2) list, so this is "
      "one of the few load-handling rules that binds on **both** the facility and the "

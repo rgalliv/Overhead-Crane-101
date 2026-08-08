@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OCO301C Module 8 &#8212; Operational Rules and Safe Practices</title>
+<style>
+:root{--navy:#1B3464;--gold:#C8991A;--ink:#0d1522;--paper:#f5f6f8;--line:#2b4478;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:Calibri,"Segoe UI",system-ui,sans-serif;background:var(--ink);
+     color:var(--paper);overflow:hidden}
+#stage{position:relative;height:100dvh;width:100vw}
+.slide{position:absolute;inset:0;padding:28px 22px 92px;overflow-y:auto;
+       -webkit-overflow-scrolling:touch;opacity:0;pointer-events:none;
+       transition:opacity .28s ease;background:linear-gradient(160deg,#111a2c,#0d1522)}
+.slide.active{opacity:1;pointer-events:auto}
+.slide.section-header,.slide.divider{background:linear-gradient(160deg,var(--navy),#12203c)}
+h1{font-size:1.55rem;line-height:1.25;margin:.2em 0 .5em;color:#fff}
+h2{font-size:1.25rem;margin:.2em 0 .6em;color:var(--gold)}
+p{line-height:1.55;margin:0 0 .9em}
+ul{line-height:1.55;padding-left:1.1em}
+li{margin-bottom:.5em}
+.lede{font-size:1.05rem;color:#cfd6e4}
+.kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+        margin-bottom:.6em;font-weight:700}
+.elem{font-size:.68rem;letter-spacing:.06em;color:#7d8ba6;margin-bottom:.5em;
+      font-family:ui-monospace,Menlo,Consolas,monospace}
+.note{border-left:3px solid var(--gold);padding:.6em .9em;background:#16203a;
+      border-radius:0 6px 6px 0;font-size:.95rem;color:#cfd6e4}
+.stem{font-size:1.05rem;color:#fff}
+.quiz-group{display:flex;flex-direction:column;gap:10px;margin:1em 0}
+.quiz-option{display:block;width:100%;text-align:left;padding:14px 16px;font-size:1rem;
+             font-family:inherit;color:var(--paper);background:#16203a;
+             border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.quiz-option:active{transform:scale(.995)}
+.quiz-option.correct{border-color:#2f9e64;background:#12301f}
+.quiz-option.wrong{border-color:#b4442f;background:#301513}
+.quiz-feedback{display:none;margin-top:.4em;padding:.7em .9em;border-radius:8px;
+               background:#16203a;font-size:.95rem;color:#cfd6e4}
+.quiz-feedback.show{display:block}
+.completion-panel{background:#16203a;border:1px solid var(--line);border-radius:12px;
+                  padding:18px;margin-top:1em}
+.review-item{padding:.5em 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.calc-btn{display:inline-block;width:100%;padding:14px 18px;font-size:1rem;
+          font-family:inherit;font-weight:700;color:#12203c;background:var(--gold);
+          border:0;border-radius:10px;cursor:pointer}
+#chrome{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;
+        padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#0b1220;
+        border-top:1px solid var(--line)}
+#chrome button{padding:10px 16px;font-size:.95rem;font-family:inherit;color:var(--paper);
+               background:#16203a;border:1px solid var(--line);border-radius:8px}
+#counter{font-size:.85rem;color:#7d8ba6;margin-left:auto}
+#score-chip{position:fixed;top:calc(8px + env(safe-area-inset-top));right:12px;
+            padding:6px 12px;font-size:.78rem;font-weight:700;letter-spacing:.05em;
+            color:#12203c;background:var(--gold);border-radius:999px;z-index:20}
+#cq-gatebar{display:none;position:fixed;left:12px;right:12px;
+            bottom:calc(66px + env(safe-area-inset-bottom));padding:12px 14px;
+            background:#16203a;border:1px solid var(--gold);border-radius:10px;
+            font-size:.92rem;color:#fff;z-index:20}
+#cq-gatebtn{display:none;margin-top:10px;padding:10px 16px;font-family:inherit;
+            font-weight:700;color:#12203c;background:var(--gold);border:0;border-radius:8px}
+</style>
+</head>
+<body data-cq-module="OHC_M08" data-cq-total="66" data-cq-gate="OHC-1" data-cq-course="OCO301C">
+
+<div id="score-chip">GATE 0 / 28</div>
+<div id="stage">
+  <section class="slide" id="s1">
+    <div class="kicker">OCO301C &#183; Overhead Crane Operator</div>
+    <h1>Module 8<br>Operational Rules and Safe Practices</h1>
+    <p class="lede">Apply the standing rules that govern personnel protection, multi-crane environments, and securing.</p>
+  </section>
+  <section class="slide" id="s2">
+    <div class="kicker">Objectives</div>
+    <h2>What you will be able to do</h2>
+    <ul>
+      <li>Enforce the exclusion and protection rules around a suspended load, and hold attention on the load for a full task cycle.</li>
+      <li>Operate safely where cranes share runways, bays or airspace at different elevations, using explicit communication rather than assumed right-of-way.</li>
+      <li>Secure the crane correctly at task end, shift end and in adverse conditions, and hand its status across a shift change.</li>
+    </ul>
+  </section>
+  <section class="slide" id="s3">
+    <div class="kicker">How this module gates</div>
+    <h2>Practice, then the gate</h2>
+    <p>9 practice questions run alongside the content. They are not scored and they
+    show you the correct answer.</p>
+    <p>The <b>Final Knowledge Check</b> that follows is the gate. It requires
+    <b>100&#37;</b> &#8212; every gated answer must be correct. A missed gate question is
+    not revealed; you review and retest.</p>
+    <div class="note">Your live gate score appears in the chip at the top of the screen
+    once the final check begins.</div>
+  </section>
+  <section class="slide section-header" id="s4">
+    <div class="kicker">Task A</div>
+    <h1>Personnel Protection Rules</h1>
+    <p class="lede">Enforce the exclusion and protection rules around suspended loads.</p>
+  </section>
+  <section class="slide" id="s5">
+    <div class="kicker">Task A</div>
+    <h2>The rule, and what the rule actually says</h2>
+    <p>&sect;1910.179(n)(3)(vi): <i>the employer shall require that the operator <b>avoid carrying loads over people</b></i>. Note the shape of it &#8212; it is written as an <b>employer duty</b> to require avoidance, not as an absolute prohibition on the operator.</p>
+    <div class="note">Nearly every facility programme converts it into an absolute: <b>no load over personnel, ever</b>. That is a defensible tightening and it is the rule you will be held to. Know both &#8212; the regulation's wording, and your programme's.</div>
+  </section>
+  <section class="slide" id="s6">
+    <div class="kicker">Task A</div>
+    <h2>Path planning is the control</h2>
+    <p>&#8220;Avoid&#8221; is not a thing you do at the controls. It is a thing you do before you pick, by choosing a route that does not cross occupied ground. Once the load is up and travelling, your options have already narrowed.</p>
+    <div class="note">The path is planned on the floor plan, not on the fly: where are people working, where are the walkways, where are the doors people come through without looking up.</div>
+  </section>
+  <section class="slide" id="s7">
+    <div class="kicker">Task A</div>
+    <h2>Nobody rides anything</h2>
+    <p>&sect;1910.179(n)(3)(v): while any employee is <b>on the load or hook</b>, there shall be <b>no hoisting, lowering, or traveling</b>. Not slowly, not briefly, not to reposition someone.</p>
+    <div class="note">The prohibition extends by facility rule to riding the crane itself &#8212; the bridge, the walkway, the trolley &#8212; while it is in motion. An overhead crane is not transport.</div>
+  </section>
+  <section class="slide" id="s8">
+    <div class="kicker">Task A</div>
+    <h2>The warning device, and its one exception</h2>
+    <p><b>EM 385-1-1 16-8.aa(4)</b>: an alarm or other effective warning signal is required for each crane with a <b>power traveling mechanism</b> &#8212; <b>except for floor-operated cranes</b>.</p>
+    <div class="note">&sect;1910.179(n)(3)(xi) then names when it is used: <b>when starting the bridge</b>, and <b>when the load or hook approaches near or over personnel</b>. Two triggers, not one.</div>
+  </section>
+  <section class="slide" id="s9">
+    <div class="kicker">Task A</div>
+    <h2>A warning is not a clearance</h2>
+    <p>This is the limit the ACS asks you to understand. Sounding the alarm announces the crane. It does <b>not</b> authorise the movement, it does not clear the path, and it does not transfer responsibility to the people who heard it.</p>
+    <div class="note">Using the horn as a substitute for looking is the failure mode. If the warning is doing the work of the exclusion zone, there is no exclusion zone &#8212; there is a noise and a hope that everyone interprets it the same way you do.</div>
+  </section>
+  <section class="slide" id="s10">
+    <div class="kicker">Task A</div>
+    <h2>Attention is a control, and it is spendable</h2>
+    <p>&sect;1910.179(n)(3)(x): the employer shall ensure the operator <b>does not leave the position at the controls while the load is suspended</b>. Physically present is the floor of the requirement, not the ceiling of it.</p>
+    <div class="note">A suspended load is an active hazard for as long as it hangs. The standard also polices the station itself &#8212; (o)(2) requires clothing and belongings stored so as not to interfere with access or operation, and tools kept in the tool box rather than <b>loose in or about the cab</b>.</div>
+  </section>
+  <section class="slide" id="s11">
+    <div class="kicker">Task A</div>
+    <h2>The fall zone drifts inward</h2>
+    <p>On a long operation the exclusion zone quietly shrinks. People who were clear at the start step closer to see, to help, to talk. Nobody decides to enter the fall zone; they arrive in it by degrees.</p>
+    <div class="note">This is why the rule is <b>stop motion</b>, not <b>shout</b>. Re-establishing the zone costs seconds. Discovering it has closed costs somebody.</div>
+  </section>
+  <section class="slide" id="s12">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.08.A.K1</div>
+    <h2>Question 1</h2>
+    <p class="stem">&sect;1910.179(n)(3)(vi) is written as:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q01',0,'fb01')">An absolute prohibition on the operator</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q01',1,'fb01')">An employer duty to require that the operator avoid carrying loads over people</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q01',2,'fb01')">A recommendation</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q01',3,'fb01')">A rule applying only to outdoor cranes</button>
+    </div>
+    <div class="quiz-feedback" id="fb01">Correct answer: B. It is an employer duty to require avoidance. Most facility programmes tighten it to an absolute, and that is the rule you are held to.</div>
+  </section>
+  <section class="slide" id="s13">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.08.A.K2</div>
+    <h2>Question 2</h2>
+    <p class="stem">An employee is standing on the hook to be repositioned a short distance. Permitted motions are:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q02',0,'fb02')">Travel only, at slow speed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q02',1,'fb02')">Hoisting only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q02',2,'fb02')">None</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q02',3,'fb02')">Any motion, with a signaler</button>
+    </div>
+    <div class="quiz-feedback" id="fb02">Correct answer: C. (n)(3)(v): while any employee is on the load or hook there shall be no hoisting, lowering, or traveling.</div>
+  </section>
+  <section class="slide" id="s14">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.08.A.K3</div>
+    <h2>Question 3</h2>
+    <p class="stem">The EM 385 warning-device requirement for power-traveling cranes excepts:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q03',0,'fb03')">Cab-operated cranes</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q03',1,'fb03')">Floor-operated cranes</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q03',2,'fb03')">Outdoor cranes</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q03',3,'fb03')">Cranes under 5 tons</button>
+    </div>
+    <div class="quiz-feedback" id="fb03">Correct answer: B. 16-8.aa(4) requires a warning signal for each crane with a power traveling mechanism, except for floor-operated cranes.</div>
+  </section>
+  <section class="slide section-header" id="s15">
+    <div class="kicker">Task B</div>
+    <h1>Multi-Crane and Shared-Runway Operations</h1>
+    <p class="lede">Operate safely where cranes share runways, bays, or airspace at different elevations.</p>
+  </section>
+  <section class="slide" id="s16">
+    <div class="kicker">Task B</div>
+    <h2>Three clearance relationships, continuously</h2>
+    <p><b>EM 385-1-1 16-8.aa(5)</b>: clearance shall be maintained between the crane and <b>any structure or object</b>, <b>any parallel running cranes</b>, and <b>cranes operating at different elevations</b>.</p>
+    <div class="note">&sect;1910.179 backs two of the three: <b>(b)(6)(i)</b> sets the installed clearance from the building, and <b>(b)(7)</b> requires clearance between parallel cranes. Both apply on either branch. The elevation case is EM 385's contribution.</div>
+  </section>
+  <section class="slide" id="s17">
+    <div class="kicker">Task B</div>
+    <h2>Different elevations is the one that surprises people</h2>
+    <p>A crane on another runway at another height is outside the normal scan. It is not in your bay, not at your eye level, and its load block may occupy airspace you think of as empty.</p>
+    <div class="note">Runway heights differ by design in older buildings and in bays that were extended. Establish the geometry once, deliberately, rather than discovering it with a load in the air.</div>
+  </section>
+  <section class="slide" id="s18">
+    <div class="kicker">Task B</div>
+    <h2>Contact is permitted, but it is never casual</h2>
+    <p><b>EM 385-1-1 16-8.aa(6)</b>: contacts with <b>runway stops or other cranes</b> shall be made <b>with extreme caution</b>, with particular care for persons on or below the crane, and <b>only after making certain that persons on the other cranes are aware</b>.</p>
+    <div class="note">It does not prohibit contact. Reaching a runway stop is a normal end-of-travel event. What it requires is that contact be slow, intended, and known about by everyone it could affect &#8212; including anyone on the other crane.</div>
+  </section>
+  <section class="slide" id="s19">
+    <div class="kicker">Task B</div>
+    <h2>Right of way is negotiated, not assumed</h2>
+    <p>Two operators who each believe the other will yield are two operators on a collision course. Shared-bay movement runs on <b>explicit communication</b>: who is moving, where, and when the other is clear.</p>
+    <div class="note">For a genuinely shared lift, &sect;1910.179(n)(3)(ix) makes it formal &#8212; when <b>two or more cranes</b> lift one load, <b>one qualified responsible person shall be in charge</b>, and shall analyse the operation and instruct everyone on positioning, rigging and the movements to be made.</div>
+  </section>
+  <section class="slide" id="s20">
+    <div class="kicker">Task B</div>
+    <h2>Parking and priority are facility conventions</h2>
+    <p>Where cranes share a runway, the facility sets where each parks, who has priority through a pinch point, and which end of the bay is whose. These are local rules and they are not in any standard.</p>
+    <div class="note">That does not make them optional. An operator who does not know the local parking convention will eventually park a crane where the next one needs to be, and the resolution happens under time pressure.</div>
+  </section>
+  <section class="slide" id="s21">
+    <div class="kicker">Task B</div>
+    <h2>Interlocks and zone limiting</h2>
+    <p>Where fitted, interlocks and zone-limiting systems prevent two cranes occupying the same space, or keep a crane out of a defined area. They are engineered controls and they are more reliable than attention.</p>
+    <div class="note">They also breed dependence. Know whether your bay has them, what they cover, and &#8212; critically &#8212; what they do <b>not</b> cover. A zone limiter that protects one pinch point does not protect the other three.</div>
+  </section>
+  <section class="slide" id="s22">
+    <div class="kicker">Task B</div>
+    <h2>The low-tech interlock: rail stops</h2>
+    <p>&sect;1910.179(l)(2)(i) closes its lockout sequence with the step that protects an idle crane: where other cranes are on the same runway, <b>rail stops or other suitable means shall be provided to prevent interference with the idle crane</b>.</p>
+    <div class="note">This is the provision that keeps a working crane from running into one that is under maintenance with a mechanic on it. It is <b>facility branch</b> &#8212; (l) is not in the &sect;1926.1438(b)(2) list.</div>
+  </section>
+  <section class="slide" id="s23">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.08.A.K5</div>
+    <h2>Question 4</h2>
+    <p class="stem">The operator may step away from the controls with a load suspended if the area below is barricaded.</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q04',0,'fb04')">True</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q04',1,'fb04')">False</button>
+    </div>
+    <div class="quiz-feedback" id="fb04">Correct answer: B. (n)(3)(x) is unconditional while the load is suspended. Land the load first.</div>
+  </section>
+  <section class="slide" id="s24">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.08.B.K2</div>
+    <h2>Question 5</h2>
+    <p class="stem">Contact with a runway stop is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q05',0,'fb05')">Prohibited in all cases</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q05',1,'fb05')">Permitted, but only with extreme caution and after ensuring persons on other cranes are aware</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q05',2,'fb05')">Routine and needs no particular care</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q05',3,'fb05')">Permitted only by a designated person</button>
+    </div>
+    <div class="quiz-feedback" id="fb05">Correct answer: B. EM 385 16-8.aa(6) permits it but requires extreme caution, care for persons on or below, and that persons on other cranes be aware.</div>
+  </section>
+  <section class="slide" id="s25">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.08.B.K5</div>
+    <h2>Question 6</h2>
+    <p class="stem">Where other cranes share the runway with a crane being worked on, &sect;1910.179(l)(2)(i) requires:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q06',0,'fb06')">A warning sign only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q06',1,'fb06')">Rail stops or other suitable means to prevent interference with the idle crane</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q06',2,'fb06')">A second operator on watch</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q06',3,'fb06')">The other cranes to be shut down</button>
+    </div>
+    <div class="quiz-feedback" id="fb06">Correct answer: B. Step 5 of the lockout sequence. It is the provision that protects a mechanic on an idle crane.</div>
+  </section>
+  <section class="slide section-header" id="s26">
+    <div class="kicker">Task C</div>
+    <h1>Securing and Shutdown</h1>
+    <p class="lede">Secure the crane correctly at task end, shift end, and adverse conditions.</p>
+  </section>
+  <section class="slide" id="s27">
+    <div class="kicker">Task C</div>
+    <h2>The end-of-use sequence</h2>
+    <p>Securing is a sequence, and each step answers a specific question. <b>Hook empty</b> &#8212; nothing is left hanging. <b>Load block raised clear</b> &#8212; clear of traffic, walkways and work at floor level. <b>Controls off</b> &#8212; every controller returned to the off position.</p>
+    <div class="note">Then <b>disconnect as required</b> by the facility: main switch, disconnect, or lockout where the programme calls for it. A crane left live with the block at head height is secured in name only.</div>
+  </section>
+  <section class="slide" id="s28">
+    <div class="kicker">Task C</div>
+    <h2>Outdoor cranes: secure them when you leave</h2>
+    <p><b>EM 385-1-1 16-8.aa(7)</b> is one sentence and it is absolute: <b>operators of outdoor cranes shall secure them when leaving</b>. Not at shift end &#8212; when leaving.</p>
+    <div class="note">Wind does not wait for the end of the shift, and an unsecured outdoor crane is a wheeled structure on a rail with nothing holding it.</div>
+  </section>
+  <section class="slide" id="s29">
+    <div class="kicker">Task C</div>
+    <h2>Wind indicators and rail clamps &#8212; read the scope</h2>
+    <p>&sect;1910.179(b)(4) requires that <b>outdoor storage bridges</b> be provided with <b>automatic rail clamps</b>, and that a <b>wind-indicating device</b> give a <b>visible or audible alarm</b> to the bridge operator <b>at a predetermined wind velocity</b>.</p>
+    <div class="note">Two precisions. It is scoped to <b>outdoor storage bridges</b>, not to every outdoor crane. And <b>(b)(4) is not in the &sect;1926.1438(b)(2) list</b> &#8212; the construction branch gets (b)(5), (6) and (7) only &#8212; so this is a <b>facility-branch</b> requirement. Elsewhere, the manufacturer's storm provisions and the facility programme govern.</div>
+  </section>
+  <section class="slide" id="s30">
+    <div class="kicker">Task C</div>
+    <h2>Pendant and transmitter</h2>
+    <p>A pendant left hanging within reach, or a radio transmitter left switched on and unattended, is an unsecured crane regardless of what the main switch is doing. The control is the access point.</p>
+    <div class="note">Transmitters are stored and, where the system supports it, keyed off or de-energised. Pendants are returned to their park position. The question to answer is: <b>could someone who is not qualified move this crane right now?</b></div>
+  </section>
+  <section class="slide" id="s31">
+    <div class="kicker">Task C</div>
+    <h2>What actually permits leaving the station</h2>
+    <p>&sect;1910.179(n)(3)(x) forbids leaving the controls <b>while the load is suspended</b>. So the first condition is unconditional: <b>the load is landed</b>.</p>
+    <div class="note">Then the rest: hook empty, block clear, controls off, and the crane secured to whatever level the facility requires for the duration you will be away. A break is not a special case with a lower bar.</div>
+  </section>
+  <section class="slide" id="s32">
+    <div class="kicker">Task C</div>
+    <h2>Loads are not left hanging over breaks</h2>
+    <p>This is the one that gets rationalised. The load is nearly placed, the break is short, moving it costs five minutes. So it hangs &#8212; unattended, over ground nobody is now watching, with no operator at the controls.</p>
+    <div class="note">Every element of the rule is broken at once: (n)(3)(x) attendance, the exclusion zone, and the securing sequence. Land the load.</div>
+  </section>
+  <section class="slide" id="s33">
+    <div class="kicker">Task C</div>
+    <h2>Handing over the crane</h2>
+    <p>The incoming operator inherits the equipment and needs its actual state: what was run, what was noticed, what is outstanding, and whether anything is restricted or tagged.</p>
+    <div class="note">A handoff that says <i>&#8220;it's fine&#8221;</i> transfers the crane without transferring the information. Where a defect exists, OHC-05 governs &#8212; tag, log, and say it out loud.</div>
+  </section>
+  <section class="slide" id="s34">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.08.C.K2</div>
+    <h2>Question 7</h2>
+    <p class="stem">The &sect;1910.179(b)(4) automatic rail clamp and wind-indicator requirement is scoped to:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q07',0,'fb07')">All outdoor cranes</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q07',1,'fb07')">Outdoor storage bridges</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q07',2,'fb07')">All gantry cranes</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q07',3,'fb07')">Cranes over 20 tons</button>
+    </div>
+    <div class="quiz-feedback" id="fb07">Correct answer: B. The paragraph names outdoor storage bridges specifically. It is also facility-branch only -- (b)(4) is not in the 1926.1438(b)(2) list.</div>
+  </section>
+  <section class="slide" id="s35">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.08.C.K3</div>
+    <h2>Question 8</h2>
+    <p class="stem">The main disconnect is open, but the pendant hangs at floor level within reach. The crane is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q08',0,'fb08')">Fully secured</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q08',1,'fb08')">Not secured against unauthorised use at the control point</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q08',2,'fb08')">Secured, provided a sign is posted</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q08',3,'fb08')">Secured for indoor cranes only</button>
+    </div>
+    <div class="quiz-feedback" id="fb08">Correct answer: B. The control is the access point. Securing means asking whether an unqualified person could move the crane now.</div>
+  </section>
+  <section class="slide" id="s36">
+    <div class="kicker">PRACTICE &#183; not scored</div>
+    <div class="elem">OHC.08.C.R3</div>
+    <h2>Question 9</h2>
+    <p class="stem">A load is nearly placed and the crew is going on a short break. The correct action is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q09',0,'fb09')">Leave it suspended -- it is only a few minutes</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q09',1,'fb09')">Leave it suspended and barricade beneath</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q09',2,'fb09')">Land the load before leaving</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q09',3,'fb09')">Lower it to knee height</button>
+    </div>
+    <div class="quiz-feedback" id="fb09">Correct answer: C. Leaving it breaks (n)(3)(x), the exclusion zone, and the securing sequence at once.</div>
+  </section>
+  <section class="slide divider" id="s37">
+    <div class="kicker">Assessment</div>
+    <h1>Final Knowledge Check</h1>
+    <p class="lede">28 questions. This gate requires 100&#37; &#8212; every answer must be
+    correct before the module can be completed.</p>
+    <div class="note">Missed questions are listed for review by number. The correct
+    option is not shown.</div>
+  </section>
+  <section class="slide" id="s38">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.A.K1</div>
+    <h2>Question 10</h2>
+    <p class="stem">The primary control for keeping loads off personnel is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q10',0,'fb10')">Sounding the warning device continuously</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q10',1,'fb10')">Planning the load path to avoid occupied areas before the pick</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q10',2,'fb10')">Travelling at reduced speed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q10',3,'fb10')">Raising the load above head height</button>
+    </div>
+    <div class="quiz-feedback" id="fb10">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s39">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.A.K2</div>
+    <h2>Question 11</h2>
+    <p class="stem">&sect;1910.179(n)(3)(v) prohibits which motions while an employee is on the load or hook?</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q11',0,'fb11')">Traveling only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q11',1,'fb11')">Hoisting and lowering only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q11',2,'fb11')">Hoisting, lowering, and traveling</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q11',3,'fb11')">None -- it permits slow motion</button>
+    </div>
+    <div class="quiz-feedback" id="fb11">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s40">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.A.K3</div>
+    <h2>Question 12</h2>
+    <p class="stem">EM 385-1-1 16-8.aa(4) requires a warning signal for each crane with a power traveling mechanism, except for:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q12',0,'fb12')">Outdoor cranes</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q12',1,'fb12')">Floor-operated cranes</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q12',2,'fb12')">Cab-operated cranes</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q12',3,'fb12')">Radio-controlled cranes</button>
+    </div>
+    <div class="quiz-feedback" id="fb12">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s41">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.A.K3b</div>
+    <h2>Question 13</h2>
+    <p class="stem">The limit of the warning device as a control is that sounding it:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q13',0,'fb13')">Reduces the required clearance</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q13',1,'fb13')">Announces the crane but does not authorise the movement or clear the path</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q13',2,'fb13')">Transfers responsibility to personnel who heard it</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q13',3,'fb13')">Satisfies the path-planning requirement</button>
+    </div>
+    <div class="quiz-feedback" id="fb13">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s42">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.A.K4</div>
+    <h2>Question 14</h2>
+    <p class="stem">Operator attention rules while a load is suspended require:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q14',0,'fb14')">Attention divided between the load and secondary tasks as workload allows</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q14',1,'fb14')">No distraction tasks -- attention stays on the load and its path</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q14',2,'fb14')">Attention on the destination only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q14',3,'fb14')">A spotter to watch the load instead</button>
+    </div>
+    <div class="quiz-feedback" id="fb14">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s43">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.A.K5</div>
+    <h2>Question 15</h2>
+    <p class="stem">&sect;1910.179(n)(3)(x) requires that the operator:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q15',0,'fb15')">Sound the warning before leaving the controls</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q15',1,'fb15')">Not leave the position at the controls while the load is suspended</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q15',2,'fb15')">Log any absence from the controls</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q15',3,'fb15')">Remain in the cab for the entire shift</button>
+    </div>
+    <div class="quiz-feedback" id="fb15">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s44">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.A.R1</div>
+    <h2>Question 16</h2>
+    <p class="stem">Pedestrian traffic crossing under an active lift path is best controlled by:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q16',0,'fb16')">Sounding the warning at each crossing</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q16',1,'fb16')">Rerouting the lift path or physically controlling the crossing</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q16',2,'fb16')">Travelling only when no one is looking up</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q16',3,'fb16')">Raising the load higher</button>
+    </div>
+    <div class="quiz-feedback" id="fb16">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s45">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.A.R2</div>
+    <h2>Question 17</h2>
+    <p class="stem">Over a long operation, crew members drift into the fall zone. The correct response is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q17',0,'fb17')">Shout a warning and continue</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q17',1,'fb17')">Stop motion and re-establish the exclusion zone</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q17',2,'fb17')">Continue at reduced speed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q17',3,'fb17')">Sound the alarm continuously</button>
+    </div>
+    <div class="quiz-feedback" id="fb17">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s46">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.A.R3</div>
+    <h2>Question 18</h2>
+    <p class="stem">Attention capture by a phone or a conversation is hazardous with a load suspended because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q18',0,'fb18')">It is unprofessional</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q18',1,'fb18')">The load remains an active hazard for as long as it hangs, and the operator is its only control</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q18',2,'fb18')">It slows the work</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q18',3,'fb18')">It violates the inspection record</button>
+    </div>
+    <div class="quiz-feedback" id="fb18">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s47">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.B.K1</div>
+    <h2>Question 19</h2>
+    <p class="stem">EM 385-1-1 16-8.aa(5) requires clearance to be maintained from:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q19',0,'fb19')">Structures only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q19',1,'fb19')">Structures and parallel running cranes only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q19',2,'fb19')">Structures or objects, parallel running cranes, and cranes operating at different elevations</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q19',3,'fb19')">Other cranes only when they carry a load</button>
+    </div>
+    <div class="quiz-feedback" id="fb19">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s48">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.B.K2</div>
+    <h2>Question 20</h2>
+    <p class="stem">Contact with runway stops or other cranes shall be made:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q20',0,'fb20')">Never</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q20',1,'fb20')">With extreme caution, with care for persons on or below, and only after ensuring persons on the other cranes are aware</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q20',2,'fb20')">At normal travel speed to seat positively</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q20',3,'fb20')">Only during periodic inspection</button>
+    </div>
+    <div class="quiz-feedback" id="fb20">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s49">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.B.K3</div>
+    <h2>Question 21</h2>
+    <p class="stem">When two or more cranes lift a single load, &sect;1910.179(n)(3)(ix) requires:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q21',0,'fb21')">Two signalers, one per crane</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q21',1,'fb21')">One qualified responsible person in charge of the operation, who analyses it and instructs all personnel</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q21',2,'fb21')">Each operator to work to their own judgement</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q21',3,'fb21')">A written permit only</button>
+    </div>
+    <div class="quiz-feedback" id="fb21">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s50">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.B.K4</div>
+    <h2>Question 22</h2>
+    <p class="stem">Crane parking and priority conventions in a multi-crane bay are:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q22',0,'fb22')">Set by &sect;1910.179</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q22',1,'fb22')">Set by EM 385-1-1</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q22',2,'fb22')">Facility rules, and not optional</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q22',3,'fb22')">At each operator's discretion</button>
+    </div>
+    <div class="quiz-feedback" id="fb22">Correct answer: C.</div>
+  </section>
+  <section class="slide" id="s51">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.B.K5</div>
+    <h2>Question 23</h2>
+    <p class="stem">The value of an interlock or zone-limiting system is real, but the operator must also know:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q23',0,'fb23')">Its manufacturer</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q23',1,'fb23')">What it does not cover</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q23',2,'fb23')">Its installation date</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q23',3,'fb23')">Its power consumption</button>
+    </div>
+    <div class="quiz-feedback" id="fb23">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s52">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.B.K5b</div>
+    <h2>Question 24</h2>
+    <p class="stem">&sect;1910.179(l)(2)(i) protects a crane taken out of service on a shared runway by requiring:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q24',0,'fb24')">An out-of-order sign on the crane only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q24',1,'fb24')">Rail stops or other suitable means to prevent interference with the idle crane</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q24',2,'fb24')">The runway to be de-energised</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q24',3,'fb24')">A second operator to stand watch</button>
+    </div>
+    <div class="quiz-feedback" id="fb24">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s53">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.B.R1</div>
+    <h2>Question 25</h2>
+    <p class="stem">Two operators each assume the other will yield at a pinch point. The missing control is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q25',0,'fb25')">A zone limiter</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q25',1,'fb25')">Explicit communication about who moves, where, and when the other is clear</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q25',2,'fb25')">Slower travel speed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q25',3,'fb25')">A written lift plan</button>
+    </div>
+    <div class="quiz-feedback" id="fb25">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s54">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.B.R2</div>
+    <h2>Question 26</h2>
+    <p class="stem">Cranes on runways at different rail heights are a particular hazard because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q26',0,'fb26')">They have different capacities</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q26',1,'fb26')">The other crane sits outside the normal scan and its load block may occupy airspace assumed to be empty</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q26',2,'fb26')">They cannot sound warnings</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q26',3,'fb26')">Their brakes respond differently</button>
+    </div>
+    <div class="quiz-feedback" id="fb26">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s55">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.B.R3</div>
+    <h2>Question 27</h2>
+    <p class="stem">Treating bumper contact as routine is hazardous because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q27',0,'fb27')">It wears the bumpers</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q27',1,'fb27')">It normalises an event that EM 385 requires to be made with extreme caution and prior awareness on the other crane</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q27',2,'fb27')">It triggers the limit switch</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q27',3,'fb27')">It shortens rail life</button>
+    </div>
+    <div class="quiz-feedback" id="fb27">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s56">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.C.K1</div>
+    <h2>Question 28</h2>
+    <p class="stem">The end-of-use securing sequence includes:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q28',0,'fb28')">Controls off only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q28',1,'fb28')">Hook empty, load block raised clear, controls off, and disconnect as required</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q28',2,'fb28')">Lowering the block to floor level for inspection</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q28',3,'fb28')">Leaving the crane centred on the runway with power on</button>
+    </div>
+    <div class="quiz-feedback" id="fb28">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s57">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.C.K2</div>
+    <h2>Question 29</h2>
+    <p class="stem">EM 385-1-1 16-8.aa(7) requires operators of outdoor cranes to secure them:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q29',0,'fb29')">At the end of each shift</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q29',1,'fb29')">When leaving</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q29',2,'fb29')">Weekly</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q29',3,'fb29')">Only when wind is forecast</button>
+    </div>
+    <div class="quiz-feedback" id="fb29">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s58">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.C.K2b</div>
+    <h2>Question 30</h2>
+    <p class="stem">&sect;1910.179(b)(4) requires automatic rail clamps and a wind-indicating device giving a visible or audible alarm at a predetermined wind velocity. Its scope is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q30',0,'fb30')">All outdoor cranes, on both regulatory branches</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q30',1,'fb30')">Outdoor storage bridges, and it is facility-branch only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q30',2,'fb30')">All gantry cranes, on both branches</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q30',3,'fb30')">Cab-operated cranes only</button>
+    </div>
+    <div class="quiz-feedback" id="fb30">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s59">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.C.K3</div>
+    <h2>Question 31</h2>
+    <p class="stem">Securing a pendant or radio transmitter against unauthorised use addresses:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q31',0,'fb31')">Weather damage to the control</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q31',1,'fb31')">The control being the access point by which an unqualified person could move the crane</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q31',2,'fb31')">Battery life</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q31',3,'fb31')">Cable wear at the strain relief</button>
+    </div>
+    <div class="quiz-feedback" id="fb31">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s60">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.C.K4</div>
+    <h2>Question 32</h2>
+    <p class="stem">The unconditional first requirement before an operator may leave the station is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q32',0,'fb32')">The warning has been sounded</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q32',1,'fb32')">The load is landed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q32',2,'fb32')">A relief operator is present</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q32',3,'fb32')">The block is at head height</button>
+    </div>
+    <div class="quiz-feedback" id="fb32">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s61">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.C.K4b</div>
+    <h2>Question 33</h2>
+    <p class="stem">A short break is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q33',0,'fb33')">A recognised exception permitting a load to remain suspended</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q33',1,'fb33')">Not an exception -- the same securing standard applies</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q33',2,'fb33')">Permitted if the area is barricaded</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q33',3,'fb33')">Permitted for loads under 2,000 lb</button>
+    </div>
+    <div class="quiz-feedback" id="fb33">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s62">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.C.K5</div>
+    <h2>Question 34</h2>
+    <p class="stem">A shift handoff must convey:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q34',0,'fb34')">That the crane runs</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q34',1,'fb34')">What was run, what was noticed, what is outstanding, and whether anything is restricted or tagged</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q34',2,'fb34')">The operator's name and hours</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q34',3,'fb34')">The number of lifts completed</button>
+    </div>
+    <div class="quiz-feedback" id="fb34">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s63">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.C.R1</div>
+    <h2>Question 35</h2>
+    <p class="stem">An unsecured outdoor crane in a wind event is hazardous because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q35',0,'fb35')">Its markings may become illegible</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q35',1,'fb35')">It is a wheeled structure on a rail with nothing restraining it</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q35',2,'fb35')">Its brakes will overheat</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q35',3,'fb35')">Its limit switch may trip</button>
+    </div>
+    <div class="quiz-feedback" id="fb35">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s64">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.C.R2</div>
+    <h2>Question 36</h2>
+    <p class="stem">The control that most directly prevents untrained use of an idle crane is:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q36',0,'fb36')">A capacity marking</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q36',1,'fb36')">Securing the control point -- pendant parked or transmitter stored and de-energised</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q36',2,'fb36')">A periodic inspection record</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q36',3,'fb36')">A warning device</button>
+    </div>
+    <div class="quiz-feedback" id="fb36">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s65">
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.08.C.R3</div>
+    <h2>Question 37</h2>
+    <p class="stem">Leaving a load suspended during a break breaks which set of rules?</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q37',0,'fb37')">The inspection interval only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q37',1,'fb37')">Operator attendance under (n)(3)(x), the exclusion zone, and the securing sequence</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q37',2,'fb37')">The rated load marking rule</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M08_q37',3,'fb37')">The warning device requirement</button>
+    </div>
+    <div class="quiz-feedback" id="fb37">Correct answer: B.</div>
+  </section>
+  <section class="slide" id="s66">
+    <h1>Module 8 complete</h1>
+    <div class="completion-panel">
+      <div id="score-summary">Complete the knowledge check to record this module.</div>
+      <div id="review-list"></div>
+    </div>
+  </section>
+</div>
+
+<div id="cq-gatebar">
+  <div id="cq-gatemsg"></div>
+  <button id="cq-gatebtn"></button>
+</div>
+
+<div id="chrome">
+  <button onclick="navigate(-1)">Back</button>
+  <button onclick="navigate(1)">Next</button>
+  <span id="counter"></span>
+</div>
+
+<script>
+var TOTAL=66, current=1;
+function render(){
+  var i;
+  for(i=1;i<=TOTAL;i++){
+    var el=document.getElementById('s'+i);
+    if(el) el.classList.toggle('active', i===current);
+  }
+  var c=document.getElementById('counter');
+  if(c) c.textContent=current+' / '+TOTAL;
+  var st=document.getElementById('stage'); if(st) st.scrollTop=0;
+}
+window.jumpTo=function(n){
+  if(n<1||n>TOTAL) return false;
+  current=n; render(); return true;
+};
+window.navigate=function(dir){
+  var t=current+dir;
+  if(t<1||t>TOTAL) return false;
+  current=t; render(); return true;
+};
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight') navigate(1);
+  if(e.key==='ArrowLeft') navigate(-1);
+});
+window.cqAnswer=function(){};
+render();
+</script>
+<script src="cq-module-bridge.js"></script>
+</body>
+</html>

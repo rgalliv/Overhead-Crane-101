@@ -1271,6 +1271,15 @@ OHC.12.C.S2 Identify the correct gate requirement for given work scenarios
 
 OHC.12.C.S3 Complete all Designation Gate performance and documentation requirements
 3 tasks · 15 K · 9 R · 9 S · 33 elements
+
+
+---
+
+## Canada amendment (North America pack)
+
+See `docs/OHC-ACS-Canada-amendment.md` for provisional Task D codes on OHC-01 and Canada routing on OHC-12 (`OHC.12.C.K6`, `OHC.12.C.R4`). Census effect: OHC-01 gains Task D (+5K +3R +3S); OHC-12 gains two net-new C elements. CSA B167 is cite-by-name until a verified edition is held.
+
+
 Element Census
  | Module | Tasks | K | R | S | Total
  | OHC-01 Equipment Types, Configurations, and Jurisdictional Framework | 3 | 17 | 9 | 9 | 35

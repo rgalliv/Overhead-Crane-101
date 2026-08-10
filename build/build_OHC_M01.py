@@ -417,6 +417,71 @@ GATE = [
       "ASME citations become illegal", "EM 385 applies automatically"], 1, ""),
 ]
 
+TRACE_SOURCE = {
+    "OHC.01.A.K1": ("&sect;1926.1438(b)(1)", "OK"),
+    "OHC.01.A.K2": ("ASME B30.2 / B30.17 by name", "OK"),
+    "OHC.01.A.K3": ("CMAA 70 by name", "OK"),
+    "OHC.01.A.K4": ("ASME B30.11 / B30.17 by name", "OK"),
+    "OHC.01.A.K5": ("B30.2 / B30.17", "ED2014"),
+    "OHC.01.A.K6": ("ASME B30.16 by name", "OK"),
+    "OHC.01.A.R1": ("derived", "OK"),
+    "OHC.01.A.R2": ("&sect;1910.179(b)(5)", "OK"),
+    "OHC.01.A.R3": ("Tier 0 (owned)", "OK"),
+    "OHC.01.A.K7": ("&sect;1910.6 &middot; &sect;1910.179(b)(2),(b)(6)(i)", "OK"),
+    "OHC.01.B.K1": ("&sect;1926.1438(a)", "OK"),
+    "OHC.01.B.K2": ("&sect;1926.1438(b)", "OK"),
+    "OHC.01.B.K3": ("&sect;1926.1438(b)(2)(i)", "OK"),
+    "OHC.01.B.K4": ("&sect;1910.179", "OK"),
+    "OHC.01.B.K5": ("EM 385 Ch. 16", "OK"),
+    "OHC.01.B.K6": ("&sect;1926.1438(a)", "OK"),
+    "OHC.01.B.R1": ("derived", "OK"),
+    "OHC.01.B.R2": ("&sect;1926.1438(a)", "OK"),
+    "OHC.01.B.R3": ("derived", "OK"),
+    "OHC.01.B.K7": ("&sect;1910.179(b)(2) &middot; &sect;1926.1438(b)(2)(ii)", "OK"),
+    "OHC.01.C.K1": ("Gate Master Rev 1.3 &sect;11.2, A2", "OK"),
+    "OHC.01.C.K2": ("**&sect;1910.179(b)(8)**", "OK"),
+    "OHC.01.C.K3": ("&sect;1926.1427", "OPEN"),
+    "OHC.01.C.K4": ("EM 385 &sect;16.A.02", "OK"),
+    "OHC.01.C.K5": ("&sect;1910.179(b)(8), (l)(3)(i), (m)(1)", "OK"),
+    "OHC.01.C.R1": ("Gate Master &sect;11.2", "OK"),
+    "OHC.01.C.R2": ("EM 385 &sect;16.B.01", "OK"),
+    "OHC.01.C.R3": ("derived", "OK"),
+    "OHC.01.D.K1": ("CSA B167 by name", "OK"),
+    "OHC.01.D.K2": ("Canada Labour Code Part II / COHSR", "OK"),
+    "OHC.01.D.K3": ("ON Reg 851/213 &middot; WorkSafeBC Part 14 &middot; AB OHS Code Part 6", "OK"),
+    "OHC.01.D.K4": ("Canada jurisdiction pack &middot; employer authorization", "OK"),
+    "OHC.01.D.K5": ("Gate Master A2 &middot; Canada pack", "OK"),
+    "OHC.01.D.R1": ("Canada jurisdiction pack", "OK"),
+    "OHC.01.D.R2": ("Quebec / CNESST documentation", "OK"),
+    "OHC.01.D.R3": ("CSA B167 programme alignment", "OK"),
+}
+
+TRACE_PERF = [
+    ("OHC.01.A.S1", "Identify crane type, girder configuration and trolley arrangement on sight"),
+    ("OHC.01.A.S2", "Match a given crane to its governing ASME volume by name"),
+    ("OHC.01.A.S3", "Locate and interpret equipment identification and capacity markings"),
+    ("OHC.01.B.S1", "Walk the installation-status decision tree and state the governing regime"),
+    ("OHC.01.B.S2", "Identify which certification or designation attaches on each branch"),
+    ("OHC.01.B.S3", "Classify a crane as EM 385 Class I or Class II"),
+    ("OHC.01.C.S1", "State who issued their designation, what it covers, and its limits"),
+    ("OHC.01.C.S2", "Produce designation and training records on request"),
+    ("OHC.01.C.S3", "Refuse an assignment outside the scope of designation"),
+    ("OHC.01.D.S1", "Select the correct Canada branch (federal vs named province) for a given site"),
+    ("OHC.01.D.S2", "State that CSA B167 is the consensus spine and where ASME still informs configuration"),
+    ("OHC.01.D.S3", "Produce or request the employer written authorization / designation for the assigned crane"),
+]
+
+TRACE_NOTES = [
+    ("&#11088; Task D adds the Canadian jurisdiction spine without forking the track",
+     "**CSA B167** is cited by name as the consensus spine. Provincial overlays (ON/BC/AB/QC) "
+     "and the Canada Labour Code Part II path are taught as branches parallel to the US "
+     "facility/construction split. Clause-level CSA quotes are held back until a verified "
+     "edition is in the corpus."),
+    ("&#9989; Designation Gate citation",
+     "`C.K2` rests on **&sect;1910.179(b)(8)**. Canada uses employer written authorization as "
+     "the analogue &#8212; not NCCCO routing."),
+]
+
 
 def main():
     html = A.assemble(
@@ -444,7 +509,6 @@ def main():
         f.write(html)
     print("wrote %s (%d bytes, total slides %d)" % (pre, len(html), A.LAST_TOTAL))
 
-    # Refresh manifest from authored keys
     answer_key = {}
     for i, q in enumerate(PRACTICE, 1):
         answer_key["%s_q%02d" % (MODULE, i)] = q[3]

@@ -5,7 +5,7 @@
   "version": "2026.08-CA",
   "salt": "CQ1:OHC_M12_Capstone",
   "total": 70,
-  "next": null,
+  "next": "",
   "gate": [
     "OHC_M12_q10",
     "OHC_M12_q11",

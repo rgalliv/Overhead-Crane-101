@@ -73,20 +73,16 @@ def enhance(path: str, module: str) -> None:
             count=1,
         )
 
-    # progress rails on content slides lacking them
-    if "progress-rail" not in html:
-        html = html.replace(
-            '<section class="slide" id="',
-            '<section class="slide" id="',
-        )  # no-op placeholder
+    # Progress rails on slides that lack the element. (CSS may already mention
+    # "progress-rail" via the overlay — check for the DOM node, not the string.)
+    if 'class="progress-rail"' not in html:
         html = re.sub(
-            r'(<section class="slide(?: section-header| divider)?" id="s\d+">)\s*'
-            r'(?![\s\S]{0,80}progress-rail)',
-            r'\1\n    <div class="progress-rail"><span></span></div>\n    ',
+            r'(<section class="slide(?: section-header| divider)?" id="s\d+">)',
+            r'\1\n    <div class="progress-rail"><span></span></div>',
             html,
         )
 
-    # Update render() to drive progress rail if not present
+    # Drive the rail from render()
     if "progress-rail > span" not in html and "function render()" in html:
         html = html.replace(
             "var st=document.getElementById('stage'); if(st) st.scrollTop=0;\n}",

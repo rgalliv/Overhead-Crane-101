@@ -399,6 +399,19 @@ GATE = [
      "Re-evaluation after an incident is most often skipped because:",
      ["It is not required", "It reads as blame rather than as re-establishing the operating "
       "picture", "Records are unavailable", "The operator is unavailable"], 1, ""),
+    ("OHC.12.C.K6",
+     "On a Canadian site, closing the Designation Gate correctly means:",
+     ["Filing an NCCCO card with no employer authorization",
+      "Employer written authorization aligned to CSA B167 and the applicable OH&amp;S Act, "
+      "with PES and gate records attached",
+      "Skipping records because hazards are the same as in the US",
+      "Using only EM 385 Class I paperwork"], 1, ""),
+    ("OHC.12.C.R4",
+     "Using a US certification card as the sole evidence of competency on a Canadian "
+     "provincial site, with no employer authorization on file, primarily risks:",
+     ["Nothing &#8212; cards travel internationally",
+      "An indefensible due-diligence file under Canadian OH&amp;S expectations",
+      "Automatic CSA B167 exemption", "Faster hoist speeds"], 1, ""),
 ]
 
 TRACE_SOURCE = {
@@ -430,6 +443,8 @@ TRACE_SOURCE = {
     "OHC.12.C.R1": ("derived", "OK"),
     "OHC.12.C.R2": ("**&sect;1910.179(b)(8)** &middot; **&sect;1926.1427**", "OK"),
     "OHC.12.C.R3": ("derived", "OK"),
+    "OHC.12.C.K6": ("CSA B167 &middot; Canada jurisdiction pack", "OK"),
+    "OHC.12.C.R4": ("Canada jurisdiction pack &middot; due diligence", "OK"),
 }
 
 TRACE_PERF = [
@@ -495,6 +510,10 @@ TRACE_NOTES = [
      "from why its order matters, the record's fields from the field that gets dropped, the "
      "gate's citation from why a second gate exists, and what completion gives you from whose "
      "decision qualification actually is."),
+    ("&#11088; Canada routing closes the Designation Gate without a false NCCCO story",
+     "`C.K6` / `C.R4` require employer written authorization aligned to **CSA B167** and the "
+     "applicable federal/provincial OH&amp;S Act, with PES and gate records attached. A US "
+     "certification card alone is not Canadian due diligence."),
 ]
 
 
@@ -504,24 +523,8 @@ def main():
         "Route Canadian work through CSA B167 + employer authorization &#8212; not US "
         "certification paperwork &#8212; and assemble the safety-director audit package.",
     ]
-    # Capstone Canada gate items (appended)
-    gate = list(GATE) + [
-        ("OHC.12.C.K6",
-         "On a Canadian site, closing the Designation Gate correctly means:",
-         ["Filing an NCCCO card with no employer authorization",
-          "Employer written authorization aligned to CSA B167 and the applicable OH&amp;S Act, "
-          "with PES and gate records attached",
-          "Skipping records because hazards are the same as in the US",
-          "Using only EM 385 Class I paperwork"], 1, ""),
-        ("OHC.12.C.R4",
-         "Using a US certification card as the sole evidence of competency on a Canadian "
-         "provincial site, with no employer authorization on file, primarily risks:",
-         ["Nothing &#8212; cards travel internationally",
-          "An indefensible due-diligence file under Canadian OH&amp;S expectations",
-          "Automatic CSA B167 exemption", "Faster hoist speeds"], 1, ""),
-    ]
     html = A.assemble(MODULE, MODLABEL, TITLE, SUBTITLE, objs,
-                      len(gate), SECTIONS, CONTENT, PRACTICE, gate,
+                      len(GATE), SECTIONS, CONTENT, PRACTICE, GATE,
                       hero_image="01-hero-bridge.jpg",
                       extra_before_gate=[A.na_jurisdiction_tree_slide])
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -534,9 +537,9 @@ def main():
     answer_key = {}
     for i, q in enumerate(PRACTICE, 1):
         answer_key["%s_q%02d" % (MODULE, i)] = q[3]
-    for i, q in enumerate(gate, 1):
+    for i, q in enumerate(GATE, 1):
         answer_key["%s_q%02d" % (MODULE, len(PRACTICE) + i)] = q[3]
-    gate_ids = ["%s_q%02d" % (MODULE, len(PRACTICE) + i) for i in range(1, len(gate) + 1)]
+    gate_ids = ["%s_q%02d" % (MODULE, len(PRACTICE) + i) for i in range(1, len(GATE) + 1)]
     man = {
         "module": MODULE,
         "stage": "OHC",
@@ -544,7 +547,7 @@ def main():
         "version": "2026.08-CA",
         "salt": "CQ1:OHC_M12_Capstone",
         "total": A.LAST_TOTAL,
-        "next": None,
+        "next": "",
         "gate": gate_ids,
         "review_offset": len(PRACTICE),
         "answer_key": answer_key,

@@ -4,7 +4,7 @@
 
 **Module:** OHC-12 Capstone: Qualification Readiness and Documentation  
 **Course:** OCO301C &middot; **Gate:** OHC-1 &middot; **File:** `OHC_M12_Capstone.html`  
-**Slides:** 65 &middot; **Gate items:** 28 &middot; **Practice:** 9 &middot; **Performance:** 9 &middot; **Pass:** 100%, server-authoritative  
+**Slides:** 70 &middot; **Gate items:** 30 &middot; **Practice:** 9 &middot; **Performance:** 9 &middot; **Pass:** 100%, server-authoritative  
 **Salt:** `CQ1:OHC_M12_Capstone` &middot; **Next:** `` &middot; **review_offset:** 9
 
 ---
@@ -51,6 +51,8 @@
 | `OHC_M12_q35` | `OHC.12.C.R1` | A radio unit replaces the pendant on your assigned crane. Your designation: | MC | derived | &#9989; |
 | `OHC_M12_q36` | `OHC.12.C.R2` | An operator designated under &sect;1910.179(b)(8) is assigned to a non-permanently-installed crane in construction work. The problem is: | MC | **&sect;1910.179(b)(8)** &middot; **&sect;1926.1427** | &#9989; |
 | `OHC_M12_q37` | `OHC.12.C.R3` | Re-evaluation after an incident is most often skipped because: | MC | derived | &#9989; |
+| `OHC_M12_q38` | `OHC.12.C.K6` | On a Canadian site, closing the Designation Gate correctly means: | MC | CSA B167 &middot; Canada jurisdiction pack | &#9989; |
+| `OHC_M12_q39` | `OHC.12.C.R4` | Using a US certification card as the sole evidence of competency on a Canadian provincial site, with no employer authorization on file, primarily risks: | MC | Canada jurisdiction pack &middot; due diligence | &#9989; |
 
 ---
 
@@ -102,9 +104,11 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment.
 
 **&#9432; Elements carrying a second item** &mdash; `A.K1`, `B.K2`, `C.K1` and `C.K5` each carry two items &#8212; separating the phase list from why its order matters, the record's fields from the field that gets dropped, the gate's citation from why a second gate exists, and what completion gives you from whose decision qualification actually is.
 
+**&#11088; Canada routing closes the Designation Gate without a false NCCCO story** &mdash; `C.K6` / `C.R4` require employer written authorization aligned to **CSA B167** and the applicable federal/provincial OH&amp;S Act, with PES and gate records attached. A US certification card alone is not Canadian due diligence.
+
 ---
 
 ## Coverage
 
-All **15 K** and **9 R** elements are gated &mdash; 28 gate items. 4 element(s) carry a second item; see the source notes. The **9 S** elements sit on the Performance Evaluation Sheet. OHC-12 carries 33 elements, unchanged from the published ACS.
+All **16 K** and **10 R** elements are gated &mdash; 30 gate items. 4 element(s) carry a second item; see the source notes. The **9 S** elements sit on the Performance Evaluation Sheet. OHC-12 carries 35 elements, unchanged from the published ACS.
 

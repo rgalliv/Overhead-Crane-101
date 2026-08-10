@@ -2,16 +2,27 @@
 
 CraneQualified — **Overhead Crane Operator Track (OHC)**. Twelve modules, ACS format, decomposed to Knowledge / Risk Management / Skills elements under the code pattern `OHC.[module].[task].[category][n]`.
 
+**North America pack (2026-08):** Canada jurisdiction (CSA B167 + ON/BC/AB/QC/federal), PES + bilingual designation forms, buyer audit binder, generated training imagery, and interactive jurisdiction tree.
+
 ## Contents
 
 | Path | What it is |
 |---|---|
 | `docs/OHC-0n-trace-table.md` | Element-to-item trace tables — **generated** from the same question data that builds each module. |
-| `build/cq_authoring.py` | Shared authoring scaffold — HTML shell and slide renderers for all OCO301C modules. |
+| `docs/OHC-Canada-jurisdiction-pack.md` | Canada mapping — CSA B167 spine + federal/provincial overlays. |
+| `docs/OHC-ACS-Canada-amendment.md` | ACS Task D (Canada) + OHC-12 routing amendments. |
+| `docs/OHC-buyer-audit-binder.md` | Safety-director evidence checklist and folder map. |
+| `forms/pes/` | Printable Performance Evaluation Sheets (108 S + Canada addendum). |
+| `forms/designation/` | Employer designation certificate — **EN** and **FR**. |
+| `assets/images/` | Generated training visuals (inlined into self-contained HTML). |
+| `out/interactive/OHC_Jurisdiction_Tree.html` | Standalone US/Canada jurisdiction decision tree. |
+| `build/cq_authoring.py` | Shared authoring scaffold — HTML shell, hero media, flip cards, decision tree. |
+| `build/retrofit.py` | Pre.html → gated HTML (FNV-1a hashes + gate engine). |
+| `build/enhance_visuals.py` | Visual-pack CSS + module imagery for M02–M11. |
 | `build/build_OHC_M0n.py` | Per-module question data. |
 | `build/gen_trace.py` | Parameterised trace-table generator (`python3 build/gen_trace.py 05 06`). Supersedes the copy-pasted `gen_trace_M0n.py` scripts still used by OHC-01…-04. |
 | `manifests/OHC_M0n.json` | Rebuild source of truth per module — salt, gate set, answer key. |
-| `out/OHC_M01_EquipmentAndJurisdiction.html` | OHC-01. 63 slides, 28 gate items, 0 gaps, CONFORMANT. |
+| `out/OHC_M01_EquipmentAndJurisdiction.html` | OHC-01. US + **Canada Task D**, hero/interactive tree, 36 gate items. |
 | `out/OHC_M02_ComponentsAndSystems.html` | OHC-02. 59 slides, 24 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M03_ControlsAndOperatingModes.html` | OHC-03. 62 slides, 27 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M04_RatedLoadAndWeight.html` | OHC-04. 60 slides, 25 gate items, 0 gaps, CONFORMANT. |
@@ -22,7 +33,7 @@ CraneQualified — **Overhead Crane Operator Track (OHC)**. Twelve modules, ACS 
 | `out/OHC_M09_CommunicationAndSignals.html` | OHC-09. 66 slides, 28 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M10_EnvironmentalHazards.html` | OHC-10. 67 slides, 29 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M11_MalfunctionsAndEmergencies.html` | OHC-11. 66 slides, 28 gate items, 0 gaps, CONFORMANT. |
-| `out/OHC_M12_Capstone.html` | OHC-12. 65 slides, 28 gate items, 0 gaps, CONFORMANT. |
+| `out/OHC_M12_Capstone.html` | OHC-12. Capstone + Canada designation routing, 30 gate items. |
 | `docs/OHC-ACS-build-spec.md` | **The ACS itself** — all twelve modules, 398 elements, committed verbatim from the authoritative HTML breakdown. Source of truth for every build. |
 | `docs/OHC-build-format-spec.md` | Build format, packaging and question architecture for the OHC track, derived from the mobile-crane Developer Handoff (structure only). |
 | `docs/second-brain-crosscheck.md` | Cross-check of the OHC build spec against the CraneQualified Second Brain corpus — citation verification, corpus gaps, build-pipeline conflicts, and recommended order of work. |
@@ -31,7 +42,9 @@ CraneQualified — **Overhead Crane Operator Track (OHC)**. Twelve modules, ACS 
 
 Track status: **all twelve modules built.** Every module audits at **0 gaps, CONFORMANT**, and every gate is behaviourally verified at 100% with the completion handshake chaining `OHC_M01 → … → OHC_M12 → (end)`.
 
-**Track totals:** 771 slides · **333 gate items** · 292 gated K+R elements · 108 S elements on Performance Evaluation Sheets.
+**North America / buyer pack:** Canada Task D authored into OHC-01; Canada designation routing in OHC-12; PES HTML for all modules; EN+FR designation certificates; interactive jurisdiction tree; generated imagery inlined for self-contained LMS files; visual CSS pack across M02–M11.
+
+**Track totals (pre-Canada census):** 771 slides · **333 gate items** · 292 gated K+R elements · 108 S elements on Performance Evaluation Sheets. OHC-01/12 rebuilt with additional Canada gates — see manifests for current counts.
 
 **Element coverage is complete and verified.** A census cross-check against `docs/OHC-ACS-build-spec.md` confirms **every ACS Knowledge and Risk Management element in all twelve modules carries at least one gate item** — 290 ACS elements plus the 2 net-new in OHC-01 = 292, with 41 elements carrying a second item where they hold two independently testable facts. Re-run the check any time with the script in the commit for `Build OHC-12`.
 

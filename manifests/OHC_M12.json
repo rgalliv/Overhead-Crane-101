@@ -2,10 +2,10 @@
   "module": "OHC_M12",
   "stage": "OHC",
   "gate_code": "OHC-1",
-  "version": "2026.08",
+  "version": "2026.08-CA",
   "salt": "CQ1:OHC_M12_Capstone",
-  "total": 65,
-  "next": "",
+  "total": 70,
+  "next": null,
   "gate": [
     "OHC_M12_q10",
     "OHC_M12_q11",
@@ -34,7 +34,9 @@
     "OHC_M12_q34",
     "OHC_M12_q35",
     "OHC_M12_q36",
-    "OHC_M12_q37"
+    "OHC_M12_q37",
+    "OHC_M12_q38",
+    "OHC_M12_q39"
   ],
   "review_offset": 9,
   "answer_key": {
@@ -74,7 +76,10 @@
     "OHC_M12_q34": 1,
     "OHC_M12_q35": 1,
     "OHC_M12_q36": 1,
-    "OHC_M12_q37": 1
+    "OHC_M12_q37": 1,
+    "OHC_M12_q38": 1,
+    "OHC_M12_q39": 1
   },
-  "course": "OCO301C"
+  "course": "OCO301C",
+  "notes": "Canada designation routing + visual pack"
 }

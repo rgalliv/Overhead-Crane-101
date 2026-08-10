@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OHC Jurisdiction Tree — US &amp; Canada</title>
+<style>
+:root{--navy:#1B3464;--gold:#C8991A;--ink:#0d1522;--paper:#f5f6f8;--line:#2b4478;--panel:#16203a;--mist:#cfd6e4}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3",Calibri,system-ui,sans-serif;background:
+  radial-gradient(900px 400px at 0% 0%,rgba(27,52,100,.5),transparent),
+  linear-gradient(160deg,#111a2c,#0d1522);color:var(--paper);min-height:100dvh}
+.wrap{max-width:860px;margin:0 auto;padding:28px 20px 48px}
+.brand{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700}
+h1{font-family:Georgia,serif;font-size:1.7rem;margin:.3em 0}
+.lede{color:var(--mist);line-height:1.5}
+.tree{margin:1.4em 0;display:flex;flex-direction:column;gap:12px}
+.tree-q{font-weight:700;margin-bottom:.35em}
+.tree-opts{display:flex;flex-wrap:wrap;gap:8px}
+.tree-opts button{flex:1 1 150px;padding:14px 16px;border-radius:10px;border:1px solid var(--line);
+  background:var(--panel);color:var(--paper);font:inherit;cursor:pointer;text-align:left}
+.tree-opts button:hover,.tree-opts button.active{border-color:var(--gold);box-shadow:0 0 0 1px rgba(200,153,26,.35)}
+.result{display:none;padding:16px 18px;border-radius:12px;border:1px solid var(--gold);
+  background:linear-gradient(135deg,#1a2744,#12203c);margin-top:.5em}
+.result.show{display:block;animation:rise .4s ease}
+.result strong{color:var(--gold);display:block;margin-bottom:.4em;font-size:1.05rem}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.note{margin-top:1.5em;padding:12px 14px;border-left:3px solid var(--gold);background:var(--panel);
+  border-radius:0 8px 8px 0;color:var(--mist);font-size:.95rem}
+a{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">CraneQualified · OCO301C</div>
+  <h1>Jurisdiction decision tree</h1>
+  <p class="lede">Practice tool for safety directors and operators. Unscored. Walk US OSHA branches or Canadian federal/provincial paths, then open the matching designation form.</p>
+
+  <div class="tree" id="jtree">
+    <div>
+      <div class="tree-q">1. Where is the work?</div>
+      <div class="tree-opts">
+        <button type="button" id="jt_us" onclick="jtRegion('US')">United States</button>
+        <button type="button" id="jt_ca" onclick="jtRegion('CA')">Canada</button>
+      </div>
+    </div>
+    <div id="jt_step2" style="display:none">
+      <div class="tree-q">2. Context</div>
+      <div class="tree-opts" id="jt_opts2"></div>
+    </div>
+    <div class="result" id="jt_result"></div>
+  </div>
+
+  <div class="note">
+    Training establishes standard of care; the controlling entity authorizes. Forms:
+    <a href="../../forms/designation/Operator_Designation_Certificate_EN.html">Designation (EN)</a> ·
+    <a href="../../forms/designation/Certificat_Designation_Operateur_FR.html">Désignation (FR)</a> ·
+    <a href="../../docs/OHC-Canada-jurisdiction-pack.md">Canada pack</a> ·
+    <a href="../../docs/OHC-buyer-audit-binder.md">Audit binder</a>
+  </div>
+</div>
+<script>
+(function(){
+  var map={
+    fac:['US Facility Branch','29 CFR 1910.179 direct. Designation Gate: only designated personnel may operate (§1910.179(b)(8)). Controlling entity qualifies.','../../forms/designation/Operator_Designation_Certificate_EN.html'],
+    con:['US Construction Branch','§1926.1438(b) hybrid + §1926.1427 Certification Gate. Enumerated 1910.179 paragraphs only. Attach national certification evidence.','../../forms/designation/Operator_Designation_Certificate_EN.html'],
+    fed:['US Federal / USACE Layer','EM 385-1-1 Ch. 16 supplements the OSHA branch already in force. Class I / II tiers; Competent Person for Crane and Rigging.','../../forms/designation/Operator_Designation_Certificate_EN.html'],
+    fedca:['Canada — Federal workplaces','Canada Labour Code Part II / COHSR. Consensus spine: CSA B167. Employer authorizes competent workers in writing.','../../forms/designation/Operator_Designation_Certificate_EN.html'],
+    on:['Canada — Ontario','OHSA + Reg. 851 / Reg. 213. Competent worker model; align to CSA B167 + site designation.','../../forms/designation/Operator_Designation_Certificate_EN.html'],
+    bc:['Canada — British Columbia','WorkSafeBC OHS Regulation Part 14. Qualified operator + CSA B167 discipline.','../../forms/designation/Operator_Designation_Certificate_EN.html'],
+    ab:['Canada — Alberta','OHS Code Part 6. Competent worker + CSA B167.','../../forms/designation/Operator_Designation_Certificate_EN.html'],
+    qc:['Canada — Quebec','CNESST / LSST. Prefer French designation paperwork. CSA B167 + employer competency proof.','../../forms/designation/Certificat_Designation_Operateur_FR.html']
+  };
+  function show(key){
+    var m=map[key], el=document.getElementById('jt_result');
+    if(!m||!el) return;
+    el.innerHTML='<strong>'+m[0]+'</strong><p style="margin:0 0 .8em;line-height:1.5">'+m[1]+'</p><p style="margin:0"><a href="'+m[2]+'">Open matching designation form</a></p>';
+    el.classList.add('show');
+  }
+  window.jtRegion=function(r){
+    document.getElementById('jt_us').classList.toggle('active', r==='US');
+    document.getElementById('jt_ca').classList.toggle('active', r==='CA');
+    var box=document.getElementById('jt_opts2');
+    var wrap=document.getElementById('jt_step2');
+    var res=document.getElementById('jt_result');
+    res.classList.remove('show'); res.innerHTML='';
+    wrap.style.display='block';
+    if(r==='US'){
+      box.innerHTML='<button type="button" onclick="jtCtx(\'fac\')">Facility / general industry</button><button type="button" onclick="jtCtx(\'con\')">Construction (non-permanent)</button><button type="button" onclick="jtCtx(\'fed\')">Federal / USACE</button>';
+    } else {
+      box.innerHTML='<button type="button" onclick="jtCtx(\'fedca\')">Federally regulated</button><button type="button" onclick="jtCtx(\'on\')">Ontario</button><button type="button" onclick="jtCtx(\'bc\')">British Columbia</button><button type="button" onclick="jtCtx(\'ab\')">Alberta</button><button type="button" onclick="jtCtx(\'qc\')">Quebec</button>';
+    }
+  };
+  window.jtCtx=function(k){ show(k); };
+})();
+</script>
+</body>
+</html>

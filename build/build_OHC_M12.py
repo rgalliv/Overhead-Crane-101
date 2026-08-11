@@ -188,6 +188,19 @@ CONTENT = {
          "&#8212; the employer &#8212; who knows the equipment, the site and the work. It is "
          "<b>not delegable to a training vendor</b>, including this one. Anybody who tells you "
          "a course made you qualified has misdescribed both the course and the law."),
+        ("Canada routing at the Designation Gate",
+         "If the work is Canadian, do <b>not</b> close the file with a US Certification Gate "
+         "story. Complete the employer written authorization using the Canada jurisdiction "
+         "pack (CSA B167 + federal/provincial overlay) and the EN/FR designation certificate.",
+         "A US certification card is not sole evidence of Canadian competency. Keep PES sheets, "
+         "gate records, and the signed designation together &#8212; that is the audit file.",
+         "01-canada-shop.jpg", "Canadian site &#8212; same capstone evidence, local statute"),
+        ("The package the safety director keeps",
+         "Minimum record set: 100&#37; module gates, signed PES for skills in scope, jurisdiction "
+         "determination (US branch or Canada branch), designation certificate scoped to "
+         "equipment and modes, site familiarization, requalification triggers.",
+         "Print <code>docs/OHC-buyer-audit-binder.md</code> and tick the checklist into the "
+         "operator file."),
     ],
 }
 
@@ -386,6 +399,19 @@ GATE = [
      "Re-evaluation after an incident is most often skipped because:",
      ["It is not required", "It reads as blame rather than as re-establishing the operating "
       "picture", "Records are unavailable", "The operator is unavailable"], 1, ""),
+    ("OHC.12.C.K6",
+     "On a Canadian site, closing the Designation Gate correctly means:",
+     ["Filing an NCCCO card with no employer authorization",
+      "Employer written authorization aligned to CSA B167 and the applicable OH&amp;S Act, "
+      "with PES and gate records attached",
+      "Skipping records because hazards are the same as in the US",
+      "Using only EM 385 Class I paperwork"], 1, ""),
+    ("OHC.12.C.R4",
+     "Using a US certification card as the sole evidence of competency on a Canadian "
+     "provincial site, with no employer authorization on file, primarily risks:",
+     ["Nothing &#8212; cards travel internationally",
+      "An indefensible due-diligence file under Canadian OH&amp;S expectations",
+      "Automatic CSA B167 exemption", "Faster hoist speeds"], 1, ""),
 ]
 
 TRACE_SOURCE = {
@@ -417,6 +443,8 @@ TRACE_SOURCE = {
     "OHC.12.C.R1": ("derived", "OK"),
     "OHC.12.C.R2": ("**&sect;1910.179(b)(8)** &middot; **&sect;1926.1427**", "OK"),
     "OHC.12.C.R3": ("derived", "OK"),
+    "OHC.12.C.K6": ("CSA B167 &middot; Canada jurisdiction pack", "OK"),
+    "OHC.12.C.R4": ("Canada jurisdiction pack &middot; due diligence", "OK"),
 }
 
 TRACE_PERF = [
@@ -482,17 +510,55 @@ TRACE_NOTES = [
      "from why its order matters, the record's fields from the field that gets dropped, the "
      "gate's citation from why a second gate exists, and what completion gives you from whose "
      "decision qualification actually is."),
+    ("&#11088; Canada routing closes the Designation Gate without a false NCCCO story",
+     "`C.K6` / `C.R4` require employer written authorization aligned to **CSA B167** and the "
+     "applicable federal/provincial OH&amp;S Act, with PES and gate records attached. A US "
+     "certification card alone is not Canadian due diligence."),
 ]
 
 
 def main():
-    html = A.assemble(MODULE, MODLABEL, TITLE, SUBTITLE, OBJECTIVES,
-                      len(GATE), SECTIONS, CONTENT, PRACTICE, GATE)
-    out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                       "out", "OHC_M12_Capstone.pre.html")
+    # Extend objectives for Canada / audit package
+    objs = list(OBJECTIVES) + [
+        "Route Canadian work through CSA B167 + employer authorization &#8212; not US "
+        "certification paperwork &#8212; and assemble the safety-director audit package.",
+    ]
+    html = A.assemble(MODULE, MODLABEL, TITLE, SUBTITLE, objs,
+                      len(GATE), SECTIONS, CONTENT, PRACTICE, GATE,
+                      hero_image="01-hero-bridge.jpg",
+                      extra_before_gate=[A.na_jurisdiction_tree_slide])
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    out = os.path.join(root, "out", "OHC_M12_Capstone.pre.html")
     with open(out, "w", encoding="ascii", errors="xmlcharrefreplace") as f:
         f.write(html)
-    print("wrote %s (%d bytes)" % (out, len(html)))
+    print("wrote %s (%d bytes, slides %d)" % (out, len(html), A.LAST_TOTAL))
+
+    import json
+    answer_key = {}
+    for i, q in enumerate(PRACTICE, 1):
+        answer_key["%s_q%02d" % (MODULE, i)] = q[3]
+    for i, q in enumerate(GATE, 1):
+        answer_key["%s_q%02d" % (MODULE, len(PRACTICE) + i)] = q[3]
+    gate_ids = ["%s_q%02d" % (MODULE, len(PRACTICE) + i) for i in range(1, len(GATE) + 1)]
+    man = {
+        "module": MODULE,
+        "stage": "OHC",
+        "gate_code": "OHC-1",
+        "version": "2026.08-CA",
+        "salt": "CQ1:OHC_M12_Capstone",
+        "total": A.LAST_TOTAL,
+        "next": "",
+        "gate": gate_ids,
+        "review_offset": len(PRACTICE),
+        "answer_key": answer_key,
+        "course": "OCO301C",
+        "notes": "Canada designation routing + visual pack",
+    }
+    man_path = os.path.join(root, "manifests", "OHC_M12.json")
+    with open(man_path, "w", encoding="utf-8") as f:
+        json.dump(man, f, indent=2)
+        f.write("\n")
+    print("wrote %s (gate %d)" % (man_path, len(gate_ids)))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CraneQualified OCO301C — Overhead Crane Operator</title>
+<style>
+:root{--navy:#1B3464;--gold:#C8991A;--ink:#0d1522;--mist:#cfd6e4;--panel:#16203a;--line:#2b4478}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3",Calibri,system-ui,sans-serif;background:
+  radial-gradient(1000px 420px at 0% 0%,rgba(27,52,100,.55),transparent),
+  linear-gradient(160deg,#111a2c,#0d1522);color:#f5f6f8;min-height:100dvh}
+.wrap{max-width:960px;margin:0 auto;padding:36px 20px 64px}
+.brand{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;color:var(--gold);font-weight:700}
+h1{font-family:Georgia,serif;font-size:clamp(1.6rem,3vw,2.2rem);margin:.35em 0;line-height:1.2}
+.lede{color:var(--mist);max-width:42rem;line-height:1.55}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:28px 0}
+a.card{display:block;padding:16px 18px;border:1px solid var(--line);border-radius:12px;
+  background:var(--panel);color:inherit;text-decoration:none}
+a.card:hover{border-color:var(--gold)}
+a.card strong{display:block;color:var(--gold);margin-bottom:.35em}
+a.card span{font-size:.92rem;color:var(--mist);line-height:1.4}
+h2{font-size:1.05rem;color:var(--gold);margin:28px 0 10px;letter-spacing:.04em;text-transform:uppercase}
+.note{margin-top:28px;padding:14px 16px;border-left:3px solid var(--gold);background:var(--panel);
+  border-radius:0 8px 8px 0;color:var(--mist);font-size:.95rem;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">CraneQualified · OCO301C</div>
+  <h1>Overhead Crane Operator Track</h1>
+  <p class="lede">North America pack — US OSHA / EM 385 spine plus Canada (CSA B167 + provincial overlays). Training establishes standard of care; the controlling entity designates.</p>
+
+  <h2>Modules</h2>
+  <div class="grid" id="modules"></div>
+
+  <h2>Director pack</h2>
+  <div class="grid">
+    <a class="card" href="out/interactive/OHC_Jurisdiction_Tree.html"><strong>Jurisdiction tree</strong><span>US / Canada interactive decision tree</span></a>
+    <a class="card" href="forms/designation/Operator_Designation_Certificate_EN.html"><strong>Designation (EN)</strong><span>Employer authorization certificate</span></a>
+    <a class="card" href="forms/designation/Certificat_Designation_Operateur_FR.html"><strong>Désignation (FR)</strong><span>Certificat pour le Québec</span></a>
+    <a class="card" href="docs/OHC-buyer-audit-binder.md"><strong>Audit binder</strong><span>Safety-director evidence checklist</span></a>
+    <a class="card" href="docs/OHC-Canada-jurisdiction-pack.md"><strong>Canada pack</strong><span>CSA B167 + ON/BC/AB/QC mapping</span></a>
+    <a class="card" href="forms/pes/OHC_M01_PES.html"><strong>PES sheets</strong><span>Performance evaluation — start at M01</span></a>
+  </div>
+
+  <div class="note">LMS production scoring remains server-authoritative via the CraneQualified bridge. These HTML modules include the local FNV preview shim for standalone review.</div>
+</div>
+<script>
+const modules=[
+  ['OHC-01','Equipment & Jurisdiction','out/OHC_M01_EquipmentAndJurisdiction.html'],
+  ['OHC-02','Components & Systems','out/OHC_M02_ComponentsAndSystems.html'],
+  ['OHC-03','Controls & Operating Modes','out/OHC_M03_ControlsAndOperatingModes.html'],
+  ['OHC-04','Rated Load & Weight','out/OHC_M04_RatedLoadAndWeight.html'],
+  ['OHC-05','Inspection Regime','out/OHC_M05_InspectionRegime.html'],
+  ['OHC-06','Rigging Interface','out/OHC_M06_RiggingInterface.html'],
+  ['OHC-07','Load Handling','out/OHC_M07_LoadHandling.html'],
+  ['OHC-08','Operational Rules','out/OHC_M08_OperationalRules.html'],
+  ['OHC-09','Communication & Signals','out/OHC_M09_CommunicationAndSignals.html'],
+  ['OHC-10','Environmental Hazards','out/OHC_M10_EnvironmentalHazards.html'],
+  ['OHC-11','Malfunctions & Emergencies','out/OHC_M11_MalfunctionsAndEmergencies.html'],
+  ['OHC-12','Capstone','out/OHC_M12_Capstone.html']
+];
+document.getElementById('modules').innerHTML=modules.map(([c,t,h])=>
+  `<a class="card" href="${h}"><strong>${c}</strong><span>${t}</span></a>`).join('');
+</script>
+</body>
+</html>

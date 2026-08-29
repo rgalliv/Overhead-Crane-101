@@ -4,7 +4,7 @@
   "gate_code": "OHC-1",
   "version": "2026.08",
   "salt": "CQ1:OHC_M09_CommunicationAndSignals",
-  "total": 66,
+  "total": 69,
   "next": "OHC_M10",
   "gate": [
     "OHC_M09_q10",
@@ -76,5 +76,6 @@
     "OHC_M09_q36": 1,
     "OHC_M09_q37": 1
   },
-  "course": "OCO301C"
+  "course": "OCO301C",
+  "notes": "CC signals paragraphs held 2026-08-28"
 }

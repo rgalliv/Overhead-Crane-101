@@ -191,9 +191,11 @@ CONTENT = {
          "programme, and does not apply or remove isolations. The interface is narrower: "
          "<b>know that isolation is required, know who verifies it, and hold the placement "
          "until it is verified.</b>",
-         "&sect;1910.147 governs the programme itself and is a facility-branch general "
-         "industry standard the operator works alongside, not under. What the operator owes "
-         "it is the hold."),
+         "&sect;1910.147(c)(1) (held) requires the employer to establish a programme of "
+         "energy control procedures, employee training and periodic inspections so that "
+         "before servicing or maintenance the machine is isolated and rendered inoperative. "
+         "The operator is typically an <b>affected</b> employee (definition at (b)). What "
+         "the operator owes the programme is the hold."),
         ("The crane's own disconnects, and where they are",
          "&sect;1910.179(g)(5)(i): the power supply to the runway conductors shall be "
          "controlled by a switch or circuit breaker <b>located on a fixed structure, "
@@ -390,9 +392,12 @@ GATE = [
      ["Permitted at reduced speed", "Permitted with a spotter",
       "Held until isolation is verified", "Permitted if the equipment is idle"], 2, ""),
     ("OHC.10.C.K5",
-     "The operator's interface with the facility energy control programme is to:",
-     ["Apply the isolation", "Verify the isolation personally",
-      "Know isolation is required, know who verifies it, and hold the placement",
+     "Under &sect;1910.147 (held), the operator's interface with the facility energy "
+     "control programme is to:",
+     ["Apply the isolation as the authorized employee",
+      "Verify the isolation personally and remove locks when done",
+      "Know isolation is required, know who verifies it, and hold the placement -- the "
+      "operator is typically an affected employee",
       "Document the isolation in the crane log"], 2, ""),
     ("OHC.10.C.K5b",
      "&sect;1910.179(g)(5)(i) requires the runway conductor power supply switch to be:",
@@ -441,7 +446,7 @@ TRACE_SOURCE = {
     "OHC.10.C.K2": ("derived", "OK"),
     "OHC.10.C.K3": ("derived", "OK"),
     "OHC.10.C.K4": ("derived", "OK"),
-    "OHC.10.C.K5": ("**&sect;1910.147** interface &middot; derived", "OPEN"),
+    "OHC.10.C.K5": ("**&sect;1910.147(b),(c)(1)** held -- affected vs authorized; hold until verified", "OK"),
     "OHC.10.C.K5b": ("**&sect;1910.179(g)(5)(i)**", "OK"),
     "OHC.10.C.R1": ("derived", "OK"),
     "OHC.10.C.R2": ("derived", "OK"),
@@ -514,24 +519,23 @@ TRACE_NOTES = [
      "type with provision for locking in the open position**, and **means for discharging the "
      "inductive load of the magnet** shall be provided. OHC-06's trace source is corrected "
      "and the module rebuilt."),
-    ("&#9888;&#65039; Two open items in this module",
+    ("&#9888;&#65039; Subpart D walking-working surfaces remain unheld",
      "`A.K4` and `A.K5b` route to **Part 1910 Subpart D** (walking-working surfaces, fixed "
-     "ladders &#8212; reached from &sect;1910.179(c)(2)) and `C.K5` routes to "
-     "**&sect;1910.147** (energy control). **Neither is held as primary text in the corpus** "
-     "&#8212; this is cross-check blocking item 6. The items are gated at the level the "
-     "operator actually needs (walk the path; hold the placement; know who verifies), not "
-     "from paragraph text this repo does not have."),
+     "ladders &#8212; reached from &sect;1910.179(c)(2)). **Subpart D paragraph text is not "
+     "held in this repo.** The items stay gated at operator level (walk the path; know cab "
+     "lighting is (c)(4) only) and marked OPEN. **&sect;1910.147 is now held** &#8212; "
+     "`C.K5` gates affected vs authorized and the hold until isolation is verified, from "
+     "**(b)** and **(c)(1)** fetched 2026-08-28 from OSHA.gov."),
 ]
 
 
 def main():
     html = A.assemble(MODULE, MODLABEL, TITLE, SUBTITLE, OBJECTIVES,
                       len(GATE), SECTIONS, CONTENT, PRACTICE, GATE)
-    out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                       "out", "OHC_M10_EnvironmentalHazards.pre.html")
-    with open(out, "w", encoding="ascii", errors="xmlcharrefreplace") as f:
-        f.write(html)
-    print("wrote %s (%d bytes)" % (out, len(html)))
+    A.write_pre_and_manifest(
+        MODULE, html, "OHC_M10_EnvironmentalHazards.pre.html",
+        "CQ1:OHC_M10_EnvironmentalHazards", "OHC_M11", PRACTICE, GATE,
+        notes="1910.147 C.K5 closed; Subpart D still OPEN")
 
 
 if __name__ == "__main__":

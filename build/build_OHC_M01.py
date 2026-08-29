@@ -131,9 +131,15 @@ CONTENT = {
          "employer as qualified for specific duties.",
          "Scoped in writing to named equipment and control modes."),
         ("The Certification Gate",
-         "On the non-permanently-installed US construction branch the operator requirement "
-         "is a certified operator under the Subpart CC operator certification section.",
-         "Two US branches, two gates. Canada uses employer authorization &#8212; Task D."),
+         "On the non-permanently-installed US construction branch, &sect;1926.1427 (held) "
+         "requires the employer to ensure each operator is <b>trained, certified/licensed, "
+         "and evaluated</b> before operating. Certification under (d) is by an "
+         "<b>accredited crane operator testing organization</b> or a qualifying government "
+         "licence. OSHA does <b>not</b> name a vendor.",
+         "NCCCO publishes a public CCO Overhead Crane Operator path (written + practical; "
+         "cab or pendant/remote). Programme routing through CCOS is administrative, not a "
+         "CFR name. Two US branches, two gates. Canada uses employer authorization "
+         "&#8212; Task D."),
         ("Roles are distinct",
          "Designated personnel operate. An <b>appointed person</b> carries defined "
          "inspection and approval duties. Maintenance qualified persons adjust and repair.",
@@ -342,10 +348,13 @@ GATE = [
      ["Any trained person may operate", "Only designated personnel may operate",
       "Only the manufacturer may operate", "Anyone with a valid driver's licence may operate"], 1, ""),
     ("OHC.01.C.K3",
-     "On the non-permanently-installed construction branch, the operator requirement is:",
-     ["An employer-issued designation only",
-      "A certified operator under the Subpart CC operator certification section",
-      "No requirement", "A state-issued licence only"], 1, ""),
+     "On the non-permanently-installed construction branch, &sect;1926.1427 requires the "
+     "employer to ensure each operator is trained, certified/licensed, and evaluated. "
+     "Certification under (d) is by:",
+     ["The employer's designation letter alone",
+      "An accredited crane operator testing organization, or a qualifying government license",
+      "This training programme's completion certificate",
+      "ASME B30.2-2016 as the OSHA-adopted edition"], 1, ""),
     ("OHC.01.C.K4",
      "On federal work, the Certificate of Compliance submitted for each piece of load "
      "handling equipment brought on site must be signed by:",
@@ -440,7 +449,7 @@ TRACE_SOURCE = {
     "OHC.01.B.K7": ("&sect;1910.179(b)(2) &middot; &sect;1926.1438(b)(2)(ii)", "OK"),
     "OHC.01.C.K1": ("Gate Master Rev 1.3 &sect;11.2, A2", "OK"),
     "OHC.01.C.K2": ("**&sect;1910.179(b)(8)**", "OK"),
-    "OHC.01.C.K3": ("&sect;1926.1427", "OPEN"),
+    "OHC.01.C.K3": ("**&sect;1926.1427(a),(d)** held &middot; NCCCO public overview (programme path, not a CFR name)", "OK"),
     "OHC.01.C.K4": ("EM 385 &sect;16.A.02", "OK"),
     "OHC.01.C.K5": ("&sect;1910.179(b)(8), (l)(3)(i), (m)(1)", "OK"),
     "OHC.01.C.R1": ("Gate Master &sect;11.2", "OK"),
@@ -480,6 +489,13 @@ TRACE_NOTES = [
     ("&#9989; Designation Gate citation",
      "`C.K2` rests on **&sect;1910.179(b)(8)**. Canada uses employer written authorization as "
      "the analogue &#8212; not NCCCO routing."),
+    ("&#9989; Certification Gate citation is held; NCCCO is the programme path",
+     "`C.K3` gates **&sect;1926.1427(a)** (trained, certified/licensed, evaluated) and "
+     "**(d)** (accredited crane operator testing organization or qualifying government "
+     "licence), fetched from OSHA.gov 2026-08-28. OSHA does **not** name NCCCO. NCCCO's "
+     "public Overhead Crane Operator overview confirms that a CCO overhead programme "
+     "exists (written + practical; cab or pendant/remote). Exam-item counts, fees, and "
+     "handbook domains are **not** gated. Canada Task D is unchanged."),
 ]
 
 

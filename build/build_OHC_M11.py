@@ -72,7 +72,9 @@ CONTENT = {
          "Isolate when the crane is <b>doing something it was not told to do</b>, or when it "
          "must stay stopped while people work near or under it. &sect;1910.179(l)(2)(i)(c) is "
          "the standard's own sequence: the main or emergency switch <b>open and locked in the "
-         "open position</b>."),
+         "open position</b>. That lockout implements the employer's <b>&sect;1910.147</b> "
+         "energy-control programme (held). The operator is typically an <b>affected</b> "
+         "employee &#8212; isolation is applied by an authorized employee."),
         ("What a control malfunction looks like",
          "Three signatures. <b>Unresponsive</b> &#8212; a motion that will not start. "
          "<b>Sticking</b> &#8212; a controller or button that does not return to off when "
@@ -146,9 +148,9 @@ CONTENT = {
          "operation is resumed</b>, and <b>(l)(2)(ii)</b> holds the crane until <b>all guards "
          "are reinstalled, safety devices reactivated, and maintenance equipment removed</b>.",
          "Both are in paragraphs (l) &#8212; <b>facility branch</b>. On the construction "
-         "branch the inspection authority is &sect;1926.1412, whose paragraph text this repo "
-         "does not hold. The operator's duty is the same either way: the crane does not run "
-         "until somebody qualified says it may."),
+         "branch the inspection authority is &sect;1926.1412 (held in OHC-05): a competent "
+         "person begins the shift visual inspection under (d)(1). The operator's duty is "
+         "the same either way: the crane does not run until somebody qualified says it may."),
     ],
     "C": [
         ("Dropped load and struck-by, in order",
@@ -284,6 +286,14 @@ GATE = [
      "The runway conductor disconnect required by &sect;1910.179(g)(5)(i) is:",
      ["Inside the cab only", "On a fixed structure, accessible from the floor, and lockable "
       "in the open position", "On the trolley", "Operated only by maintenance keys"], 1, ""),
+    ("OHC.11.A.K3b",
+     "When the crane is locked out for servicing, &sect;1910.147 (held) treats the operator "
+     "as typically which kind of employee?",
+     ["Authorized employee -- the operator applies and removes the locks",
+      "Affected employee -- isolation is applied by an authorized employee; the operator "
+      "holds until it is verified",
+      "Qualified person under &sect;1926.1427",
+      "Appointed person under &sect;1910.179(m)(1)"], 1, ""),
     ("OHC.11.A.K4",
      "Which of these is a regulated control failure rather than a nuisance?",
      ["A controller that feels stiff", "A controller that does not return to off when "
@@ -399,6 +409,7 @@ TRACE_SOURCE = {
     "OHC.11.A.K1b": ("**&sect;1910.179(f)(1)(i)** vs **(f)(2)** branch split", "OK"),
     "OHC.11.A.K2": ("derived", "OK"),
     "OHC.11.A.K3": ("**&sect;1910.179(g)(5)(i)** &middot; (l)(2)(i)(c)", "OK"),
+    "OHC.11.A.K3b": ("**&sect;1910.147(b),(c)(1)** held -- affected employee", "OK"),
     "OHC.11.A.K4": ("**&sect;1910.179(g)(3)(vi), (vii), (ix)**", "OK"),
     "OHC.11.A.K4b": ("**&sect;1910.179(a)(59)** &middot; (a)(40) fail-safe", "OK"),
     "OHC.11.A.K5": ("**&sect;1910.179(l)(3)(i)** designated personnel", "OK"),
@@ -484,20 +495,19 @@ TRACE_NOTES = [
      "extinguisher would be worse than the fire. Both **(c)** and **(o)** are **facility "
      "branch**; neither is in the &sect;1926.1438(b)(2) list."),
     ("&#9432; Elements carrying a second item",
-     "`A.K1`, `A.K4`, `B.K2` and `C.K3` each carry two items. In `A.K1` and `B.K2` the split "
-     "separates what the regulation says from what the ACS says about it; in `A.K4` and "
-     "`C.K3` it separates a requirement from the reason or prohibition attached to it."),
+     "`A.K1`, `A.K3`, `A.K4`, `B.K2` and `C.K3` each carry two items. `A.K3b` maps held "
+     "**&sect;1910.147** onto mainline disconnect use: the operator is typically an "
+     "**affected** employee."),
 ]
 
 
 def main():
     html = A.assemble(MODULE, MODLABEL, TITLE, SUBTITLE, OBJECTIVES,
                       len(GATE), SECTIONS, CONTENT, PRACTICE, GATE)
-    out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                       "out", "OHC_M11_MalfunctionsAndEmergencies.pre.html")
-    with open(out, "w", encoding="ascii", errors="xmlcharrefreplace") as f:
-        f.write(html)
-    print("wrote %s (%d bytes)" % (out, len(html)))
+    A.write_pre_and_manifest(
+        MODULE, html, "OHC_M11_MalfunctionsAndEmergencies.pre.html",
+        "CQ1:OHC_M11_MalfunctionsAndEmergencies", "OHC_M12", PRACTICE, GATE,
+        notes="1910.147 A.K3b; 1412 cross-ref closed")
 
 
 if __name__ == "__main__":

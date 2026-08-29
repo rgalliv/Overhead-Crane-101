@@ -110,16 +110,16 @@ Foundational stages carry 22–26 gate items per module; applied and capstone st
 
 ### 4.2 The OHC element arithmetic lands cleanly
 
-The ACS carries **398 elements: 182 K · 108 R · 108 S**.
+The ACS carries **400 elements: 184 K · 108 R · 108 S** (OHC-01 includes net-new `A.K7` and `B.K7`).
 
-- **K and R elements are gateable by knowledge check.** 182 + 108 = **290 items**, ≈24 per module — squarely in the mobile foundational band.
+- **K and R elements are gateable by knowledge check.** 184 + 108 = **292 items** on the US table, ≈24 per module — squarely in the mobile foundational band. OHC-01's extra K pair and Canada Task D increase that module's gate.
 - **S elements are not.** 108 skills elements are graded performance and cannot be assessed by multiple choice. They need their own instrument.
 
 **Proposed per-module gate:** 24 gate questions for OHC-01…OHC-11, tracing 1:1 to that module's K and R elements. **OHC-12 capstone: 5–6 gate questions** in the mobile capstone pattern, since its assessment weight sits in the practical.
 
 Two arithmetic notes:
-- **OHC-01 carries 17 K + 9 R = 26**, not 24 — it is the only module with an extra task's worth of knowledge. Give it 26 and record the exception in the manifest rather than dropping two elements.
-- Eleven modules at 15 K + 9 R = 24 exactly. That 1:1 fit is what makes the trace table auditable.
+- **OHC-01 carries 19 K + 9 R = 28** on the US table (net-new `A.K7` / `B.K7`), not 24 — plus Canada Task D on that module. Record the extras in the manifest rather than dropping elements.
+- Eleven modules at 15 K + 9 R = 24 ACS elements exactly. Second items (`*b`) hold independently testable facts on the same element; they do not change the census.
 
 **Track total: ~290 gate records.** Comparable to mobile Stage 3 (291) — a known-good registry size.
 

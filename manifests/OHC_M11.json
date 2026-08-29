@@ -4,7 +4,7 @@
   "gate_code": "OHC-1",
   "version": "2026.08",
   "salt": "CQ1:OHC_M11_MalfunctionsAndEmergencies",
-  "total": 66,
+  "total": 67,
   "next": "OHC_M12",
   "gate": [
     "OHC_M11_q10",
@@ -34,7 +34,8 @@
     "OHC_M11_q34",
     "OHC_M11_q35",
     "OHC_M11_q36",
-    "OHC_M11_q37"
+    "OHC_M11_q37",
+    "OHC_M11_q38"
   ],
   "review_offset": 9,
   "answer_key": {
@@ -53,8 +54,8 @@
     "OHC_M11_q13": 1,
     "OHC_M11_q14": 1,
     "OHC_M11_q15": 1,
-    "OHC_M11_q16": 2,
-    "OHC_M11_q17": 1,
+    "OHC_M11_q16": 1,
+    "OHC_M11_q17": 2,
     "OHC_M11_q18": 1,
     "OHC_M11_q19": 1,
     "OHC_M11_q20": 1,
@@ -74,7 +75,9 @@
     "OHC_M11_q34": 1,
     "OHC_M11_q35": 1,
     "OHC_M11_q36": 1,
-    "OHC_M11_q37": 1
+    "OHC_M11_q37": 1,
+    "OHC_M11_q38": 1
   },
-  "course": "OCO301C"
+  "course": "OCO301C",
+  "notes": "1910.147 A.K3b; 1412 cross-ref closed"
 }

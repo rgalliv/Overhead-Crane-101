@@ -5,57 +5,115 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>OCO301C Module 11 &#8212; Malfunctions and Emergency Procedures</title>
 <style>
-:root{--navy:#1B3464;--gold:#C8991A;--ink:#0d1522;--paper:#f5f6f8;--line:#2b4478;}
+:root{
+  --navy:#1B3464;--gold:#C8991A;--ink:#0d1522;--paper:#f5f6f8;--line:#2b4478;
+  --ok:#2f9e64;--bad:#b4442f;--mist:#cfd6e4;--panel:#16203a;--glow:rgba(200,153,26,.35);
+}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;font-family:Calibri,"Segoe UI",system-ui,sans-serif;background:var(--ink);
-     color:var(--paper);overflow:hidden}
+body{margin:0;font-family:"Source Sans 3",Calibri,"Segoe UI",system-ui,sans-serif;
+     background:var(--ink);color:var(--paper);overflow:hidden}
 #stage{position:relative;height:100dvh;width:100vw}
 .slide{position:absolute;inset:0;padding:28px 22px 92px;overflow-y:auto;
        -webkit-overflow-scrolling:touch;opacity:0;pointer-events:none;
-       transition:opacity .28s ease;background:linear-gradient(160deg,#111a2c,#0d1522)}
-.slide.active{opacity:1;pointer-events:auto}
-.slide.section-header,.slide.divider{background:linear-gradient(160deg,var(--navy),#12203c)}
-h1{font-size:1.55rem;line-height:1.25;margin:.2em 0 .5em;color:#fff}
+       transition:opacity .35s ease, transform .35s ease;
+       transform:translateY(8px);
+       background:
+         radial-gradient(1200px 500px at 10% -10%, rgba(27,52,100,.55), transparent 60%),
+         linear-gradient(160deg,#111a2c,#0d1522 55%,#0a101c)}
+.slide.active{opacity:1;pointer-events:auto;transform:translateY(0)}
+.slide.section-header,.slide.divider{
+  background:linear-gradient(160deg,var(--navy),#12203c 70%,#0d1522)}
+.slide.hero{padding:0 0 92px;display:flex;flex-direction:column}
+.hero-media{position:relative;flex:0 0 46vh;min-height:220px;overflow:hidden}
+.hero-media img{width:100%;height:100%;object-fit:cover;display:block;
+  animation:heroKen 18s ease-in-out infinite alternate}
+.hero-media::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(13,21,34,.15),rgba(13,21,34,.92) 78%)}
+.hero-copy{padding:18px 22px 8px;position:relative;z-index:1;margin-top:-48px}
+@keyframes heroKen{from{transform:scale(1.04)}to{transform:scale(1.12)}}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.slide.active .rise{animation:rise .55s ease both}
+.slide.active .rise.d1{animation-delay:.08s}
+.slide.active .rise.d2{animation-delay:.16s}
+.slide.active .rise.d3{animation-delay:.24s}
+h1{font-size:1.55rem;line-height:1.25;margin:.2em 0 .5em;color:#fff;
+   font-family:Georgia,"Source Serif 4",serif;letter-spacing:-.01em}
 h2{font-size:1.25rem;margin:.2em 0 .6em;color:var(--gold)}
 p{line-height:1.55;margin:0 0 .9em}
 ul{line-height:1.55;padding-left:1.1em}
 li{margin-bottom:.5em}
-.lede{font-size:1.05rem;color:#cfd6e4}
+.lede{font-size:1.05rem;color:var(--mist)}
 .kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
         margin-bottom:.6em;font-weight:700}
 .elem{font-size:.68rem;letter-spacing:.06em;color:#7d8ba6;margin-bottom:.5em;
       font-family:ui-monospace,Menlo,Consolas,monospace}
-.note{border-left:3px solid var(--gold);padding:.6em .9em;background:#16203a;
-      border-radius:0 6px 6px 0;font-size:.95rem;color:#cfd6e4}
+.note{border-left:3px solid var(--gold);padding:.6em .9em;background:var(--panel);
+      border-radius:0 6px 6px 0;font-size:.95rem;color:var(--mist)}
 .stem{font-size:1.05rem;color:#fff}
 .quiz-group{display:flex;flex-direction:column;gap:10px;margin:1em 0}
 .quiz-option{display:block;width:100%;text-align:left;padding:14px 16px;font-size:1rem;
-             font-family:inherit;color:var(--paper);background:#16203a;
-             border:1px solid var(--line);border-radius:10px;cursor:pointer}
+             font-family:inherit;color:var(--paper);background:var(--panel);
+             border:1px solid var(--line);border-radius:10px;cursor:pointer;
+             transition:border-color .15s, background .15s, transform .1s}
+.quiz-option:hover{border-color:var(--gold)}
 .quiz-option:active{transform:scale(.995)}
-.quiz-option.correct{border-color:#2f9e64;background:#12301f}
-.quiz-option.wrong{border-color:#b4442f;background:#301513}
+.quiz-option.correct{border-color:var(--ok);background:#12301f}
+.quiz-option.wrong{border-color:var(--bad);background:#301513}
 .quiz-feedback{display:none;margin-top:.4em;padding:.7em .9em;border-radius:8px;
-               background:#16203a;font-size:.95rem;color:#cfd6e4}
+               background:var(--panel);font-size:.95rem;color:var(--mist)}
 .quiz-feedback.show{display:block}
-.completion-panel{background:#16203a;border:1px solid var(--line);border-radius:12px;
+.completion-panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;
                   padding:18px;margin-top:1em}
 .review-item{padding:.5em 0;border-bottom:1px solid var(--line);font-size:.95rem}
 .calc-btn{display:inline-block;width:100%;padding:14px 18px;font-size:1rem;
           font-family:inherit;font-weight:700;color:#12203c;background:var(--gold);
           border:0;border-radius:10px;cursor:pointer}
+.media-frame{margin:0 0 1em;border-radius:12px;overflow:hidden;border:1px solid var(--line);
+  box-shadow:0 12px 40px rgba(0,0,0,.35);position:relative}
+.media-frame img{width:100%;display:block;max-height:42vh;object-fit:cover}
+.media-cap{font-size:.78rem;color:#7d8ba6;margin:.45em 0 0;letter-spacing:.04em}
+.card-row{display:grid;grid-template-columns:1fr;gap:10px;margin:1em 0}
+@media(min-width:720px){.card-row.cols-2{grid-template-columns:1fr 1fr}
+.card-row.cols-3{grid-template-columns:1fr 1fr 1fr}}
+.flip{perspective:900px;min-height:120px}
+.flip-inner{position:relative;width:100%;min-height:120px;transform-style:preserve-3d;
+  transition:transform .55s ease;cursor:pointer}
+.flip.is-flipped .flip-inner{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;
+  padding:14px 16px;border:1px solid var(--line);background:var(--panel)}
+.flip-face.back{transform:rotateY(180deg);background:#1a2744;border-color:var(--gold)}
+.flip-face h3{margin:0 0 .4em;font-size:1rem;color:var(--gold)}
+.flip-face p{margin:0;font-size:.92rem;color:var(--mist)}
+.tree{margin:1em 0;display:flex;flex-direction:column;gap:10px}
+.tree-q{font-weight:700;color:#fff;margin-bottom:.2em}
+.tree-opts{display:flex;flex-wrap:wrap;gap:8px}
+.tree-opts button{flex:1 1 140px;padding:12px 14px;border-radius:10px;border:1px solid var(--line);
+  background:var(--panel);color:var(--paper);font:inherit;cursor:pointer}
+.tree-opts button:hover,.tree-opts button.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--glow)}
+.tree-result{display:none;padding:14px 16px;border-radius:12px;border:1px solid var(--gold);
+  background:linear-gradient(135deg,#1a2744,#12203c);margin-top:.4em}
+.tree-result.show{display:block;animation:rise .4s ease}
+.tree-result strong{color:var(--gold)}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;margin:.8em 0 1em}
+.meta-chip{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;
+  border-radius:999px;border:1px solid var(--line);color:var(--mist);background:rgba(22,32,58,.8)}
+.meta-chip.gold{border-color:var(--gold);color:var(--gold)}
+.progress-rail{height:3px;background:#1a2744;border-radius:2px;overflow:hidden;margin:0 0 14px}
+.progress-rail > span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),#e6c15a);
+  transition:width .35s ease}
 #chrome{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;
         padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#0b1220;
-        border-top:1px solid var(--line)}
+        border-top:1px solid var(--line);backdrop-filter:blur(8px)}
 #chrome button{padding:10px 16px;font-size:.95rem;font-family:inherit;color:var(--paper);
-               background:#16203a;border:1px solid var(--line);border-radius:8px}
+               background:var(--panel);border:1px solid var(--line);border-radius:8px}
 #counter{font-size:.85rem;color:#7d8ba6;margin-left:auto}
 #score-chip{position:fixed;top:calc(8px + env(safe-area-inset-top));right:12px;
             padding:6px 12px;font-size:.78rem;font-weight:700;letter-spacing:.05em;
-            color:#12203c;background:var(--gold);border-radius:999px;z-index:20}
+            color:#12203c;background:var(--gold);border-radius:999px;z-index:20;
+            box-shadow:0 0 24px var(--glow)}
 #cq-gatebar{display:none;position:fixed;left:12px;right:12px;
             bottom:calc(66px + env(safe-area-inset-bottom));padding:12px 14px;
-            background:#16203a;border:1px solid var(--gold);border-radius:10px;
+            background:var(--panel);border:1px solid var(--gold);border-radius:10px;
             font-size:.92rem;color:#fff;z-index:20}
 #cq-gatebtn{display:none;margin-top:10px;padding:10px 16px;font-family:inherit;
             font-weight:700;color:#12203c;background:var(--gold);border:0;border-radius:8px}
@@ -81,12 +139,11 @@ h1{font-family:Georgia,"Source Serif 4",serif;letter-spacing:-.01em}
 
 </style>
 </head>
-<body data-cq-module="OHC_M11" data-cq-total="66" data-cq-gate="OHC-1" data-cq-course="OCO301C">
+<body data-cq-module="OHC_M11" data-cq-total="67" data-cq-gate="OHC-1" data-cq-course="OCO301C">
 
-<div id="score-chip">GATE 0 / 28</div>
+<div id="score-chip">GATE 0 / 29</div>
 <div id="stage">
   <section class="slide" id="s1">
-    <div class="progress-rail"><span></span></div>
     <div class="kicker">OCO301C &#183; Overhead Crane Operator</div>
     <h1>Module 11<br>Malfunctions and Emergency Procedures</h1>
     <p class="lede">Respond correctly to equipment malfunctions, stranded loads, and emergency events.</p>
@@ -96,8 +153,8 @@ h1{font-family:Georgia,"Source Serif 4",serif;letter-spacing:-.01em}
   <section class="slide" id="s2">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Objectives</div>
-    <h2>What you will be able to do</h2>
-    <ul>
+    <h2 class="rise">What you will be able to do</h2>
+    <ul class="rise d1">
       <li>Respond to loss of power or control with a suspended load, secure the area, and hand the recovery to the people authorised to perform it.</li>
       <li>Recognise overtravel, brake and mechanical malfunctions as stop triggers, and hold the crane out of service until it has been inspected.</li>
       <li>Manage dropped loads, contact events, injuries and fire, preserve the scene, and produce a factual account.</li>
@@ -106,76 +163,84 @@ h1{font-family:Georgia,"Source Serif 4",serif;letter-spacing:-.01em}
   <section class="slide" id="s3">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">How this module gates</div>
-    <h2>Practice, then the gate</h2>
-    <p>9 practice questions run alongside the content. They are not scored and they
+    <h2 class="rise">Practice, then the gate</h2>
+    <p class="rise d1">9 practice questions run alongside the content. They are not scored and they
     show you the correct answer.</p>
-    <p>The <b>Final Knowledge Check</b> that follows is the gate. It requires
+    <p class="rise d2">The <b>Final Knowledge Check</b> that follows is the gate. It requires
     <b>100&#37;</b> &#8212; every gated answer must be correct. A missed gate question is
     not revealed; you review and retest.</p>
-    <div class="note">Your live gate score appears in the chip at the top of the screen
+    <div class="note rise d3">Your live gate score appears in the chip at the top of the screen
     once the final check begins.</div>
   </section>
   <section class="slide section-header" id="s4">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task A</div>
-    <h1>Power and Control Failures</h1>
-    <p class="lede">Respond to loss of power or control with a suspended load.</p>
+    <h1 class="rise">Power and Control Failures</h1>
+    <p class="lede rise d1">Respond to loss of power or control with a suspended load.</p>
   </section>
   <section class="slide" id="s5">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task A</div>
-    <h2>Power loss holds the load &#8212; by design</h2>
-    <p>&sect;1910.179(a)(20) defines it: <i>a <b>holding brake</b> is a brake that <b>automatically prevents motion when power is off</b></i>. And &sect;1910.179(f)(2)(iii) requires it: <i>holding brakes on hoists shall be <b>applied automatically when power is removed</b></i>.</p>
-    <div class="note">So the expected behaviour on a power failure is that the load <b>stops and stays</b>. The hazard of a power loss is not the drop &#8212; it is everything people do next.</div>
+    <h2 class="rise">Power loss holds the load &#8212; by design</h2>
+    
+    <p class="rise d1">&sect;1910.179(a)(20) defines it: <i>a <b>holding brake</b> is a brake that <b>automatically prevents motion when power is off</b></i>. And &sect;1910.179(f)(2)(iii) requires it: <i>holding brakes on hoists shall be <b>applied automatically when power is removed</b></i>.</p>
+    <div class="note rise d2">So the expected behaviour on a power failure is that the load <b>stops and stays</b>. The hazard of a power loss is not the drop &#8212; it is everything people do next.</div>
   </section>
   <section class="slide" id="s6">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task A</div>
-    <h2>Two brake systems, and a branch split</h2>
-    <p>&sect;1910.179(f)(1)(i): each independent hoisting unit shall have <b>at least one self-setting brake</b>, the holding brake, applied directly to the motor shaft or part of the gear train. <b>(f)(1)(ii)</b> adds a second system &#8212; <b>control braking means to prevent overspeeding</b>, in addition to the holding brake.</p>
-    <div class="note">Note the branch line. <b>(f)(1)</b> is in the &sect;1926.1438(b)(2) list, so the self-setting brake is required on <b>both</b> branches. <b>(f)(2)</b> is <b>not</b> &#8212; so the *applied automatically when power is removed* wording, and the torque percentages at (f)(2)(i), are <b>facility branch</b>. The ACS's phrase <i>&#8220;spring-set&#8221;</i> names a common mechanism; the standard names a <b>behaviour</b>, and is deliberately mechanism-agnostic.</div>
+    <h2 class="rise">Two brake systems, and a branch split</h2>
+    
+    <p class="rise d1">&sect;1910.179(f)(1)(i): each independent hoisting unit shall have <b>at least one self-setting brake</b>, the holding brake, applied directly to the motor shaft or part of the gear train. <b>(f)(1)(ii)</b> adds a second system &#8212; <b>control braking means to prevent overspeeding</b>, in addition to the holding brake.</p>
+    <div class="note rise d2">Note the branch line. <b>(f)(1)</b> is in the &sect;1926.1438(b)(2) list, so the self-setting brake is required on <b>both</b> branches. <b>(f)(2)</b> is <b>not</b> &#8212; so the *applied automatically when power is removed* wording, and the torque percentages at (f)(2)(i), are <b>facility branch</b>. The ACS's phrase <i>&#8220;spring-set&#8221;</i> names a common mechanism; the standard names a <b>behaviour</b>, and is deliberately mechanism-agnostic.</div>
   </section>
   <section class="slide" id="s7">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task A</div>
-    <h2>A stranded load is a scene, not a problem to solve</h2>
-    <p>The load is held. That is the system working. The correct response is to <b>secure the area beneath and around it</b>, keep everyone out, and notify. Nothing about a stranded load requires speed.</p>
-    <div class="note">What it does not require is <b>improvisation</b>. Recovery of a suspended load on a failed crane is an engineered operation, and the operator's job ends at securing and reporting.</div>
+    <h2 class="rise">A stranded load is a scene, not a problem to solve</h2>
+    
+    <p class="rise d1">The load is held. That is the system working. The correct response is to <b>secure the area beneath and around it</b>, keep everyone out, and notify. Nothing about a stranded load requires speed.</p>
+    <div class="note rise d2">What it does not require is <b>improvisation</b>. Recovery of a suspended load on a failed crane is an engineered operation, and the operator's job ends at securing and reporting.</div>
   </section>
   <section class="slide" id="s8">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task A</div>
-    <h2>Never release a brake to get a load down</h2>
-    <p>The single most dangerous action available to a person standing next to a stranded load is manually releasing the holding brake. There is no controlled descent at the other end of that decision &#8212; there is a free fall with the load's full weight and no braking system in the path.</p>
-    <div class="note">&sect;1910.179(l)(3)(i) closes the door on it from the other side: <b>adjustments and repairs shall be done only by designated personnel</b>. Releasing a brake is an adjustment.</div>
+    <h2 class="rise">Never release a brake to get a load down</h2>
+    
+    <p class="rise d1">The single most dangerous action available to a person standing next to a stranded load is manually releasing the holding brake. There is no controlled descent at the other end of that decision &#8212; there is a free fall with the load's full weight and no braking system in the path.</p>
+    <div class="note rise d2">&sect;1910.179(l)(3)(i) closes the door on it from the other side: <b>adjustments and repairs shall be done only by designated personnel</b>. Releasing a brake is an adjustment.</div>
   </section>
   <section class="slide" id="s9">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task A</div>
-    <h2>The disconnect, and when to use it</h2>
-    <p>&sect;1910.179(g)(5)(i) puts the runway conductor supply on a switch or breaker on a <b>fixed structure, accessible from the floor, lockable in the open position</b>. (g)(5)(ii) and (iii) put a second one on the crane, reachable by the operator.</p>
-    <div class="note">Isolate when the crane is <b>doing something it was not told to do</b>, or when it must stay stopped while people work near or under it. &sect;1910.179(l)(2)(i)(c) is the standard's own sequence: the main or emergency switch <b>open and locked in the open position</b>.</div>
+    <h2 class="rise">The disconnect, and when to use it</h2>
+    
+    <p class="rise d1">&sect;1910.179(g)(5)(i) puts the runway conductor supply on a switch or breaker on a <b>fixed structure, accessible from the floor, lockable in the open position</b>. (g)(5)(ii) and (iii) put a second one on the crane, reachable by the operator.</p>
+    <div class="note rise d2">Isolate when the crane is <b>doing something it was not told to do</b>, or when it must stay stopped while people work near or under it. &sect;1910.179(l)(2)(i)(c) is the standard's own sequence: the main or emergency switch <b>open and locked in the open position</b>. That lockout implements the employer's <b>&sect;1910.147</b> energy-control programme (held). The operator is typically an <b>affected</b> employee &#8212; isolation is applied by an authorized employee.</div>
   </section>
   <section class="slide" id="s10">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task A</div>
-    <h2>What a control malfunction looks like</h2>
-    <p>Three signatures. <b>Unresponsive</b> &#8212; a motion that will not start. <b>Sticking</b> &#8212; a controller or button that does not return to off when released. <b>Self-motion</b> &#8212; the crane moving with no input at all.</p>
-    <div class="note">The standard treats the second and third as regulated failures. &sect;1910.179(g)(3)(vi) requires floor-operated controllers to <b>automatically return to the off position when released</b>; (g)(3)(vii) requires pendant pushbuttons to <b>return to off when pressure is released</b>; (g)(3)(ix) requires that on <b>remote-operated</b> cranes, if the control signal <b>becomes ineffective the crane motion shall stop</b>. A control that holds a motion after release is a failed safety function, not a quirk.</div>
+    <h2 class="rise">What a control malfunction looks like</h2>
+    
+    <p class="rise d1">Three signatures. <b>Unresponsive</b> &#8212; a motion that will not start. <b>Sticking</b> &#8212; a controller or button that does not return to off when released. <b>Self-motion</b> &#8212; the crane moving with no input at all.</p>
+    <div class="note rise d2">The standard treats the second and third as regulated failures. &sect;1910.179(g)(3)(vi) requires floor-operated controllers to <b>automatically return to the off position when released</b>; (g)(3)(vii) requires pendant pushbuttons to <b>return to off when pressure is released</b>; (g)(3)(ix) requires that on <b>remote-operated</b> cranes, if the control signal <b>becomes ineffective the crane motion shall stop</b>. A control that holds a motion after release is a failed safety function, not a quirk.</div>
   </section>
   <section class="slide" id="s11">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task A</div>
-    <h2>Why the E-stop is the answer and the controller is not</h2>
-    <p>&sect;1910.179(a)(59): an <b>emergency stop switch</b> is a switch <b>to cut off electric power independently of the regular operating controls</b>.</p>
-    <div class="note">That phrase is the whole reason it exists. If the controller is the thing that has failed, then working the controller harder is asking the failed component to fix itself. The E-stop takes a <b>different path</b> to the same result. On a sticking or self-moving crane it is the first action, not the last resort. &sect;1910.179(a)(40) names the design principle: <b>fail-safe</b> means a provision designed to automatically stop or safely control any motion in which a malfunction occurs.</div>
+    <h2 class="rise">Why the E-stop is the answer and the controller is not</h2>
+    
+    <p class="rise d1">&sect;1910.179(a)(59): an <b>emergency stop switch</b> is a switch <b>to cut off electric power independently of the regular operating controls</b>.</p>
+    <div class="note rise d2">That phrase is the whole reason it exists. If the controller is the thing that has failed, then working the controller harder is asking the failed component to fix itself. The E-stop takes a <b>different path</b> to the same result. On a sticking or self-moving crane it is the first action, not the last resort. &sect;1910.179(a)(40) names the design principle: <b>fail-safe</b> means a provision designed to automatically stop or safely control any motion in which a malfunction occurs.</div>
   </section>
   <section class="slide" id="s12">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task A</div>
-    <h2>Re-energising is a decision, and it is not the operator's</h2>
-    <p>Restoring power to a crane whose failure is not understood can restart the motion that caused the problem &#8212; now with people nearby who believe the crane is dead.</p>
-    <div class="note">The failure is diagnosed before the crane is re-energised, by the people authorised to diagnose it. The operator's contribution is an accurate account of <b>what the crane did</b>, which is worth more than a theory about why.</div>
+    <h2 class="rise">Re-energising is a decision, and it is not the operator's</h2>
+    
+    <p class="rise d1">Restoring power to a crane whose failure is not understood can restart the motion that caused the problem &#8212; now with people nearby who believe the crane is dead.</p>
+    <div class="note rise d2">The failure is diagnosed before the crane is re-energised, by the people authorised to diagnose it. The operator's contribution is an accurate account of <b>what the crane did</b>, which is worth more than a theory about why.</div>
   </section>
   <section class="slide" id="s13">
     <div class="progress-rail"><span></span></div>
@@ -222,50 +287,56 @@ h1{font-family:Georgia,"Source Serif 4",serif;letter-spacing:-.01em}
   <section class="slide section-header" id="s16">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task B</div>
-    <h1>Overtravel and Mechanical Malfunctions</h1>
-    <p class="lede">Respond to limit failures, brake malfunction, and abnormal mechanical events.</p>
+    <h1 class="rise">Overtravel and Mechanical Malfunctions</h1>
+    <p class="lede rise d1">Respond to limit failures, brake malfunction, and abnormal mechanical events.</p>
   </section>
   <section class="slide" id="s17">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task B</div>
-    <h2>A two-block event is a rope event</h2>
-    <p>Two-blocking loads the rope and reeving against a hard stop. The damage is in the <b>rope, the sheaves and the terminations</b>, and it is frequently invisible from the floor.</p>
-    <div class="note">The response is <b>stop, and do not move</b> &#8212; not even to lower the load, until the rope and reeving have been assessed. The next motion is the one that finds out whether the rope is still whole.</div>
+    <h2 class="rise">A two-block event is a rope event</h2>
+    
+    <p class="rise d1">Two-blocking loads the rope and reeving against a hard stop. The damage is in the <b>rope, the sheaves and the terminations</b>, and it is frequently invisible from the floor.</p>
+    <div class="note rise d2">The response is <b>stop, and do not move</b> &#8212; not even to lower the load, until the rope and reeving have been assessed. The next motion is the one that finds out whether the rope is still whole.</div>
   </section>
   <section class="slide" id="s18">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task B</div>
-    <h2>A limit switch that fails verification</h2>
-    <p>&sect;1910.179(n)(4)(i) ends with the duty: <i>if the switch <b>does not operate properly, the appointed person shall be immediately notified</b></i>. Immediately, and to a named role.</p>
-    <div class="note">The ACS states this as <i>&#8220;crane out of service.&#8221;</i> That is the right outcome, and it arrives via <b>&sect;1910.179(l)(3)(i)</b> &#8212; unsafe conditions disclosed by inspection <b>corrected before operation is resumed</b>. The regulation names the <b>notification</b>; the out-of-service state follows from it. Teach both halves, because the notification is the one that gets skipped.</div>
+    <h2 class="rise">A limit switch that fails verification</h2>
+    
+    <p class="rise d1">&sect;1910.179(n)(4)(i) ends with the duty: <i>if the switch <b>does not operate properly, the appointed person shall be immediately notified</b></i>. Immediately, and to a named role.</p>
+    <div class="note rise d2">The ACS states this as <i>&#8220;crane out of service.&#8221;</i> That is the right outcome, and it arrives via <b>&sect;1910.179(l)(3)(i)</b> &#8212; unsafe conditions disclosed by inspection <b>corrected before operation is resumed</b>. The regulation names the <b>notification</b>; the out-of-service state follows from it. Teach both halves, because the notification is the one that gets skipped.</div>
   </section>
   <section class="slide" id="s19">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task B</div>
-    <h2>Brake drift is not a control problem</h2>
-    <p>A load that creeps down with the controller at off is a brake that is no longer holding. The instinct is to correct it with hoist inputs &#8212; and that hides a failing brake behind operator effort for as long as the operator keeps doing it.</p>
-    <div class="note">The correct response is to <b>set the load down</b> at the first safe opportunity and take the crane out of service. Remember there are two systems: the <b>holding</b> brake at (f)(1)(i) and the <b>control braking means</b> at (f)(1)(ii). Drift points at the holding brake.</div>
+    <h2 class="rise">Brake drift is not a control problem</h2>
+    
+    <p class="rise d1">A load that creeps down with the controller at off is a brake that is no longer holding. The instinct is to correct it with hoist inputs &#8212; and that hides a failing brake behind operator effort for as long as the operator keeps doing it.</p>
+    <div class="note rise d2">The correct response is to <b>set the load down</b> at the first safe opportunity and take the crane out of service. Remember there are two systems: the <b>holding</b> brake at (f)(1)(i) and the <b>control braking means</b> at (f)(1)(ii). Drift points at the holding brake.</div>
   </section>
   <section class="slide" id="s20">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task B</div>
-    <h2>Noise, vibration and rope behaviour are stop triggers</h2>
-    <p>A new sound, a new vibration, or rope that is doing something it did not do yesterday &#8212; jumping a groove, spooling unevenly, slapping &#8212; is information arriving early. Machines usually announce failures before they complete them.</p>
-    <div class="note">The discipline is treating <b>new</b> as the trigger, not <b>loud</b>. A quiet new noise is a better signal than a loud familiar one.</div>
+    <h2 class="rise">Noise, vibration and rope behaviour are stop triggers</h2>
+    
+    <p class="rise d1">A new sound, a new vibration, or rope that is doing something it did not do yesterday &#8212; jumping a groove, spooling unevenly, slapping &#8212; is information arriving early. Machines usually announce failures before they complete them.</p>
+    <div class="note rise d2">The discipline is treating <b>new</b> as the trigger, not <b>loud</b>. A quiet new noise is a better signal than a loud familiar one.</div>
   </section>
   <section class="slide" id="s21">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task B</div>
-    <h2>Equipment character is a story people tell</h2>
-    <p>Every long-serving crane accumulates a set of noises the crew has agreed to find normal. Some genuinely are. The problem is that the agreement is never revisited, so a new sound gets absorbed into the existing story on the day it appears.</p>
-    <div class="note">The counter is a written baseline and a low threshold for reporting. <i>&#8220;It's always done that&#8221;</i> is a claim about history, and it needs a date.</div>
+    <h2 class="rise">Equipment character is a story people tell</h2>
+    
+    <p class="rise d1">Every long-serving crane accumulates a set of noises the crew has agreed to find normal. Some genuinely are. The problem is that the agreement is never revisited, so a new sound gets absorbed into the existing story on the day it appears.</p>
+    <div class="note rise d2">The counter is a written baseline and a low threshold for reporting. <i>&#8220;It's always done that&#8221;</i> is a claim about history, and it needs a date.</div>
   </section>
   <section class="slide" id="s22">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task B</div>
-    <h2>Post-event inspection before return to service</h2>
-    <p>After any two-block, contact or mechanical event, the crane is inspected before it runs again. &sect;1910.179(l)(3)(i) requires unsafe conditions <b>corrected before operation is resumed</b>, and <b>(l)(2)(ii)</b> holds the crane until <b>all guards are reinstalled, safety devices reactivated, and maintenance equipment removed</b>.</p>
-    <div class="note">Both are in paragraphs (l) &#8212; <b>facility branch</b>. On the construction branch the inspection authority is &sect;1926.1412, whose paragraph text this repo does not hold. The operator's duty is the same either way: the crane does not run until somebody qualified says it may.</div>
+    <h2 class="rise">Post-event inspection before return to service</h2>
+    
+    <p class="rise d1">After any two-block, contact or mechanical event, the crane is inspected before it runs again. &sect;1910.179(l)(3)(i) requires unsafe conditions <b>corrected before operation is resumed</b>, and <b>(l)(2)(ii)</b> holds the crane until <b>all guards are reinstalled, safety devices reactivated, and maintenance equipment removed</b>.</p>
+    <div class="note rise d2">Both are in paragraphs (l) &#8212; <b>facility branch</b>. On the construction branch the inspection authority is &sect;1926.1412 (held in OHC-05): a competent person begins the shift visual inspection under (d)(1). The operator's duty is the same either way: the crane does not run until somebody qualified says it may.</div>
   </section>
   <section class="slide" id="s23">
     <div class="progress-rail"><span></span></div>
@@ -312,57 +383,64 @@ h1{font-family:Georgia,"Source Serif 4",serif;letter-spacing:-.01em}
   <section class="slide section-header" id="s26">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task C</div>
-    <h1>Emergency Events</h1>
-    <p class="lede">Manage dropped loads, contact events, injuries, and fire.</p>
+    <h1 class="rise">Emergency Events</h1>
+    <p class="lede rise d1">Manage dropped loads, contact events, injuries, and fire.</p>
   </section>
   <section class="slide" id="s27">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task C</div>
-    <h2>Dropped load and struck-by, in order</h2>
-    <p>The sequence is fixed and the order matters: <b>aid</b> to anyone injured, <b>control of the area</b> so nobody becomes the second casualty, then <b>notification</b> up the line.</p>
-    <div class="note">Aid comes first, but it does not come recklessly. A dropped load leaves an unstable scene &#8212; the load itself, the rigging, whatever it struck, and possibly the crane. Entering an uncontrolled scene to help is how one casualty becomes two.</div>
+    <h2 class="rise">Dropped load and struck-by, in order</h2>
+    
+    <p class="rise d1">The sequence is fixed and the order matters: <b>aid</b> to anyone injured, <b>control of the area</b> so nobody becomes the second casualty, then <b>notification</b> up the line.</p>
+    <div class="note rise d2">Aid comes first, but it does not come recklessly. A dropped load leaves an unstable scene &#8212; the load itself, the rigging, whatever it struck, and possibly the crane. Entering an uncontrolled scene to help is how one casualty becomes two.</div>
   </section>
   <section class="slide" id="s28">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task C</div>
-    <h2>Contact events hold two machines, not one</h2>
-    <p>A crane-to-crane or crane-to-structure contact puts <b>both</b> systems in question. The other crane took the same impact, and the structure may have taken load it was not designed for.</p>
-    <div class="note">So the hold is on both. The instinct is to check your own crane, find nothing, and carry on &#8212; leaving a struck crane in service with an undiscovered defect and another operator on it. Cross-refs `OHC.08.B.R3`.</div>
+    <h2 class="rise">Contact events hold two machines, not one</h2>
+    
+    <p class="rise d1">A crane-to-crane or crane-to-structure contact puts <b>both</b> systems in question. The other crane took the same impact, and the structure may have taken load it was not designed for.</p>
+    <div class="note rise d2">So the hold is on both. The instinct is to check your own crane, find nothing, and carry on &#8212; leaving a struck crane in service with an undiscovered defect and another operator on it. Cross-refs `OHC.08.B.R3`.</div>
   </section>
   <section class="slide" id="s29">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task C</div>
-    <h2>Fire: the cab is a dead end</h2>
-    <p>&sect;1910.179(o)(3) sets the baseline: the employer shall ensure operators are <b>familiar with the operation and care of the fire extinguishers provided</b>. Familiar with, before the day it matters.</p>
-    <div class="note">The extinguisher decision is bounded: fight only a <b>small</b> fire, only with your <b>egress secured behind you</b>, and only if it is not growing. A cab has one way out along a walkway and down a ladder. If the fire is between you and that route, the decision is already made.</div>
+    <h2 class="rise">Fire: the cab is a dead end</h2>
+    
+    <p class="rise d1">&sect;1910.179(o)(3) sets the baseline: the employer shall ensure operators are <b>familiar with the operation and care of the fire extinguishers provided</b>. Familiar with, before the day it matters.</p>
+    <div class="note rise d2">The extinguisher decision is bounded: fight only a <b>small</b> fire, only with your <b>egress secured behind you</b>, and only if it is not growing. A cab has one way out along a walkway and down a ladder. If the fire is between you and that route, the decision is already made.</div>
   </section>
   <section class="slide" id="s30">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task C</div>
-    <h2>The extinguisher prohibition still in the standard</h2>
-    <p>&sect;1910.179(c)(3) is two words long in substance: <b>carbon tetrachloride extinguishers shall not be used</b>.</p>
-    <div class="note">It reads as a historical artefact and it is live regulatory text. Carbon tetrachloride is acutely toxic and decomposes in heat to phosgene &#8212; in a cab, the extinguisher would be more dangerous than the fire. Both (c) and (o) are <b>facility branch</b>; neither is in the &sect;1926.1438(b)(2) list.</div>
+    <h2 class="rise">The extinguisher prohibition still in the standard</h2>
+    
+    <p class="rise d1">&sect;1910.179(c)(3) is two words long in substance: <b>carbon tetrachloride extinguishers shall not be used</b>.</p>
+    <div class="note rise d2">It reads as a historical artefact and it is live regulatory text. Carbon tetrachloride is acutely toxic and decomposes in heat to phosgene &#8212; in a cab, the extinguisher would be more dangerous than the fire. Both (c) and (o) are <b>facility branch</b>; neither is in the &sect;1926.1438(b)(2) list.</div>
   </section>
   <section class="slide" id="s31">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task C</div>
-    <h2>Electrical fire is an isolation problem first</h2>
-    <p>A crane fire is usually electrical, and an energised electrical fire cannot be put out in any durable way while it is still fed. The first useful action is <b>removing the supply</b> &#8212; the runway disconnect at &sect;1910.179(g)(5)(i), lockable and accessible from the floor.</p>
-    <div class="note">Never water on an energised fire. And a de-energised electrical fire is still hot and still full of stored energy in capacitors and windings.</div>
+    <h2 class="rise">Electrical fire is an isolation problem first</h2>
+    
+    <p class="rise d1">A crane fire is usually electrical, and an energised electrical fire cannot be put out in any durable way while it is still fed. The first useful action is <b>removing the supply</b> &#8212; the runway disconnect at &sect;1910.179(g)(5)(i), lockable and accessible from the floor.</p>
+    <div class="note rise d2">Never water on an energised fire. And a de-energised electrical fire is still hot and still full of stored energy in capacitors and windings.</div>
   </section>
   <section class="slide" id="s32">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task C</div>
-    <h2>Preserve the scene</h2>
-    <p>The instinct after an incident is to tidy up &#8212; move the load, coil the slings, get the crane out of the way. Every one of those destroys the record of what happened.</p>
-    <div class="note">Nothing moves until the scene has been documented and released, except what must move to reach an injured person or to remove an active hazard. That exception is narrow and it is the only one.</div>
+    <h2 class="rise">Preserve the scene</h2>
+    
+    <p class="rise d1">The instinct after an incident is to tidy up &#8212; move the load, coil the slings, get the crane out of the way. Every one of those destroys the record of what happened.</p>
+    <div class="note rise d2">Nothing moves until the scene has been documented and released, except what must move to reach an injured person or to remove an active hazard. That exception is narrow and it is the only one.</div>
   </section>
   <section class="slide" id="s33">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">Task C</div>
-    <h2>Your account, and what makes it useful</h2>
-    <p>The operator writes what they <b>saw, heard and did</b>, with times, in the order it happened. That is the highest-value document in any investigation, because it is the only record of the inside of the cab.</p>
-    <div class="note">Keep it factual and keep speculation out of it &#8212; not to protect anyone, but because a guess written down becomes a finding that has to be disproved later. <i>&#8220;The hoist did not stop when I released the button&#8221;</i> is worth more than <i>&#8220;I think the contactor stuck.&#8221;</i></div>
+    <h2 class="rise">Your account, and what makes it useful</h2>
+    
+    <p class="rise d1">The operator writes what they <b>saw, heard and did</b>, with times, in the order it happened. That is the highest-value document in any investigation, because it is the only record of the inside of the cab.</p>
+    <div class="note rise d2">Keep it factual and keep speculation out of it &#8212; not to protect anyone, but because a guess written down becomes a finding that has to be disproved later. <i>&#8220;The hoist did not stop when I released the button&#8221;</i> is worth more than <i>&#8220;I think the contactor stuck.&#8221;</i></div>
   </section>
   <section class="slide" id="s34">
     <div class="progress-rail"><span></span></div>
@@ -407,10 +485,9 @@ h1{font-family:Georgia,"Source Serif 4",serif;letter-spacing:-.01em}
     <div class="quiz-feedback" id="fb09"></div>
   </section>
   <section class="slide divider" id="s37">
-    <div class="progress-rail"><span></span></div>
     <div class="kicker">Assessment</div>
     <h1>Final Knowledge Check</h1>
-    <p class="lede">28 questions. This gate requires 100&#37; &#8212; every answer must be
+    <p class="lede">29 questions. This gate requires 100&#37; &#8212; every answer must be
     correct before the module can be completed.</p>
     <div class="note">Missed questions are listed for review by number. The correct
     option is not shown.</div>
@@ -474,346 +551,359 @@ h1{font-family:Georgia,"Source Serif 4",serif;letter-spacing:-.01em}
   <section class="slide" id="s42">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.A.K4</div>
+    <div class="elem">OHC.11.A.K3b</div>
     <h2>Question 14</h2>
-    <p class="stem">Which of these is a regulated control failure rather than a nuisance?</p>
+    <p class="stem">When the crane is locked out for servicing, &sect;1910.147 (held) treats the operator as typically which kind of employee?</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q14',0,'fb14')">A controller that feels stiff</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q14',1,'fb14')">A controller that does not return to off when released</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q14',2,'fb14')">A slow hoist</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q14',3,'fb14')">A noisy contactor</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q14',0,'fb14')">Authorized employee -- the operator applies and removes the locks</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q14',1,'fb14')">Affected employee -- isolation is applied by an authorized employee; the operator holds until it is verified</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q14',2,'fb14')">Qualified person under &sect;1926.1427</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q14',3,'fb14')">Appointed person under &sect;1910.179(m)(1)</button>
     </div>
     <div class="quiz-feedback" id="fb14"></div>
   </section>
   <section class="slide" id="s43">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.A.K4b</div>
+    <div class="elem">OHC.11.A.K4</div>
     <h2>Question 15</h2>
-    <p class="stem">&sect;1910.179(a)(59) defines the emergency stop switch as cutting off electric power:</p>
+    <p class="stem">Which of these is a regulated control failure rather than a nuisance?</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q15',0,'fb15')">Through the main controller</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q15',1,'fb15')">Independently of the regular operating controls</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q15',2,'fb15')">After a preset delay</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q15',3,'fb15')">Only in the hoist circuit</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q15',0,'fb15')">A controller that feels stiff</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q15',1,'fb15')">A controller that does not return to off when released</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q15',2,'fb15')">A slow hoist</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q15',3,'fb15')">A noisy contactor</button>
     </div>
     <div class="quiz-feedback" id="fb15"></div>
   </section>
   <section class="slide" id="s44">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.A.K5</div>
+    <div class="elem">OHC.11.A.K4b</div>
     <h2>Question 16</h2>
-    <p class="stem">Recovery of a suspended load from a failed crane is performed by:</p>
+    <p class="stem">&sect;1910.179(a)(59) defines the emergency stop switch as cutting off electric power:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q16',0,'fb16')">The operator, using the pendant</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q16',1,'fb16')">The operator with a spotter</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q16',2,'fb16')">Maintenance or engineering-directed personnel</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q16',3,'fb16')">Any qualified crane operator</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q16',0,'fb16')">Through the main controller</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q16',1,'fb16')">Independently of the regular operating controls</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q16',2,'fb16')">After a preset delay</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q16',3,'fb16')">Only in the hoist circuit</button>
     </div>
     <div class="quiz-feedback" id="fb16"></div>
   </section>
   <section class="slide" id="s45">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.A.R1</div>
+    <div class="elem">OHC.11.A.K5</div>
     <h2>Question 17</h2>
-    <p class="stem">The area beneath a stranded load is controlled because:</p>
+    <p class="stem">Recovery of a suspended load from a failed crane is performed by:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q17',0,'fb17')">It is required for documentation</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q17',1,'fb17')">The failure mode that stranded the load is not yet understood, so the hold cannot be assumed permanent</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q17',2,'fb17')">The load may be damaged</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q17',3,'fb17')">It keeps the aisle clear</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q17',0,'fb17')">The operator, using the pendant</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q17',1,'fb17')">The operator with a spotter</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q17',2,'fb17')">Maintenance or engineering-directed personnel</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q17',3,'fb17')">Any qualified crane operator</button>
     </div>
     <div class="quiz-feedback" id="fb17"></div>
   </section>
   <section class="slide" id="s46">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.A.R2</div>
+    <div class="elem">OHC.11.A.R1</div>
     <h2>Question 18</h2>
-    <p class="stem">Manually releasing a holding brake to lower a stranded load produces:</p>
+    <p class="stem">The area beneath a stranded load is controlled because:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q18',0,'fb18')">A slow controlled descent</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q18',1,'fb18')">A free fall with no braking system in the path</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q18',2,'fb18')">A descent at rated lowering speed</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q18',3,'fb18')">No motion, since the load is balanced</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q18',0,'fb18')">It is required for documentation</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q18',1,'fb18')">The failure mode that stranded the load is not yet understood, so the hold cannot be assumed permanent</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q18',2,'fb18')">The load may be damaged</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q18',3,'fb18')">It keeps the aisle clear</button>
     </div>
     <div class="quiz-feedback" id="fb18"></div>
   </section>
   <section class="slide" id="s47">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.A.R3</div>
+    <div class="elem">OHC.11.A.R2</div>
     <h2>Question 19</h2>
-    <p class="stem">Re-energising a crane before the failure is understood is hazardous because:</p>
+    <p class="stem">Manually releasing a holding brake to lower a stranded load produces:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q19',0,'fb19')">It may trip the breaker</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q19',1,'fb19')">It can restart the motion that caused the problem, now with people nearby who believe the crane is dead</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q19',2,'fb19')">It resets the inspection record</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q19',3,'fb19')">It drains the control circuit</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q19',0,'fb19')">A slow controlled descent</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q19',1,'fb19')">A free fall with no braking system in the path</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q19',2,'fb19')">A descent at rated lowering speed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q19',3,'fb19')">No motion, since the load is balanced</button>
     </div>
     <div class="quiz-feedback" id="fb19"></div>
   </section>
   <section class="slide" id="s48">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.B.K1</div>
+    <div class="elem">OHC.11.A.R3</div>
     <h2>Question 20</h2>
-    <p class="stem">Immediately after a two-block event, the correct action is:</p>
+    <p class="stem">Re-energising a crane before the failure is understood is hazardous because:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q20',0,'fb20')">Lower the load to the floor</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q20',1,'fb20')">Stop, and make no further motion until the rope and reeving are assessed</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q20',2,'fb20')">Travel the crane clear of the area</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q20',3,'fb20')">Raise the block off the stop</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q20',0,'fb20')">It may trip the breaker</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q20',1,'fb20')">It can restart the motion that caused the problem, now with people nearby who believe the crane is dead</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q20',2,'fb20')">It resets the inspection record</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q20',3,'fb20')">It drains the control circuit</button>
     </div>
     <div class="quiz-feedback" id="fb20"></div>
   </section>
   <section class="slide" id="s49">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.B.K2</div>
+    <div class="elem">OHC.11.B.K1</div>
     <h2>Question 21</h2>
-    <p class="stem">&sect;1910.179(n)(4)(i) requires that a limit switch which does not operate properly results in:</p>
+    <p class="stem">Immediately after a two-block event, the correct action is:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q21',0,'fb21')">An entry in the log</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q21',1,'fb21')">Immediate notification of the appointed person</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q21',2,'fb21')">Adjustment by the operator</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q21',3,'fb21')">Retesting next shift</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q21',0,'fb21')">Lower the load to the floor</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q21',1,'fb21')">Stop, and make no further motion until the rope and reeving are assessed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q21',2,'fb21')">Travel the crane clear of the area</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q21',3,'fb21')">Raise the block off the stop</button>
     </div>
     <div class="quiz-feedback" id="fb21"></div>
   </section>
   <section class="slide" id="s50">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.B.K2b</div>
+    <div class="elem">OHC.11.B.K2</div>
     <h2>Question 22</h2>
-    <p class="stem">The crane's out-of-service state after a failed limit verification comes from:</p>
+    <p class="stem">&sect;1910.179(n)(4)(i) requires that a limit switch which does not operate properly results in:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q22',0,'fb22')">&sect;1910.179(n)(4)(ii)</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q22',1,'fb22')">&sect;1910.179(l)(3)(i) -- unsafe conditions corrected before operation is resumed</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q22',2,'fb22')">&sect;1910.179(j)(4)</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q22',3,'fb22')">EM 385 16-8.aa(7)</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q22',0,'fb22')">An entry in the log</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q22',1,'fb22')">Immediate notification of the appointed person</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q22',2,'fb22')">Adjustment by the operator</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q22',3,'fb22')">Retesting next shift</button>
     </div>
     <div class="quiz-feedback" id="fb22"></div>
   </section>
   <section class="slide" id="s51">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.B.K3</div>
+    <div class="elem">OHC.11.B.K2b</div>
     <h2>Question 23</h2>
-    <p class="stem">Brake drift points to a failure in:</p>
+    <p class="stem">The crane's out-of-service state after a failed limit verification comes from:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q23',0,'fb23')">The control braking means at (f)(1)(ii)</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q23',1,'fb23')">The holding brake at (f)(1)(i)</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q23',2,'fb23')">The limit switch</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q23',3,'fb23')">The runway conductors</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q23',0,'fb23')">&sect;1910.179(n)(4)(ii)</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q23',1,'fb23')">&sect;1910.179(l)(3)(i) -- unsafe conditions corrected before operation is resumed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q23',2,'fb23')">&sect;1910.179(j)(4)</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q23',3,'fb23')">EM 385 16-8.aa(7)</button>
     </div>
     <div class="quiz-feedback" id="fb23"></div>
   </section>
   <section class="slide" id="s52">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.B.K4</div>
+    <div class="elem">OHC.11.B.K3</div>
     <h2>Question 24</h2>
-    <p class="stem">The threshold that should trigger a stop for noise or vibration is:</p>
+    <p class="stem">Brake drift points to a failure in:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q24',0,'fb24')">Loud</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q24',1,'fb24')">New</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q24',2,'fb24')">Continuous</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q24',3,'fb24')">Accompanied by a fault code</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q24',0,'fb24')">The control braking means at (f)(1)(ii)</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q24',1,'fb24')">The holding brake at (f)(1)(i)</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q24',2,'fb24')">The limit switch</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q24',3,'fb24')">The runway conductors</button>
     </div>
     <div class="quiz-feedback" id="fb24"></div>
   </section>
   <section class="slide" id="s53">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.B.K5</div>
+    <div class="elem">OHC.11.B.K4</div>
     <h2>Question 25</h2>
-    <p class="stem">&sect;1910.179(l)(2)(ii) holds a crane out of service after repair until:</p>
+    <p class="stem">The threshold that should trigger a stop for noise or vibration is:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q25',0,'fb25')">The work order is signed</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q25',1,'fb25')">All guards are reinstalled, safety devices reactivated, and maintenance equipment removed</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q25',2,'fb25')">The next periodic inspection</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q25',3,'fb25')">A load test is completed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q25',0,'fb25')">Loud</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q25',1,'fb25')">New</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q25',2,'fb25')">Continuous</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q25',3,'fb25')">Accompanied by a fault code</button>
     </div>
     <div class="quiz-feedback" id="fb25"></div>
   </section>
   <section class="slide" id="s54">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.B.R1</div>
+    <div class="elem">OHC.11.B.K5</div>
     <h2>Question 26</h2>
-    <p class="stem">Continuing to operate after a two-block event without inspection risks:</p>
+    <p class="stem">&sect;1910.179(l)(2)(ii) holds a crane out of service after repair until:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q26',0,'fb26')">Brake overheating</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q26',1,'fb26')">Rope failure from damage that is invisible from the floor</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q26',2,'fb26')">Limit switch nuisance trips</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q26',3,'fb26')">Conductor wear</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q26',0,'fb26')">The work order is signed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q26',1,'fb26')">All guards are reinstalled, safety devices reactivated, and maintenance equipment removed</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q26',2,'fb26')">The next periodic inspection</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q26',3,'fb26')">A load test is completed</button>
     </div>
     <div class="quiz-feedback" id="fb26"></div>
   </section>
   <section class="slide" id="s55">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.B.R2</div>
+    <div class="elem">OHC.11.B.R1</div>
     <h2>Question 27</h2>
-    <p class="stem">Chasing a drifting brake with control inputs is hazardous because:</p>
+    <p class="stem">Continuing to operate after a two-block event without inspection risks:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q27',0,'fb27')">It overheats the motor</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q27',1,'fb27')">It hides a failing brake behind operator effort for as long as the operator keeps doing it</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q27',2,'fb27')">It trips the limit switch</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q27',3,'fb27')">It shortens rope life</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q27',0,'fb27')">Brake overheating</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q27',1,'fb27')">Rope failure from damage that is invisible from the floor</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q27',2,'fb27')">Limit switch nuisance trips</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q27',3,'fb27')">Conductor wear</button>
     </div>
     <div class="quiz-feedback" id="fb27"></div>
   </section>
   <section class="slide" id="s56">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.B.R3</div>
+    <div class="elem">OHC.11.B.R2</div>
     <h2>Question 28</h2>
-    <p class="stem">The counter to normalising abnormal sounds as equipment character is:</p>
+    <p class="stem">Chasing a drifting brake with control inputs is hazardous because:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q28',0,'fb28')">Longer operator experience</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q28',1,'fb28')">A written baseline and a low reporting threshold</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q28',2,'fb28')">More frequent periodic inspection</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q28',3,'fb28')">Sound level monitoring</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q28',0,'fb28')">It overheats the motor</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q28',1,'fb28')">It hides a failing brake behind operator effort for as long as the operator keeps doing it</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q28',2,'fb28')">It trips the limit switch</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q28',3,'fb28')">It shortens rope life</button>
     </div>
     <div class="quiz-feedback" id="fb28"></div>
   </section>
   <section class="slide" id="s57">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.C.K1</div>
+    <div class="elem">OHC.11.B.R3</div>
     <h2>Question 29</h2>
-    <p class="stem">The response sequence after a dropped load is:</p>
+    <p class="stem">The counter to normalising abnormal sounds as equipment character is:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q29',0,'fb29')">Notification, aid, area control</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q29',1,'fb29')">Aid, area control, notification</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q29',2,'fb29')">Area control, notification, aid</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q29',3,'fb29')">Documentation, aid, notification</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q29',0,'fb29')">Longer operator experience</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q29',1,'fb29')">A written baseline and a low reporting threshold</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q29',2,'fb29')">More frequent periodic inspection</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q29',3,'fb29')">Sound level monitoring</button>
     </div>
     <div class="quiz-feedback" id="fb29"></div>
   </section>
   <section class="slide" id="s58">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.C.K2</div>
+    <div class="elem">OHC.11.C.K1</div>
     <h2>Question 30</h2>
-    <p class="stem">After a crane-to-structure contact, the structure is also held for assessment because:</p>
+    <p class="stem">The response sequence after a dropped load is:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q30',0,'fb30')">It is required for documentation</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q30',1,'fb30')">It may have taken load it was not designed for</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q30',2,'fb30')">It belongs to the facility</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q30',3,'fb30')">The paint may be damaged</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q30',0,'fb30')">Notification, aid, area control</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q30',1,'fb30')">Aid, area control, notification</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q30',2,'fb30')">Area control, notification, aid</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q30',3,'fb30')">Documentation, aid, notification</button>
     </div>
     <div class="quiz-feedback" id="fb30"></div>
   </section>
   <section class="slide" id="s59">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.C.K3</div>
+    <div class="elem">OHC.11.C.K2</div>
     <h2>Question 31</h2>
-    <p class="stem">&sect;1910.179(o)(3) requires that operators be:</p>
+    <p class="stem">After a crane-to-structure contact, the structure is also held for assessment because:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q31',0,'fb31')">Certified in firefighting</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q31',1,'fb31')">Familiar with the operation and care of the fire extinguishers provided</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q31',2,'fb31')">Trained annually in fire suppression</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q31',3,'fb31')">Accompanied by a fire watch</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q31',0,'fb31')">It is required for documentation</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q31',1,'fb31')">It may have taken load it was not designed for</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q31',2,'fb31')">It belongs to the facility</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q31',3,'fb31')">The paint may be damaged</button>
     </div>
     <div class="quiz-feedback" id="fb31"></div>
   </section>
   <section class="slide" id="s60">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.C.K3b</div>
+    <div class="elem">OHC.11.C.K3</div>
     <h2>Question 32</h2>
-    <p class="stem">&sect;1910.179(c)(3) states that which extinguishers shall not be used?</p>
+    <p class="stem">&sect;1910.179(o)(3) requires that operators be:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q32',0,'fb32')">Water-type</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q32',1,'fb32')">Carbon tetrachloride</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q32',2,'fb32')">Carbon dioxide</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q32',3,'fb32')">Dry chemical</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q32',0,'fb32')">Certified in firefighting</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q32',1,'fb32')">Familiar with the operation and care of the fire extinguishers provided</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q32',2,'fb32')">Trained annually in fire suppression</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q32',3,'fb32')">Accompanied by a fire watch</button>
     </div>
     <div class="quiz-feedback" id="fb32"></div>
   </section>
   <section class="slide" id="s61">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.C.K4</div>
+    <div class="elem">OHC.11.C.K3b</div>
     <h2>Question 33</h2>
-    <p class="stem">The only justification for moving anything at an incident scene before it is documented is:</p>
+    <p class="stem">&sect;1910.179(c)(3) states that which extinguishers shall not be used?</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q33',0,'fb33')">Restoring production</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q33',1,'fb33')">Reaching an injured person or removing an active hazard</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q33',2,'fb33')">Clearing the aisle</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q33',3,'fb33')">Protecting the equipment</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q33',0,'fb33')">Water-type</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q33',1,'fb33')">Carbon tetrachloride</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q33',2,'fb33')">Carbon dioxide</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q33',3,'fb33')">Dry chemical</button>
     </div>
     <div class="quiz-feedback" id="fb33"></div>
   </section>
   <section class="slide" id="s62">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.C.K5</div>
+    <div class="elem">OHC.11.C.K4</div>
     <h2>Question 34</h2>
-    <p class="stem">The most useful content of an operator's incident account is:</p>
+    <p class="stem">The only justification for moving anything at an incident scene before it is documented is:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q34',0,'fb34')">A theory of the mechanical cause</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q34',1,'fb34')">What was seen, heard and done, with times, in order</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q34',2,'fb34')">An assessment of who was at fault</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q34',3,'fb34')">A list of the equipment involved</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q34',0,'fb34')">Restoring production</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q34',1,'fb34')">Reaching an injured person or removing an active hazard</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q34',2,'fb34')">Clearing the aisle</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q34',3,'fb34')">Protecting the equipment</button>
     </div>
     <div class="quiz-feedback" id="fb34"></div>
   </section>
   <section class="slide" id="s63">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.C.R1</div>
+    <div class="elem">OHC.11.C.K5</div>
     <h2>Question 35</h2>
-    <p class="stem">Entering an uncontrolled scene to render aid risks:</p>
+    <p class="stem">The most useful content of an operator's incident account is:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q35',0,'fb35')">Contaminating evidence</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q35',1,'fb35')">One casualty becoming two</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q35',2,'fb35')">Delaying notification</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q35',3,'fb35')">Voiding the inspection</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q35',0,'fb35')">A theory of the mechanical cause</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q35',1,'fb35')">What was seen, heard and done, with times, in order</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q35',2,'fb35')">An assessment of who was at fault</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q35',3,'fb35')">A list of the equipment involved</button>
     </div>
     <div class="quiz-feedback" id="fb35"></div>
   </section>
   <section class="slide" id="s64">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.C.R2</div>
+    <div class="elem">OHC.11.C.R1</div>
     <h2>Question 36</h2>
-    <p class="stem">The first useful action on an energised electrical fire in a crane is:</p>
+    <p class="stem">Entering an uncontrolled scene to render aid risks:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q36',0,'fb36')">Discharge an extinguisher at the source</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q36',1,'fb36')">Remove the supply at the runway disconnect</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q36',2,'fb36')">Apply water</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q36',3,'fb36')">Open the enclosure to locate the fault</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q36',0,'fb36')">Contaminating evidence</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q36',1,'fb36')">One casualty becoming two</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q36',2,'fb36')">Delaying notification</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q36',3,'fb36')">Voiding the inspection</button>
     </div>
     <div class="quiz-feedback" id="fb36"></div>
   </section>
   <section class="slide" id="s65">
     <div class="progress-rail"><span></span></div>
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
-    <div class="elem">OHC.11.C.R3</div>
+    <div class="elem">OHC.11.C.R2</div>
     <h2>Question 37</h2>
-    <p class="stem">Delayed notification escalates consequences chiefly because:</p>
+    <p class="stem">The first useful action on an energised electrical fire in a crane is:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q37',0,'fb37')">Reports become less accurate</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q37',1,'fb37')">The hazard stays live and uncontrolled while nobody with authority knows about it</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q37',2,'fb37')">Documentation takes longer</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q37',3,'fb37')">Witnesses leave the site</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q37',0,'fb37')">Discharge an extinguisher at the source</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q37',1,'fb37')">Remove the supply at the runway disconnect</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q37',2,'fb37')">Apply water</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q37',3,'fb37')">Open the enclosure to locate the fault</button>
     </div>
     <div class="quiz-feedback" id="fb37"></div>
   </section>
   <section class="slide" id="s66">
     <div class="progress-rail"><span></span></div>
+    <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
+    <div class="elem">OHC.11.C.R3</div>
+    <h2>Question 38</h2>
+    <p class="stem">Delayed notification escalates consequences chiefly because:</p>
+    <div class="quiz-group">
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q38',0,'fb38')">Reports become less accurate</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q38',1,'fb38')">The hazard stays live and uncontrolled while nobody with authority knows about it</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q38',2,'fb38')">Documentation takes longer</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M11_q38',3,'fb38')">Witnesses leave the site</button>
+    </div>
+    <div class="quiz-feedback" id="fb38"></div>
+  </section>
+  <section class="slide" id="s67">
     <h1>Module 11 complete</h1>
     <div class="completion-panel">
       <div id="score-summary">Complete the knowledge check to record this module.</div>
       <div id="review-list"></div>
-    <button class="calc-btn" style="max-width:340px;margin-top:14px" onclick="window.dispatchEvent(new CustomEvent('cq-module-complete',{detail:{next:'OHC_M12'}}))">Next: Stage HC Module 12 &gt;</button></div>
+    </div>
   </section>
 </div>
 
@@ -829,7 +919,7 @@ h1{font-family:Georgia,"Source Serif 4",serif;letter-spacing:-.01em}
 </div>
 
 <script>
-var TOTAL=66, current=1;
+var TOTAL=67, current=1;
 function render(){
   var i;
   for(i=1;i<=TOTAL;i++){
@@ -856,9 +946,25 @@ document.addEventListener('keydown',function(e){
   if(e.key==='ArrowLeft') navigate(-1);
 });
 window.cqAnswer=function(){};
+window.cqFlip=function(el){ el.classList.toggle('is-flipped'); };
+window.cqTree={};
+window.cqTreePick=function(treeId, step, value, label){
+  var t=window.cqTree[treeId]||(window.cqTree[treeId]={});
+  t[step]=value;
+  var root=document.getElementById(treeId);
+  if(!root) return;
+  var btns=root.querySelectorAll('[data-step="'+step+'"]');
+  for(var i=0;i<btns.length;i++){ btns[i].classList.toggle('active', btns[i].getAttribute('data-val')===value); }
+  var next=root.querySelector('[data-show-after="'+step+'"]');
+  if(next){ next.style.display='block'; }
+  if(typeof window['cqTreeResolve_'+treeId]==='function'){
+    window['cqTreeResolve_'+treeId](t, root);
+  }
+};
 render();
 </script>
 <script src="cq-module-bridge.js"></script>
+</body>
 <script>
 /* ============================================================
    CraneQualified KC Gate Engine v1  (Stage OHC / OHC_M11)
@@ -871,15 +977,14 @@ render();
 (function(){
 "use strict";
 var SALT="CQ1:OHC_M11_MalfunctionsAndEmergencies";
-var HASHES={"OHC_M11_q01": "a60aff0e", "OHC_M11_q02": "06a235ff", "OHC_M11_q03": "7b1b7758", "OHC_M11_q04": "5cf0ac49", "OHC_M11_q05": "e17d8e8a", "OHC_M11_q06": "41edb60b", "OHC_M11_q07": "3acc098d", "OHC_M11_q08": "953c279c", "OHC_M11_q09": "7cc9a5b6", "OHC_M11_q10": "46055728", "OHC_M11_q11": "504e17cf", "OHC_M11_q12": "efb6e0de", "OHC_M11_q13": "0b29677d", "OHC_M11_q14": "8177e6a4", "OHC_M11_q15": "8cd6cc5b", "OHC_M11_q16": "aa2a3847", "OHC_M11_q17": "a69c8e19", "OHC_M11_q18": "1cc3fdd0", "OHC_M11_q19": "484a2557", "OHC_M11_q20": "632908ab", "OHC_M11_q21": "d7caec74", "OHC_M11_q22": "7ceeca69", "OHC_M11_q23": "817c762a", "OHC_M11_q24": "27dd889f", "OHC_M11_q25": "1c579378", "OHC_M11_q26": "e17ba3cd", "OHC_M11_q27": "c6091d2e", "OHC_M11_q28": "39e7af53", "OHC_M11_q29": "ae89931c", "OHC_M11_q30": "745734a6", "OHC_M11_q31": "8fc9bb45", "OHC_M11_q32": "caa5aaf0", "OHC_M11_q33": "f4ee9df7", "OHC_M11_q34": "2fca8da2", "OHC_M11_q35": "4b3d1441", "OHC_M11_q36": "861903ec", "OHC_M11_q37": "903ab523"};
-var GATE=["OHC_M11_q10", "OHC_M11_q11", "OHC_M11_q12", "OHC_M11_q13", "OHC_M11_q14", "OHC_M11_q15", "OHC_M11_q16", "OHC_M11_q17", "OHC_M11_q18", "OHC_M11_q19", "OHC_M11_q20", "OHC_M11_q21", "OHC_M11_q22", "OHC_M11_q23", "OHC_M11_q24", "OHC_M11_q25", "OHC_M11_q26", "OHC_M11_q27", "OHC_M11_q28", "OHC_M11_q29", "OHC_M11_q30", "OHC_M11_q31", "OHC_M11_q32", "OHC_M11_q33", "OHC_M11_q34", "OHC_M11_q35", "OHC_M11_q36", "OHC_M11_q37"];
+var HASHES={"OHC_M11_q01": "a60aff0e", "OHC_M11_q02": "06a235ff", "OHC_M11_q03": "7b1b7758", "OHC_M11_q04": "5cf0ac49", "OHC_M11_q05": "e17d8e8a", "OHC_M11_q06": "41edb60b", "OHC_M11_q07": "3acc098d", "OHC_M11_q08": "953c279c", "OHC_M11_q09": "7cc9a5b6", "OHC_M11_q10": "46055728", "OHC_M11_q11": "504e17cf", "OHC_M11_q12": "efb6e0de", "OHC_M11_q13": "0b29677d", "OHC_M11_q14": "8177e6a4", "OHC_M11_q15": "8cd6cc5b", "OHC_M11_q16": "ab2a39da", "OHC_M11_q17": "a39c8960", "OHC_M11_q18": "1cc3fdd0", "OHC_M11_q19": "484a2557", "OHC_M11_q20": "632908ab", "OHC_M11_q21": "d7caec74", "OHC_M11_q22": "7ceeca69", "OHC_M11_q23": "817c762a", "OHC_M11_q24": "27dd889f", "OHC_M11_q25": "1c579378", "OHC_M11_q26": "e17ba3cd", "OHC_M11_q27": "c6091d2e", "OHC_M11_q28": "39e7af53", "OHC_M11_q29": "ae89931c", "OHC_M11_q30": "745734a6", "OHC_M11_q31": "8fc9bb45", "OHC_M11_q32": "caa5aaf0", "OHC_M11_q33": "f4ee9df7", "OHC_M11_q34": "2fca8da2", "OHC_M11_q35": "4b3d1441", "OHC_M11_q36": "861903ec", "OHC_M11_q37": "903ab523", "OHC_M11_q38": "9d988dfe"};
+var GATE=["OHC_M11_q10", "OHC_M11_q11", "OHC_M11_q12", "OHC_M11_q13", "OHC_M11_q14", "OHC_M11_q15", "OHC_M11_q16", "OHC_M11_q17", "OHC_M11_q18", "OHC_M11_q19", "OHC_M11_q20", "OHC_M11_q21", "OHC_M11_q22", "OHC_M11_q23", "OHC_M11_q24", "OHC_M11_q25", "OHC_M11_q26", "OHC_M11_q27", "OHC_M11_q28", "OHC_M11_q29", "OHC_M11_q30", "OHC_M11_q31", "OHC_M11_q32", "OHC_M11_q33", "OHC_M11_q34", "OHC_M11_q35", "OHC_M11_q36", "OHC_M11_q37", "OHC_M11_q38"];
 var GATESET=new Set(GATE);
-var LOCK_AFTER=65;            /* completion slide (66) blocked until gate passes */
+var LOCK_AFTER=66;
 var gatePassed=false, answered={}, gateOK={};
 
 function fnv(s){var h=0x811c9dc5;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0;}return ('0000000'+h.toString(16)).slice(-8);}
 
-/* 1) Local CQ shim (platform can pre-define window.CQ and win) */
 if(!window.CQ){
   window.CQ={
     scoreAnswer:function(qid,idx){
@@ -904,53 +1009,40 @@ if(!window.CQ){
 }
 document.addEventListener('cq-complete',function(){ gatePassed=true; });
 
-/* gate-bar + tracking helpers */
 function bar(){return document.getElementById('cq-gatebar');}
 function btn(){return document.getElementById('cq-gatebtn');}
 function msg(t){var m=document.getElementById('cq-gatemsg'); if(m)m.textContent=t; var b=bar(); if(b)b.style.display='block';}
 function gateRight(){var r=0,i;for(i=0;i<GATE.length;i++)if(gateOK[GATE[i]])r++;return r;}
-function chip(){var c=document.getElementById('score-chip'); if(c)c.textContent='GATE '+gateRight()+' / '+GATE.length;}
-function buildReview(passed,score){
-  var sum=document.getElementById('score-summary'), list=document.getElementById('review-list');
-  if(sum) sum.textContent = passed ? ('Knowledge check passed \u2014 '+score+' (100%).') : ('Gate score '+score+'. This gate requires 100%. Review the items below, then retest.');
-  if(list){ list.innerHTML='';
-    if(!passed){ var i; for(i=0;i<GATE.length;i++){ if(GATE[i] in gateOK && !gateOK[GATE[i]]){ var d=document.createElement('div'); d.className='review-item'; d.innerHTML='<b>Final Question '+(Number(GATE[i].match(/(\d+)$/)[1])-9)+'</b> - revisit this topic before retesting.'; list.appendChild(d); } } }
-  }
-}
+function chip(){var c=document.getElementById('score-chip'); if(c) c.textContent='GATE '+gateRight()+' / '+GATE.length;}
+function blocked(n){ return (!gatePassed) && (n>LOCK_AFTER); }
 
-/* 2) Answer handler (bound to existing cqAnswer(this,qid,idx,fbid) onclicks) */
-window.cqAnswer=async function(b,qid,idx,fbid){
-  if(answered[qid])return; answered[qid]=true;
-  var grp=b.parentElement;
-  grp.querySelectorAll('.quiz-option').forEach(function(o){o.disabled=true;o.style.pointerEvents='none';o.classList.remove('correct','wrong');});
-  var r=await CQ.scoreAnswer(qid,idx);
-  b.classList.add(r.correct?'correct':'wrong');
-  var isGate=GATESET.has(qid), fb=fbid?document.getElementById(fbid):null;
-  if(!isGate){
-    if(!r.correct && typeof r.correctIndex==='number'){ var os=grp.querySelectorAll('.quiz-option'); if(os[r.correctIndex]) os[r.correctIndex].classList.add('correct'); }
-    if(fb){ fb.textContent=r.feedbackHtml; fb.classList.add('show'); }
-  } else {
-    gateOK[qid]=r.correct;
-    if(fb){ fb.textContent=r.feedbackHtml; fb.classList.add('show'); }
+window.cqAnswer=function(el,qid,idx,fbid){
+  if(answered[qid] && GATESET.has(qid) && gateOK[qid]) return;
+  CQ.scoreAnswer(qid,idx).then(function(res){
+    var group=el.parentNode, opts=group?group.querySelectorAll('.quiz-option'):[];
+    var i, fb=document.getElementById(fbid);
+    for(i=0;i<opts.length;i++){ opts[i].classList.remove('correct','wrong'); }
+    if(res.correct){
+      el.classList.add('correct');
+      answered[qid]=true;
+      if(GATESET.has(qid)) gateOK[qid]=true;
+      if(fb){ fb.textContent=res.feedbackHtml||'Correct.'; fb.classList.add('show'); }
+    } else {
+      el.classList.add('wrong');
+      if(!GATESET.has(qid) && typeof res.correctIndex==='number' && opts[res.correctIndex]){
+        opts[res.correctIndex].classList.add('correct');
+      }
+      if(fb){ fb.textContent=res.feedbackHtml||'Not correct.'; fb.classList.add('show'); }
+    }
     chip();
-    if(GATE.every(function(q){return q in gateOK;})) checkGate();
-  }
+    var done=gateRight()===GATE.length;
+    if(done){
+      msg('Gate complete — 100%. You may finish the module.');
+      var b=btn(); if(b){ b.style.display='inline-block'; b.textContent='Complete module'; b.onclick=function(){ CQ.requestComplete().then(function(r){ if(r.passed && typeof window.jumpTo==='function') window.jumpTo(LOCK_AFTER+1); }); }; }
+    }
+  });
 };
 
-async function checkGate(){
-  msg('Submitting knowledge check...'); var bt=btn(); if(bt)bt.style.display='none';
-  var r=await CQ.requestComplete();
-  buildReview(r.passed,r.score);
-  if(r.passed){ msg('Knowledge check passed ('+r.score+'). You may continue to completion.'); }
-  else{ msg('Not yet - this gate requires 100%. Review the module, then retest.');
-        if(bt){ bt.style.display='inline-block'; bt.textContent='Review and Retest'; bt.onclick=function(){location.reload();}; } }
-}
-
-document.addEventListener('cq-complete',function(){ msg('Module complete - recorded by the platform.'); var bt=btn(); if(bt)bt.style.display='none'; chip(); if(window.CQ&&CQ.ack)CQ.ack(); });
-document.addEventListener('cq-denied',function(){ msg('Completion denied by the platform. Review and retest.'); });
-
-/* 3) Forward navigation lock - completion slide (66) blocked until gate passes */
-function blocked(t){ return !gatePassed && t>LOCK_AFTER; }
 if(typeof window.navigate==='function'){
   var _nav=window.navigate;
   window.navigate=function(dir){
@@ -964,7 +1056,6 @@ if(typeof window.jumpTo==='function'){
   window.jumpTo=function(n){ if(blocked(n)){ msg('Pass the knowledge check (100%) before completing the module.'); return _jmp(LOCK_AFTER); } return _jmp(n); };
 }
 
-/* platform progress beacon + initial chip */
 window.addEventListener('load',function(){
   if(window.CQ&&CQ.start){try{CQ.start();}catch(e){}}
   if(window.CQ&&CQ.slide){ var _n2=window.navigate; window.navigate=function(d){var rr=_n2(d); try{CQ.slide(current,TOTAL);}catch(e){} return rr;}; }
@@ -972,5 +1063,5 @@ window.addEventListener('load',function(){
 });
 })();
 </script>
-</body>
+
 </html>

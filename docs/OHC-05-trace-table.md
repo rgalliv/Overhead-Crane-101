@@ -4,7 +4,7 @@
 
 **Module:** OHC-05 Inspection Regime  
 **Course:** OCO301C &middot; **Gate:** OHC-1 &middot; **File:** `OHC_M05_InspectionRegime.html`  
-**Slides:** 63 &middot; **Gate items:** 28 &middot; **Practice:** 9 &middot; **Performance:** 9 &middot; **Pass:** 100%, server-authoritative  
+**Slides:** 64 &middot; **Gate items:** 29 &middot; **Practice:** 9 &middot; **Performance:** 9 &middot; **Pass:** 100%, server-authoritative  
 **Salt:** `CQ1:OHC_M05_InspectionRegime` &middot; **Next:** `OHC_M06` &middot; **review_offset:** 9
 
 ---
@@ -37,7 +37,7 @@
 | `OHC_M05_q26` | `OHC.05.B.K5` | After repairs, &sect;1910.179(l)(2)(ii) requires that the crane not be operated until: | MC | **&sect;1910.179(l)(2)(ii)** | &#9989; |
 | `OHC_M05_q27` | `OHC.05.B.R1` | Operating a crane whose periodic inspection has lapsed is a problem because: | MC | derived | &#9989; |
 | `OHC_M05_q28` | `OHC.05.B.R2` | An operator notices a new noise in the bridge drive and assumes maintenance already knows. The failure mode is: | MC | derived | &#9989; |
-| `OHC_M05_q29` | `OHC.05.B.R3` | The construction-branch inspection authority for a crane not permanently installed is: | MC | **&sect;1926.1412 &middot; &sect;1926.1413** | &#9888;&#65039; *primary text open* |
+| `OHC_M05_q29` | `OHC.05.B.R3` | &sect;1926.1412(d)(1) (held) requires a competent person to begin a visual inspection prior to each shift the equipment will be used. Until that inspection is begun, the operator: | MC | **&sect;1926.1412(d)(1)** held; (e)(1)/(f)(2) and &sect;1926.1413(a)(1) taught | &#9989; |
 
 ## Task C &mdash; Deficiency Response and Removal from Service
 
@@ -46,11 +46,12 @@
 | `OHC_M05_q30` | `OHC.05.C.K1` | &sect;1910.179(l)(3)(i) requires that unsafe conditions disclosed by inspection be: | MC | **&sect;1910.179(l)(3)(i)** | &#9989; |
 | `OHC_M05_q31` | `OHC.05.C.K2` | Which pair of rope conditions is most often missed by an operator who is only counting broken wires? | MC | **&sect;1910.179(m)** six conditions | &#9989; |
 | `OHC_M05_q32` | `OHC.05.C.K3` | In the &sect;1910.179(l)(2)(i) lockout sequence, the step most often omitted is: | MC | **&sect;1910.179(l)(2)(i)** step 5 | &#9989; |
-| `OHC_M05_q33` | `OHC.05.C.K4` | An operator finds a controller that sticks between points. The correct action is: | MC | **&sect;1910.179(l)(3)(i)** &middot; (l)(3)(iii)(a) | &#9989; |
-| `OHC_M05_q34` | `OHC.05.C.K5` | The disposition of a reported deficiency must record: | MC | derived | &#9989; |
-| `OHC_M05_q35` | `OHC.05.C.R1` | A crane with a brake that holds but drifts slightly is: | MC | &sect;1910.179(l)(3)(i) &middot; derived | &#9989; |
-| `OHC_M05_q36` | `OHC.05.C.R2` | The most reliable defect handover uses: | MC | derived | &#9989; |
-| `OHC_M05_q37` | `OHC.05.C.R3` | An operator who corrects a maintenance-level defect personally has: | MC | **&sect;1910.179(l)(3)(i)** | &#9989; |
+| `OHC_M05_q33` | `OHC.05.C.K3b` | &sect;1926.1438(b)(2)(iii) (held) lists construction overhead-crane sections from ASME B30.2-2005 and states that '29 CFR 1910.147 shall be substituted for ANSI Z244.1.' At lockout that means: | MC | **&sect;1926.1438(b)(2)(iii)** 1910.147 for Z244.1 &middot; **&sect;1910.147** held | &#9989; |
+| `OHC_M05_q34` | `OHC.05.C.K4` | An operator finds a controller that sticks between points. The correct action is: | MC | **&sect;1910.179(l)(3)(i)** &middot; (l)(3)(iii)(a) | &#9989; |
+| `OHC_M05_q35` | `OHC.05.C.K5` | The disposition of a reported deficiency must record: | MC | derived | &#9989; |
+| `OHC_M05_q36` | `OHC.05.C.R1` | A crane with a brake that holds but drifts slightly is: | MC | &sect;1910.179(l)(3)(i) &middot; derived | &#9989; |
+| `OHC_M05_q37` | `OHC.05.C.R2` | The most reliable defect handover uses: | MC | derived | &#9989; |
+| `OHC_M05_q38` | `OHC.05.C.R3` | An operator who corrects a maintenance-level defect personally has: | MC | **&sect;1910.179(l)(3)(i)** | &#9989; |
 
 ---
 
@@ -98,7 +99,7 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment.
 
 **&#9989; Idle and standby closed from *concepts* to numbers** &mdash; `B.K4` reads *idle and standby crane inspection concepts* in the ACS. **&sect;1910.179(j)(4)** gives three cases: idle **1&#8211;6 months** &#8594; (j)(2) + (m)(2); idle **over 6 months** &#8594; (j)(2) + (j)(3) + (m)(2); **standby** &#8594; (j)(2) + (m)(2) **at least semi-annually**.
 
-**&#9888;&#65039; Construction-branch authority added, primary text still open** &mdash; Cross-check finding **F4**: &sect;1910.179 **(j)**, **(l)** and **(m)** are *not* in the &sect;1926.1438(b)(2) list, so on the non-permanently-installed construction branch this entire module's authority changes to **&sect;1926.1412** and **&sect;1926.1413** &#8212; neither of which appears anywhere in the ACS. `B.R3` names them so the branch is no longer silently dropped. The **paragraph-level content of those two sections is not yet held in the corpus** and is not gated here.
+**&#9989; Construction-branch inspection paragraphs are held** &mdash; Cross-check finding **F4**: &sect;1910.179 **(j)**, **(l)** and **(m)** are *not* in the &sect;1926.1438(b)(2) list. Fetched 2026-08-28 from OSHA.gov. `B.R3` gates **&sect;1926.1412(d)(1)**: a competent person must begin a visual inspection prior to each shift. Monthly **(e)(1)** and annual **(f)(2)** and wire-rope **&sect;1926.1413(a)(1)** are taught from the citation pack. Category I/II/III rope-removal lists stay out of `C.K2`, which remains on facility **&sect;1910.179(m)**. `C.K3b` gates the **&sect;1926.1438(b)(2)(iii)** substitution of **&sect;1910.147** for ANSI Z244.1 on the construction B30.2-2005 path. ACS `B.R3` remains *returning a repaired crane without verification* (already gated at `B.K5`); the construction shift-inspection overlay occupies the `B.R3` second-fact slot because that is where the branch hole was taught.
 
 **&#9989; Distribution, not just a wire count** &mdash; `C.K2` in the ACS lists *broken wires, kinking, crushing, corrosion, stretch, and gauge wear*. **&sect;1910.179(m)** names six conditions and two of them concern **end connections**, which the ACS omits entirely. It also asks for the number of broken wires **and the degree of distribution or concentration** &#8212; the part that separates reading a rope from counting one.
 
@@ -106,5 +107,5 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment.
 
 ## Coverage
 
-All **15 K** and **9 R** elements are gated &mdash; 28 gate items. 4 element(s) carry a second item; see the source notes. The **9 S** elements sit on the Performance Evaluation Sheet. OHC-05 carries 33 elements, unchanged from the published ACS.
+All **15 K** and **9 R** elements are gated &mdash; 29 gate items. 5 element(s) carry a second item; see the source notes. The **9 S** elements sit on the Performance Evaluation Sheet. OHC-05 carries 33 elements, unchanged from the published ACS.
 

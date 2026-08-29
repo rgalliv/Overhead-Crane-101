@@ -117,6 +117,26 @@ li{margin-bottom:.5em}
             font-size:.92rem;color:#fff;z-index:20}
 #cq-gatebtn{display:none;margin-top:10px;padding:10px 16px;font-family:inherit;
             font-weight:700;color:#12203c;background:var(--gold);border:0;border-radius:8px}
+
+/* --- visual pack overlay --- */
+.slide{background:
+  radial-gradient(1200px 500px at 10% -10%, rgba(27,52,100,.55), transparent 60%),
+  linear-gradient(160deg,#111a2c,#0d1522 55%,#0a101c)!important;
+  transition:opacity .35s ease, transform .35s ease;transform:translateY(8px)}
+.slide.active{transform:translateY(0)}
+.slide.section-header,.slide.divider{background:linear-gradient(160deg,#1B3464,#12203c 70%,#0d1522)!important}
+h1{font-family:Georgia,"Source Serif 4",serif;letter-spacing:-.01em}
+.media-frame{margin:0 0 1em;border-radius:12px;overflow:hidden;border:1px solid #2b4478;
+  box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.media-frame img{width:100%;display:block;max-height:38vh;object-fit:cover}
+.media-cap{font-size:.78rem;color:#7d8ba6;margin:.45em 0 0;letter-spacing:.04em}
+.progress-rail{height:3px;background:#1a2744;border-radius:2px;overflow:hidden;margin:0 0 14px}
+.progress-rail>span{display:block;height:100%;width:0;background:linear-gradient(90deg,#C8991A,#e6c15a);
+  transition:width .35s ease}
+#score-chip{box-shadow:0 0 24px rgba(200,153,26,.35)}
+.quiz-option{transition:border-color .15s, background .15s}
+.quiz-option:hover{border-color:#C8991A}
+
 </style>
 </head>
 <body data-cq-module="OHC_M01" data-cq-total="82" data-cq-gate="OHC-1" data-cq-course="OCO301C">
@@ -385,8 +405,8 @@ li{margin-bottom:.5em}
     <div class="kicker">Task C</div>
     <h2 class="rise">The Certification Gate</h2>
     
-    <p class="rise d1">On the non-permanently-installed US construction branch the operator requirement is a certified operator under the Subpart CC operator certification section.</p>
-    <div class="note rise d2">Two US branches, two gates. Canada uses employer authorization &#8212; Task D.</div>
+    <p class="rise d1">On the non-permanently-installed US construction branch, &sect;1926.1427 (held) requires the employer to ensure each operator is <b>trained, certified/licensed, and evaluated</b> before operating. Certification under (d) is by an <b>accredited crane operator testing organization</b> or a qualifying government licence. OSHA does <b>not</b> name a vendor.</p>
+    <div class="note rise d2">NCCCO publishes a public CCO Overhead Crane Operator path (written + practical; cab or pendant/remote). Programme routing through CCOS is administrative, not a CFR name. Two US branches, two gates. Canada uses employer authorization &#8212; Task D.</div>
   </section>
   <section class="slide" id="s30">
     <div class="progress-rail"><span></span></div>
@@ -908,12 +928,12 @@ li{margin-bottom:.5em}
     <div class="kicker">GATE &#183; counts toward your 100&#37;</div>
     <div class="elem">OHC.01.C.K3</div>
     <h2>Question 35</h2>
-    <p class="stem">On the non-permanently-installed construction branch, the operator requirement is:</p>
+    <p class="stem">On the non-permanently-installed construction branch, &sect;1926.1427 requires the employer to ensure each operator is trained, certified/licensed, and evaluated. Certification under (d) is by:</p>
     <div class="quiz-group">
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M01_q35',0,'fb35')">An employer-issued designation only</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M01_q35',1,'fb35')">A certified operator under the Subpart CC operator certification section</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M01_q35',2,'fb35')">No requirement</button>
-        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M01_q35',3,'fb35')">A state-issued licence only</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M01_q35',0,'fb35')">The employer's designation letter alone</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M01_q35',1,'fb35')">An accredited crane operator testing organization, or a qualifying government license</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M01_q35',2,'fb35')">This training programme's completion certificate</button>
+        <button class="quiz-option" onclick="cqAnswer(this,'OHC_M01_q35',3,'fb35')">ASME B30.2-2016 as the OSHA-adopted edition</button>
     </div>
     <div class="quiz-feedback" id="fb35"></div>
   </section>

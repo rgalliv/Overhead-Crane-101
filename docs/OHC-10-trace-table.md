@@ -47,7 +47,7 @@
 | `OHC_M10_q31` | `OHC.10.C.K2` | When planning clearance from a bus duct or open panel, the shape to clear is: | MC | derived | &#9989; |
 | `OHC_M10_q32` | `OHC.10.C.K3` | Steam and pressurised process lines are harder to manage than electrical hazards because: | MC | derived | &#9989; |
 | `OHC_M10_q33` | `OHC.10.C.K4` | Placement into equipment that has not been isolated is: | MC | derived | &#9989; |
-| `OHC_M10_q34` | `OHC.10.C.K5` | The operator's interface with the facility energy control programme is to: | MC | **&sect;1910.147** interface &middot; derived | &#9888;&#65039; *primary text open* |
+| `OHC_M10_q34` | `OHC.10.C.K5` | Under &sect;1910.147 (held), the operator's interface with the facility energy control programme is to: | MC | **&sect;1910.147(b),(c)(1)** held -- affected vs authorized; hold until verified | &#9989; |
 | `OHC_M10_q35` | `OHC.10.C.K5b` | &sect;1910.179(g)(5)(i) requires the runway conductor power supply switch to be: | MC | **&sect;1910.179(g)(5)(i)** | &#9989; |
 | `OHC_M10_q36` | `OHC.10.C.R1` | Contact between a load or its rigging and energised equipment is most often caused by: | MC | derived | &#9989; |
 | `OHC_M10_q37` | `OHC.10.C.R2` | The reason placement onto in-service machinery is a hold rather than a judgement call is: | MC | derived | &#9989; |
@@ -103,7 +103,7 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment.
 
 **&#128295; Correction carried back to OHC-06** &mdash; `OHC.06.B.K4` was sourced to *&#8220;EM 385 &sect;16 / ASME scope for this class&#8221;* &#8212; a vague attribution. The actual anchor is **&sect;1910.179(g)(5)(v)**: all cranes using a **lifting magnet** shall have a magnet circuit switch of the **enclosed type with provision for locking in the open position**, and **means for discharging the inductive load of the magnet** shall be provided. OHC-06's trace source is corrected and the module rebuilt.
 
-**&#9888;&#65039; Two open items in this module** &mdash; `A.K4` and `A.K5b` route to **Part 1910 Subpart D** (walking-working surfaces, fixed ladders &#8212; reached from &sect;1910.179(c)(2)) and `C.K5` routes to **&sect;1910.147** (energy control). **Neither is held as primary text in the corpus** &#8212; this is cross-check blocking item 6. The items are gated at the level the operator actually needs (walk the path; hold the placement; know who verifies), not from paragraph text this repo does not have.
+**&#9888;&#65039; Subpart D walking-working surfaces remain unheld** &mdash; `A.K4` and `A.K5b` route to **Part 1910 Subpart D** (walking-working surfaces, fixed ladders &#8212; reached from &sect;1910.179(c)(2)). **Subpart D paragraph text is not held in this repo.** The items stay gated at operator level (walk the path; know cab lighting is (c)(4) only) and marked OPEN. **&sect;1910.147 is now held** &#8212; `C.K5` gates affected vs authorized and the hold until isolation is verified, from **(b)** and **(c)(1)** fetched 2026-08-28 from OSHA.gov.
 
 ---
 

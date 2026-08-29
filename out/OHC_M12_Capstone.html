@@ -117,6 +117,26 @@ li{margin-bottom:.5em}
             font-size:.92rem;color:#fff;z-index:20}
 #cq-gatebtn{display:none;margin-top:10px;padding:10px 16px;font-family:inherit;
             font-weight:700;color:#12203c;background:var(--gold);border:0;border-radius:8px}
+
+/* --- visual pack overlay --- */
+.slide{background:
+  radial-gradient(1200px 500px at 10% -10%, rgba(27,52,100,.55), transparent 60%),
+  linear-gradient(160deg,#111a2c,#0d1522 55%,#0a101c)!important;
+  transition:opacity .35s ease, transform .35s ease;transform:translateY(8px)}
+.slide.active{transform:translateY(0)}
+.slide.section-header,.slide.divider{background:linear-gradient(160deg,#1B3464,#12203c 70%,#0d1522)!important}
+h1{font-family:Georgia,"Source Serif 4",serif;letter-spacing:-.01em}
+.media-frame{margin:0 0 1em;border-radius:12px;overflow:hidden;border:1px solid #2b4478;
+  box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.media-frame img{width:100%;display:block;max-height:38vh;object-fit:cover}
+.media-cap{font-size:.78rem;color:#7d8ba6;margin:.45em 0 0;letter-spacing:.04em}
+.progress-rail{height:3px;background:#1a2744;border-radius:2px;overflow:hidden;margin:0 0 14px}
+.progress-rail>span{display:block;height:100%;width:0;background:linear-gradient(90deg,#C8991A,#e6c15a);
+  transition:width .35s ease}
+#score-chip{box-shadow:0 0 24px rgba(200,153,26,.35)}
+.quiz-option{transition:border-color .15s, background .15s}
+.quiz-option:hover{border-color:#C8991A}
+
 </style>
 </head>
 <body data-cq-module="OHC_M12" data-cq-total="70" data-cq-gate="OHC-1" data-cq-course="OCO301C">
@@ -390,8 +410,8 @@ li{margin-bottom:.5em}
     <div class="kicker">Task C</div>
     <h2 class="rise">The Certification Gate, and what is verified about it</h2>
     
-    <p class="rise d1">On the &sect;1926.1438(b) construction branch, operator qualification comes from <b>&sect;1926.1427</b>. That section <b>does</b> apply: the enumeration at &sect;1926.1438(b)(2)(i) brings in <b>&sect;&sect;1926.1427 through 1434</b>.</p>
-    <div class="note rise d2">So the routing is legally sound: facility branch &#8594; designation under &sect;1910.179(b)(8); construction branch &#8594; certification under &sect;1926.1427. <b>Which</b> testing organisation and <b>which</b> administrative route is a programme matter, not a regulatory one &#8212; see the source note.</div>
+    <p class="rise d1">On the &sect;1926.1438(b) construction branch, operator qualification comes from <b>&sect;1926.1427</b> (held from OSHA.gov). That section <b>does</b> apply: the enumeration at &sect;1926.1438(b)(2)(i) brings in <b>&sect;&sect;1926.1427 through 1434</b>. &sect;1926.1427(d) requires certification by an <b>accredited crane operator testing organization</b> or a qualifying government licence. OSHA does <b>not</b> name NCCCO.</p>
+    <div class="note rise d2">NCCCO's public overview confirms a <b>CCO Overhead Crane Operator</b> certification (written + practical; cab or pendant/remote). CraneQualified routes that programme path through CCOS. That routing is administrative, not a CFR citation. Exam-item counts are not OSHA requirements and are not gated here.</div>
   </section>
   <section class="slide" id="s30">
     <div class="progress-rail"><span></span></div>

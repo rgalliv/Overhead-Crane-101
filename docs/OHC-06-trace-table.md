@@ -4,7 +4,7 @@
 
 **Module:** OHC-06 Rigging Interface and Below-the-Hook Devices  
 **Course:** OCO301C &middot; **Gate:** OHC-1 &middot; **File:** `OHC_M06_RiggingInterface.html`  
-**Slides:** 65 &middot; **Gate items:** 29 &middot; **Practice:** 9 &middot; **Performance:** 9 &middot; **Pass:** 100%, server-authoritative  
+**Slides:** 66 &middot; **Gate items:** 30 &middot; **Practice:** 9 &middot; **Performance:** 9 &middot; **Pass:** 100%, server-authoritative  
 **Salt:** `CQ1:OHC_M06_RiggingInterface` &middot; **Next:** `OHC_M07` &middot; **review_offset:** 9
 
 ---
@@ -13,45 +13,46 @@
 
 | Item | Element | Stem | Form | Source | Status |
 |---|---|---|---|---|---|
-| `OHC_M06_q10` | `OHC.06.A.K1` | The rated capacity of a sling is established by: | MC | **ASME B30.9** tag &middot; Tier 0 S2-M1 / WD-SCN-002 | &#9989; |
-| `OHC_M06_q11` | `OHC.06.A.K2` | A choker hitch drawn tight so the angle of choke falls below 120&#176; must be: | MC | **DOE Hanford TR244C** 120&#176; choke &middot; ASME B30.9 | &#9989; |
-| `OHC_M06_q12` | `OHC.06.A.K2b` | Under the working assumption used for multi-leg bridles, a four-leg bridle should be rated on the basis that: | MC | **DOE Hanford TR244C** &middot; ASME B30.9 multi-leg | &#9989; |
-| `OHC_M06_q13` | `OHC.06.A.K3` | A two-leg bridle lifts a 30,000 lb load at a 45&#176; sling angle. Tension per leg is about: | MC | Tier 0 WD-SCN-002 leg-tension formula | &#9888;&#65039; *conflict resolved* |
-| `OHC_M06_q14` | `OHC.06.A.K3b` | A basket hitch at a 30&#176; sling angle, compared with a vertical hitch using the same sling, gives: | MC | Tier 0 WD-SCN-002 &middot; derived | &#9989; |
-| `OHC_M06_q15` | `OHC.06.A.K4` | The rated load of a hook applies only when the load is applied in the saddle. A point load at the tip reduces capacity to roughly: | MC | **DOE Hanford TR244C** hook point-load table | &#9989; |
-| `OHC_M06_q16` | `OHC.06.A.K4b` | Hook tips should point out and away from the load because: | MC | **DOE Hanford TR244C** | &#9989; |
-| `OHC_M06_q17` | `OHC.06.A.K5` | Beyond preventing cuts, softeners and blocking at a sharp bend also address: | MC | **DOE Hanford TR244C** softeners &middot; D/d ratio | &#9989; |
-| `OHC_M06_q18` | `OHC.06.A.R1` | A sling arrives at the hook with no legible tag. The operator should: | MC | ASME B30.9 &middot; derived | &#9989; |
-| `OHC_M06_q19` | `OHC.06.A.R2` | Hoisting with the load off-centre of the hook is hazardous because: | MC | **DOE Hanford TR244C** saddle loading | &#9989; |
-| `OHC_M06_q20` | `OHC.06.A.R3` | A crew improvises a shallower sling angle to clear an obstruction. The consequence is: | MC | derived &middot; leg-tension formula | &#9989; |
+| `OHC_M06_q10` | `OHC.06.A.K1` | The rated capacity of a sling is established by: | MC | **&sect;1910.184(c)(13)** &middot; ASME B30.9 tag | &#9989; |
+| `OHC_M06_q11` | `OHC.06.A.K1b` | &sect;1910.184(c)(14) and construction companion &sect;1926.251(a)(2)(iii) (held) require that a sling: | MC | **&sect;1910.184(c)(14)** &middot; **&sect;1926.251(a)(2)(iii)** held | &#9989; |
+| `OHC_M06_q12` | `OHC.06.A.K2` | A choker hitch drawn tight so the angle of choke falls below 120&#176; must be: | MC | **DOE Hanford TR244C** 120&#176; choke &middot; ASME B30.9 | &#9989; |
+| `OHC_M06_q13` | `OHC.06.A.K2b` | Under the working assumption used for multi-leg bridles, a four-leg bridle should be rated on the basis that: | MC | **DOE Hanford TR244C** &middot; ASME B30.9 multi-leg | &#9989; |
+| `OHC_M06_q14` | `OHC.06.A.K3` | A two-leg bridle lifts a 30,000 lb load at a 45&#176; sling angle. Tension per leg is about: | MC | Tier 0 WD-SCN-002 leg-tension formula | &#9888;&#65039; *conflict resolved* |
+| `OHC_M06_q15` | `OHC.06.A.K3b` | A basket hitch at a 30&#176; sling angle, compared with a vertical hitch using the same sling, gives: | MC | Tier 0 WD-SCN-002 &middot; derived | &#9989; |
+| `OHC_M06_q16` | `OHC.06.A.K4` | The rated load of a hook applies only when the load is applied in the saddle. A point load at the tip reduces capacity to roughly: | MC | **DOE Hanford TR244C** hook point-load table | &#9989; |
+| `OHC_M06_q17` | `OHC.06.A.K4b` | Hook tips should point out and away from the load because: | MC | **DOE Hanford TR244C** | &#9989; |
+| `OHC_M06_q18` | `OHC.06.A.K5` | Beyond preventing cuts, softeners and blocking at a sharp bend also address: | MC | **DOE Hanford TR244C** softeners &middot; D/d ratio | &#9989; |
+| `OHC_M06_q19` | `OHC.06.A.R1` | A sling arrives at the hook with no legible tag. The operator should: | MC | **&sect;1910.184(c)(14)** &middot; **&sect;1926.251(a)(2)(iii)** | &#9989; |
+| `OHC_M06_q20` | `OHC.06.A.R2` | Hoisting with the load off-centre of the hook is hazardous because: | MC | **DOE Hanford TR244C** saddle loading | &#9989; |
+| `OHC_M06_q21` | `OHC.06.A.R3` | A crew improvises a shallower sling angle to clear an obstruction. The consequence is: | MC | derived &middot; leg-tension formula | &#9989; |
 
 ## Task B &mdash; Below-the-Hook Lifting Devices
 
 | Item | Element | Stem | Form | Source | Status |
 |---|---|---|---|---|---|
-| `OHC_M06_q21` | `OHC.06.B.K1` | Which of these is a below-the-hook lifting device under ASME B30.20? | MC | **ASME B30.20** scope (by name) | &#9989; |
-| `OHC_M06_q22` | `OHC.06.B.K2` | A below-the-hook lifting device must carry: | MC | **ASME B30.20** marking &middot; Hanford inspection tag | &#9989; |
-| `OHC_M06_q23` | `OHC.06.B.K2b` | A 20,000 lb crane is fitted with a 1,500 lb lifting beam and 500 lb of slings. Available payload is: | MC | derived &middot; `OHC.04.A.K5` | &#9989; |
-| `OHC_M06_q24` | `OHC.06.B.K3` | The pre-use check specific to a magnet or vacuum lifter, beyond the structural check, is: | MC | derived &middot; Tier 0 | &#9989; |
-| `OHC_M06_q25` | `OHC.06.B.K4` | &sect;1910.179(g)(5)(v) requires that a crane using a lifting magnet have: | MC | **&sect;1910.179(g)(5)(v)** magnet circuit switch | &#9989; |
-| `OHC_M06_q26` | `OHC.06.B.K5` | Full engagement of a below-the-hook device is verified: | MC | **DOE Hanford TR244C** pre-use &middot; derived | &#9989; |
-| `OHC_M06_q27` | `OHC.06.B.R1` | The zone beneath a powered lifting device should be treated as: | MC | derived | &#9989; |
-| `OHC_M06_q28` | `OHC.06.B.R2` | A spreader beam is used for a load configuration different from the one it was designed for, but well below its rated capacity. This is: | MC | **ASME B30.20** design for configuration | &#9989; |
-| `OHC_M06_q29` | `OHC.06.B.R3` | The correct way to verify engagement on a coil lifter is: | MC | **DOE Hanford TR244C** stay clear | &#9989; |
+| `OHC_M06_q22` | `OHC.06.B.K1` | Which of these is a below-the-hook lifting device under ASME B30.20? | MC | **ASME B30.20** scope (by name) | &#9989; |
+| `OHC_M06_q23` | `OHC.06.B.K2` | A below-the-hook lifting device must carry: | MC | **ASME B30.20** marking &middot; Hanford inspection tag | &#9989; |
+| `OHC_M06_q24` | `OHC.06.B.K2b` | A 20,000 lb crane is fitted with a 1,500 lb lifting beam and 500 lb of slings. Available payload is: | MC | derived &middot; `OHC.04.A.K5` | &#9989; |
+| `OHC_M06_q25` | `OHC.06.B.K3` | The pre-use check specific to a magnet or vacuum lifter, beyond the structural check, is: | MC | derived &middot; Tier 0 | &#9989; |
+| `OHC_M06_q26` | `OHC.06.B.K4` | &sect;1910.179(g)(5)(v) requires that a crane using a lifting magnet have: | MC | **&sect;1910.179(g)(5)(v)** magnet circuit switch | &#9989; |
+| `OHC_M06_q27` | `OHC.06.B.K5` | Full engagement of a below-the-hook device is verified: | MC | **DOE Hanford TR244C** pre-use &middot; derived | &#9989; |
+| `OHC_M06_q28` | `OHC.06.B.R1` | The zone beneath a powered lifting device should be treated as: | MC | derived | &#9989; |
+| `OHC_M06_q29` | `OHC.06.B.R2` | A spreader beam is used for a load configuration different from the one it was designed for, but well below its rated capacity. This is: | MC | **ASME B30.20** design for configuration | &#9989; |
+| `OHC_M06_q30` | `OHC.06.B.R3` | The correct way to verify engagement on a coil lifter is: | MC | **DOE Hanford TR244C** stay clear | &#9989; |
 
 ## Task C &mdash; Load Balance and Centre of Gravity
 
 | Item | Element | Stem | Form | Source | Status |
 |---|---|---|---|---|---|
-| `OHC_M06_q30` | `OHC.06.C.K1` | &sect;1910.179(n)(3)(i) requires that the load be well secured and properly balanced in the sling or lifting device: | MC | **&sect;1910.179(n)(3)(i)** &#8212; both branches | &#9989; |
-| `OHC_M06_q31` | `OHC.06.C.K2` | During the pause at the test lift, the operator confirms the brake holds with: | MC | **DOE Hanford TR244C** no downward drift | &#9989; |
-| `OHC_M06_q32` | `OHC.06.C.K3` | The correct response to a load that hangs tilted at the test lift is: | MC | Tier 0 WD-SCN-002 &middot; derived | &#9989; |
-| `OHC_M06_q33` | `OHC.06.C.K3b` | Where bridle legs must differ in length to level a load, they are adjusted with: | MC | **DOE Hanford TR244C** turnbuckles / lever hoists | &#9989; |
-| `OHC_M06_q34` | `OHC.06.C.K4` | A tag line is held: | MC | Tier 0 WD-SCN-002 tag-line rule | &#9989; |
-| `OHC_M06_q35` | `OHC.06.C.K5` | A suspended load's swing is generally worst: | MC | derived | &#9989; |
-| `OHC_M06_q36` | `OHC.06.C.R1` | Hoisting an unbalanced load to full height is hazardous chiefly because: | MC | derived | &#9989; |
-| `OHC_M06_q37` | `OHC.06.C.R2` | Correcting a load's balance by hand while it hangs is: | MC | **&sect;1910.179(n)(3)(vi)** &middot; Hanford stay clear | &#9989; |
-| `OHC_M06_q38` | `OHC.06.C.R3` | Standard fibre tag lines near energised lines are inadequate because: | MC | Tier 0 WD-SCN-002 non-conductive tag lines | &#9989; |
+| `OHC_M06_q31` | `OHC.06.C.K1` | &sect;1910.179(n)(3)(i) requires that the load be well secured and properly balanced in the sling or lifting device: | MC | **&sect;1910.179(n)(3)(i)** &#8212; both branches | &#9989; |
+| `OHC_M06_q32` | `OHC.06.C.K2` | During the pause at the test lift, the operator confirms the brake holds with: | MC | **DOE Hanford TR244C** no downward drift | &#9989; |
+| `OHC_M06_q33` | `OHC.06.C.K3` | The correct response to a load that hangs tilted at the test lift is: | MC | Tier 0 WD-SCN-002 &middot; derived | &#9989; |
+| `OHC_M06_q34` | `OHC.06.C.K3b` | Where bridle legs must differ in length to level a load, they are adjusted with: | MC | **DOE Hanford TR244C** turnbuckles / lever hoists | &#9989; |
+| `OHC_M06_q35` | `OHC.06.C.K4` | A tag line is held: | MC | Tier 0 WD-SCN-002 tag-line rule | &#9989; |
+| `OHC_M06_q36` | `OHC.06.C.K5` | A suspended load's swing is generally worst: | MC | derived | &#9989; |
+| `OHC_M06_q37` | `OHC.06.C.R1` | Hoisting an unbalanced load to full height is hazardous chiefly because: | MC | derived | &#9989; |
+| `OHC_M06_q38` | `OHC.06.C.R2` | Correcting a load's balance by hand while it hangs is: | MC | **&sect;1910.179(n)(3)(vi)** &middot; Hanford stay clear | &#9989; |
+| `OHC_M06_q39` | `OHC.06.C.R3` | Standard fibre tag lines near energised lines are inadequate because: | MC | Tier 0 WD-SCN-002 non-conductive tag lines | &#9989; |
 
 ---
 
@@ -91,7 +92,7 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment.
 
 ## Source notes
 
-**&#9989; Rigging sourced as rigging, not as crane-type content** &mdash; The ACS References for OHC-06 name **ASME B30.9**, **B30.20** and **P30.1** by name only. Rigging is governed by the B30 volumes and by practice regardless of what hangs above the hook, so this module is built from the **Tier 0 rigger corpus** &#8212; `FG_S2-M1_Rigging_Fundamentals`, `WD-SCN-002 Rigging Fundamentals` &#8212; and from the **DOE Hanford Hoisting and Rigging manual (TR244C Rev 5)**, which is public domain and quotable.
+**&#9989; Facility sling law is &sect;1910.184; construction companion is &sect;1926.251** &mdash; Fetched 2026-08-28 from OSHA.gov. `A.K1b` gates **&sect;1910.184(c)(14)** / **&sect;1926.251(a)(2)(iii)**: no sling without affixed and legible identification markings. `A.R1` (no tag &#8594; refuse) is re-sourced to those paragraphs. ASME B30.9 remains the consensus layer above the regulation and is still cited by name only &#8212; this repo does not quote paid B30.9 tables.
 
 **&#9888;&#65039; Two Tier 0 guides disagree; four facts held out of the gate** &mdash; `FG_S2-M1` and `WD-SCN-002` contradict each other on **roundsling colour-code capacities**, **choker derate** (75/80&#37; by sling type vs a flat 75&#8211;80&#37; range), **hook throat limit** (5&#37; vs 15&#37;) and **chain elongation** (5&#37; vs 3&#37;). None of the four is gated in this module. The hook conflict is resolved and taught in **OHC-05 `A.K4`/`A.K4b`**; the other three need an SME ruling. Roundsling colour is not standardised by ASME at all &#8212; it is a manufacturer convention, which is why the two guides can both be internally consistent and mutually wrong.
 
@@ -101,11 +102,11 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment.
 
 **&#9989; Hook point-loading given a number** &mdash; The ACS states `A.K4` as *no point loading or tip loading* without a magnitude. The Hanford manual carries the derate table &#8212; **100&#37; / 86&#37; / 80&#37; / 70&#37;** as the load walks off the saddle, and about **40&#37;** as a point load at the tip &#8212; alongside the rule that *the designed SWL applies only when the load is applied in the saddle of the hook*.
 
-**&#9432; Elements carrying a second item** &mdash; `A.K2`, `A.K3`, `A.K4`, `B.K2` and `C.K3` each carry a second item. In every case the element contains two independently testable facts &#8212; for example `A.K3` covers both the leg-tension calculation and the 30&#176; equivalence, which learners can get one of and miss the other.
+**&#9432; Elements carrying a second item** &mdash; `A.K1`, `A.K2`, `A.K3`, `A.K4`, `B.K2` and `C.K3` each carry a second item. In every case the element contains two independently testable facts &#8212; for example `A.K1` covers both the tag-as-capacity rule and the OSHA no-unmarked-sling prohibition.
 
 ---
 
 ## Coverage
 
-All **15 K** and **9 R** elements are gated &mdash; 29 gate items. 5 element(s) carry a second item; see the source notes. The **9 S** elements sit on the Performance Evaluation Sheet. OHC-06 carries 33 elements, unchanged from the published ACS.
+All **15 K** and **9 R** elements are gated &mdash; 30 gate items. 6 element(s) carry a second item; see the source notes. The **9 S** elements sit on the Performance Evaluation Sheet. OHC-06 carries 33 elements, unchanged from the published ACS.
 

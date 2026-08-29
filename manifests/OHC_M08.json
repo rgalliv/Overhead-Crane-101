@@ -4,7 +4,7 @@
   "gate_code": "OHC-1",
   "version": "2026.08",
   "salt": "CQ1:OHC_M08_OperationalRules",
-  "total": 66,
+  "total": 67,
   "next": "OHC_M09",
   "gate": [
     "OHC_M08_q10",
@@ -34,7 +34,8 @@
     "OHC_M08_q34",
     "OHC_M08_q35",
     "OHC_M08_q36",
-    "OHC_M08_q37"
+    "OHC_M08_q37",
+    "OHC_M08_q38"
   ],
   "review_offset": 9,
   "answer_key": {
@@ -74,7 +75,9 @@
     "OHC_M08_q34": 1,
     "OHC_M08_q35": 1,
     "OHC_M08_q36": 1,
-    "OHC_M08_q37": 1
+    "OHC_M08_q37": 1,
+    "OHC_M08_q38": 1
   },
-  "course": "OCO301C"
+  "course": "OCO301C",
+  "notes": "1910.147 mapped onto C.K1b 2026-08-28"
 }

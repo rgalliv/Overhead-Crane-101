@@ -4,7 +4,7 @@
 
 **Module:** OHC-11 Malfunctions and Emergency Procedures  
 **Course:** OCO301C &middot; **Gate:** OHC-1 &middot; **File:** `OHC_M11_MalfunctionsAndEmergencies.html`  
-**Slides:** 66 &middot; **Gate items:** 28 &middot; **Practice:** 9 &middot; **Performance:** 9 &middot; **Pass:** 100%, server-authoritative  
+**Slides:** 67 &middot; **Gate items:** 29 &middot; **Practice:** 9 &middot; **Performance:** 9 &middot; **Pass:** 100%, server-authoritative  
 **Salt:** `CQ1:OHC_M11_MalfunctionsAndEmergencies` &middot; **Next:** `OHC_M12` &middot; **review_offset:** 9
 
 ---
@@ -17,40 +17,41 @@
 | `OHC_M11_q11` | `OHC.11.A.K1b` | Which brake requirement applies on BOTH regulatory branches? | MC | **&sect;1910.179(f)(1)(i)** vs **(f)(2)** branch split | &#9989; |
 | `OHC_M11_q12` | `OHC.11.A.K2` | With a load stranded aloft after a power failure, the operator's role ends at: | MC | derived | &#9989; |
 | `OHC_M11_q13` | `OHC.11.A.K3` | The runway conductor disconnect required by &sect;1910.179(g)(5)(i) is: | MC | **&sect;1910.179(g)(5)(i)** &middot; (l)(2)(i)(c) | &#9989; |
-| `OHC_M11_q14` | `OHC.11.A.K4` | Which of these is a regulated control failure rather than a nuisance? | MC | **&sect;1910.179(g)(3)(vi), (vii), (ix)** | &#9989; |
-| `OHC_M11_q15` | `OHC.11.A.K4b` | &sect;1910.179(a)(59) defines the emergency stop switch as cutting off electric power: | MC | **&sect;1910.179(a)(59)** &middot; (a)(40) fail-safe | &#9989; |
-| `OHC_M11_q16` | `OHC.11.A.K5` | Recovery of a suspended load from a failed crane is performed by: | MC | **&sect;1910.179(l)(3)(i)** designated personnel | &#9989; |
-| `OHC_M11_q17` | `OHC.11.A.R1` | The area beneath a stranded load is controlled because: | MC | derived | &#9989; |
-| `OHC_M11_q18` | `OHC.11.A.R2` | Manually releasing a holding brake to lower a stranded load produces: | MC | &sect;1910.179(l)(3)(i) &middot; derived | &#9989; |
-| `OHC_M11_q19` | `OHC.11.A.R3` | Re-energising a crane before the failure is understood is hazardous because: | MC | derived | &#9989; |
+| `OHC_M11_q14` | `OHC.11.A.K3b` | When the crane is locked out for servicing, &sect;1910.147 (held) treats the operator as typically which kind of employee? | MC | **&sect;1910.147(b),(c)(1)** held -- affected employee | &#9989; |
+| `OHC_M11_q15` | `OHC.11.A.K4` | Which of these is a regulated control failure rather than a nuisance? | MC | **&sect;1910.179(g)(3)(vi), (vii), (ix)** | &#9989; |
+| `OHC_M11_q16` | `OHC.11.A.K4b` | &sect;1910.179(a)(59) defines the emergency stop switch as cutting off electric power: | MC | **&sect;1910.179(a)(59)** &middot; (a)(40) fail-safe | &#9989; |
+| `OHC_M11_q17` | `OHC.11.A.K5` | Recovery of a suspended load from a failed crane is performed by: | MC | **&sect;1910.179(l)(3)(i)** designated personnel | &#9989; |
+| `OHC_M11_q18` | `OHC.11.A.R1` | The area beneath a stranded load is controlled because: | MC | derived | &#9989; |
+| `OHC_M11_q19` | `OHC.11.A.R2` | Manually releasing a holding brake to lower a stranded load produces: | MC | &sect;1910.179(l)(3)(i) &middot; derived | &#9989; |
+| `OHC_M11_q20` | `OHC.11.A.R3` | Re-energising a crane before the failure is understood is hazardous because: | MC | derived | &#9989; |
 
 ## Task B &mdash; Overtravel and Mechanical Malfunctions
 
 | Item | Element | Stem | Form | Source | Status |
 |---|---|---|---|---|---|
-| `OHC_M11_q20` | `OHC.11.B.K1` | Immediately after a two-block event, the correct action is: | MC | derived &middot; `OHC.07.A.K5` | &#9989; |
-| `OHC_M11_q21` | `OHC.11.B.K2` | &sect;1910.179(n)(4)(i) requires that a limit switch which does not operate properly results in: | MC | **&sect;1910.179(n)(4)(i)** &#8212; both branches | &#9989; |
-| `OHC_M11_q22` | `OHC.11.B.K2b` | The crane's out-of-service state after a failed limit verification comes from: | MC | **&sect;1910.179(l)(3)(i)** &#8212; facility branch | &#9888;&#65039; *ACS corrected* |
-| `OHC_M11_q23` | `OHC.11.B.K3` | Brake drift points to a failure in: | MC | **&sect;1910.179(f)(1)(i)** vs **(f)(1)(ii)** | &#9989; |
-| `OHC_M11_q24` | `OHC.11.B.K4` | The threshold that should trigger a stop for noise or vibration is: | MC | derived | &#9989; |
-| `OHC_M11_q25` | `OHC.11.B.K5` | &sect;1910.179(l)(2)(ii) holds a crane out of service after repair until: | MC | **&sect;1910.179(l)(2)(ii)** &#8212; facility branch | &#9989; |
-| `OHC_M11_q26` | `OHC.11.B.R1` | Continuing to operate after a two-block event without inspection risks: | MC | derived | &#9989; |
-| `OHC_M11_q27` | `OHC.11.B.R2` | Chasing a drifting brake with control inputs is hazardous because: | MC | derived | &#9989; |
-| `OHC_M11_q28` | `OHC.11.B.R3` | The counter to normalising abnormal sounds as equipment character is: | MC | derived &middot; `OHC.05.A.R3` | &#9989; |
+| `OHC_M11_q21` | `OHC.11.B.K1` | Immediately after a two-block event, the correct action is: | MC | derived &middot; `OHC.07.A.K5` | &#9989; |
+| `OHC_M11_q22` | `OHC.11.B.K2` | &sect;1910.179(n)(4)(i) requires that a limit switch which does not operate properly results in: | MC | **&sect;1910.179(n)(4)(i)** &#8212; both branches | &#9989; |
+| `OHC_M11_q23` | `OHC.11.B.K2b` | The crane's out-of-service state after a failed limit verification comes from: | MC | **&sect;1910.179(l)(3)(i)** &#8212; facility branch | &#9888;&#65039; *ACS corrected* |
+| `OHC_M11_q24` | `OHC.11.B.K3` | Brake drift points to a failure in: | MC | **&sect;1910.179(f)(1)(i)** vs **(f)(1)(ii)** | &#9989; |
+| `OHC_M11_q25` | `OHC.11.B.K4` | The threshold that should trigger a stop for noise or vibration is: | MC | derived | &#9989; |
+| `OHC_M11_q26` | `OHC.11.B.K5` | &sect;1910.179(l)(2)(ii) holds a crane out of service after repair until: | MC | **&sect;1910.179(l)(2)(ii)** &#8212; facility branch | &#9989; |
+| `OHC_M11_q27` | `OHC.11.B.R1` | Continuing to operate after a two-block event without inspection risks: | MC | derived | &#9989; |
+| `OHC_M11_q28` | `OHC.11.B.R2` | Chasing a drifting brake with control inputs is hazardous because: | MC | derived | &#9989; |
+| `OHC_M11_q29` | `OHC.11.B.R3` | The counter to normalising abnormal sounds as equipment character is: | MC | derived &middot; `OHC.05.A.R3` | &#9989; |
 
 ## Task C &mdash; Emergency Events
 
 | Item | Element | Stem | Form | Source | Status |
 |---|---|---|---|---|---|
-| `OHC_M11_q29` | `OHC.11.C.K1` | The response sequence after a dropped load is: | MC | derived | &#9989; |
-| `OHC_M11_q30` | `OHC.11.C.K2` | After a crane-to-structure contact, the structure is also held for assessment because: | MC | derived &middot; EM 385 16-8.aa(6) | &#9989; |
-| `OHC_M11_q31` | `OHC.11.C.K3` | &sect;1910.179(o)(3) requires that operators be: | MC | **&sect;1910.179(o)(3)** &#8212; facility branch | &#9989; |
-| `OHC_M11_q32` | `OHC.11.C.K3b` | &sect;1910.179(c)(3) states that which extinguishers shall not be used? | MC | **&sect;1910.179(c)(3)** &#8212; facility branch | &#9989; |
-| `OHC_M11_q33` | `OHC.11.C.K4` | The only justification for moving anything at an incident scene before it is documented is: | MC | derived | &#9989; |
-| `OHC_M11_q34` | `OHC.11.C.K5` | The most useful content of an operator's incident account is: | MC | derived | &#9989; |
-| `OHC_M11_q35` | `OHC.11.C.R1` | Entering an uncontrolled scene to render aid risks: | MC | derived | &#9989; |
-| `OHC_M11_q36` | `OHC.11.C.R2` | The first useful action on an energised electrical fire in a crane is: | MC | **&sect;1910.179(g)(5)(i)** &middot; derived | &#9989; |
-| `OHC_M11_q37` | `OHC.11.C.R3` | Delayed notification escalates consequences chiefly because: | MC | derived | &#9989; |
+| `OHC_M11_q30` | `OHC.11.C.K1` | The response sequence after a dropped load is: | MC | derived | &#9989; |
+| `OHC_M11_q31` | `OHC.11.C.K2` | After a crane-to-structure contact, the structure is also held for assessment because: | MC | derived &middot; EM 385 16-8.aa(6) | &#9989; |
+| `OHC_M11_q32` | `OHC.11.C.K3` | &sect;1910.179(o)(3) requires that operators be: | MC | **&sect;1910.179(o)(3)** &#8212; facility branch | &#9989; |
+| `OHC_M11_q33` | `OHC.11.C.K3b` | &sect;1910.179(c)(3) states that which extinguishers shall not be used? | MC | **&sect;1910.179(c)(3)** &#8212; facility branch | &#9989; |
+| `OHC_M11_q34` | `OHC.11.C.K4` | The only justification for moving anything at an incident scene before it is documented is: | MC | derived | &#9989; |
+| `OHC_M11_q35` | `OHC.11.C.K5` | The most useful content of an operator's incident account is: | MC | derived | &#9989; |
+| `OHC_M11_q36` | `OHC.11.C.R1` | Entering an uncontrolled scene to render aid risks: | MC | derived | &#9989; |
+| `OHC_M11_q37` | `OHC.11.C.R2` | The first useful action on an energised electrical fire in a crane is: | MC | **&sect;1910.179(g)(5)(i)** &middot; derived | &#9989; |
+| `OHC_M11_q38` | `OHC.11.C.R3` | Delayed notification escalates consequences chiefly because: | MC | derived | &#9989; |
 
 ---
 
@@ -100,11 +101,11 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment.
 
 **&#9989; Two fire provisions, one of them startling** &mdash; **&sect;1910.179(o)(3)**: the employer shall ensure operators are **familiar with the operation and care of the fire extinguishers provided** &#8212; `C.K3`. And **&sect;1910.179(c)(3)**, which is live regulatory text and reads like an artefact: **carbon tetrachloride extinguishers shall not be used** &#8212; `C.K3b`. Carbon tetrachloride is acutely toxic and decomposes in heat to phosgene, so in a cab the extinguisher would be worse than the fire. Both **(c)** and **(o)** are **facility branch**; neither is in the &sect;1926.1438(b)(2) list.
 
-**&#9432; Elements carrying a second item** &mdash; `A.K1`, `A.K4`, `B.K2` and `C.K3` each carry two items. In `A.K1` and `B.K2` the split separates what the regulation says from what the ACS says about it; in `A.K4` and `C.K3` it separates a requirement from the reason or prohibition attached to it.
+**&#9432; Elements carrying a second item** &mdash; `A.K1`, `A.K3`, `A.K4`, `B.K2` and `C.K3` each carry two items. `A.K3b` maps held **&sect;1910.147** onto mainline disconnect use: the operator is typically an **affected** employee.
 
 ---
 
 ## Coverage
 
-All **15 K** and **9 R** elements are gated &mdash; 28 gate items. 4 element(s) carry a second item; see the source notes. The **9 S** elements sit on the Performance Evaluation Sheet. OHC-11 carries 33 elements, unchanged from the published ACS.
+All **15 K** and **9 R** elements are gated &mdash; 29 gate items. 5 element(s) carry a second item; see the source notes. The **9 S** elements sit on the Performance Evaluation Sheet. OHC-11 carries 33 elements, unchanged from the published ACS.
 

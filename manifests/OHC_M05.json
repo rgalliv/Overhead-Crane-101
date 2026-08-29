@@ -4,7 +4,7 @@
   "gate_code": "OHC-1",
   "version": "2026.08",
   "salt": "CQ1:OHC_M05_InspectionRegime",
-  "total": 63,
+  "total": 64,
   "next": "OHC_M06",
   "gate": [
     "OHC_M05_q10",
@@ -34,7 +34,8 @@
     "OHC_M05_q34",
     "OHC_M05_q35",
     "OHC_M05_q36",
-    "OHC_M05_q37"
+    "OHC_M05_q37",
+    "OHC_M05_q38"
   ],
   "review_offset": 9,
   "answer_key": {
@@ -74,7 +75,9 @@
     "OHC_M05_q34": 1,
     "OHC_M05_q35": 1,
     "OHC_M05_q36": 1,
-    "OHC_M05_q37": 1
+    "OHC_M05_q37": 1,
+    "OHC_M05_q38": 1
   },
-  "course": "OCO301C"
+  "course": "OCO301C",
+  "notes": "1412/1413 and 1910.147 held 2026-08-28"
 }

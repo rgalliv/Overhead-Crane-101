@@ -26,13 +26,13 @@ CraneQualified — **Overhead Crane Operator Track (OHC)**. Twelve modules, ACS 
 | `out/OHC_M02_ComponentsAndSystems.html` | OHC-02. 59 slides, 24 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M03_ControlsAndOperatingModes.html` | OHC-03. 62 slides, 27 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M04_RatedLoadAndWeight.html` | OHC-04. 60 slides, 25 gate items, 0 gaps, CONFORMANT. |
-| `out/OHC_M05_InspectionRegime.html` | OHC-05. 63 slides, 28 gate items, 0 gaps, CONFORMANT. |
-| `out/OHC_M06_RiggingInterface.html` | OHC-06. 65 slides, 29 gate items, 0 gaps, CONFORMANT. |
+| `out/OHC_M05_InspectionRegime.html` | OHC-05. 64 slides, 29 gate items. 1412/1413 and 1910.147 held. |
+| `out/OHC_M06_RiggingInterface.html` | OHC-06. 66 slides, 30 gate items. §1910.184 / §1926.251 held. |
 | `out/OHC_M07_LoadHandling.html` | OHC-07. 69 slides, 31 gate items, 0 gaps, CONFORMANT. |
-| `out/OHC_M08_OperationalRules.html` | OHC-08. 66 slides, 28 gate items, 0 gaps, CONFORMANT. |
-| `out/OHC_M09_CommunicationAndSignals.html` | OHC-09. 66 slides, 28 gate items, 0 gaps, CONFORMANT. |
-| `out/OHC_M10_EnvironmentalHazards.html` | OHC-10. 67 slides, 29 gate items, 0 gaps, CONFORMANT. |
-| `out/OHC_M11_MalfunctionsAndEmergencies.html` | OHC-11. 66 slides, 28 gate items, 0 gaps, CONFORMANT. |
+| `out/OHC_M08_OperationalRules.html` | OHC-08. 67 slides, 29 gate items. §1910.147 mapped on `C.K1b`. |
+| `out/OHC_M09_CommunicationAndSignals.html` | OHC-09. 69 slides, 28 gate items. CC signals paragraphs held. |
+| `out/OHC_M10_EnvironmentalHazards.html` | OHC-10. 67 slides, 29 gate items. §1910.147 held; Subpart D still OPEN. |
+| `out/OHC_M11_MalfunctionsAndEmergencies.html` | OHC-11. 67 slides, 29 gate items. §1910.147 on `A.K3b`. |
 | `out/OHC_M12_Capstone.html` | OHC-12. Capstone + Canada designation routing, 30 gate items. |
 | `docs/OHC-ACS-build-spec.md` | **The ACS itself** — all twelve modules, **400** elements (184 K · 108 R · 108 S), committed from the authoritative HTML breakdown. Source of truth for every build. |
 | `docs/OHC-build-format-spec.md` | Build format, packaging and question architecture for the OHC track, derived from the mobile-crane Developer Handoff (structure only). |
@@ -44,7 +44,7 @@ Track status: **all twelve modules built.** Every module audits at **0 gaps, CON
 
 **North America / buyer pack:** Canada Task D authored into OHC-01; Canada designation routing in OHC-12; PES HTML for all modules; EN+FR designation certificates; interactive jurisdiction tree; generated imagery inlined for self-contained LMS files; visual CSS pack across M02–M11.
 
-**Track totals (pre-Canada census):** 771 slides · **333 gate items** · 292 gated K+R elements · 108 S elements on Performance Evaluation Sheets. OHC-01/12 rebuilt with additional Canada gates — see manifests for current counts.
+**Track totals:** 802 slides · **347 gate items**. Handshake `OHC_M01 → … → OHC_M12 → (end)` at 100% gate. See manifests for per-module salts and answer keys.
 
 **Element coverage is complete and verified.** A census cross-check against `docs/OHC-ACS-build-spec.md` confirms **every ACS Knowledge and Risk Management element in all twelve modules carries at least one gate item** — 290 ACS elements plus the 2 net-new in OHC-01 = 292, with 41 elements carrying a second item where they hold two independently testable facts. Re-run the check any time with the script in the commit for `Build OHC-12`.
 

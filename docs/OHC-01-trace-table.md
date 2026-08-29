@@ -45,7 +45,7 @@
 |---|---|---|---|---|---|
 | `OHC_M01_q33` | `OHC.01.C.K1` | Training content such as this module establishes: | MC | Gate Master Rev 1.3 &sect;11.2, A2 | &#9989; |
 | `OHC_M01_q34` | `OHC.01.C.K2` | On the facility branch, the governing rule on who may run the crane is that: | MC | **&sect;1910.179(b)(8)** | &#9989; |
-| `OHC_M01_q35` | `OHC.01.C.K3` | On the non-permanently-installed construction branch, the operator requirement is: | MC | &sect;1926.1427 | &#9888;&#65039; *primary text open* |
+| `OHC_M01_q35` | `OHC.01.C.K3` | On the non-permanently-installed construction branch, &sect;1926.1427 requires the employer to ensure each operator is trained, certified/licensed, and evaluated. Certification under (d) is by: | MC | **&sect;1926.1427(a),(d)** held &middot; NCCCO public overview (programme path, not a CFR name) | &#9989; |
 | `OHC_M01_q36` | `OHC.01.C.K4` | On federal work, the Certificate of Compliance submitted for each piece of load handling equipment brought on site must be signed by: | MC | EM 385 &sect;16.A.02 | &#9989; |
 | `OHC_M01_q37` | `OHC.01.C.K5` | Which pairing is correct? | MC | &sect;1910.179(b)(8), (l)(3)(i), (m)(1) | &#9989; |
 | `OHC_M01_q38` | `OHC.01.C.R1` | A completion certificate from a training programme is sufficient evidence that an operator is qualified. | TF | Gate Master &sect;11.2 | &#9989; |
@@ -112,6 +112,8 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment.
 **&#11088; Task D adds the Canadian jurisdiction spine without forking the track** &mdash; **CSA B167** is cited by name as the consensus spine. Provincial overlays (ON/BC/AB/QC) and the Canada Labour Code Part II path are taught as branches parallel to the US facility/construction split. Clause-level CSA quotes are held back until a verified edition is in the corpus.
 
 **&#9989; Designation Gate citation** &mdash; `C.K2` rests on **&sect;1910.179(b)(8)**. Canada uses employer written authorization as the analogue &#8212; not NCCCO routing.
+
+**&#9989; Certification Gate citation is held; NCCCO is the programme path** &mdash; `C.K3` gates **&sect;1926.1427(a)** (trained, certified/licensed, evaluated) and **(d)** (accredited crane operator testing organization or qualifying government licence), fetched from OSHA.gov 2026-08-28. OSHA does **not** name NCCCO. NCCCO's public Overhead Crane Operator overview confirms that a CCO overhead programme exists (written + practical; cab or pendant/remote). Exam-item counts, fees, and handbook domains are **not** gated. Canada Task D is unchanged.
 
 ---
 

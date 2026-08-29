@@ -4,7 +4,7 @@
 
 **Module:** OHC-08 Operational Rules and Safe Practices  
 **Course:** OCO301C &middot; **Gate:** OHC-1 &middot; **File:** `OHC_M08_OperationalRules.html`  
-**Slides:** 66 &middot; **Gate items:** 28 &middot; **Practice:** 9 &middot; **Performance:** 9 &middot; **Pass:** 100%, server-authoritative  
+**Slides:** 67 &middot; **Gate items:** 29 &middot; **Practice:** 9 &middot; **Performance:** 9 &middot; **Pass:** 100%, server-authoritative  
 **Salt:** `CQ1:OHC_M08_OperationalRules` &middot; **Next:** `OHC_M09` &middot; **review_offset:** 9
 
 ---
@@ -42,15 +42,16 @@
 | Item | Element | Stem | Form | Source | Status |
 |---|---|---|---|---|---|
 | `OHC_M08_q28` | `OHC.08.C.K1` | The end-of-use securing sequence includes: | MC | derived &middot; Tier 0 | &#9989; |
-| `OHC_M08_q29` | `OHC.08.C.K2` | EM 385-1-1 16-8.aa(7) requires operators of outdoor cranes to secure them: | MC | **EM 385 16-8.aa(7)** | &#9989; |
-| `OHC_M08_q30` | `OHC.08.C.K2b` | &sect;1910.179(b)(4) requires automatic rail clamps and a wind-indicating device giving a visible or audible alarm at a predetermined wind velocity. Its scope is: | MC | **&sect;1910.179(b)(4)** &#8212; facility branch, storage bridges | &#9888;&#65039; *ACS corrected* |
-| `OHC_M08_q31` | `OHC.08.C.K3` | Securing a pendant or radio transmitter against unauthorised use addresses: | MC | derived &middot; `OHC.03.B` control security | &#9989; |
-| `OHC_M08_q32` | `OHC.08.C.K4` | The unconditional first requirement before an operator may leave the station is: | MC | **&sect;1910.179(n)(3)(x)** | &#9989; |
-| `OHC_M08_q33` | `OHC.08.C.K4b` | A short break is: | MC | &sect;1910.179(n)(3)(x) &middot; derived | &#9989; |
-| `OHC_M08_q34` | `OHC.08.C.K5` | A shift handoff must convey: | MC | derived &middot; `OHC.05.C.K5` | &#9989; |
-| `OHC_M08_q35` | `OHC.08.C.R1` | An unsecured outdoor crane in a wind event is hazardous because: | MC | &sect;1910.179(b)(4) &middot; derived | &#9989; |
-| `OHC_M08_q36` | `OHC.08.C.R2` | The control that most directly prevents untrained use of an idle crane is: | MC | derived | &#9989; |
-| `OHC_M08_q37` | `OHC.08.C.R3` | Leaving a load suspended during a break breaks which set of rules? | MC | **&sect;1910.179(n)(3)(x)** &middot; derived | &#9989; |
+| `OHC_M08_q29` | `OHC.08.C.K1b` | &sect;1910.147(a)(1)(i) and (c)(1) (held) cover servicing and maintenance in which unexpected energization could cause injury. How does that sit beside the crane disconnect sequence at &sect;1910.179(l)(2)(i)? | MC | **&sect;1910.147(a)(1)(i),(c)(1)** held &middot; &sect;1910.179(l)(2)(i) | &#9989; |
+| `OHC_M08_q30` | `OHC.08.C.K2` | EM 385-1-1 16-8.aa(7) requires operators of outdoor cranes to secure them: | MC | **EM 385 16-8.aa(7)** | &#9989; |
+| `OHC_M08_q31` | `OHC.08.C.K2b` | &sect;1910.179(b)(4) requires automatic rail clamps and a wind-indicating device giving a visible or audible alarm at a predetermined wind velocity. Its scope is: | MC | **&sect;1910.179(b)(4)** &#8212; facility branch, storage bridges | &#9888;&#65039; *ACS corrected* |
+| `OHC_M08_q32` | `OHC.08.C.K3` | Securing a pendant or radio transmitter against unauthorised use addresses: | MC | derived &middot; `OHC.03.B` control security | &#9989; |
+| `OHC_M08_q33` | `OHC.08.C.K4` | The unconditional first requirement before an operator may leave the station is: | MC | **&sect;1910.179(n)(3)(x)** | &#9989; |
+| `OHC_M08_q34` | `OHC.08.C.K4b` | A short break is: | MC | &sect;1910.179(n)(3)(x) &middot; derived | &#9989; |
+| `OHC_M08_q35` | `OHC.08.C.K5` | A shift handoff must convey: | MC | derived &middot; `OHC.05.C.K5` | &#9989; |
+| `OHC_M08_q36` | `OHC.08.C.R1` | An unsecured outdoor crane in a wind event is hazardous because: | MC | &sect;1910.179(b)(4) &middot; derived | &#9989; |
+| `OHC_M08_q37` | `OHC.08.C.R2` | The control that most directly prevents untrained use of an idle crane is: | MC | derived | &#9989; |
+| `OHC_M08_q38` | `OHC.08.C.R3` | Leaving a load suspended during a break breaks which set of rules? | MC | **&sect;1910.179(n)(3)(x)** &middot; derived | &#9989; |
 
 ---
 
@@ -100,11 +101,11 @@ Not scored by the bridge. Evaluator sign-off, dated, scoped to named equipment.
 
 **&#9989; Task A and most of Task B bind on both branches** &mdash; Every Task A citation is in **&sect;1910.179(n)**, which is in the &sect;1926.1438(b)(2) list. `B.K1` is backed by **(b)(6)(i)** and **(b)(7)**, also in the list. The two facility-branch items in this module are both flagged: `B.K5b` and `C.K2b`.
 
-**&#9432; Elements carrying a second item** &mdash; `A.K3`, `B.K5`, `C.K2` and `C.K4` each carry two items &#8212; in each case separating a cited requirement from the judgement or scope limit that the ACS element also asks for.
+**&#9432; Elements carrying a second item** &mdash; `A.K3`, `B.K5`, `C.K1`, `C.K2` and `C.K4` each carry two items &#8212; in each case separating a cited requirement from the judgement or scope limit that the ACS element also asks for. `C.K1b` maps held **&sect;1910.147** onto the disconnect step already in `C.K1`.
 
 ---
 
 ## Coverage
 
-All **15 K** and **9 R** elements are gated &mdash; 28 gate items. 4 element(s) carry a second item; see the source notes. The **9 S** elements sit on the Performance Evaluation Sheet. OHC-08 carries 33 elements, unchanged from the published ACS.
+All **15 K** and **9 R** elements are gated &mdash; 29 gate items. 5 element(s) carry a second item; see the source notes. The **9 S** elements sit on the Performance Evaluation Sheet. OHC-08 carries 33 elements, unchanged from the published ACS.
 

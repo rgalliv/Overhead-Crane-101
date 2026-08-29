@@ -393,6 +393,46 @@ def na_jurisdiction_tree_slide(sid, kicker="Interactive", title="Walk the jurisd
 LAST_TOTAL = 0
 
 
+def write_pre_and_manifest(module, html, stem, salt, next_mod, practice, gate,
+                           version="2026.08", notes=""):
+    """Write pre.html and the matching manifest so retrofit/gen_trace stay in sync."""
+    import json
+    if stem.endswith(".pre.html"):
+        stem = stem[:-9]
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    pre = os.path.join(root, "out", stem + ".pre.html")
+    with open(pre, "w", encoding="ascii", errors="xmlcharrefreplace") as f:
+        f.write(html)
+    print("wrote %s (%d bytes, slides %d)" % (pre, len(html), LAST_TOTAL))
+    answer_key = {}
+    for i, q in enumerate(practice, 1):
+        answer_key["%s_q%02d" % (module, i)] = q[3]
+    for i, q in enumerate(gate, 1):
+        answer_key["%s_q%02d" % (module, len(practice) + i)] = q[3]
+    gate_ids = ["%s_q%02d" % (module, len(practice) + i)
+                for i in range(1, len(gate) + 1)]
+    man = {
+        "module": module,
+        "stage": "OHC",
+        "gate_code": "OHC-1",
+        "version": version,
+        "salt": salt,
+        "total": LAST_TOTAL,
+        "next": next_mod,
+        "gate": gate_ids,
+        "review_offset": len(practice),
+        "answer_key": answer_key,
+        "course": "OCO301C",
+    }
+    if notes:
+        man["notes"] = notes
+    man_path = os.path.join(root, "manifests", module + ".json")
+    with open(man_path, "w", encoding="utf-8") as f:
+        json.dump(man, f, indent=2)
+        f.write("\n")
+    print("wrote %s (gate %d, keys %d)" % (man_path, len(gate_ids), len(answer_key)))
+
+
 def assemble(module, modlabel, title, subtitle, objectives, gate_count,
              sections, content, practice, gate, hero_image=None,
              extra_before_gate=None):

@@ -34,9 +34,11 @@ CONTENT = {
     "A": [
         ("Where the operator's role starts and stops",
          "Rigging is a discipline of its own and it does not change because the hook above "
-         "it belongs to an overhead crane rather than a mobile one. The governing documents "
-         "are the same: <b>ASME B30.9</b> for slings, <b>B30.10</b> for hooks, <b>B30.26</b> "
-         "for rigging hardware and <b>B30.20</b> for below-the-hook devices.",
+         "it belongs to an overhead crane rather than a mobile one. The <b>facility-branch "
+         "sling law</b> is <b>&sect;1910.184</b> (held). The construction companion is "
+         "<b>&sect;1926.251</b> (held). Consensus volumes sit above that: <b>ASME B30.9</b> "
+         "for slings, <b>B30.10</b> for hooks, <b>B30.26</b> for rigging hardware and "
+         "<b>B30.20</b> for below-the-hook devices.",
          "This module is the <b>interface</b>, not the rigging course. The operator's duty "
          "is to verify what arrives at the hook and to refuse what is not right &#8212; not "
          "to design the lift. Rigger qualification is a separate track."),
@@ -44,9 +46,10 @@ CONTENT = {
          "Every sling carries a tag, and the tag &#8212; not the diameter, not the look of "
          "it &#8212; is the capacity. It states type, size, and <b>different rated loads for "
          "vertical, choker and basket</b> hitches.",
-         "A worn-off rating cannot be estimated from the sling's dimension. Capacity depends "
-         "on type, construction and grade. Two slings of the same diameter can have very "
-         "different ratings. <b>No legible tag, no lift.</b>"),
+         "&sect;1910.184(c)(14) (held): employers must not use slings <b>without affixed and "
+         "legible identification markings</b>. Construction companion "
+         "&sect;1926.251(a)(2)(iii) is the same prohibition. A worn-off rating cannot be "
+         "estimated from the sling's dimension. <b>No legible tag, no lift.</b>"),
         ("Four hitches, three capacities",
          "<b>Vertical</b> is the rated capacity, and it needs an engineered lift point. "
          "<b>Choker</b> derates &#8212; and derates further if drawn tight: when the angle "
@@ -233,6 +236,13 @@ GATE = [
      "The rated capacity of a sling is established by:",
      ["Its diameter", "Its identification tag, which states different ratings for vertical, "
       "choker and basket", "The crane's capacity", "The rigger's judgement"], 1, ""),
+    ("OHC.06.A.K1b",
+     "&sect;1910.184(c)(14) and construction companion &sect;1926.251(a)(2)(iii) (held) "
+     "require that a sling:",
+     ["May be used unmarked if the rigger remembers the capacity",
+      "Not be used without affixed and legible identification markings",
+      "Be marked in marker at half the assumed WLL",
+      "Need no markings if ASME B30.9 inspection is current"], 1, ""),
     ("OHC.06.A.K2",
      "A choker hitch drawn tight so the angle of choke falls below 120&#176; must be:",
      ["Used at the table choker rating", "Derated further below the table choker rating",
@@ -370,7 +380,8 @@ GATE = [
 ]
 
 TRACE_SOURCE = {
-    "OHC.06.A.K1": ("**ASME B30.9** tag &middot; Tier 0 S2-M1 / WD-SCN-002", "OK"),
+    "OHC.06.A.K1": ("**&sect;1910.184(c)(13)** &middot; ASME B30.9 tag", "OK"),
+    "OHC.06.A.K1b": ("**&sect;1910.184(c)(14)** &middot; **&sect;1926.251(a)(2)(iii)** held", "OK"),
     "OHC.06.A.K2": ("**DOE Hanford TR244C** 120&#176; choke &middot; ASME B30.9", "OK"),
     "OHC.06.A.K2b": ("**DOE Hanford TR244C** &middot; ASME B30.9 multi-leg", "OK"),
     "OHC.06.A.K3": ("Tier 0 WD-SCN-002 leg-tension formula", "CONFLICT"),
@@ -378,7 +389,7 @@ TRACE_SOURCE = {
     "OHC.06.A.K4": ("**DOE Hanford TR244C** hook point-load table", "OK"),
     "OHC.06.A.K4b": ("**DOE Hanford TR244C**", "OK"),
     "OHC.06.A.K5": ("**DOE Hanford TR244C** softeners &middot; D/d ratio", "OK"),
-    "OHC.06.A.R1": ("ASME B30.9 &middot; derived", "OK"),
+    "OHC.06.A.R1": ("**&sect;1910.184(c)(14)** &middot; **&sect;1926.251(a)(2)(iii)**", "OK"),
     "OHC.06.A.R2": ("**DOE Hanford TR244C** saddle loading", "OK"),
     "OHC.06.A.R3": ("derived &middot; leg-tension formula", "OK"),
     "OHC.06.B.K1": ("**ASME B30.20** scope (by name)", "OK"),
@@ -414,13 +425,12 @@ TRACE_PERF = [
 ]
 
 TRACE_NOTES = [
-    ("&#9989; Rigging sourced as rigging, not as crane-type content",
-     "The ACS References for OHC-06 name **ASME B30.9**, **B30.20** and **P30.1** by name "
-     "only. Rigging is governed by the B30 volumes and by practice regardless of what hangs "
-     "above the hook, so this module is built from the **Tier 0 rigger corpus** &#8212; "
-     "`FG_S2-M1_Rigging_Fundamentals`, `WD-SCN-002 Rigging Fundamentals` &#8212; and from "
-     "the **DOE Hanford Hoisting and Rigging manual (TR244C Rev 5)**, which is public "
-     "domain and quotable."),
+    ("&#9989; Facility sling law is &sect;1910.184; construction companion is &sect;1926.251",
+     "Fetched 2026-08-28 from OSHA.gov. `A.K1b` gates **&sect;1910.184(c)(14)** / "
+     "**&sect;1926.251(a)(2)(iii)**: no sling without affixed and legible identification "
+     "markings. `A.R1` (no tag &#8594; refuse) is re-sourced to those paragraphs. ASME "
+     "B30.9 remains the consensus layer above the regulation and is still cited by name "
+     "only &#8212; this repo does not quote paid B30.9 tables."),
     ("&#9888;&#65039; Two Tier 0 guides disagree; four facts held out of the gate",
      "`FG_S2-M1` and `WD-SCN-002` contradict each other on **roundsling colour-code "
      "capacities**, **choker derate** (75/80&#37; by sling type vs a flat 75&#8211;80&#37; "
@@ -450,21 +460,19 @@ TRACE_NOTES = [
      "the tip &#8212; alongside the rule that *the designed SWL applies only when the load "
      "is applied in the saddle of the hook*."),
     ("&#9432; Elements carrying a second item",
-     "`A.K2`, `A.K3`, `A.K4`, `B.K2` and `C.K3` each carry a second item. In every case the "
-     "element contains two independently testable facts &#8212; for example `A.K3` covers "
-     "both the leg-tension calculation and the 30&#176; equivalence, which learners can get "
-     "one of and miss the other."),
+     "`A.K1`, `A.K2`, `A.K3`, `A.K4`, `B.K2` and `C.K3` each carry a second item. In every "
+     "case the element contains two independently testable facts &#8212; for example `A.K1` "
+     "covers both the tag-as-capacity rule and the OSHA no-unmarked-sling prohibition."),
 ]
 
 
 def main():
     html = A.assemble(MODULE, MODLABEL, TITLE, SUBTITLE, OBJECTIVES,
                       len(GATE), SECTIONS, CONTENT, PRACTICE, GATE)
-    out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                       "out", "OHC_M06_RiggingInterface.pre.html")
-    with open(out, "w", encoding="ascii", errors="xmlcharrefreplace") as f:
-        f.write(html)
-    print("wrote %s (%d bytes)" % (out, len(html)))
+    A.write_pre_and_manifest(
+        MODULE, html, "OHC_M06_RiggingInterface.pre.html",
+        "CQ1:OHC_M06_RiggingInterface", "OHC_M07", PRACTICE, GATE,
+        notes="1910.184 / 1926.251 held 2026-08-28")
 
 
 if __name__ == "__main__":

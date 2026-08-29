@@ -160,12 +160,15 @@ CONTENT = {
          "carry."),
         ("The Certification Gate, and what is verified about it",
          "On the &sect;1926.1438(b) construction branch, operator qualification comes from "
-         "<b>&sect;1926.1427</b>. That section <b>does</b> apply: the enumeration at "
-         "&sect;1926.1438(b)(2)(i) brings in <b>&sect;&sect;1926.1427 through 1434</b>.",
-         "So the routing is legally sound: facility branch &#8594; designation under "
-         "&sect;1910.179(b)(8); construction branch &#8594; certification under "
-         "&sect;1926.1427. <b>Which</b> testing organisation and <b>which</b> administrative "
-         "route is a programme matter, not a regulatory one &#8212; see the source note."),
+         "<b>&sect;1926.1427</b> (held from OSHA.gov). That section <b>does</b> apply: the "
+         "enumeration at &sect;1926.1438(b)(2)(i) brings in <b>&sect;&sect;1926.1427 through "
+         "1434</b>. &sect;1926.1427(d) requires certification by an <b>accredited crane "
+         "operator testing organization</b> or a qualifying government licence. OSHA does "
+         "<b>not</b> name NCCCO.",
+         "NCCCO's public overview confirms a <b>CCO Overhead Crane Operator</b> certification "
+         "(written + practical; cab or pendant/remote). CraneQualified routes that programme "
+         "path through CCOS. That routing is administrative, not a CFR citation. Exam-item "
+         "counts are not OSHA requirements and are not gated here."),
         ("Your designation has edges",
          "A designation is not a licence to operate cranes. It covers named <b>equipment</b>, "
          "named <b>control modes</b>, and named <b>environments</b>. Everything outside those "
@@ -435,7 +438,7 @@ TRACE_SOURCE = {
     "OHC.12.B.R3": ("derived &middot; `OHC.05.C.K5`", "OK"),
     "OHC.12.C.K1": ("**&sect;1910.179(b)(8)** &middot; (l)(3)(i)", "OK"),
     "OHC.12.C.K1b": ("**&sect;1926.1438(b)(2)** enumeration", "OK"),
-    "OHC.12.C.K2": ("**&sect;1926.1427** via **&sect;1926.1438(b)(2)(i)**", "OPEN"),
+    "OHC.12.C.K2": ("**&sect;1926.1427(a),(d)** held via **&sect;1926.1438(b)(2)(i)**; NCCCO public overview (programme path)", "OK"),
     "OHC.12.C.K3": ("derived", "OK"),
     "OHC.12.C.K4": ("ACS element as written", "OK"),
     "OHC.12.C.K5": ("Gate Master Rev 1.3, amendment A2", "OK"),
@@ -471,18 +474,15 @@ TRACE_NOTES = [
      "reason there must be two gates rather than one: **&sect;1910.179(b)(8) is not in that "
      "enumeration**, so employer designation has no force on the construction branch. "
      "`C.K1`, `C.K1b`, `C.K2` and `C.R2` gate the whole structure."),
-    ("&#9888;&#65039; What is verified about `C.K2`, and what is not",
-     "`C.K2` reads: *&#8220;&sect;1926.1427 certified operator via nationally recognized "
-     "certification **administered via NCCCO, routed through CCOS**.&#8221;* The **regulatory "
-     "half is verified** &#8212; &sect;1926.1427 applies, via the (b)(2)(i) enumeration. The "
-     "**routing half is a programme assertion this repo cannot verify**: whether NCCCO offers "
-     "an overhead-crane certification, and the CCOS administrative path, are facts about "
-     "private bodies and internal process, not about the CFR. **&sect;1926.1427's own "
-     "paragraph text is also not held** &#8212; the corpus copy of Subpart CC is a degraded "
-     "OCR scan and osha.gov / ecfr.gov are blocked by this environment's egress policy. So "
-     "`C.K2` gates the section that applies, **not** the administering body. This is "
-     "cross-check blocking item 4, now narrowed: the legal routing is sound; the vendor "
-     "routing needs owner confirmation before it appears in learner-facing copy."),
+    ("&#9989; `C.K2` &#8212; paragraph text held; NCCCO confirmed as a public overhead path",
+     "`C.K2` gates **&sect;1926.1427** via the (b)(2)(i) enumeration. **(a)** and **(d)** "
+     "were fetched from OSHA.gov 2026-08-28: trained, certified/licensed, evaluated; "
+     "certification by an accredited crane operator testing organization or qualifying "
+     "government licence. OSHA does **not** name NCCCO. NCCCO's public Overhead Crane "
+     "Operator overview confirms that a CCO overhead programme exists (written + practical; "
+     "cab or pendant/remote). Programme routing through CCOS remains administrative. "
+     "Exam-item counts, fees, and handbook domains are **not** gated. Canada `C.K6`/`C.R4` "
+     "are unchanged."),
     ("&#11088; `C.K5` is the ethical spine of the track and it is stated without hedging",
      "Programme completion establishes **structured preparation** and evidences the "
      "**standard of care**. It does **not** confer qualification. Qualification is a "
@@ -502,9 +502,10 @@ TRACE_NOTES = [
     ("&#9989; The capstone's branch content is the track's own structure",
      "`A.K1b` gates jurisdiction-first because this track has now demonstrated the "
      "consequence three separate ways: inspection and maintenance are **facility branch** "
-     "(OHC-05, and &sect;&sect;1926.1412/1413 on the other side); the signals regime is "
-     "**construction branch** (OHC-09); load handling under paragraph **(n)** binds on "
-     "**both** (OHC-07). No other single decision changes as much downstream."),
+     "(OHC-05, with **&sect;&sect;1926.1412/1413** held on the other side); the signals "
+     "regime is **construction branch** (OHC-09, **1419&#8211;1422 / 1428** held); load "
+     "handling under paragraph **(n)** binds on **both** (OHC-07). No other single decision "
+     "changes as much downstream."),
     ("&#9432; Elements carrying a second item",
      "`A.K1`, `B.K2`, `C.K1` and `C.K5` each carry two items &#8212; separating the phase list "
      "from why its order matters, the record's fields from the field that gets dropped, the "

@@ -17,7 +17,7 @@ Twelve modules decomposed to certification-standards format: each module an Area
 **Skills** (S)
 Expand allCollapse all
 Jurisdiction & Gate Architecture
-Citable spine: 29 CFR 1910.179 on the facility branch (per §1926.1438(a) for permanently installed cranes used in construction) and 29 CFR §1926.1438(b) hybrid regime for non-permanently installed cranes in construction — including §1926.1427 operator certification on that branch. EM 385-1-1 (15 Mar 2024) Ch. 16 grounds federal work, including the para 16-2 Class I / Class II tiers and 16-8.aa supplemental requirements. ASME B30.2, B30.17, B30.16, B30.20, B30.9, P30.1, and CMAA specifications cited by name only. All 1910.179 paragraph-level citations require eCFR claim-level verification before module build. Program content establishes the operator’s standard of care; the employer remains the qualified person.
+Citable spine: 29 CFR 1910.179 on the facility branch (per §1926.1438(a) for permanently installed cranes used in construction) and 29 CFR §1926.1438(b) hybrid regime for non-permanently installed cranes in construction — including §1926.1427 operator certification on that branch. EM 385-1-1 (15 Mar 2024) Ch. 16 grounds federal work, including the para 16-2 Class I / Class II tiers and 16-8.aa supplemental requirements. ASME B30.2 is cited by edition and branch: facility IBR is ANSI B30.2.0-1967 (§1910.179(b)(2)); construction IBR is named ASME B30.2-2005 sections (§1926.1438(b)(2)(iii)); the vault's B30.2-2016 copy is consensus held, not either governing edition. B30.17, B30.16, B30.20, B30.9, P30.1, and CMAA specifications cited by name only except where OSHA has incorporated named sections. Facility slings: §1910.184 (construction companion §1926.251). Energy control: §1910.147 (substituted for ANSI Z244.1 at §1926.1438(b)(2)(iii)). Program content establishes the operator’s standard of care; the employer remains the qualified person.
 DESIGNATION GATE · Facility Branch · Employer QP DesignationCERTIFICATION GATE · §1926.1438(b) Construction Branch · NCCCO via CCOS
 Area of Operation 01
 
@@ -25,9 +25,9 @@ Area of Operation 01
 
 **Objective.** Determine the equipment class, installation status, and governing regulatory regime for any overhead or gantry crane before operation.
 
-**References:** 29 CFR 1910.179 · 29 CFR §1926.1438 · EM 385-1-1 (15 Mar 2024) para 16-2, 16-8.aa · ASME B30.2 (by name only) · ASME B30.17 (by name only)
+**References:** 29 CFR 1910.179 · 29 CFR §1926.1438 · §1910.6 IBR · EM 385-1-1 (15 Mar 2024) para 16-2, 16-8.aa · ANSI B30.2.0-1967 (facility IBR) · ASME B30.2-2005 sections (construction IBR) · ASME B30.2-2016 (vault consensus copy, not IBR) · ASME B30.17 (by name only)
 
-#### Task A — Equipment Identification and Classification6K3R3S
+#### Task A — Equipment Identification and Classification7K3R3S
 
 **Objective.** Identify overhead and gantry crane types and configurations and their operational characteristics.
 
@@ -45,6 +45,8 @@ OHC.01.A.K5 Governing consensus standard by configuration: top-running (ASME B30
 
 OHC.01.A.K6 Hoist as a distinct component class (ASME B30.16)
 
+OHC.01.A.K7 Incorporation by reference (§1910.6): a consensus standard named is guidance; a standard incorporated by reference is enforceable as regulation for the sections named
+
 **Risk Management**
 
 OHC.01.A.R1 Misclassifying equipment and applying the wrong inspection, marking, or operating rule set
@@ -61,7 +63,7 @@ OHC.01.A.S2 Match a given crane to its governing ASME volume by name
 
 OHC.01.A.S3 Locate and interpret the equipment identification and capacity markings
 
-#### Task B — Jurisdictional Determination6K3R3S
+#### Task B — Jurisdictional Determination7K3R3S
 
 **Objective.** Determine which federal regime governs a specific crane based on installation status and work context.
 
@@ -78,6 +80,8 @@ OHC.01.B.K4 General industry facility operation outside construction: 29 CFR 191
 OHC.01.B.K5 Federal/USACE work: EM 385-1-1 Chapter 16 supplemental requirements and Class I / Class II crane-hoist tiers (para 16-2.g/h)
 
 OHC.01.B.K6 Indicators of permanent installation: physically fastened to the building, not readily assembled or disassembled, irremovable part of the property
+
+OHC.01.B.K7 Two IBR editions, two cut-offs: facility branch incorporates ANSI B30.2.0-1967 for cranes constructed and installed on or after 31 Aug 1971 (§1910.179(b)(2)); construction branch incorporates named ASME B30.2-2005 sections for equipment manufactured on or after 19 Sep 2001 (§1926.1438(b)(2)(iii)). The 2016 volume is not either governing edition
 
 **Risk Management**
 
@@ -105,7 +109,7 @@ OHC.01.C.K1 Employer as the qualified person making the operator qualification d
 
 OHC.01.C.K2 Designation Gate model on the facility branch: employer-issued designation, documented
 
-OHC.01.C.K3 Certification Gate on the §1926.1438(b) construction branch: §1926.1427 certified operator, nationally recognized certification administered via NCCCO and routed through CCOS
+OHC.01.C.K3 Certification Gate on the §1926.1438(b) construction branch: §1926.1427 certified/licensed operator (accredited crane operator testing organization or qualifying government license). NCCCO publishes a CCO Overhead Crane Operator certification; programme routing through CCOS is administrative, not a CFR name
 
 OHC.01.C.K4 Competent Person (Cranes and Rigging) role under EM 385 para 16-2.i on federal work
 
@@ -126,7 +130,7 @@ OHC.01.C.S1 State who issued their designation, what equipment and modes it cove
 OHC.01.C.S2 Produce designation and training records on request
 
 OHC.01.C.S3 Refuse assignments outside the scope of designation
-3 tasks · 17 K · 9 R · 9 S · 35 elements
+3 tasks · 19 K · 9 R · 9 S · 37 elements
 Area of Operation 02
 
 ### OHC-02 Crane Components and Systems
@@ -445,7 +449,7 @@ Area of Operation 05
 
 **Objective.** Execute operator-level inspections, recognize removal-from-service conditions, and interface with the periodic inspection program.
 
-**References:** 29 CFR 1910.179 · EM 385-1-1 (15 Mar 2024) para 16-2, 16-8.aa · ASME B30.2 (by name only) · ASME B30.17 (by name only) · ASME B30.16 (by name only)
+**References:** 29 CFR 1910.179 · 29 CFR §1926.1412 · 29 CFR §1926.1413 · 29 CFR 1910.147 · EM 385-1-1 (15 Mar 2024) para 16-2, 16-8.aa · ASME B30.2 (name + IBR edition per OHC-01.B.K7) · ASME B30.17 (by name only) · ASME B30.16 (by name only)
 
 #### Task A — Pre-Operational and Frequent Inspection5K3R3S
 
@@ -521,7 +525,7 @@ OHC.05.C.K1 Removal-from-service authority of the operator and the stop-work pri
 
 OHC.05.C.K2 Rope and chain removal criteria at awareness level: broken wires, kinking, crushing, corrosion, stretch, and gauge wear
 
-OHC.05.C.K3 Tag-out and control of a defective crane; communication to oncoming shifts
+OHC.05.C.K3 Tag-out and control of a defective crane; communication to oncoming shifts; §1910.147 as the energy-control standard behind lockout (substituted for ANSI Z244.1 on the construction B30.2-2005 path at §1926.1438(b)(2)(iii))
 
 OHC.05.C.K4 Distinction between operator-correctable items and maintenance-only items
 
@@ -549,7 +553,7 @@ Area of Operation 06
 
 **Objective.** Attach loads correctly using slings and below-the-hook devices within the operator's interface role.
 
-**References:** ASME B30.9 (by name only) · ASME B30.20 (by name only) · ASME P30.1 (by name only) · EM 385-1-1 (15 Mar 2024) para 16-2, 16-8.aa
+**References:** 29 CFR 1910.184 (facility slings) · 29 CFR §1926.251 (construction rigging) · ASME B30.9 (by name only) · ASME B30.20 (by name only) · ASME P30.1 (by name only) · EM 385-1-1 (15 Mar 2024) para 16-2, 16-8.aa
 
 #### Task A — Sling Interface5K3R3S
 
@@ -557,7 +561,7 @@ Area of Operation 06
 
 **Knowledge**
 
-OHC.06.A.K1 Sling types and identification tags; rated load by hitch and angle at awareness level
+OHC.06.A.K1 Sling types and identification tags; rated load by hitch and angle at awareness level. Facility branch: §1910.184 is the sling regulation (no sling without affixed legible identification markings, (c)(14)). Construction branch: §1926.251(a)(2). ASME B30.9 is the consensus layer above the regulation
 
 OHC.06.A.K2 Hitch configurations and their load effects: vertical, choker, basket, and bridle
 
@@ -757,7 +761,7 @@ Area of Operation 08
 
 **Objective.** Apply the standing operating rules that govern personnel protection, multi-crane environments, and securing.
 
-**References:** 29 CFR 1910.179 · EM 385-1-1 (15 Mar 2024) para 16-2, 16-8.aa · ASME B30.2 (by name only) · ASME B30.17 (by name only)
+**References:** 29 CFR 1910.179 · 29 CFR 1910.147 · EM 385-1-1 (15 Mar 2024) para 16-2, 16-8.aa · ASME B30.2 (name + IBR edition per OHC-01.B.K7) · ASME B30.17 (by name only)
 
 #### Task A — Personnel Protection Rules5K3R3S
 
@@ -861,7 +865,7 @@ Area of Operation 09
 
 **Objective.** Direct and receive lift communication using standard signals and disciplined verbal protocols.
 
-**References:** 29 CFR 1910.179 · EM 385-1-1 (15 Mar 2024) para 16-2, 16-8.aa · ASME B30.2 (by name only)
+**References:** 29 CFR 1910.179 · 29 CFR §§1926.1419–1422 · 29 CFR §1926.1428 · EM 385-1-1 (15 Mar 2024) para 16-2, 16-8.aa · ASME B30.2 (name + IBR edition per OHC-01.B.K7)
 
 #### Task A — Standard Hand Signals5K3R3S
 
@@ -1045,7 +1049,7 @@ OHC.10.C.K3 Process energy adjacent to lift paths: steam, hydraulics, and pressu
 
 OHC.10.C.K4 Load interaction with energized or in-service equipment during placement
 
-OHC.10.C.K5 Coordination with facility energy control programs at the operator interface level
+OHC.10.C.K5 Coordination with facility energy control programmes at the operator interface level (§1910.147: affected vs authorized employee; hold the placement until isolation is verified)
 
 **Risk Management**
 
@@ -1069,7 +1073,7 @@ Area of Operation 11
 
 **Objective.** Respond correctly to equipment malfunctions, stranded loads, and emergency events.
 
-**References:** 29 CFR 1910.179 · EM 385-1-1 (15 Mar 2024) para 16-2, 16-8.aa · ASME B30.2 (by name only) · ASME B30.17 (by name only)
+**References:** 29 CFR 1910.179 · 29 CFR 1910.147 · EM 385-1-1 (15 Mar 2024) para 16-2, 16-8.aa · ASME B30.2 (name + IBR edition per OHC-01.B.K7) · ASME B30.17 (by name only)
 
 #### Task A — Power and Control Failures5K3R3S
 
@@ -1081,7 +1085,7 @@ OHC.11.A.K1 Expected brake behavior on power loss: load held by spring-set brake
 
 OHC.11.A.K2 Stranded suspended load response: secure the area, do not improvise recovery
 
-OHC.11.A.K3 Mainline disconnect use and when to isolate
+OHC.11.A.K3 Mainline disconnect use and when to isolate; §1910.147 as the energy-control programme the lockout implements (operator typically an affected employee)
 
 OHC.11.A.K4 Control malfunction symptoms: unresponsive, sticking, or self-motion conditions and immediate E-stop response
 
@@ -1247,7 +1251,7 @@ OHC.12.B.S3 Locate and interpret equipment history for an assigned crane
 
 OHC.12.C.K1 Designation Gate: employer-issued operator designation on the facility branch; the employer remains the qualified person
 
-OHC.12.C.K2 Certification Gate on the §1926.1438(b) construction branch: §1926.1427 certified operator via nationally recognized certification administered via NCCCO, routed through CCOS
+OHC.12.C.K2 Certification Gate on the §1926.1438(b) construction branch: §1926.1427 certified/licensed operator (accredited testing organization or qualifying government license). NCCCO CCO Overhead Crane Operator is the programme's published overhead path, routed through CCOS; OSHA does not name NCCCO
 
 OHC.12.C.K3 Scope statements: equipment, control modes, and environments covered by the designation
 
@@ -1277,12 +1281,12 @@ OHC.12.C.S3 Complete all Designation Gate performance and documentation requirem
 
 ## Canada amendment (North America pack)
 
-See `docs/OHC-ACS-Canada-amendment.md` for provisional Task D codes on OHC-01 and Canada routing on OHC-12 (`OHC.12.C.K6`, `OHC.12.C.R4`). Census effect: OHC-01 gains Task D (+5K +3R +3S); OHC-12 gains two net-new C elements. CSA B167 is cite-by-name until a verified edition is held.
+See `docs/OHC-ACS-Canada-amendment.md` for provisional Task D codes on OHC-01 and Canada routing on OHC-12 (`OHC.12.C.K6`, `OHC.12.C.R4`). Census effect: US table is **400** (OHC-01 19 K including A.K7/B.K7). OHC-01 Task D adds +5K +3R +3S; OHC-12 adds two net-new C elements. Combined North America overlay: **411** (Task D) or **413** with C.K6/R4. CSA B167 is cite-by-name until a verified edition is held.
 
 
 Element Census
  | Module | Tasks | K | R | S | Total
- | OHC-01 Equipment Types, Configurations, and Jurisdictional Framework | 3 | 17 | 9 | 9 | 35
+ | OHC-01 Equipment Types, Configurations, and Jurisdictional Framework | 3 | 19 | 9 | 9 | 37
  | OHC-02 Crane Components and Systems | 3 | 15 | 9 | 9 | 33
  | OHC-03 Controls and Operating Modes | 3 | 15 | 9 | 9 | 33
  | OHC-04 Rated Load, Capacity, and Load Weight Determination | 3 | 15 | 9 | 9 | 33
@@ -1294,11 +1298,11 @@ Element Census
  | OHC-10 Environmental and Site Hazards | 3 | 15 | 9 | 9 | 33
  | OHC-11 Malfunctions and Emergency Procedures | 3 | 15 | 9 | 9 | 33
  | OHC-12 Capstone: Qualification Readiness and Documentation | 3 | 15 | 9 | 9 | 33
- | Track total | 36 | 182 | 108 | 108 | 398
+ | Track total | 36 | 184 | 108 | 108 | 400
 12Modules
 36Tasks
-182Knowledge
+184Knowledge
 108Risk Mgmt
 108Skills
-398Elements
+400Elements
 CraneQualified · Overhead Crane Operator Track ACS Breakdown · Codes OHC-01–OHC-12 provisional pending Gate Master assignment · Time is arbitrary. Knowledge is real.

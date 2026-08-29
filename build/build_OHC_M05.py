@@ -115,9 +115,13 @@ CONTENT = {
          "&sect;1910.179(j), (l) and (m) are <b>not</b> in the &sect;1926.1438(b)(2) list. "
          "On a crane that is not permanently installed and is used in construction, the "
          "inspection duty comes from <b>&sect;1926.1412</b> and wire rope from "
-         "<b>&sect;1926.1413</b>.",
-         "Everything else in this module is the facility branch. Know which branch you are "
-         "on before you quote an interval &#8212; OHC-01 Task B is how you decide."),
+         "<b>&sect;1926.1413</b> (both held from OSHA.gov).",
+         "<b>&sect;1926.1412(d)(1)</b>: a competent person must <b>begin a visual inspection "
+         "prior to each shift</b> the equipment will be used. <b>(e)(1)</b> monthly repeats "
+         "the shift scope. <b>(f)(2)</b> at least every 12 months, a qualified person. "
+         "<b>&sect;1926.1413(a)(1)</b>: a competent person begins a visual inspection of "
+         "wire ropes prior to each shift. Do not mix Category I/II/III rope removal into "
+         "this module's C.K2 &#8212; that list stays on facility &sect;1910.179(m).")
     ],
     "C": [
         ("Stop-work is not a request",
@@ -149,7 +153,10 @@ CONTENT = {
          "hook where visible from the floor.",
          "Step five is the one that gets a mechanic hit: where other cranes share the "
          "runway, <b>rail stops or other suitable means</b> shall be provided to prevent "
-         "interference with the idle crane."),
+         "interference with the idle crane. That crane-specific sequence is the isolate "
+         "path. The energy-control programme behind lockout is <b>&sect;1910.147</b> "
+         "(held). On the construction B30.2-2005 path, &sect;1926.1438(b)(2)(iii) states "
+         "that <b>29 CFR 1910.147 shall be substituted for ANSI Z244.1</b>."),
         ("Hooks are discarded, not repaired",
          "(l)(3)(iii)(a): hooks with the (j)(2)(iii) defects <b>shall be discarded</b>. The "
          "standard's own words on the alternative &#8212; <i>&#8220;repairs by welding or "
@@ -320,9 +327,13 @@ GATE = [
       "nothing escalates", "A periodic inspection defect", "A documentation error only"],
      1, ""),
     ("OHC.05.B.R3",
-     "The construction-branch inspection authority for a crane not permanently installed is:",
-     ["&sect;1910.179(j)", "&sect;1926.1412, with wire rope under &sect;1926.1413",
-      "&sect;1926.1438(a)", "ASME B30.2 only"], 1, ""),
+     "&sect;1926.1412(d)(1) (held) requires a competent person to begin a visual inspection "
+     "prior to each shift the equipment will be used. Until that inspection is begun, the "
+     "operator:",
+     ["May operate if last month's inspection is current",
+      "Does not operate -- the shift visual inspection must be begun first",
+      "Applies the 1910.179 frequent interval as a substitute",
+      "Completes the inspection during the first lift"], 1, ""),
     # ---- Task C
     ("OHC.05.C.K1",
      "&sect;1910.179(l)(3)(i) requires that unsafe conditions disclosed by inspection be:",
@@ -339,6 +350,15 @@ GATE = [
      ["Placing controllers in the off position", "Locking the main switch open",
       "Providing rail stops or other means to prevent an adjacent crane interfering with "
       "the idle crane", "Hanging a warning sign"], 2, ""),
+    ("OHC.05.C.K3b",
+     "&sect;1926.1438(b)(2)(iii) (held) lists construction overhead-crane sections from "
+     "ASME B30.2-2005 and states that '29 CFR 1910.147 shall be substituted for ANSI "
+     "Z244.1.' At lockout that means:",
+     ["ANSI Z244.1 remains the OSHA-mandated lockout standard for construction overhead "
+      "cranes",
+      "The construction energy-control interface is OSHA &sect;1910.147, not ANSI Z244.1",
+      "&sect;1910.147 applies only to facility-branch cranes",
+      "Lockout is optional on construction overhead cranes"], 1, ""),
     ("OHC.05.C.K4",
      "An operator finds a controller that sticks between points. The correct action is:",
      ["Adjust the controller and continue", "Remove the crane from service and refer it to "
@@ -386,10 +406,11 @@ TRACE_SOURCE = {
     "OHC.05.B.K5": ("**&sect;1910.179(l)(2)(ii)**", "OK"),
     "OHC.05.B.R1": ("derived", "OK"),
     "OHC.05.B.R2": ("derived", "OK"),
-    "OHC.05.B.R3": ("**&sect;1926.1412 &middot; &sect;1926.1413**", "OPEN"),
+    "OHC.05.B.R3": ("**&sect;1926.1412(d)(1)** held; (e)(1)/(f)(2) and &sect;1926.1413(a)(1) taught", "OK"),
     "OHC.05.C.K1": ("**&sect;1910.179(l)(3)(i)**", "OK"),
     "OHC.05.C.K2": ("**&sect;1910.179(m)** six conditions", "OK"),
     "OHC.05.C.K3": ("**&sect;1910.179(l)(2)(i)** step 5", "OK"),
+    "OHC.05.C.K3b": ("**&sect;1926.1438(b)(2)(iii)** 1910.147 for Z244.1 &middot; **&sect;1910.147** held", "OK"),
     "OHC.05.C.K4": ("**&sect;1910.179(l)(3)(i)** &middot; (l)(3)(iii)(a)", "OK"),
     "OHC.05.C.K5": ("derived", "OK"),
     "OHC.05.C.R1": ("&sect;1910.179(l)(3)(i) &middot; derived", "OK"),
@@ -432,13 +453,18 @@ TRACE_NOTES = [
      "**&sect;1910.179(j)(4)** gives three cases: idle **1&#8211;6 months** &#8594; (j)(2) "
      "+ (m)(2); idle **over 6 months** &#8594; (j)(2) + (j)(3) + (m)(2); **standby** "
      "&#8594; (j)(2) + (m)(2) **at least semi-annually**."),
-    ("&#9888;&#65039; Construction-branch authority added, primary text still open",
+    ("&#9989; Construction-branch inspection paragraphs are held",
      "Cross-check finding **F4**: &sect;1910.179 **(j)**, **(l)** and **(m)** are *not* in "
-     "the &sect;1926.1438(b)(2) list, so on the non-permanently-installed construction "
-     "branch this entire module's authority changes to **&sect;1926.1412** and "
-     "**&sect;1926.1413** &#8212; neither of which appears anywhere in the ACS. `B.R3` "
-     "names them so the branch is no longer silently dropped. The **paragraph-level content "
-     "of those two sections is not yet held in the corpus** and is not gated here."),
+     "the &sect;1926.1438(b)(2) list. Fetched 2026-08-28 from OSHA.gov. `B.R3` gates "
+     "**&sect;1926.1412(d)(1)**: a competent person must begin a visual inspection prior "
+     "to each shift. Monthly **(e)(1)** and annual **(f)(2)** and wire-rope "
+     "**&sect;1926.1413(a)(1)** are taught from the citation pack. Category I/II/III "
+     "rope-removal lists stay out of `C.K2`, which remains on facility **&sect;1910.179(m)**. "
+     "`C.K3b` gates the **&sect;1926.1438(b)(2)(iii)** substitution of **&sect;1910.147** "
+     "for ANSI Z244.1 on the construction B30.2-2005 path. ACS `B.R3` remains *returning "
+     "a repaired crane without verification* (already gated at `B.K5`); the construction "
+     "shift-inspection overlay occupies the `B.R3` second-fact slot because that is where "
+     "the branch hole was taught."),
     ("&#9989; Distribution, not just a wire count",
      "`C.K2` in the ACS lists *broken wires, kinking, crushing, corrosion, stretch, and "
      "gauge wear*. **&sect;1910.179(m)** names six conditions and two of them concern **end "
@@ -451,11 +477,10 @@ TRACE_NOTES = [
 def main():
     html = A.assemble(MODULE, MODLABEL, TITLE, SUBTITLE, OBJECTIVES,
                       len(GATE), SECTIONS, CONTENT, PRACTICE, GATE)
-    out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                       "out", "OHC_M05_InspectionRegime.pre.html")
-    with open(out, "w", encoding="ascii", errors="xmlcharrefreplace") as f:
-        f.write(html)
-    print("wrote %s (%d bytes)" % (out, len(html)))
+    A.write_pre_and_manifest(
+        MODULE, html, "OHC_M05_InspectionRegime.pre.html",
+        "CQ1:OHC_M05_InspectionRegime", "OHC_M06", PRACTICE, GATE,
+        notes="1412/1413 and 1910.147 held 2026-08-28")
 
 
 if __name__ == "__main__":

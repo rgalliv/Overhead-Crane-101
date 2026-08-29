@@ -142,8 +142,12 @@ CONTENT = {
          "clear of traffic, walkways and work at floor level. <b>Controls off</b> "
          "&#8212; every controller returned to the off position.",
          "Then <b>disconnect as required</b> by the facility: main switch, disconnect, or "
-         "lockout where the programme calls for it. A crane left live with the block at head "
-         "height is secured in name only."),
+         "lockout where the programme calls for it. The crane-specific isolate sequence is "
+         "&sect;1910.179(l)(2)(i). When the work is servicing or maintenance, "
+         "<b>&sect;1910.147</b> (held) is the energy-control programme: procedures, training, "
+         "and periodic inspections so the machine is isolated and rendered inoperative. The "
+         "operator is typically an <b>affected</b> employee &#8212; hold until isolation is "
+         "verified. A crane left live with the block at head height is secured in name only."),
         ("Outdoor cranes: secure them when you leave",
          "<b>EM 385-1-1 16-8.aa(7)</b> is one sentence and it is absolute: <b>operators of "
          "outdoor cranes shall secure them when leaving</b>. Not at shift end &#8212; when "
@@ -352,6 +356,17 @@ GATE = [
      ["Controls off only", "Hook empty, load block raised clear, controls off, and "
       "disconnect as required", "Lowering the block to floor level for inspection",
       "Leaving the crane centred on the runway with power on"], 1, ""),
+    ("OHC.08.C.K1b",
+     "&sect;1910.147(a)(1)(i) and (c)(1) (held) cover servicing and maintenance in which "
+     "unexpected energization could cause injury. How does that sit beside the crane "
+     "disconnect sequence at &sect;1910.179(l)(2)(i)?",
+     ["&sect;1910.147 replaces the crane disconnect procedure",
+      "&sect;1910.179(l)(2)(i) is the crane-specific isolate-before-work sequence; "
+      "&sect;1910.147 is the energy-control programme when the work is servicing or "
+      "maintenance",
+      "&sect;1910.147 never applies to overhead cranes",
+      "The operator always becomes the authorized lockout employee without employer "
+      "designation"], 1, ""),
     ("OHC.08.C.K2",
      "EM 385-1-1 16-8.aa(7) requires operators of outdoor cranes to secure them:",
      ["At the end of each shift", "When leaving", "Weekly",
@@ -417,6 +432,7 @@ TRACE_SOURCE = {
     "OHC.08.B.R2": ("**EM 385 16-8.aa(5)** &middot; derived", "OK"),
     "OHC.08.B.R3": ("**EM 385 16-8.aa(6)** &middot; derived", "OK"),
     "OHC.08.C.K1": ("derived &middot; Tier 0", "OK"),
+    "OHC.08.C.K1b": ("**&sect;1910.147(a)(1)(i),(c)(1)** held &middot; &sect;1910.179(l)(2)(i)", "OK"),
     "OHC.08.C.K2": ("**EM 385 16-8.aa(7)**", "OK"),
     "OHC.08.C.K2b": ("**&sect;1910.179(b)(4)** &#8212; facility branch, storage bridges",
                      "ACSFIX"),
@@ -478,20 +494,20 @@ TRACE_NOTES = [
      "the list. The two facility-branch items in this module are both flagged: `B.K5b` "
      "and `C.K2b`."),
     ("&#9432; Elements carrying a second item",
-     "`A.K3`, `B.K5`, `C.K2` and `C.K4` each carry two items &#8212; in each case separating "
-     "a cited requirement from the judgement or scope limit that the ACS element also asks "
-     "for."),
+     "`A.K3`, `B.K5`, `C.K1`, `C.K2` and `C.K4` each carry two items &#8212; in each case "
+     "separating a cited requirement from the judgement or scope limit that the ACS "
+     "element also asks for. `C.K1b` maps held **&sect;1910.147** onto the disconnect "
+     "step already in `C.K1`."),
 ]
 
 
 def main():
     html = A.assemble(MODULE, MODLABEL, TITLE, SUBTITLE, OBJECTIVES,
                       len(GATE), SECTIONS, CONTENT, PRACTICE, GATE)
-    out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                       "out", "OHC_M08_OperationalRules.pre.html")
-    with open(out, "w", encoding="ascii", errors="xmlcharrefreplace") as f:
-        f.write(html)
-    print("wrote %s (%d bytes)" % (out, len(html)))
+    A.write_pre_and_manifest(
+        MODULE, html, "OHC_M08_OperationalRules.pre.html",
+        "CQ1:OHC_M08_OperationalRules", "OHC_M09", PRACTICE, GATE,
+        notes="1910.147 mapped onto C.K1b 2026-08-28")
 
 
 if __name__ == "__main__":

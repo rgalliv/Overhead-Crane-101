@@ -34,7 +34,7 @@ CraneQualified — **Overhead Crane Operator Track (OHC)**. Twelve modules, ACS 
 | `out/OHC_M10_EnvironmentalHazards.html` | OHC-10. 67 slides, 29 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M11_MalfunctionsAndEmergencies.html` | OHC-11. 66 slides, 28 gate items, 0 gaps, CONFORMANT. |
 | `out/OHC_M12_Capstone.html` | OHC-12. Capstone + Canada designation routing, 30 gate items. |
-| `docs/OHC-ACS-build-spec.md` | **The ACS itself** — all twelve modules, 398 elements, committed verbatim from the authoritative HTML breakdown. Source of truth for every build. |
+| `docs/OHC-ACS-build-spec.md` | **The ACS itself** — all twelve modules, **400** elements (184 K · 108 R · 108 S), committed from the authoritative HTML breakdown. Source of truth for every build. |
 | `docs/OHC-build-format-spec.md` | Build format, packaging and question architecture for the OHC track, derived from the mobile-crane Developer Handoff (structure only). |
 | `docs/second-brain-crosscheck.md` | Cross-check of the OHC build spec against the CraneQualified Second Brain corpus — citation verification, corpus gaps, build-pipeline conflicts, and recommended order of work. |
 
@@ -48,7 +48,7 @@ Track status: **all twelve modules built.** Every module audits at **0 gaps, CON
 
 **Element coverage is complete and verified.** A census cross-check against `docs/OHC-ACS-build-spec.md` confirms **every ACS Knowledge and Risk Management element in all twelve modules carries at least one gate item** — 290 ACS elements plus the 2 net-new in OHC-01 = 292, with 41 elements carrying a second item where they hold two independently testable facts. Re-run the check any time with the script in the commit for `Build OHC-12`.
 
-**Census amendment.** The ACS census table totals **398** elements. OHC-01 carries two net-new elements from the Part 1910 map (`A.K7` incorporation by reference, `B.K7` the two-edition split), moving OHC-01 from 17 K to 19 K and the **track total to 400**. The ACS census table needs the same amendment.
+**Census.** The ACS census table totals **400** elements (OHC-01 is 19 K including net-new `A.K7` incorporation by reference and `B.K7` the two-edition split). Canada overlay: OHC-01 Task D → **411**; plus OHC-12 `C.K6`/`C.R4` → **413**. See `docs/OHC-ACS-Canada-amendment.md`.
 
 Course code **OCO301C**, gate code **OHC-1**, modules **OHC-01 … OHC-12**. Runs **parallel to** the existing six-module overhead course, which continues unchanged. Gate is **100%, server-authoritative**. No revision change to the CraneQualified Competency and Gate Master is made by anything in this repo.
 
@@ -56,14 +56,26 @@ The ACS is committed at `docs/OHC-ACS-build-spec.md`, flattened from the authori
 
 ## Before building
 
-Read the cross-check first. Four items are blocking or near-blocking:
+Read the cross-check first. Items that were blocking are closed below, or listed as **still blocked** with why.
 
-1. ~~**ASME B30.2 is not in the corpus**~~ — **struck 2026-08-08.** `ASME B30.2-2016.pdf` **is** held (`ANSI Standards/`). The surviving caveat is narrower: 2016 is neither operative edition — the facility branch incorporates **ANSI B30.2.0-1967**, the construction branch **ASME B30.2-2005** sections.
-2. ~~EM 385-1-1 Chapter 16 citations are unverified~~ — **resolved 2026-08-07.** Section 16 verified, 1:1 crosswalk to `16-8.aa(2)–(7)`. A 2014-edition decoy file still shares the obvious filename with the cited 2024 edition; rename it.
-3. **NAVFAC P-307 is held** (2000 and 2006 editions, SharePoint) — dated, not missing. **Crane Corner** is still unfetched. Also found: Navy Crane Center *Category 3 (Non-Cab) Crane Safety* student guide, 163 pages, directly on-topic.
-4. **The NCCCO overhead crane certification premise** underpinning the Certification Gate needs confirming before OHC-01 or OHC-12 is authored.
-5. **Subpart CC signals paragraph text is unheld — largest remaining sourcing hole.** §§1926.1419–1422 and §1926.1428 **apply** to overhead cranes on the construction branch (verified from the §1926.1438(b)(2)(i) enumeration), but the corpus copy is a degraded OCR scan and osha.gov / ecfr.gov are blocked by this environment's egress policy. Section-level only is gated in OHC-09. Same cause and fix as §1926.1412/1413 in OHC-05.
-6. **Part 1910 beyond .179 is uncited and unheld.** §1910.184 (slings) and §1910.147 (energy control) govern the facility branch and the corpus has no primary text for either — only decks and client policies. §1910.179 also routes to Subpart D and Subpart S by name. Cheap to close; Part 1910 is public domain.
+### Closed 2026-08-28 (held OSHA.gov text, not eCFR)
+
+1. **Subpart CC signals** — §§1926.1419–1422 and §1926.1428 paragraph text **held** (`vault-dropin/held-cfr/`). OHC-09 gates from held paragraphs (Standard Method / prior agreement, chart posting, QSP documentation, radio on-site test). Same fetch closed **§1926.1412 / §1926.1413** in OHC-05 (`B.R3` is 1412(d)(1), not section numbers alone). eCFR was CAPTCHA-blocked and was not used.
+2. **Part 1910 beyond .179** — **§1910.184** (slings) and **§1910.147** (energy control) **held**. Mapped: OHC-06 `A.K1b` / `A.R1`; OHC-05 `C.K3b`; OHC-08 `C.K1b`; OHC-10 `C.K5`; OHC-11 `A.K3b`. Construction companion **§1926.251** held. **Part 1910 Subpart D** (walking-working surfaces, reached from §1910.179(c)(2)) remains **unheld** — OHC-10 `A.K4` / `A.K5b` stay OPEN.
+3. **ASME B30.2 edition mismatch** — not pirated. Facility IBR is **ANSI B30.2.0-1967** (§1910.179(b)(2)); construction IBR is named **ASME B30.2-2005** sections (§1926.1438(b)(2)(iii)). Vault **B30.2-2016** is consensus held, **not** either governing edition. See `OHC — B30.2 edition scope.md`.
+4. **NCCCO overhead-crane certification premise** — public overview **held** (documentation fetch; live `curl` 403). OSHA §1926.1427 **held** and does **not** name NCCCO. ACS / OHC-01 / OHC-12 treat NCCCO CCO Overhead Crane Operator as the programme path (CCOS), not a CFR name. No exam-item scrape.
+5. **ACS census 398 → 400** — table in `docs/OHC-ACS-build-spec.md` matches the modules (OHC-01 `A.K7` / `B.K7`).
+6. **EM 385 2014 decoy filename** — PDF is **not in this git repo**. Rename instruction published: `EM_385-1-1.pdf` → `EM_385-1-1_30Nov2014_DECOY.pdf` in the vault/Drive copy. Cited 2024 file: `EM 385-1-1 _EFFECTIVE 15 March 2024.pdf`.
+7. **NAVFAC P-307 / Crane Corner** — 2000/2006 P-307 **dated-held** in the vault (not in git). 2025 PDF URL **HTTP 403**. Crane Corner archive **HTTP 403**. OHC-11 does **not** gate from either. Status pack: `OHC — NAVFAC P-307 and Crane Corner status.md`.
+
+### Still blocked (do not pretend these are gated)
+
+- **EM 385-1-1 (15 Mar 2024) Chapter 16 body** unread for **§16.G.05 / §16.B.06**. OHC-09 items that use those numbers remain marked *2014 text*. **16-8.aa(2)–(7)** already crosswalked.
+- **Part 1910 Subpart D** (and Subpart S by name at 1910.179) — unheld. OHC-10 `A.K4` / `A.K5b` OPEN.
+- **CSA B167** — cite-by-name until a verified edition is held (Canada pack unchanged).
+- **eCFR** — CAPTCHA; OSHA.gov HTML is the held copy.
+- **Crane Corner / P-307 2025** — 403, unfetched.
+- **Paid ASME volumes** — not reproduced. Cite OSHA IBR sentences only.
 
 ## Standing disciplines
 
@@ -83,6 +95,13 @@ Content establishes the operator's standard of care. It never confers qualificat
 | `vault-dropin/Crane Standards & Guides/OHC — Rigging Knowledge Harvest (verified).md` | `📚 Resources/Crane Standards & Guides/` |
 | `vault-dropin/Crane Standards & Guides/OHC — Load Handling Source Pack (verified).md` | `📚 Resources/Crane Standards & Guides/` |
 | `vault-dropin/Crane Standards & Guides/OHC — Signals and Communication Source Pack (verified).md` | `📚 Resources/Crane Standards & Guides/` |
+| `vault-dropin/Crane Standards & Guides/OHC — 1926.1412 and 1413 Citation Pack (verified).md` | `📚 Resources/Crane Standards & Guides/` |
+| `vault-dropin/Crane Standards & Guides/OHC — 1910.184 and 1910.147 Citation Pack (verified).md` | `📚 Resources/Crane Standards & Guides/` |
+| `vault-dropin/Crane Standards & Guides/OHC — NCCCO Overhead Program (public pages).md` | `📚 Resources/Crane Standards & Guides/` |
+| `vault-dropin/Crane Standards & Guides/OHC — B30.2 edition scope.md` | `📚 Resources/Crane Standards & Guides/` |
+| `vault-dropin/Crane Standards & Guides/OHC — NAVFAC P-307 and Crane Corner status.md` | `📚 Resources/Crane Standards & Guides/` |
+| `vault-dropin/Crane Standards & Guides/EM_385-1-1_30Nov2014_DECOY-DO-NOT-CITE.md` | `📚 Resources/Crane Standards & Guides/` (rename instruction; PDF not in git) |
+| `vault-dropin/held-cfr/*.txt` | Held OSHA.gov extracts (not eCFR) |
 
 Both carry Obsidian frontmatter and `[[wikilinks]]` matching the existing index convention. After dropping them in, add eight lines to `_Crane Standards — Index.md` so they are reachable from the index.
 

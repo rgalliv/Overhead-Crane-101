@@ -104,12 +104,34 @@ CONTENT = {
          "&sect;1910.179 applies, and &sect;1910.179 says <b>almost nothing about "
          "signals</b>: a warning device at (i), and a warning signal at (n)(3)(xi). No signal "
          "chart, no signal person qualification, no voice protocol.",
-         "On the <b>construction branch</b> &#8212; not permanently installed, "
-         "&sect;1926.1438(b) &#8212; the enumeration at (b)(2)(i) pulls in "
-         "<b>&sect;&sect;1926.1417 through 1425</b> and <b>&sect;&sect;1926.1427 through "
-         "1434</b>, which is the <b>entire Subpart CC signals regime</b>: 1419 general, 1420 "
-         "radio and electronic, 1421 voice, 1422 hand signal chart, and <b>1428 signal person "
-         "qualifications</b>. The detailed rules live on the branch the ACS says least about."),
+         "On the <b>construction branch</b> the enumeration at (b)(2)(i) pulls in "
+         "<b>&sect;&sect;1926.1419 through 1422</b> and <b>&sect;1926.1428</b>. Those "
+         "paragraphs are now held from OSHA.gov and are gated below. EM 385 &sect;16.G.05 "
+         "remains the federal-work overlay (2014 numbering until the 2024 Chapter 16 body is "
+         "re-read)."),
+        ("Construction-branch hand signals, from held paragraphs",
+         "<b>&sect;1926.1419(c)(1)</b>: when using hand signals, the <b>Standard Method</b> "
+         "must be used. Exception: where that method is infeasible, or an operation is not "
+         "covered, non-standard signals may be used under (c)(2).",
+         "<b>(c)(2)</b>: the signal person, operator, and lift director (where there is one) "
+         "<b>must contact each other prior to the operation and agree</b> on the non-standard "
+         "signals. <b>&sect;1926.1422</b>: hand signal charts must be <b>either posted on the "
+         "equipment or conspicuously posted in the vicinity of the hoisting operations</b>."),
+        ("One signaler, anyone may stop, operator's perspective",
+         "<b>&sect;1926.1419(h)</b>: only one person may give signals at a time, except "
+         "(j). <b>(j)</b>: anyone who becomes aware of a safety problem must alert the "
+         "operator or signal person by giving the stop or emergency stop signal.",
+         "<b>(k)</b>: all directions given to the operator by the signal person must be given "
+         "from the <b>operator's direction perspective</b>. <b>(f)</b>: if the ability to "
+         "transmit signals is interrupted, the operator must safely stop until it is "
+         "reestablished and a proper signal is given and understood."),
+        ("Who may signal on the construction branch",
+         "<b>&sect;1926.1428(a)</b>: the employer of the signal person must ensure each "
+         "signal person meets the Qualification Requirements in (c) <b>prior to giving any "
+         "signals</b>, by third-party or employer qualified evaluator.",
+         "<b>(a)(2)</b>: an employer's assessment is <b>not portable</b>. <b>(a)(3)</b>: "
+         "documentation must specify each type of signaling. <b>(c)(5)</b>: oral or written "
+         "test, and a practical test."),
     ],
     "B": [
         ("Closed loop, four steps",
@@ -125,10 +147,11 @@ CONTENT = {
          "channel</b>, <b>identification</b> on each transmission so everyone knows who is "
          "speaking to whom, and for blind work a <b>continuous-communication</b> rule rather "
          "than intermittent check-ins.",
-         "<b>&sect;16.G.05.a(2)</b> is what puts you on radio in the first place: it is "
-         "required beyond 100 ft, or whenever the operator and signal person cannot see each "
-         "other. If you are on radio because of the second trigger, the radio is the only "
-         "channel you have."),
+         "<b>&sect;1926.1420</b> (construction branch, held): devices must be <b>tested on "
+         "site</b> before operations; transmission must be through a <b>dedicated channel</b> "
+         "(exception: multiple cranes coordinating); the operator's reception must be "
+         "<b>hands-free</b>. EM 385 &sect;16.G.05.a(2) is what puts federal work on radio "
+         "beyond 100 ft or without line of sight."),
         ("Anchor directions to the building, not to your body",
          "&#8220;Left&#8221; and &#8220;right&#8221; depend on which way the speaker is "
          "facing. Two people facing each other have opposite lefts, and the load moves "
@@ -284,7 +307,7 @@ GATE = [
       "The point of operation, load travel, or placement area is not in full view of the "
       "operator", "Two or more riggers are present", "The lift is outdoors"], 1, ""),
     ("OHC.09.A.K2b",
-     "Signal person qualification under EM 385 &sect;16.B.06 requires documentation that:",
+     "Signal person qualification under &sect;1926.1428 requires documentation that:",
      ["Names the crane the person was assessed on",
       "Specifies each type of signaling the person is qualified for",
       "Is valid for five years", "Is issued by the crane manufacturer"], 1, ""),
@@ -304,16 +327,18 @@ GATE = [
       "Both visible to the operator and clear of the load",
       "Within 20 ft of the load"], 2, ""),
     ("OHC.09.A.K5",
-     "Where the standard hand signals are impractical for the job, the correct course is:",
+     "Where the Standard Method for hand signals is infeasible, &sect;1926.1419(c)(2) "
+     "permits non-standard signals only if:",
      ["The operator improvises signals as needed",
-      "Other signals are agreed between the operator and signal person in advance",
+      "The signal person, operator, and lift director (where there is one) agree on the "
+      "signals prior to the operation",
       "The lift is prohibited", "The signaler chooses new signals during the lift"], 1, ""),
     ("OHC.09.A.K5b",
-     "On the construction branch, &sect;1926.1438(b)(2)(i) brings in the Subpart CC signals "
-     "sections, including:",
-     ["Nothing on signals -- &sect;1910.179 governs alone",
-      "&sect;&sect;1926.1419 through 1422 and &sect;1926.1428 signal person qualifications",
-      "&sect;1926.1412 only", "ASME B30.9 only"], 1, ""),
+     "&sect;1926.1422 requires that hand signal charts be:",
+     ["Kept in the operator's file only",
+      "Either posted on the equipment or conspicuously posted in the vicinity of the "
+      "hoisting operations",
+      "Issued to each rigger", "Reproduced from ASME B30.2-2016"], 1, ""),
     ("OHC.09.A.R1",
      "Conflicting signals from multiple crew members should be met with:",
      ["Following the most senior person", "Stopping and re-establishing a single signaler",
@@ -335,9 +360,9 @@ GATE = [
      ["Direction and execution", "Direction, execution, confirmation",
       "Direction, readback, execution, confirmation", "Readback and confirmation"], 2, ""),
     ("OHC.09.B.K2",
-     "Radio discipline for blind work requires:",
+     "Under &sect;1926.1420, signal transmission on the construction branch must be:",
      ["Periodic check-ins at agreed intervals",
-      "An assigned channel, identification on transmissions, and continuous communication",
+      "Tested on site, through a dedicated channel, with hands-free reception at the operator",
       "A single transmission before each motion", "Two radios per person"], 1, ""),
     ("OHC.09.B.K3",
      "Anchoring motion vocabulary to fixed references rather than left and right prevents:",
@@ -414,27 +439,27 @@ TRACE_SOURCE = {
     "OHC.09.A.K1": ("**EM 385 &sect;16.G.05.a** &middot; **DOE Hanford TR244C** (ANSI set)",
                     "ED2014"),
     "OHC.09.A.K1b": ("**EM 385 &sect;16.G.05.a(1)&#8211;(2)** 100 ft", "ED2014"),
-    "OHC.09.A.K2": ("**EM 385 &sect;16.G.05.b** three situations", "ED2014"),
-    "OHC.09.A.K2b": ("**EM 385 &sect;16.B.06.b, .d, .e**", "ED2014"),
-    "OHC.09.A.K3": ("**EM 385 &sect;16.G.05.d** first half", "ED2014"),
-    "OHC.09.A.K3b": ("**EM 385 &sect;16.G.05.d** second half", "ED2014"),
-    "OHC.09.A.K4": ("derived &middot; EM 385 &sect;16.G.05", "OK"),
-    "OHC.09.A.K5": ("**DOE Hanford TR244C** impractical-signals rule", "OK"),
-    "OHC.09.A.K5b": ("**&sect;1926.1438(b)(2)(i)** enumeration", "OPEN"),
-    "OHC.09.A.R1": ("EM 385 &sect;16.G.05.d &middot; derived", "OK"),
+    "OHC.09.A.K2": ("**&sect;1926.1419(a)(1)&#8211;(3)** &middot; EM 385 &sect;16.G.05.b", "OK"),
+    "OHC.09.A.K2b": ("**&sect;1926.1428(a)(3), (c)**", "OK"),
+    "OHC.09.A.K3": ("**&sect;1926.1419(h)** &middot; EM 385 &sect;16.G.05.d", "OK"),
+    "OHC.09.A.K3b": ("**&sect;1926.1419(j)** &middot; EM 385 &sect;16.G.05.d", "OK"),
+    "OHC.09.A.K4": ("derived &middot; EM 385 &sect;16.G.05 &middot; &sect;1926.1419(e)", "OK"),
+    "OHC.09.A.K5": ("**&sect;1926.1419(c)(2)** &middot; DOE Hanford TR244C", "OK"),
+    "OHC.09.A.K5b": ("**&sect;1926.1422** (held OSHA.gov 2026-08-28)", "OK"),
+    "OHC.09.A.R1": ("EM 385 &sect;16.G.05.d &middot; &sect;1926.1419(h) &middot; derived", "OK"),
     "OHC.09.A.R2": ("derived", "OK"),
-    "OHC.09.A.R3": ("**EM 385 &sect;16.G.05.c** &middot; derived", "ED2014"),
+    "OHC.09.A.R3": ("**&sect;1926.1419(f)** &middot; EM 385 &sect;16.G.05.c", "OK"),
     "OHC.09.B.K1": ("Tier 0 closed-loop protocol", "OK"),
-    "OHC.09.B.K2": ("**EM 385 &sect;16.G.05.a(2)** &middot; derived", "ED2014"),
+    "OHC.09.B.K2": ("**&sect;1926.1420(a)&#8211;(c)**", "OK"),
     "OHC.09.B.K3": ("Tier 0 &middot; derived", "OK"),
-    "OHC.09.B.K4": ("**EM 385 &sect;16.G.05.c**", "ED2014"),
-    "OHC.09.B.K5": ("derived", "OK"),
+    "OHC.09.B.K4": ("**&sect;1926.1419(f)** &middot; EM 385 &sect;16.G.05.c", "OK"),
+    "OHC.09.B.K5": ("derived &middot; &sect;1926.1421(c)", "OK"),
     "OHC.09.B.R1": ("derived", "OK"),
-    "OHC.09.B.R2": ("**EM 385 &sect;16.G.05.c** &middot; derived", "ED2014"),
-    "OHC.09.B.R3": ("derived", "OK"),
+    "OHC.09.B.R2": ("**&sect;1926.1419(f)** &middot; derived", "OK"),
+    "OHC.09.B.R3": ("derived &middot; &sect;1926.1420(b)", "OK"),
     "OHC.09.C.K1": ("Tier 0 pre-lift briefing &middot; derived", "OK"),
     "OHC.09.C.K2": ("EM 385 &sect;16 spotter watch &middot; derived", "OK"),
-    "OHC.09.C.K3": ("**EM 385 &sect;16.G.05.d** &middot; derived", "ED2014"),
+    "OHC.09.C.K3": ("**&sect;1926.1419(j)** &middot; EM 385 &sect;16.G.05.d", "OK"),
     "OHC.09.C.K4": ("derived", "OK"),
     "OHC.09.C.K5": ("**EM 385 16-8.aa(6)**", "OK"),
     "OHC.09.C.R1": ("derived", "OK"),
@@ -467,16 +492,15 @@ TRACE_NOTES = [
      "signal chart, and **1428** signal person qualifications. In OHC-05 the facility branch "
      "was rich and construction was the gap. Here it is exactly reversed. `A.K5b` gates the "
      "finding."),
-    ("&#9888;&#65039; Section-level verified; paragraph text of the CC signals sections not "
-     "held",
-     "The applicability above was read from the &sect;1926.1438(b)(2)(i) enumeration and the "
-     "section headings. The **paragraph-level text of &sect;&sect;1926.1419&#8211;1422 and "
-     "&sect;1926.1428 is not held in usable form** &#8212; the corpus copy is a heavily "
-     "OCR-degraded scan, and osha.gov and ecfr.gov are both blocked by this environment's "
-     "egress policy. Nothing below section level is gated from those sections. This is the "
-     "same shape of gap as **&sect;1926.1412/1413** in OHC-05 (`B.R3`), and it is now the "
-     "largest remaining sourcing hole in the track."),
-    ("&#9888;&#65039; EM 385 citations here are **2014 numbering**",
+    ("&#9989; Paragraph text of the CC signals sections is held",
+     "Fetched 2026-08-28 from OSHA.gov (eCFR CAPTCHA-blocked). `A.K5b` gates "
+     "**&sect;1926.1422** (charts posted on the equipment or in the vicinity). `A.K5` gates "
+     "**&sect;1926.1419(c)(2)** (prior agreement including the lift director where there is "
+     "one). `A.K2b` gates **&sect;1926.1428** documentation of each signaling type and "
+     "non-portability. `B.K2` gates **&sect;1926.1420** (on-site test, dedicated channel, "
+     "hands-free). `A.K3`/`A.K3b`/`B.K4` dual-cite the matching **1419(h)/(j)/(f)** "
+     "paragraphs beside the EM 385 2014 sentences already taught."),
+    ("&#9888;&#65039; EM 385 citations here that lack a 2024 crosswalk remain **2014 numbering**",
      "Every &sect;16.G.05 and &sect;16.B.06 citation was read verbatim from the standalone "
      "Section 16 extract, which is the **2014** edition and numbers Section 16 by letter. "
      "The ACS references the **15 Mar 2024** edition, whose Section 16 paragraph numbers "
@@ -521,11 +545,10 @@ TRACE_NOTES = [
 def main():
     html = A.assemble(MODULE, MODLABEL, TITLE, SUBTITLE, OBJECTIVES,
                       len(GATE), SECTIONS, CONTENT, PRACTICE, GATE)
-    out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                       "out", "OHC_M09_CommunicationAndSignals.pre.html")
-    with open(out, "w", encoding="ascii", errors="xmlcharrefreplace") as f:
-        f.write(html)
-    print("wrote %s (%d bytes)" % (out, len(html)))
+    A.write_pre_and_manifest(
+        MODULE, html, "OHC_M09_CommunicationAndSignals.pre.html",
+        "CQ1:OHC_M09_CommunicationAndSignals", "OHC_M10", PRACTICE, GATE,
+        notes="CC signals paragraphs held 2026-08-28")
 
 
 if __name__ == "__main__":

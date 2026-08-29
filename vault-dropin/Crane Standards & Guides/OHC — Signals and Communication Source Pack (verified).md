@@ -37,21 +37,45 @@ Gated as `OHC.09.A.K5b`.
 
 ---
 
-## 2. ⚠️ Section-level verified; paragraph text NOT held
+## 2. ✅ Paragraph text HELD — OSHA.gov 2026-08-28
 
-The applicability above was read from the §1926.1438(b)(2)(i) enumeration and from the
-section headings. **The paragraph-level text of §§1926.1419–1422 and §1926.1428 is not held
-in usable form.**
+Fetched from `osha.gov/laws-regs/regulations/standardnumber/1926/{section}` (HTTP 200).
+eCFR was **not** used (CAPTCHA redirect to `unblock.federalregister.gov`). Full extracts:
+`vault-dropin/held-cfr/29CFR-1926.1419.txt` … `1422.txt`, `1428.txt`.
 
-- The corpus copy of Subpart CC is a heavily OCR-degraded scan — word order is scrambled and numerals are corrupted. Readable enough to reconstruct a section-number enumeration, **not** readable enough to quote a paragraph.
-- **osha.gov and ecfr.gov are both blocked** by this environment's egress policy (403 at CONNECT). Verified against the proxy status endpoint, not assumed.
+Verbatim (punctuation as on OSHA.gov):
 
-**Nothing below section level is gated from those sections.** This is now the largest
-remaining sourcing hole in the track, and it is the same shape as the **§1926.1412/1413**
-gap in OHC-05 (`B.R3`).
+**§1926.1419(a)** A signal person must be provided in each of the following situations:
+**(a)(1)** The point of operation, meaning the load travel or the area near or at load placement, is not in full view of the operator.
+**(a)(2)** When the equipment is traveling, the view in the direction of travel is obstructed.
+**(a)(3)** Due to site specific safety concerns, either the operator or the person handling the load determines that it is necessary.
 
-**To close it:** a clean copy of §§1926.1419, 1420, 1421, 1422 and 1428 — from a machine
-readable PDF, or fetched in an environment whose egress policy allows osha.gov.
+**§1926.1419(c)(1)** When using hand signals, the Standard Method must be used (see appendix A of this subpart). Exception: Where use of the Standard Method for hand signals is infeasible, or where an operation or use of an attachment is not covered in the Standard Method, non-standard hand signals may be used in accordance with paragraph (c)(2) of this section.
+
+**§1926.1419(c)(2)** When using non-standard hand signals, the signal person, operator, and lift director (where there is one) must contact each other prior to the operation and agree on the non-standard hand signals that will be used.
+
+**§1926.1419(f)** During operations requiring signals, the ability to transmit signals between the operator and signal person must be maintained. If that ability is interrupted at any time, the operator must safely stop operations requiring signals until it is reestablished and a proper signal is given and understood.
+
+**§1926.1419(h)** Only one person may give signals to a crane/derrick at a time, except in circumstances covered by paragraph (j) of this section.
+
+**§1926.1419(j)** Anyone who becomes aware of a safety problem must alert the operator or signal person by giving the stop or emergency stop signal. (NOTE: § 1926.1417(y) requires the operator to obey a stop or emergency stop signal).
+
+**§1926.1419(k)** All directions given to the operator by the signal person must be given from the operator's direction perspective.
+
+**§1926.1420(a)** The device(s) used to transmit signals must be tested on site before beginning operations to ensure that the signal transmission is effective, clear, and reliable.
+**(b)** Signal transmission must be through a dedicated channel, except: **(b)(1)** Multiple cranes/derricks and one or more signal persons may share a dedicated channel for the purpose of coordinating operations.
+**(c)** The operator's reception of signals must be by a hands-free system.
+
+**§1926.1421(a)** Prior to beginning operations, the operator, signal person and lift director (if there is one), must contact each other and agree on the voice signals that will be used. …
+**(b)** Each voice signal must contain the following three elements, given in the following order: function (such as hoist, boom, etc.), direction; distance and/or speed; function, stop command.
+**(c)** The operator, signal person and lift director (if there is one), must be able to effectively communicate in the language used.
+
+**§1926.1422** Hand signal charts must be either posted on the equipment or conspicuously posted in the vicinity of the hoisting operations.
+
+**§1926.1428(a)** The employer of the signal person must ensure that each signal person meets the Qualification Requirements (paragraph (c) of this section) prior to giving any signals. …
+**(a)(2)** … An assessment by an employer's qualified evaluator under this option is not portable—other employers are not permitted to use it to meet the requirements of this section.
+**(a)(3)** The documentation must specify each type of signaling (e.g. hand signals, radio signals, etc.) …
+**(c)(5)** Demonstrate … through an oral or written test, and through a practical test.
 
 ---
 
@@ -121,7 +145,7 @@ load does not travel past its landing spot.
 
 ## 6. Open items
 
-1. **Close the §§1926.1419–1422 / §1926.1428 paragraph-text gap** (§2 above). Largest sourcing hole in the track.
-2. **Confirm the 2024 EM 385 numbers** for §16.G.05 and §16.B.06 (§3 above).
-3. **§1926.1412 / §1926.1413** still open from OHC-05 — same cause, same fix.
-4. Consider whether the ACS should carry the **100 ft hand-signal boundary** and the **signal person qualification / non-portability** rule as elements of their own; both are currently gated as second items (`A.K1b`, `A.K2b`).
+1. ~~**Close the §§1926.1419–1422 / §1926.1428 paragraph-text gap**~~ — **closed 2026-08-28.** OSHA.gov paragraph text held; OHC-09 gates from held paragraphs.
+2. **Confirm the 2024 EM 385 numbers** for §16.G.05 and §16.B.06 (§3 above). Federal-work EM 385 citations remain 2014 numbering until Chapter 16 of the 15 Mar 2024 edition is re-read.
+3. ~~**§1926.1412 / §1926.1413** still open from OHC-05~~ — **closed 2026-08-28.** Same fetch. See the inspection source pack / OHC-05 rebuild.
+4. The **100 ft hand-signal boundary** remains an **EM 385 2014** figure (`A.K1b`). It is **not** in §1926.1419. Do not migrate that number onto the construction-branch CC items.

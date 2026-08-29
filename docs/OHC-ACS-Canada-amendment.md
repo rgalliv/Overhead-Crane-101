@@ -30,7 +30,7 @@ Append to `OHC-ACS-build-spec.md` census after owner review. Codes are provision
 - `OHC.01.D.S2` State that CSA B167 is the consensus spine and where ASME still informs configuration practice
 - `OHC.01.D.S3` Produce or request the employer written authorization / designation for the assigned crane
 
-**Census delta (OHC-01):** +5 K · +3 R · +3 S = **+11 elements** (module 37 → 48 if stacked on the Part 1910 net-new K pair; track 400 → 411). Gate items for D are authored in OHC-01; PES gains three Canada performance lines on the M01 sheet addendum.
+**Census delta (OHC-01):** +5 K · +3 R · +3 S = **+11 elements** (module 37 → 48 stacked on the Part 1910 net-new K pair A.K7/B.K7; US track **400 → 411**). Gate items for D are authored in OHC-01; PES gains three Canada performance lines on the M01 sheet addendum. OHC-12 `C.K6`/`C.R4` add two further elements (North America overlay **413**).
 
 ---
 

@@ -1,25 +1,34 @@
 # Overhead-Crane-101
 
-CraneQualified — **Overhead Crane Operator Track (OHC)**. Twelve modules, ACS format, decomposed to Knowledge / Risk Management / Skills elements under the code pattern `OHC.[module].[task].[category][n]`.
+CraneQualified — **in-house corporate overhead crane operator program (OCO301C)**. Instructor-led, not self-paced. Twelve ACS modules (`OHC-01` … `OHC-12`) under the code pattern `OHC.[module].[task].[category][n]`.
 
-**North America pack (2026-08):** Canada jurisdiction (CSA B167 + ON/BC/AB/QC/federal), PES + bilingual designation forms, buyer audit binder, generated training imagery, and interactive jurisdiction tree.
+**This repo is training + the knowledge test.** A plant instructor presents each module; operators then take the existing **100% knowledge gate**. Roster, attendance, practical evaluation, designation certificates, and audit packs live in **the company's tracking system** — not here.
+
+**Plant default:** facility / general industry — 29 CFR 1910.179, ANSI B30.2.0-1967 as incorporated at §1910.179(b)(2), §1910.184 slings, §1910.147 LOTO, designated personnel at §1910.179(b)(8). Construction Subpart CC / §1926.1438 and EM 385-1-1 Ch. 16 stay in the ACS as the **other customer**, not this plant's default. Canada (CSA B167) is an overlay, not a fork.
+
+Start here: [`PROGRAM.md`](PROGRAM.md) · [`index.html`](index.html) · [`instructor/`](instructor/)
+
+**North America pack (2026-08):** Canada jurisdiction overlay (CSA B167 + ON/BC/AB/QC/federal), generated training imagery, and interactive jurisdiction tree. Existing PES / designation HTML remains in `forms/` for the company's system; it is not a product surface in this program.
 
 ## Contents
 
 | Path | What it is |
 |---|---|
+| `PROGRAM.md` | Delivery model — instructor-led in-house; facility path; how to run a first session. |
+| `instructor/` | Run-of-show scripts (generated). Present, then knowledge gate. Rebuild: `python3 build/gen_instructor.py`. |
 | `docs/OHC-0n-trace-table.md` | Element-to-item trace tables — **generated** from the same question data that builds each module. |
 | `docs/OHC-Canada-jurisdiction-pack.md` | Canada mapping — CSA B167 spine + federal/provincial overlays. |
 | `docs/OHC-ACS-Canada-amendment.md` | ACS Task D (Canada) + OHC-12 routing amendments. |
-| `docs/OHC-buyer-audit-binder.md` | Safety-director evidence checklist and folder map. |
-| `forms/pes/` | Printable Performance Evaluation Sheets (108 S + Canada addendum). |
-| `forms/designation/` | Employer designation certificate — **EN** and **FR**. |
+| `docs/OHC-buyer-audit-binder.md` | Legacy checklist. Not this program's product surface — tracking is the company's system. |
+| `forms/pes/` | Legacy PES HTML. Practical sign-off is the company's system. |
+| `forms/designation/` | Legacy designation HTML. Designation is the company's system. |
 | `assets/images/` | Generated training visuals (inlined into self-contained HTML). |
 | `out/interactive/OHC_Jurisdiction_Tree.html` | Standalone US/Canada jurisdiction decision tree. |
 | `build/cq_authoring.py` | Shared authoring scaffold — HTML shell, hero media, flip cards, decision tree. |
 | `build/retrofit.py` | Pre.html → gated HTML (FNV-1a hashes + gate engine). |
 | `build/enhance_visuals.py` | Visual-pack CSS + module imagery for M02–M11. |
 | `build/build_OHC_M0n.py` | Per-module question data. |
+| `build/gen_instructor.py` | Instructor run-of-show generator (talk track + gate count; **no answer keys**). |
 | `build/gen_trace.py` | Parameterised trace-table generator (`python3 build/gen_trace.py 05 06`). Supersedes the copy-pasted `gen_trace_M0n.py` scripts still used by OHC-01…-04. |
 | `manifests/OHC_M0n.json` | Rebuild source of truth per module — salt, gate set, answer key. |
 | `out/OHC_M01_EquipmentAndJurisdiction.html` | OHC-01. US + **Canada Task D**, hero/interactive tree, 36 gate items. |
@@ -40,9 +49,11 @@ CraneQualified — **Overhead Crane Operator Track (OHC)**. Twelve modules, ACS 
 
 ## Status
 
+**Delivery:** in-house instructor-led corporate program. Instructor presents; operators take the knowledge gate; instructor releases the next module. Not self-enroll.
+
 Track status: **all twelve modules built.** Every module audits at **0 gaps, CONFORMANT**, and every gate is behaviourally verified at 100% with the completion handshake chaining `OHC_M01 → … → OHC_M12 → (end)`.
 
-**North America / buyer pack:** Canada Task D authored into OHC-01; Canada designation routing in OHC-12; PES HTML for all modules; EN+FR designation certificates; interactive jurisdiction tree; generated imagery inlined for self-contained LMS files; visual CSS pack across M02–M11.
+**North America overlay:** Canada Task D in OHC-01; Canada routing notes in OHC-12; interactive jurisdiction tree; generated imagery inlined into the gated HTML; visual CSS pack across M02–M11. PES / designation HTML in `forms/` is leftover for the company's tracking system, not a surface of this program.
 
 **Track totals:** 802 slides · **347 gate items**. Handshake `OHC_M01 → … → OHC_M12 → (end)` at 100% gate. See manifests for per-module salts and answer keys.
 

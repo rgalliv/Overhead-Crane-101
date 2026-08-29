@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CraneQualified OCO301C — Overhead Crane Operator</title>
+<title>OCO301C — In-house overhead crane training</title>
 <style>
 :root{--navy:#1B3464;--gold:#C8991A;--ink:#0d1522;--mist:#cfd6e4;--panel:#16203a;--line:#2b4478}
 *{box-sizing:border-box}
@@ -13,56 +13,74 @@ body{margin:0;font-family:"Source Sans 3",Calibri,system-ui,sans-serif;backgroun
 .wrap{max-width:960px;margin:0 auto;padding:36px 20px 64px}
 .brand{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;color:var(--gold);font-weight:700}
 h1{font-family:Georgia,serif;font-size:clamp(1.6rem,3vw,2.2rem);margin:.35em 0;line-height:1.2}
-.lede{color:var(--mist);max-width:42rem;line-height:1.55}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:28px 0}
-a.card{display:block;padding:16px 18px;border:1px solid var(--line);border-radius:12px;
+.lede{color:var(--mist);max-width:44rem;line-height:1.55}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:18px 0 8px}
+a.card,.card{display:block;padding:16px 18px;border:1px solid var(--line);border-radius:12px;
   background:var(--panel);color:inherit;text-decoration:none}
-a.card:hover{border-color:var(--gold)}
-a.card strong{display:block;color:var(--gold);margin-bottom:.35em}
-a.card span{font-size:.92rem;color:var(--mist);line-height:1.4}
+a.card:hover,.card:hover{border-color:var(--gold)}
+.card strong,a.card strong{display:block;color:var(--gold);margin-bottom:.35em}
+.card span,a.card span{font-size:.92rem;color:var(--mist);line-height:1.4}
+.card .links{margin-top:.55em;font-size:.82rem}
+.card .links a{color:var(--gold);margin-right:12px}
 h2{font-size:1.05rem;color:var(--gold);margin:28px 0 10px;letter-spacing:.04em;text-transform:uppercase}
-.note{margin-top:28px;padding:14px 16px;border-left:3px solid var(--gold);background:var(--panel);
+.note,.path{margin-top:18px;padding:14px 16px;border-left:3px solid var(--gold);background:var(--panel);
   border-radius:0 8px 8px 0;color:var(--mist);font-size:.95rem;line-height:1.5}
+.path{border-left-color:#7aa2ff}
+ol.day{color:var(--mist);line-height:1.55;padding-left:1.2em}
+ol.day li{margin:0 0 .4em}
+.fine{margin-top:28px;font-size:.82rem;color:#8a96ad}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="brand">CraneQualified · OCO301C</div>
-  <h1>Overhead Crane Operator Track</h1>
-  <p class="lede">North America pack — US OSHA / EM 385 spine plus Canada (CSA B167 + provincial overlays). Training establishes standard of care; the controlling entity designates.</p>
+  <div class="brand">CraneQualified · CCOS · OCO301C</div>
+  <h1>In-house overhead crane operator training</h1>
+  <p class="lede">Instructor-led corporate program for a manufacturing plant. The instructor presents; operators then take the 100% knowledge gate. This is not a self-paced self-enroll course. Tracking, designation, and practical sign-off live in the company’s system.</p>
 
-  <h2>Modules</h2>
-  <div class="grid" id="modules"></div>
+  <div class="path"><b>Plant default.</b> 29 CFR 1910.179 · ANSI B30.2.0-1967 as incorporated at §1910.179(b)(2) · §1910.184 slings · §1910.147 LOTO · designated personnel §1910.179(b)(8).<br>
+  <b>Other customer (in the ACS, not this plant’s default):</b> construction §1926.1438 / §1926.1427, and EM 385-1-1 Ch. 16. Canada is an overlay, not a fork.</div>
 
-  <h2>Director pack</h2>
+  <h2>Run a session</h2>
+  <ol class="day">
+    <li>Open the instructor script for the module in order (OHC-01 first).</li>
+    <li>Present the gated HTML. Practice questions are teaching checks.</li>
+    <li>Then run the Final Knowledge Check — that is the corporate knowledge test (100%).</li>
+    <li>Do not skip ahead. The instructor releases the next module.</li>
+  </ol>
   <div class="grid">
-    <a class="card" href="out/interactive/OHC_Jurisdiction_Tree.html"><strong>Jurisdiction tree</strong><span>US / Canada interactive decision tree</span></a>
-    <a class="card" href="forms/designation/Operator_Designation_Certificate_EN.html"><strong>Designation (EN)</strong><span>Employer authorization certificate</span></a>
-    <a class="card" href="forms/designation/Certificat_Designation_Operateur_FR.html"><strong>Désignation (FR)</strong><span>Certificat pour le Québec</span></a>
-    <a class="card" href="docs/OHC-buyer-audit-binder.md"><strong>Audit binder</strong><span>Safety-director evidence checklist</span></a>
-    <a class="card" href="docs/OHC-Canada-jurisdiction-pack.md"><strong>Canada pack</strong><span>CSA B167 + ON/BC/AB/QC mapping</span></a>
-    <a class="card" href="forms/pes/OHC_M01_PES.html"><strong>PES sheets</strong><span>Performance evaluation — start at M01</span></a>
+    <a class="card" href="instructor/index.html"><strong>Instructor run-of-show</strong><span>Talk track, timing, and which gate to run — start here</span></a>
+    <a class="card" href="PROGRAM.md"><strong>PROGRAM.md</strong><span>Delivery model and how to run a first in-house session</span></a>
   </div>
 
-  <div class="note">LMS production scoring remains server-authoritative via the CraneQualified bridge. These HTML modules include the local FNV preview shim for standalone review.</div>
+  <h2>Modules — present, then gate</h2>
+  <div class="grid" id="modules"></div>
+
+  <h2>Overlays (not a second track)</h2>
+  <div class="grid">
+    <a class="card" href="out/interactive/OHC_Jurisdiction_Tree.html"><strong>Jurisdiction tree</strong><span>Facility path first; construction / EM 385 / Canada as branches</span></a>
+    <a class="card" href="docs/OHC-Canada-jurisdiction-pack.md"><strong>Canada overlay</strong><span>CSA B167 + ON/BC/AB/QC — skip if this cohort is US-facility only</span></a>
+  </div>
+
+  <div class="note">Knowledge gates remain 100% (local FNV preview shim in these HTML files; LMS production scoring stays server-authoritative if a bridge is present). This hub does not store people, crane IDs, or pass lists.</div>
+  <p class="fine">Content author: CraneQualified / CCOS. Training establishes standard of care; the controlling entity designates.</p>
 </div>
 <script>
 const modules=[
-  ['OHC-01','Equipment & Jurisdiction','out/OHC_M01_EquipmentAndJurisdiction.html'],
-  ['OHC-02','Components & Systems','out/OHC_M02_ComponentsAndSystems.html'],
-  ['OHC-03','Controls & Operating Modes','out/OHC_M03_ControlsAndOperatingModes.html'],
-  ['OHC-04','Rated Load & Weight','out/OHC_M04_RatedLoadAndWeight.html'],
-  ['OHC-05','Inspection Regime','out/OHC_M05_InspectionRegime.html'],
-  ['OHC-06','Rigging Interface','out/OHC_M06_RiggingInterface.html'],
-  ['OHC-07','Load Handling','out/OHC_M07_LoadHandling.html'],
-  ['OHC-08','Operational Rules','out/OHC_M08_OperationalRules.html'],
-  ['OHC-09','Communication & Signals','out/OHC_M09_CommunicationAndSignals.html'],
-  ['OHC-10','Environmental Hazards','out/OHC_M10_EnvironmentalHazards.html'],
-  ['OHC-11','Malfunctions & Emergencies','out/OHC_M11_MalfunctionsAndEmergencies.html'],
-  ['OHC-12','Capstone','out/OHC_M12_Capstone.html']
+  ['OHC-01','Equipment & Jurisdiction','out/OHC_M01_EquipmentAndJurisdiction.html','instructor/OHC_M01.html','36'],
+  ['OHC-02','Components & Systems','out/OHC_M02_ComponentsAndSystems.html','instructor/OHC_M02.html','24'],
+  ['OHC-03','Controls & Operating Modes','out/OHC_M03_ControlsAndOperatingModes.html','instructor/OHC_M03.html','27'],
+  ['OHC-04','Rated Load & Weight','out/OHC_M04_RatedLoadAndWeight.html','instructor/OHC_M04.html','25'],
+  ['OHC-05','Inspection Regime','out/OHC_M05_InspectionRegime.html','instructor/OHC_M05.html','29'],
+  ['OHC-06','Rigging Interface','out/OHC_M06_RiggingInterface.html','instructor/OHC_M06.html','30'],
+  ['OHC-07','Load Handling','out/OHC_M07_LoadHandling.html','instructor/OHC_M07.html','31'],
+  ['OHC-08','Operational Rules','out/OHC_M08_OperationalRules.html','instructor/OHC_M08.html','29'],
+  ['OHC-09','Communication & Signals','out/OHC_M09_CommunicationAndSignals.html','instructor/OHC_M09.html','28'],
+  ['OHC-10','Environmental Hazards','out/OHC_M10_EnvironmentalHazards.html','instructor/OHC_M10.html','29'],
+  ['OHC-11','Malfunctions & Emergencies','out/OHC_M11_MalfunctionsAndEmergencies.html','instructor/OHC_M11.html','29'],
+  ['OHC-12','Capstone','out/OHC_M12_Capstone.html','instructor/OHC_M12.html','30']
 ];
-document.getElementById('modules').innerHTML=modules.map(([c,t,h])=>
-  `<a class="card" href="${h}"><strong>${c}</strong><span>${t}</span></a>`).join('');
+document.getElementById('modules').innerHTML=modules.map(([c,t,h,s,g])=>
+  `<div class="card"><strong>${c}</strong><span>${t}</span><div class="links"><a href="${s}">Instructor script</a><a href="${h}">Gated module</a><span>${g}-item knowledge gate</span></div></div>`).join('');
 </script>
 </body>
 </html>

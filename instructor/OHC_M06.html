@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Instructor script &#8212; OHC-06 Rigging Interface and Below-the-Hook Devices</title>
+<link rel="stylesheet" href="instructor.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">CraneQualified &#183; OCO301C &#183; In-house instructor script</div>
+  <h1>OHC-06 &#8212; Rigging Interface and Below-the-Hook Devices</h1>
+  <p class="lede">Attach loads correctly at the hook, work within device markings, and prove balance before the load leaves the ground.</p>
+  <div class="meta">
+    <div><b>Present</b> ~55 min</div>
+    <div><b>Knowledge gate</b> ~15 min &#183; 30 items &#183; 100%</div>
+    <div><b>Practice (unscored)</b> 9 items during presentation</div>
+    <div><b>Slides</b> 66</div>
+    <div><b>Next</b> OHC-07</div>
+  </div>
+  <p class="note">Facility sling law is &#167;1910.184. ASME B30.9 is consensus, not the plant default regulation. Suggested plant pacing, not a regulatory duration.</p>
+  
+  <div class="path"><b>Plant default (this in-house program):</b> 29 CFR 1910.179; ANSI B30.2.0-1967 as incorporated at &#167;1910.179(b)(2); slings under &#167;1910.184; energy control under &#167;1910.147; designated personnel under &#167;1910.179(b)(8).<br><b>Other customer (in the ACS, not this plant's default):</b> construction branch &#167;1926.1438 / Certification Gate &#167;1926.1427, and EM 385-1-1 Chapter 16 (federal / USACE). Canada (CSA B167 + provincial OH&amp;S) is an overlay, not a fork.</div>
+  <div class="bar">
+    <a href="../out/OHC_M06_RiggingInterface.html">Open gated module</a>
+    <a class="ghost" href="index.html">All scripts</a>
+    <a class="ghost" href="OHC_M05.html">Previous script</a>
+    <a class="ghost" href="OHC_M07.html">Next script (OHC-07)</a>
+    <a class="ghost noprint" href="#" onclick="window.print();return false">Print / Save PDF</a>
+  </div>
+
+  <h2>How this hour runs</h2>
+  <ol class="day">
+    <li><b>Instructor presents</b> using this script and the gated HTML. Operators do not self-enroll or skip ahead.</li>
+    <li>Use the <b>unscored practice</b> questions as teaching checks. Those show the correct option.</li>
+    <li>Then run the <b>Final Knowledge Check</b> in the module. That is the corporate knowledge test. It requires <b>100%</b>. Missed gate items do <b>not</b> reveal the answer. Operators review and retest.</li>
+    <li>Do <b>not</b> open the next module until the instructor releases it. The M01&#8594;M12 handshake stays; pace is instructor-controlled.</li>
+    <li>Practical evaluation, designation, attendance, and records are <b>not</b> in this file. They live in the company's tracking system.</li>
+  </ol>
+
+  <h2>What they should be able to do after the presentation</h2>
+  <ul><li>Verify sling tag, condition and hitch at the hook, and reject deficient rigging with a stated reason.</li><li>Operate with engineered below-the-hook devices inside their markings, accounting for device weight and power dependency.</li><li>Prove the hook is over the centre of gravity with a test lift before committing to the hoist, and control the load in travel.</li></ul>
+
+  <h2>Talk track &#8212; present this, then gate</h2>
+  <h3>Task A &#8212; Sling Interface</h3>
+<p class="note">Verify sling selection, condition and hitch configuration at the hook.</p>
+<ol class="talk">
+<li><b>Where the operator's role starts and stops.</b> Rigging is a discipline of its own and it does not change because the hook above it belongs to an overhead crane rather than a mobile one. The <b>facility-branch sling law</b> is <b>&sect;1910.184</b> (held). The construction companion is <b>&sect;1926.251</b> (held). Consensus volumes sit above that: <b>ASME B30.9</b> for slings, <b>B30.10</b> for hooks, <b>B30.26</b> for rigging hardware and <b>B30.20</b> for below-the-hook devices.<span class="aside">This module is the <b>interface</b>, not the rigging course. The operator's duty is to verify what arrives at the hook and to refuse what is not right &#8212; not to design the lift. Rigger qualification is a separate track.</span></li>
+<li><b>The tag is the capacity.</b> Every sling carries a tag, and the tag &#8212; not the diameter, not the look of it &#8212; is the capacity. It states type, size, and <b>different rated loads for vertical, choker and basket</b> hitches.<span class="aside">&sect;1910.184(c)(14) (held): employers must not use slings <b>without affixed and legible identification markings</b>. Construction companion &sect;1926.251(a)(2)(iii) is the same prohibition. A worn-off rating cannot be estimated from the sling's dimension. <b>No legible tag, no lift.</b></span></li>
+<li><b>Four hitches, three capacities.</b> <b>Vertical</b> is the rated capacity, and it needs an engineered lift point. <b>Choker</b> derates &#8212; and derates further if drawn tight: when the angle of choke falls below <b>120&#176;</b>, the choker rating in the table must be reduced again.<span class="aside">In controlled destructive tests below 120&#176;, the sling body <b>always failed at the point of choke</b>. <b>Basket</b> can double the capacity, but only at a steep angle &#8212; and <b>bridle</b> is where most of the arithmetic errors live.</span></li>
+<li><b>Why a shallow angle multiplies the load.</b> Leg tension is the load divided by the number of legs times the sine of the sling angle. At <b>60&#176;</b> a leg carries about 87&#37; of what it would at vertical. At <b>45&#176;</b>, 71&#37;. At <b>30&#176;</b>, 50&#37;.<span class="aside">The 30&#176; case is the one worth memorising: <b>at a 30&#176; sling angle, each leg of a two-leg bridle carries the entire load weight.</b> Two legs have bought nothing. A basket hitch at 30&#176; is exactly a vertical hitch.</span></li>
+<li><b>Three and four legs are not three and four times.</b> Unless the load is perfectly rigid and the legs are exactly equal, load does not share evenly. The DOE Hanford manual puts it bluntly: <i>&#8220;unless the load is flexible, it is wrong to assume that a 3- or 4-leg hitch will safely&#8221;</i> carry proportionally more.<span class="aside">The working assumption is that <b>two legs carry the load while the others balance it</b>. The master link is the other trap &#8212; it carries the <b>sum</b> of all leg loads, not one leg's share.</span></li>
+<li><b>At the hook: saddle, latch, no tip.</b> The rated load of a hook <b>applies only when the load is applied in the saddle</b> &#8212; the bowl. Move the load off centre and capacity falls: roughly 86&#37;, 80&#37;, then 70&#37; as it walks outward, and about <b>40&#37;</b> as a point load at the tip.<span class="aside">Hooks are provided with a latch to bridge the throat and prevent the load line escaping. Hook tips should <b>point out and away from the load</b>, so that as slack comes up the hook does not tip-load itself.</span></li>
+<li><b>Softeners are not optional dressing.</b> A sling bent over a sharp corner is a sling being cut. Wire rope is protected with <b>softeners or blocking</b> at corners and sharp bends; synthetics need it more, not less.<span class="aside">There is a second reason beyond cutting. The <b>D/d ratio</b> &#8212; the diameter of the bend against the diameter of the rope &#8212; costs about <b>50&#37; efficiency</b> when it falls to 1:1. A tight bend derates the sling even if it never cuts it.</span></li>
+</ol>
+<h3>Task B &#8212; Below-the-Hook Lifting Devices</h3>
+<p class="note">Operate with engineered lifting devices within their markings and instructions.</p>
+<ol class="talk">
+<li><b>What a below-the-hook device is.</b> <b>ASME B30.20</b> covers the engineered hardware that hangs below the hook and takes the load: spreader and lifting beams, C-hooks, coil and sheet lifters, vacuum lifters and lifting magnets.<span class="aside">It is engineered equipment, not rigging hardware. It has a design basis, a rated load, and instructions &#8212; and the instructions are part of the equipment.</span></li>
+<li><b>Three markings, all required.</b> A below-the-hook device must carry its <b>rated capacity</b>, its <b>manufacturer or fabricator identification</b>, and be <b>designed for the load configuration</b> it is being used in. All three, not any one of them.<span class="aside">The inspection tag is a permanent tag on slings, hooks and below-the-hook devices carrying the safe working load, the inspection date and the serial number. Check it before use, not after.</span></li>
+<li><b>The device weighs something.</b> A spreader beam is not free. Its weight is part of the load on the hook, and it comes out of the crane's rated capacity before the payload does.<span class="aside">A 12,000 lb crane with a 900 lb beam and 300 lb of slings has <b>10,800 lb</b> of payload available. This is the same arithmetic as OHC-04 and it is the one people skip when the beam is already hanging there from the last job.</span></li>
+<li><b>Power-dependent devices fail open.</b> A lifting magnet or a vacuum lifter holds the load because energy is being supplied to it. Remove the energy and the holding force goes away &#8212; which is a different failure mode from every other piece of rigging on site.<span class="aside">Check the battery state and the alarm function as part of the pre-use check. Know what the device does on power loss and whether it has backup provision. Then treat the zone under it as if the load will drop, because that is the failure mode.</span></li>
+<li><b>Engagement before transfer.</b> Full engagement is verified <b>before</b> load is transferred to the device, not during. On a C-hook or a coil lifter that means seated and captured; on a magnet or vacuum lifter it means contact area clean, full and confirmed.<span class="aside">The verification itself is a hazard. Nobody stands under, reaches into, or steadies a device that is about to take load. Verify by eye and by position, from clear.</span></li>
+<li><b>Where the crane's own provisions come in.</b> &sect;1910.179(g)(5)(v) is specific: <b>all cranes using a lifting magnet</b> shall have a magnet circuit switch of the <b>enclosed type with provision for locking in the open position</b>, and <b>means for discharging the inductive load of the magnet</b> shall be provided.<span class="aside">Read that last clause. A magnet is an inductive load, so it does not simply stop when switched &#8212; the stored energy has to go somewhere, and the crane must provide the path. A magnet is not a lump on the hook; it is a circuit.</span></li>
+</ol>
+<h3>Task C &#8212; Load Balance and Centre of Gravity</h3>
+<p class="note">Achieve balanced, controlled loads before movement.</p>
+<ol class="talk">
+<li><b>The hook goes over the centre of gravity.</b> A load hangs level when the hook is directly above its centre of gravity. Not above the geometric centre &#8212; above the <b>CG</b>. A skid with a motor on one end has a CG toward the motor, and symmetric lift points will tilt it.<span class="aside">Bridle slings give excellent stability when load is distributed equally among the legs, the hook is directly over the CG, and the load is raised level. Where legs must differ, they are adjusted with turnbuckles or lever hoists &#8212; not by knotting or twisting.</span></li>
+<li><b>The rule is in the regulation.</b> &sect;1910.179(n)(3)(i) is short and it is the whole of the test lift: <i>the load shall be <b>well secured and properly balanced in the sling or lifting device before it is lifted more than a few inches</b></i>.<span class="aside">This paragraph is in the &sect;1926.1438(b) list, so it applies on <b>both</b> branches. It is one of the few load-handling rules that does.</span></li>
+<li><b>What the few inches are for.</b> Lift a few inches and stop. In that pause you check three things: the brake holds with <b>no downward drift</b>; the load hangs level; and the rigging and hardware are taking load the way you expected.<span class="aside">A load that tilts at six inches will tilt at sixty feet. The tilt does not self-correct as the load rises &#8212; it persists, and the steep leg carries more than its share for the whole lift.</span></li>
+<li><b>Correcting an off-CG condition.</b> Set it back down. Move the rigging points toward the heavy side. Test lift again and confirm level before proceeding. That is the entire procedure and there is no shortcut inside it.<span class="aside">Tag lines do not substitute for correct rigging. A tilted load held straight by people on ropes is still a tilted load with an overloaded leg.</span></li>
+<li><b>Tag lines, and the way they injure people.</b> A tag line controls orientation from outside the load's footprint. It is never <b>wrapped around a hand, wrist or body</b> &#8212; a sudden swing puts the load's full momentum into the line, and a wrapped line cannot be released.<span class="aside">Loose grip only, always. Near energised lines, fibre rope is non-conductive only while clean and dry; contaminated or wet rope conducts, and a rated non-conductive tag line is required.</span></li>
+<li><b>A suspended load is a pendulum.</b> The load hangs from a point and behaves like one. Acceleration starts a swing; deceleration at the far end doubles it. The swing does not stop when the trolley stops &#8212; it is at its worst then.<span class="aside">&sect;1910.179(n)(3)(vi) is the reason it matters: <b>the operator shall not carry loads over people</b>. A swinging load's footprint is far larger than the load. All personnel, the rigger included, stay clear.</span></li>
+</ol>
+
+  <h2>Teach it correctly &#8212; do not guess</h2>
+<ul class="talk"><li><b>&#9989; Facility sling law is &sect;1910.184; construction companion is &sect;1926.251.</b> Fetched 2026-08-28 from OSHA.gov. <code>A.K1b</code> gates <b>&sect;1910.184(c)(14)</b> / <b>&sect;1926.251(a)(2)(iii)</b>: no sling without affixed and legible identification markings. <code>A.R1</code> (no tag &#8594; refuse) is re-sourced to those paragraphs. ASME B30.9 remains the consensus layer above the regulation and is still cited by name only &#8212; this repo does not quote paid B30.9 tables.</li><li><b>&#9888;&#65039; Two Tier 0 guides disagree; four facts held out of the gate.</b> <code>FG_S2-M1</code> and <code>WD-SCN-002</code> contradict each other on <b>roundsling colour-code capacities</b>, <b>choker derate</b> (75/80&#37; by sling type vs a flat 75&#8211;80&#37; range), <b>hook throat limit</b> (5&#37; vs 15&#37;) and <b>chain elongation</b> (5&#37; vs 3&#37;). None of the four is gated in this module. The hook conflict is resolved and taught in <b>OHC-05 <code>A.K4</code>/<code>A.K4b</code></b>; the other three need an SME ruling. Roundsling colour is not standardised by ASME at all &#8212; it is a manufacturer convention, which is why the two guides can both be internally consistent and mutually wrong.</li><li><b>&#9888;&#65039; A live arithmetic defect in a shipped Tier 0 guide.</b> <code>WD-SCN-002</code>'s leg-tension answer key is <b>wrong by a factor of two in two places</b> &#8212; KC Q5 keys 10,606 lb where the formula gives 21,213 lb, and FKC Q2 keys 14,142 lb where it gives 28,284 lb. Both key entries contain an unresolved <i>&#8220;Wait &#8212;&#8221;</i> editorial note left in the shipped text. The worked example on Slide 15 and the debrief questions are correct, so it is the keys that are wrong, not the method. <code>A.K3</code> here is keyed to the <b>correct</b> value (21,200 lb). <b>This needs fixing in the source guide.</b></li><li><b>&#9989; The test lift is regulation, on both branches.</b> <code>C.K1</code> and <code>C.K2</code> rest on <b>&sect;1910.179(n)(3)(i)</b> &#8212; <i>the load shall be well secured and properly balanced in the sling or lifting device before it is lifted more than a few inches</i>. Paragraph <b>(n)</b> is in the &sect;1926.1438(b)(2) list, so this is one of the few load-handling rules that binds on <b>both</b> the facility and the construction branch.</li><li><b>&#9989; Hook point-loading given a number.</b> The ACS states <code>A.K4</code> as <i>no point loading or tip loading</i> without a magnitude. The Hanford manual carries the derate table &#8212; <b>100&#37; / 86&#37; / 80&#37; / 70&#37;</b> as the load walks off the saddle, and about <b>40&#37;</b> as a point load at the tip &#8212; alongside the rule that <i>the designed SWL applies only when the load is applied in the saddle of the hook</i>.</li><li><b>&#9432; Elements carrying a second item.</b> <code>A.K1</code>, <code>A.K2</code>, <code>A.K3</code>, <code>A.K4</code>, <code>B.K2</code> and <code>C.K3</code> each carry a second item. In every case the element contains two independently testable facts &#8212; for example <code>A.K1</code> covers both the tag-as-capacity rule and the OSHA no-unmarked-sling prohibition.</li></ul>
+
+  <div class="gate">
+    <h2 style="margin-top:0;border:0">Knowledge test</h2>
+    <p>After the talk track, operators take the gate in <code>out/OHC_M06_RiggingInterface.html</code>.
+    <b>30 items</b>, gate code <b>OHC-1</b>, pass mark <b>100%</b>.
+    Do not read answers aloud. Do not skip the gate.
+    Record pass/fail in the company's system if the plant requires it &#8212; this page does not store people.</p>
+  </div>
+
+  <p class="fine">Content author: CraneQualified / CCOS. Training establishes standard of care; the controlling entity designates. Generated from module build data by <code>build/gen_instructor.py</code>. Do not hand-edit &#8212; regenerate.</p>
+</div>
+</body>
+</html>

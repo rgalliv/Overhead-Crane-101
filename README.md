@@ -54,6 +54,29 @@ Course code **OCO301C**, gate code **OHC-1**, modules **OHC-01 … OHC-12**. Run
 
 The ACS is committed at `docs/OHC-ACS-build-spec.md`, flattened from the authoritative HTML breakdown rather than re-keyed — element codes and paragraph-letter citations are exactly the content a re-keying would corrupt.
 
+## Vestas pack (2026-08) — Mexico branch · lift planning · tandem load share
+
+Client overlay for **Vestas**: factory / workshop bridge cranes and port / staging / logistics cranes. Primary spine stays **US OSHA + ASME**; Mexico is a branch. Nacelle davit cranes and tower internal hoists are **out of scope** by client decision.
+
+| Doc | What it is |
+|---|---|
+| `docs/OHC-Mexico-jurisdiction-pack.md` | Mexico mapping — STPS NOM spine, federal-only jurisdiction, DC-3 designation analogue. |
+| `docs/OHC-ACS-Vestas-amendment.md` | ACS delta — OHC-01 Task E (Mexico), OHC-04 Task D (engineered lift planning), OHC-07 Task D (tandem load share), OHC-12 Task C (DC-3 routing). |
+| `docs/OHC-Vestas-curriculum-map.md` | Combined **34-module** program: Stage 2 rigging (22) → OHC (12), with the element-level prerequisite map. |
+
+**The substantive finding.** `OHC-08 Task B` covers cranes sharing a *runway*; nothing covered cranes sharing a *load*. `OHC.04.C.R3` gated the risk of "multiple-hoist picks without engineered load share" while no Knowledge element anywhere taught how load share is established, verified or executed. `OHC-07 Task D` closes it, with `S2_M19 Multi-Point and Trolley Beam Load Share` as the prerequisite from the Stage 2 track.
+
+Three claimed gaps were checked and only two were real: **port / staging outdoor exposure needs no new elements** — `OHC.10.B` already carries outdoor gantry wind thresholds, storm securing, ice load change and large-surface-area gust risk.
+
+**Census:** 413 → **449** elements · 347 → **373** gate items · 111 → **121** PES lines.
+**Modules requiring rebuild: OHC-01, OHC-04, OHC-07, OHC-12.** The other eight are unchanged.
+
+**Status: specification complete, modules not yet rebuilt.** The amendment is authored to the same standard as the Canada pack; question data, regeneration and behavioural verification are the next step.
+
+**Mexico sourcing — read this before authoring items.** NOM full text is **not held**: `stps.gob.mx`, `dof.gob.mx` and `platiica.economia.gob.mx` are all blocked by the egress proxy. Every Mexico element gates on names, titles, dates, structure and routing logic — **no clause-numbered items** — which is the CSA B167 rule applied unchanged. Verified and gateable: **NOM-006-STPS-2023** (DOF 7 Mar 2024, in force 3 Sep 2024) **derogates NOM-006-STPS-2014**, and the DC-3 statutory basis (LFT 153-A / 153-T / 153-V; authentication per Art. 24 §II, Normative Agreement DOF 14 Jun 2013).
+
+**Live edition trap.** Any Vestas or contractor material still citing **NOM-006-STPS-2014 is citing a derogated standard** — same class of defect as the B30.2 edition mismatch already documented below.
+
 ## Before building
 
 Read the cross-check first. Items that were blocking are closed below, or listed as **still blocked** with why.
